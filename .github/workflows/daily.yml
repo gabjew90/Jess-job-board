@@ -1,0 +1,61 @@
+name: Daily job watch
+
+on:
+  schedule:
+    # ONE slot a day, at 19:37 UTC (12:37 Pacific). This watcher shares a
+    # Claude subscription with the original one, which fires at 13:37 and
+    # 16:37 UTC, so the slots are staggered: overlapping runs compete for
+    # the same weekly limit, and a stagger makes it obvious which run spent
+    # what. Off-the-hour minutes queue better on GitHub's shared cron.
+    # GitHub's cron drifts by hours and occasionally skips a firing
+    # outright; a missed day is picked up by the next run, which scores
+    # everything it missed, or trigger "Daily job watch" manually.
+    - cron: "37 19 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: daily-job-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install Claude Code CLI (triage)
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Run pipeline
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: python -m src.main
+
+      - name: Commit state and dashboard
+        run: |
+          git config user.name "job-watcher-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- state docs data config.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: daily run $(date -u +%F)"
+            # A concurrent run may have pushed since checkout; rebase our
+            # snapshot on top (preferring our fresher scrape on conflicts).
+            n=0
+            until git push; do
+              n=$((n+1)); [ "$n" -ge 3 ] && exit 1
+              git pull --rebase -X theirs origin "${GITHUB_REF_NAME}"
+            done
+          fi

@@ -1,0 +1,322 @@
+{
+  "search_terms": [
+    "power project development",
+    "data center power",
+    "onsite power generation",
+    "gas turbine project",
+    "power origination",
+    "energy project development",
+    "power infrastructure development"
+  ],
+  "sites": [
+    "indeed"
+  ],
+  "indeed_company_watch": [
+    "Calpine",
+    "Vistra",
+    "NRG Energy",
+    "Talen Energy",
+    "Constellation Energy",
+    "Competitive Power Ventures",
+    "Invenergy",
+    "Tenaska",
+    "Stonepeak",
+    "Energy Capital Partners",
+    "ArcLight Capital",
+    "KKR",
+    "Quantum Capital Group",
+    "Aligned Data Centers",
+    "QTS Data Centers",
+    "Switch",
+    "Compass Datacenters",
+    "Digital Realty",
+    "CyrusOne",
+    "EdgeConneX",
+    "STACK Infrastructure",
+    "CloudHQ",
+    "Prometheus Hyperscale",
+    "Core Scientific",
+    "TeraWulf",
+    "Lancium",
+    "Oracle",
+    "Enchanted Rock",
+    "VoltaGrid",
+    "PowerSecure",
+    "Solaris Energy Infrastructure",
+    "ProEnergy",
+    "Siemens Energy",
+    "Mitsubishi Power",
+    "Blue Origin",
+    "Anduril",
+    "Tesla",
+    "Sempra",
+    "San Diego Gas & Electric"
+  ],
+  "hyperscalers": {
+    "microsoft": true,
+    "amazon": true,
+    "google": true,
+    "meta": true
+  },
+  "ats_boards": [
+    {
+      "provider": "greenhouse",
+      "board": "spacex",
+      "company": "SpaceX"
+    },
+    {
+      "provider": "ashby",
+      "board": "crusoe",
+      "company": "Crusoe"
+    },
+    {
+      "provider": "greenhouse",
+      "board": "coreweave",
+      "company": "CoreWeave"
+    },
+    {
+      "provider": "edged",
+      "board": "all",
+      "company": "Edged"
+    },
+    {
+      "provider": "greenhouse",
+      "board": "hut8",
+      "company": "Hut 8"
+    },
+    {
+      "provider": "greenhouse",
+      "board": "sbenergy",
+      "company": "SB Energy",
+      "keep_all": true
+    },
+    {
+      "provider": "ashby",
+      "board": "generate",
+      "company": "Generate Capital",
+      "keep_all": true
+    },
+    {
+      "provider": "greenhouse",
+      "board": "digitalbridge",
+      "company": "DigitalBridge",
+      "keep_all": true
+    }
+  ],
+  "workday_boards": [
+    {
+      "host": "gevernova.wd5.myworkdayjobs.com",
+      "tenant": "gevernova",
+      "site": "Vernova_ExternalSite",
+      "company": "GE Vernova"
+    },
+    {
+      "host": "brookfield.wd5.myworkdayjobs.com",
+      "tenant": "brookfield",
+      "site": "brookfield",
+      "company": "Brookfield"
+    },
+    {
+      "host": "blackstone.wd1.myworkdayjobs.com",
+      "tenant": "blackstone",
+      "site": "Blackstone_Careers",
+      "company": "Blackstone"
+    },
+    {
+      "host": "vantagedc.wd1.myworkdayjobs.com",
+      "tenant": "vantagedc",
+      "site": "Vantage",
+      "company": "Vantage Data Centers"
+    },
+    {
+      "host": "bloomenergy.wd1.myworkdayjobs.com",
+      "tenant": "bloomenergy",
+      "site": "BloomEnergyCareers",
+      "company": "Bloom Energy"
+    },
+    {
+      "host": "equinix.wd1.myworkdayjobs.com",
+      "tenant": "equinix",
+      "site": "External",
+      "company": "Equinix"
+    },
+    {
+      "host": "nisource.wd1.myworkdayjobs.com",
+      "tenant": "nisource",
+      "site": "NiSource",
+      "company": "NiSource"
+    },
+    {
+      "host": "wgl.wd5.myworkdayjobs.com",
+      "tenant": "wgl",
+      "site": "AltaGas",
+      "company": "AltaGas"
+    },
+    {
+      "host": "solvenergy.wd1.myworkdayjobs.com",
+      "tenant": "solvenergy",
+      "site": "SOLV_External_Career",
+      "company": "SOLV Energy"
+    }
+  ],
+  "successfactors_boards": [
+    {
+      "base": "https://careers.pge.com",
+      "company": "PG&E"
+    },
+    {
+      "base": "https://jobs.nexteraenergy.com",
+      "company": "NextEra Energy"
+    }
+  ],
+  "career_sites": [
+    {
+      "provider": "adp",
+      "company": "Applied Digital",
+      "cid": "4e1f673a-e23b-4f79-98bf-9967bc802aac",
+      "ccId": "19000101_000001"
+    }
+  ],
+  "location": "United States",
+  "results_per_term": 50,
+  "watch_hours_old": 168,
+  "hours_old": 72,
+  "title_keywords": [
+    "energy",
+    "power",
+    "generation",
+    "turbine",
+    "combined cycle",
+    "cogeneration",
+    "microgrid",
+    "grid",
+    "interconnection",
+    "utility",
+    "utilities",
+    "electrical",
+    "substation",
+    "transmission",
+    "data center",
+    "datacenter",
+    "infrastructure",
+    "renewable"
+  ],
+  "description_keywords": [
+    "combined cycle",
+    "gas turbine",
+    "reciprocating engine",
+    "behind-the-meter",
+    "on-site generation",
+    "onsite generation",
+    "bridge power",
+    "islanded",
+    "power purchase agreement",
+    "interconnection queue",
+    "generation capacity",
+    "front-end engineering",
+    "long-lead equipment",
+    "data center power",
+    "data center energy",
+    "megawatt"
+  ],
+  "rescue_title_keywords": [
+    "director",
+    "principal",
+    "head of",
+    "vice president",
+    "senior manager",
+    "manager",
+    "strategy",
+    "strategic",
+    "business development",
+    "development",
+    "origination",
+    "originator",
+    "acquisitions",
+    "portfolio",
+    "procurement",
+    "program manager",
+    "project manager",
+    "project engineer",
+    "site selection",
+    "asset management"
+  ],
+  "rescue_description_keywords": [
+    "power procurement",
+    "energy procurement",
+    "power infrastructure",
+    "energy infrastructure",
+    "site selection",
+    "high voltage",
+    "transmission line",
+    "generation capacity",
+    "power delivery",
+    "onsite power",
+    "on-site power",
+    "combined cycle",
+    "gas turbine",
+    "behind-the-meter",
+    "interconnection"
+  ],
+  "title_exclusions": [
+    "intern",
+    "internship",
+    "software engineer",
+    "technician",
+    "electrician",
+    "journeyman",
+    "apprentice",
+    "mechanic",
+    "machinist",
+    "welder",
+    "millwright",
+    "pipefitter",
+    "boilermaker",
+    "rigger",
+    "installer",
+    "assembler",
+    "fabricator",
+    "lineman",
+    "lineworker",
+    "laborer",
+    "foreman",
+    "superintendent",
+    "maintenance",
+    "field service",
+    "plant operator",
+    "control room operator",
+    "equipment operator",
+    "shift supervisor",
+    "warehouse",
+    "driver",
+    "custodian",
+    "groundskeeper",
+    "janitor",
+    "dispatcher",
+    "parts clerk",
+    "customer service representative",
+    "account executive",
+    "sales representative",
+    "inside sales",
+    "outside sales",
+    "security guard",
+    "surgical",
+    "phlebotom",
+    "nurse",
+    "recruiter",
+    "recruiting coordinator"
+  ],
+  "priority_topics": [
+    "combined cycle",
+    "gas turbine",
+    "on-site generation",
+    "behind-the-meter",
+    "bridge power",
+    "islanded",
+    "data center power",
+    "project development",
+    "origination"
+  ],
+  "state_retention_days": 180,
+  "dashboard_max_rows": 500
+}

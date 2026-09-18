@@ -1,0 +1,30 @@
+name: Tests
+
+on:
+  push:
+    paths:
+      - "src/expiry.py"
+      - "src/health.py"
+      - "src/util.py"
+      - "src/models.py"
+      - "tests/**"
+      - "requirements.txt"
+      - ".github/workflows/tests.yml"
+  pull_request:
+    paths:
+      - "src/expiry.py"
+      - "tests/**"
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      # No jobspy and no claude auth: only the model-free parts are tested.
+      - run: pip install pytest requests
+      - run: python -m pytest -q tests
