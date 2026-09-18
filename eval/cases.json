@@ -1,3 +1,48 @@
 {
-  "cases": []
+  "cases": [
+    {
+      "id": "ee-discipline-vantage",
+      "title": "Principal Electrical Engineer",
+      "company": "Vantage Data Centers",
+      "location": "Milan, Italy",
+      "description": "",
+      "expected_band": "weak",
+      "reason": "Single-discipline electrical design/analysis is outside her skillset \u2014 she is not an EE (issue #4)",
+      "source": "feedback",
+      "owner_verified": true
+    },
+    {
+      "id": "ee-scope-spacex",
+      "title": "Electrical Engineer - Energy & Generation",
+      "company": "SpaceX",
+      "location": "McGregor, TX",
+      "description": "SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not. Today SpaceX is actively developing the technologies to make this possible, with the ultimate goal of\u00a0enabling human life on Mars. ELECTRICAL ENGINEER, ENERGY & GENERATION As a member of the Construction Projects team, you will work with engineers across multiple disciplines to design, build, and activate infrastructure that will enable SpaceX to achieve its long-term mission. This position is based out of the McGregor Rocket Development Facility. Travel will accompany this role, and based on business needs, opportunities to work at other SpaceX facilities may occur in the future. RESPONSIBILITIES: Lead the engineering and construction of temporary and permanent power generation plants, including gas/diesel generators, gas turbines, solar arrays, and hybrid systems to meet facility energy demands and reduce peak grid impacts Oversee the build and commissioning of power generation infrastructure, coordinating with construction teams to ensure safe, efficient installation and integration with existing site power distribution and utility feeds Develop maintenance programs for power systems, including predictive maintenance schedules, performance monitoring, and upgrades to enhance reliability and longevity Perform detailed power syst",
+      "expected_band": "top",
+      "reason": "Guard for issue #4: an 'Electrical Engineer' title whose scope is leading engineering, construction and commissioning of NEW generation is a top fit, not a discipline misfit",
+      "source": "guard",
+      "owner_verified": false
+    },
+    {
+      "id": "ir-financial-brookfield",
+      "title": "Associate, Investor Relations (Energy)",
+      "company": "Brookfield",
+      "location": "New York, New York",
+      "description": "",
+      "expected_band": "weak",
+      "reason": "Purely financial function (investor relations) and junior; the fund's name does not lift it (issue #3)",
+      "source": "feedback",
+      "owner_verified": true
+    },
+    {
+      "id": "fund-technical-generate",
+      "title": "Principal, Acquisitions",
+      "company": "Generate Capital",
+      "location": "New York, NY - Hybrid",
+      "description": "You are an entrepreneurial and driven investor with impeccable values, standard-setting empathy and a high-speed mental clock; and you have consistently demonstrated that you are dedicated to making everyone around you better every day. You are committed to finding, structuring and closing the best energy investments that deliver power to large load customers including data centers. You are passionate about partnering with leading companies and other professionals to prove that sustainability can achieve market-leading returns, and your good judgment has been a key to your successes. What you will be doing at Generate Capital as a Principal, Acquisitions: - Originating energy infrastructure investment opportunities focused on powering data centers and new large loads, including behind-the-meter baseload solutions and pairing of renewables / BESS with customer load - Owning underwriting and investment execution for large load customer energy assets, including both third-party and Generate-developed opportunities, from initial diligence through investment committee and closing - Developing a differentiated market perspective by conducting market research to identify best-in-class energy developers and large load customers across priority geographies - Helping scale Generate\u2019s in-house data center energy platform, working cross-functionally to translate large load customer energy ",
+      "expected_band": "strong",
+      "reason": "Guard for issue #3: technical origination/diligence over generation assets at an infrastructure fund stays strong \u2014 the rule targets purely financial functions only",
+      "source": "guard",
+      "owner_verified": false
+    }
+  ]
 }
