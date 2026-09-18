@@ -54,6 +54,14 @@ def _esc(text: str, limit: int = 0) -> str:
     return text[:limit] + "…" if limit and len(text) > limit else text
 
 
+def dashboard_url() -> str:
+    """The GitHub Pages URL for this repo's dashboard, derived from the
+    repository so a fork points at its own board rather than the original."""
+    repo = os.environ.get("GITHUB_REPOSITORY") or "gabjew90/Jess-job-board"
+    owner, _, name = repo.partition("/")
+    return f"https://{owner}.github.io/{name}/"
+
+
 def build_digest(records: list[dict],
                  health_summary: list[dict] | None = None,
                  closed_recs: list[dict] | None = None,
@@ -77,6 +85,8 @@ def build_digest(records: list[dict],
         return "".join(chr(255 - ord(c)) for c in (d or "0000-00-00"))
 
     lines = []
+    lines.append(f"📊 **[Open the full board]({dashboard_url()})** — "
+                 "every posting, filterable, with history.\n")
     # Digest floor: don't itemize clear misfits, just count them.
     visible = [r for r in records
                if r.get("score") is None or r["score"] >= digest_floor]
@@ -156,7 +166,8 @@ def build_digest(records: list[dict],
             detail = s["error"] or "returned 0 results"
             lines.append(f"- `{s['source']}`: {s['status']} ({detail[:120]}) — "
                          f"last results {s['last_results'] or 'never'}")
-    lines.append("\n---\n_Dashboard: see the GitHub Pages site for full history._")
+    lines.append(f"\n---\n_Full board with every posting and its history: "
+                 f"{dashboard_url()}_")
     return "\n".join(lines)
 
 
