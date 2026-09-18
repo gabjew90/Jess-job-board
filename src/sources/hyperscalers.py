@@ -10,8 +10,9 @@ DevTools workflow. Verified working 2026-08:
 - Amazon: classic amazon.jobs search.json.
 - Google: server-rendered careers page; job data lives in the second
   AF_initDataCallback ('ds:1') script blob.
-- Meta: disabled by default — metacareers.com returns 400 to datacenter IPs
-  and its GraphQL API needs session tokens. Enable in config to try anyway.
+- Meta: disabled — metacareers.com returns 400 to datacenter IPs and its
+  GraphQL API needs session tokens. Confirmed again on a GitHub Actions
+  runner 2026-09-18: every search term 400s. Enable in config to try anyway.
 """
 import json
 import logging
@@ -54,12 +55,22 @@ def _microsoft_description(pid) -> str:
 
 
 def fetch_microsoft(term: str) -> list[Job]:
-    resp = requests.get(MICROSOFT_URL, headers=HEADERS, timeout=30, params={
+    params = {
         "domain": "microsoft.com",
         "query": term,
         "location": "United States",
         "num": RESULTS_PER_TERM,
-    })
+    }
+    # The per-job description fetches below hit the same host, so a run of
+    # several search terms burns Microsoft's rate limit and the later terms
+    # come back 429 (2026-09-18: five of seven terms lost this way). One
+    # backoff and retry recovers them; a second 429 is a real refusal.
+    resp = requests.get(MICROSOFT_URL, headers=HEADERS, timeout=30, params=params)
+    if resp.status_code == 429:
+        log.info("microsoft rate-limited on %r; backing off", term)
+        time.sleep(30)
+        resp = requests.get(MICROSOFT_URL, headers=HEADERS, timeout=30,
+                            params=params)
     resp.raise_for_status()
     jobs = []
     for pos in resp.json()["data"]["positions"]:

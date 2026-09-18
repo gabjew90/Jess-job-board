@@ -55,7 +55,7 @@
     "microsoft": true,
     "amazon": true,
     "google": true,
-    "meta": true
+    "meta": false
   },
   "ats_boards": [
     {
