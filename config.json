@@ -25,7 +25,6 @@
     "ArcLight Capital",
     "KKR",
     "Quantum Capital Group",
-    "Aligned Data Centers",
     "QTS Data Centers",
     "Switch",
     "Compass Datacenters",
@@ -101,6 +100,11 @@
       "board": "digitalbridge",
       "company": "DigitalBridge",
       "keep_all": true
+    },
+    {
+      "provider": "greenhouse",
+      "board": "aligned",
+      "company": "Aligned Data Centers"
     }
   ],
   "workday_boards": [

@@ -1,1 +1,13 @@
-[]
+[
+ {
+  "date": "2026-09-18",
+  "scored": 526,
+  "bands": {
+   "weak": 127,
+   "top": 26,
+   "strong": 40,
+   "misfit": 301,
+   "possible": 32
+  }
+ }
+]
