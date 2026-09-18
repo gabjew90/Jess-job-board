@@ -22,24 +22,34 @@ open while the preference should apply; close it to retire it.
 - calibration: single-discipline design and analysis ENGINEERING roles —
   electrical, mechanical, controls, protection and relay, power-system
   studies — band weak or misfit whatever the domain, employer or
-  seniority. I am not an electrical engineer: my degree is civil and
-  environmental engineering, and my engineering work is project
-  engineering, technology selection and equipment strategy — I specify
-  turbine and reciprocating-engine platforms and manage the OEMs and EPCs
-  who design them. Judge by the described SCOPE, not the title: a posting
-  titled "Electrical Engineer" whose scope is leading the engineering,
+  seniority, "Principal" and "Senior" included. I am not an electrical
+  engineer: my degree is civil and environmental engineering, and my
+  engineering work is project engineering, technology selection and
+  equipment strategy — I specify turbine and reciprocating-engine
+  platforms and manage the OEMs and EPCs who design them.
+  WITH NO DESCRIPTION AVAILABLE the title is the only evidence, so trust
+  it: a title naming a single engineering discipline ("Principal
+  Electrical Engineer", "Mechanical Engineer", "Controls Engineer") bands
+  weak, and a good employer or a senior grade does not lift it — do not
+  infer development scope that the posting never states.
+  WITH A DESCRIPTION, judge the described scope instead: a posting titled
+  "Electrical Engineer" whose scope is leading the engineering,
   construction, interconnection or startup of a NEW power plant is a top
   fit, because that is my current job. (from issue #4, re: Vantage
   Principal Electrical Engineer)
-- calibration: purely FINANCIAL and capital-markets functions — investor
-  relations, LP and fund reporting, capital raising, fund marketing, fund
-  accounting — are misfits however good the energy or infrastructure
-  employer is, and a Brookfield or Blackstone name does not lift them.
-  This is NOT a rule against the investor side: technical diligence,
-  asset management and operating or portfolio roles over generation and
-  data center assets at infrastructure funds stay strong, because they
-  need exactly the technical judgment on plants and equipment that I
-  bring. It is also NOT a rule favouring engineering roles — development,
+- calibration: at investors and infrastructure funds the band is decided
+  by WHAT THE ROLE TOUCHES, not by the employer being a fund. Roles that
+  originate, underwrite, diligence, acquire or manage generation and data
+  center ASSETS — investment principals and directors on power and
+  infrastructure deals, technical diligence, asset management, portfolio
+  operations — are strong fits and should band strong, because they need
+  exactly the technical judgment on plants and equipment that I bring.
+  Roles whose subject is the FUND ITSELF rather than its assets —
+  investor relations, LP and fund reporting, capital raising, fund
+  marketing, fund accounting, back-office finance — are misfits however
+  good the employer name is. Junior grades (analyst, associate) stay weak
+  on seniority regardless.
+  This is also NOT a rule favouring engineering roles: development,
   origination and commercial work is the primary target and none of it is
   engineering. (from issue #3, re: Brookfield Associate, Investor
   Relations (Energy))
