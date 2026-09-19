@@ -9,5 +9,16 @@
    "misfit": 301,
    "possible": 32
   }
+ },
+ {
+  "date": "2026-09-19",
+  "scored": 38,
+  "bands": {
+   "weak": 10,
+   "strong": 3,
+   "misfit": 23,
+   "top": 1,
+   "possible": 1
+  }
  }
 ]

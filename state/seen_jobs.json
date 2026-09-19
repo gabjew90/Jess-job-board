@@ -1,4 +1,30 @@
 {
+ "0029a0a9d4002557": {
+  "band": "weak",
+  "company": "Valar Atomics",
+  "date_posted": "2026-09-17",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "Los Angeles, CA, US",
+  "locations": [
+   "Los Angeles, CA, US"
+  ],
+  "pay": "$173,000\u2013$211,000/yr",
+  "priority": false,
+  "rationale": "Single-discipline electrical engineering (power studies, protection design) IC role per the standing calibration rule.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Staff Electrical Engineer",
+  "url": "https://www.indeed.com/viewjob?jk=c6662905ada27ad9",
+  "work_mode": "onsite"
+ },
  "00935ea68f15fef9": {
   "active": false,
   "band": "misfit",
@@ -167,6 +193,35 @@
   "url": "https://apply.careers.microsoft.com/careers/job/1970393556989047",
   "work_mode": "onsite"
  },
+ "035aefe57500abd5": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Microsoft",
+  "date_posted": "2026-09-09",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "United States, Washington, Redmond (+4 more)",
+  "locations": [
+   "United States, Washington, Redmond (+4 more)"
+  ],
+  "lowscore": true,
+  "pay": "USD $142,800 - $274,800 per year",
+  "priority": true,
+  "rationale": "Deep IC hardware engineering on chip-level DC-DC power delivery, duplicate of the other DC/DC power posting.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "microsoft",
+  "title": "Principal Hardware Engineer, DC/DC Power",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556928903",
+  "work_mode": "onsite"
+ },
  "053fca68a4204ee6": {
   "band": "weak",
   "company": "Brookfield",
@@ -247,6 +302,62 @@
   "title": "Senior Data Center Site Selection Manager",
   "url": "https://job-boards.greenhouse.io/coreweave/jobs/4650927006",
   "work_mode": ""
+ },
+ "059220d76daf4948": {
+  "band": "weak",
+  "company": "PG&E",
+  "date_posted": "2026-09-19",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "Hayward, CA, US, 94545",
+  "locations": [
+   "Hayward, CA, US, 94545",
+   "Oakland, CA, US, 94612"
+  ],
+  "pay": "$153,828",
+  "priority": false,
+  "rationale": "Senior substation design engineering IC role at a utility, single-discipline per calibration rule.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "successfactors",
+  "title": "Senior Substation Project Engineer",
+  "url": "https://careers.pge.com/job/Oakland-Senior-Substation-Project-Engineer-CA-94612/1394158200/",
+  "work_mode": "hybrid"
+ },
+ "0671e53bd58a3e9e": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Microsoft",
+  "date_posted": "2026-09-14",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "United States, Oregon, Hillsboro (+2 more)",
+  "locations": [
+   "United States, Oregon, Hillsboro (+2 more)"
+  ],
+  "lowscore": true,
+  "pay": "USD $142,800 - $274,800 per year",
+  "priority": false,
+  "rationale": "Chip-level SoC power architecture, deep silicon IC engineering.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "microsoft",
+  "title": "Principal SoC Power Architect",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556986886",
+  "work_mode": "onsite"
  },
  "06efbe3fbe34a7f4": {
   "active": false,
@@ -796,6 +907,35 @@
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8500856002",
   "work_mode": "onsite"
  },
+ "110290207e676de3": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "SpaceX",
+  "date_posted": "2026-09-18",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "Starbase, TX",
+  "locations": [
+   "Starbase, TX"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "Shift-based technician supervision for cabling/comms infrastructure, unrelated to power development.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "greenhouse",
+  "title": "Supervisor, IT Network Infrastructure - 2nd Shift",
+  "url": "https://job-boards.greenhouse.io/spacex/jobs/8818980002",
+  "work_mode": ""
+ },
  "110ed0895a8fd804": {
   "active": false,
   "band": "misfit",
@@ -910,7 +1050,7 @@
   },
   "seniority_match": true,
   "source": "greenhouse",
-  "title": "Sr. Supplier Development Engineer, Data Center (Starlink) ",
+  "title": "Sr. Supplier Development Engineer, Data Center (Starlink) - Memphis",
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8653632002",
   "work_mode": "remote"
  },
@@ -937,7 +1077,7 @@
   },
   "seniority_match": true,
   "source": "indeed",
-  "title": "Senior Development Project Manager (Data Center Construction OFCI)",
+  "title": "Senior Development Project Manager (Data Center Construction MEPR)",
   "url": "https://www.indeed.com/viewjob?jk=709faf978c9aca22",
   "work_mode": ""
  },
@@ -966,6 +1106,32 @@
   "title": "Associate, Infrastructure AI",
   "url": "https://brookfield.wd5.myworkdayjobs.com/en-US/brookfield/job/New-York-New-York/Associate--Infrastructure-AI_R2052872",
   "work_mode": ""
+ },
+ "15902a6dcd0b8f30": {
+  "band": "strong",
+  "company": "Microsoft",
+  "date_posted": "2026-08-24",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "United States, Iowa, West Des Moines (+1 more)",
+  "locations": [
+   "United States, Iowa, West Des Moines (+1 more)"
+  ],
+  "pay": "USD $116,900 - $203,600 per year",
+  "priority": false,
+  "rationale": "Owner-side sourcing/procurement strategy for switchgear, generators and transformers in data center retrofits \u2014 her equipment-strategy wheelhouse.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "microsoft",
+  "title": "Sr. Procurement Manager - Data Center Retrofits",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556977327",
+  "work_mode": "onsite"
  },
  "16162ebf930d48bd": {
   "band": "weak",
@@ -1385,6 +1551,64 @@
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8814705002",
   "work_mode": "remote"
  },
+ "1bd75d3eb6faaa25": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Microsoft",
+  "date_posted": "2026-09-16",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "United States, Virginia, Fauquier County",
+  "locations": [
+   "United States, Virginia, Fauquier County"
+  ],
+  "lowscore": true,
+  "pay": "USD $102,600 - $202,800 per year",
+  "priority": false,
+  "rationale": "IT operations management for cloud infrastructure, not power/generation.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "microsoft",
+  "title": "Data Center IT Operations Manager - CTJ - Poly",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556995581",
+  "work_mode": "onsite"
+ },
+ "1c03ed18cab6bbc8": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Microsoft",
+  "date_posted": "2026-09-10",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "United States, Washington, Redmond (+2 more)",
+  "locations": [
+   "United States, Washington, Redmond (+2 more)"
+  ],
+  "lowscore": true,
+  "pay": "USD $119,800 - $234,700 per year",
+  "priority": false,
+  "rationale": "Product/competitive-strategy IC role for AI silicon and networking, power is one of many factors rather than the subject.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "microsoft",
+  "title": "Senior Product Manager - AI Infrastructure Competitive Strategy",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556991466",
+  "work_mode": "onsite"
+ },
  "1c75adda1f0f0d18": {
   "band": "top",
   "company": "Vantage Data Centers",
@@ -1467,7 +1691,9 @@
   "work_mode": "hybrid"
  },
  "1d84613a59fd6c1e": {
+  "active": false,
   "band": "possible",
+  "closed": "2026-09-19",
   "company": "Crusoe",
   "date_posted": "2026-09-15",
   "first_seen": "2026-09-18",
@@ -1488,7 +1714,7 @@
   },
   "seniority_match": true,
   "source": "ashby",
-  "title": "Manager, Power Distribution Programs (MFG)",
+  "title": "Manager, Power Distribution Programs",
   "url": "https://jobs.ashbyhq.com/crusoe/8e2f8cce-e727-484a-a8bf-c4c5b6a615a8",
   "work_mode": ""
  },
@@ -2153,7 +2379,7 @@
   },
   "seniority_match": false,
   "source": "workday",
-  "title": "Project Engineer- New Power Generation Construction",
+  "title": "Project Engineer-New Power Generation Construction/Job Family",
   "url": "https://nisource.wd1.myworkdayjobs.com/en-US/NiSource/job/Merrillville-IN-NIPSCO-HDQ/Project-Engineer-Major-Projects-Job-Family_R00940367",
   "work_mode": ""
  },
@@ -2194,7 +2420,8 @@
   "first_seen_at": "2026-09-18T21:07:41Z",
   "location": "Rocklin, CA, US, 95765",
   "locations": [
-   "Rocklin, CA, US, 95765"
+   "Rocklin, CA, US, 95765",
+   "Oakland, CA, US, 94612"
   ],
   "pay": "$122,000",
   "priority": false,
@@ -2600,7 +2827,7 @@
   },
   "seniority_match": true,
   "source": "ashby",
-  "title": "Director, Finance - Power Production & Energy",
+  "title": "Director, Finance - Power Production & Energy ",
   "url": "https://jobs.ashbyhq.com/crusoe/72f9eebd-9716-4658-aa22-10207c612d42",
   "work_mode": "onsite"
  },
@@ -2875,7 +3102,7 @@
   },
   "seniority_match": false,
   "source": "greenhouse",
-  "title": "Supervisor, Power Generation Fluid Systems",
+  "title": "Supervisor, Power Generation Fluid Systems ",
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8819014002",
   "work_mode": "onsite"
  },
@@ -3355,6 +3582,35 @@
   "url": "https://www.indeed.com/viewjob?jk=6199ffef13efe336",
   "work_mode": ""
  },
+ "3d6fccbfdbdfe342": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Valar Atomics",
+  "date_posted": "2026-09-17",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "Los Angeles, CA, US",
+  "locations": [
+   "Los Angeles, CA, US"
+  ],
+  "lowscore": true,
+  "pay": "$173,000\u2013$211,000/yr",
+  "priority": false,
+  "rationale": "Electrical drafting/design-package ownership, more junior IC design work than the engineer role above.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Staff Electrical Designer",
+  "url": "https://www.indeed.com/viewjob?jk=4eecf22de4bb5501",
+  "work_mode": "onsite"
+ },
  "3d9f45328e6a002d": {
   "active": false,
   "band": "misfit",
@@ -3659,6 +3915,35 @@
   "url": "https://equinix.wd1.myworkdayjobs.com/en-US/External/job/El-Segundo/Data-Center-Critical-Facilities-IV_JR-160701",
   "work_mode": ""
  },
+ "430915639ceccbcc": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Tesla",
+  "date_posted": "2026-09-16",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "CA, US",
+  "locations": [
+   "CA, US"
+  ],
+  "lowscore": true,
+  "pay": "$104,400\u2013$194,400/yr",
+  "priority": false,
+  "rationale": "Day-to-day IT/facilities operations and maintenance role, the operations negative test.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Data Center Operations Engineer, IT Infrastructure",
+  "url": "https://www.indeed.com/viewjob?jk=281e27ad3aa2d264",
+  "work_mode": "remote"
+ },
  "43112a6ad6a28ba1": {
   "active": false,
   "band": "misfit",
@@ -3899,7 +4184,7 @@
   },
   "seniority_match": false,
   "source": "greenhouse",
-  "title": "Electrical Engineer (Power Systems)",
+  "title": "Electrical Engineer, Power Systems",
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8812058002",
   "work_mode": "remote"
  },
@@ -4019,6 +4304,35 @@
   "url": "https://equinix.wd1.myworkdayjobs.com/en-US/External/job/Elk-Grove-Village/Supervisor--Data-Center-Critical-Facilities-Engineer_JR-162140-1",
   "work_mode": ""
  },
+ "49775bd6226df9c9": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Microsoft",
+  "date_posted": "2026-06-02",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "United States, North Carolina, Raleigh (+4 more)",
+  "locations": [
+   "United States, North Carolina, Raleigh (+4 more)"
+  ],
+  "lowscore": true,
+  "pay": "USD $142,800 - $274,800 per year",
+  "priority": false,
+  "rationale": "Chip/package signal and power integrity engineering, deep silicon IC discipline.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "microsoft",
+  "title": "Principal Signal and Power Integrity Engineer",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556869925",
+  "work_mode": "onsite"
+ },
  "49fb5789c14b3875": {
   "active": false,
   "band": "misfit",
@@ -4044,7 +4358,7 @@
   },
   "seniority_match": false,
   "source": "workday",
-  "title": "WGL \u2013 Gas Transmission Engineer (Level I, II, III or IV)",
+  "title": "WGL - Gas Transmission Engineer (Level I, II, III or IV)",
   "url": "https://wgl.wd5.myworkdayjobs.com/en-US/AltaGas/job/Springfield-VA/WGL---Gas-Transmission-Engineer--Level-I--II-III-or-IV-_R6817",
   "work_mode": ""
  },
@@ -4266,6 +4580,35 @@
   "url": "https://jobs.dayforcehcm.com/en-US/edc/CandidatePortalEDC/jobs/860",
   "work_mode": ""
  },
+ "4df319193f6a7139": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Tesla",
+  "date_posted": "2026-09-15",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "Austin, TX, US",
+  "locations": [
+   "Austin, TX, US"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "Site-resident field crew lead installing and servicing energy systems.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Crew Lead, Commercial Self-Perform Energy Projects",
+  "url": "https://www.indeed.com/viewjob?jk=febd08881dd8a9d8",
+  "work_mode": "onsite"
+ },
  "4e22f7511f2c24db": {
   "band": "strong",
   "company": "SpaceX",
@@ -4431,7 +4774,7 @@
   "seniority_match": false,
   "source": "workday",
   "title": "Data Center Critical Facilities Engineer",
-  "url": "https://equinix.wd1.myworkdayjobs.com/en-US/External/job/Torrance/IBX-Critical-Facilities-Engineer_JR-163012",
+  "url": "https://equinix.wd1.myworkdayjobs.com/en-US/External/job/San-Jose/Data-Center-Critical-Facilities-Engineer_JR-162551",
   "work_mode": ""
  },
  "52fbd18d2f00878a": {
@@ -4502,7 +4845,8 @@
   "first_seen_at": "2026-09-18T21:07:41Z",
   "location": "Oakland, CA, US, 94612",
   "locations": [
-   "Oakland, CA, US, 94612"
+   "Oakland, CA, US, 94612",
+   "Gilroy, CA, US, 95020"
   ],
   "lowscore": true,
   "pay": "$120,888",
@@ -5452,7 +5796,7 @@
   },
   "seniority_match": true,
   "source": "workday",
-  "title": "HVDC POWER STABILITY Business developer",
+  "title": "HVDC & Power Stability \u2013 Business Developer",
   "url": "https://gevernova.wd5.myworkdayjobs.com/en-US/Vernova_ExternalSite/job/Sao-Paulo/HVDC---Power-Stability---Bid-Manager--Talent-Pool-_R5025208-2",
   "work_mode": ""
  },
@@ -5866,6 +6210,32 @@
   "title": "Data Infrastructure Operations Manager (Starlink)",
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8703559002",
   "work_mode": ""
+ },
+ "66cf9d62d13f8bc8": {
+  "band": "weak",
+  "company": "PG&E",
+  "date_posted": "2026-09-19",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "Hayward, CA, US, 94545",
+  "locations": [
+   "Hayward, CA, US, 94545"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Principal-level but deep IC electrical design of backup power for IT facilities, not new generation development.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "successfactors",
+  "title": "Critical Facility Architect, Principal - Electrical Engineer",
+  "url": "https://careers.pge.com/job/Oakland-Critical-Facility-Architect%2C-Principal-Electrical-Engineer-CA-94612/1390421500/",
+  "work_mode": "hybrid"
  },
  "67f236d13c3e22b8": {
   "band": "strong",
@@ -6336,7 +6706,7 @@
   "seniority_match": false,
   "source": "greenhouse",
   "title": "Site Reliability Engineer, AI Infrastructure (Starshield)",
-  "url": "https://job-boards.greenhouse.io/spacex/jobs/8807795002",
+  "url": "https://job-boards.greenhouse.io/spacex/jobs/8807493002",
   "work_mode": ""
  },
  "6fa73fcad0c5c920": {
@@ -6619,6 +6989,35 @@
   "title": "Manager, Grid Integration (ERCOT)",
   "url": "https://job-boards.greenhouse.io/sbenergy/jobs/6105385004",
   "work_mode": "hybrid"
+ },
+ "7483c006ccad76f8": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Microsoft",
+  "date_posted": "2026-09-16",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "United States, Multiple Locations, Multiple Locations (+5 more)",
+  "locations": [
+   "United States, Multiple Locations, Multiple Locations (+5 more)"
+  ],
+  "lowscore": true,
+  "pay": "USD $119,800 - $234,700 per year",
+  "priority": false,
+  "rationale": "Physical networking infrastructure design for datacenters, not power or generation development.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "microsoft",
+  "title": "Senior Data Center Design Architect",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556971194",
+  "work_mode": "onsite"
  },
  "7599fb5dc7f5ff87": {
   "active": false,
@@ -7009,6 +7408,32 @@
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8470330002",
   "work_mode": ""
  },
+ "7c26654683664c0c": {
+  "band": "possible",
+  "company": "Crusoe",
+  "date_posted": "2026-09-16",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "Brighton, CO - US",
+  "locations": [
+   "Brighton, CO - US"
+  ],
+  "pay": "$110,000 -$120,000",
+  "priority": false,
+  "rationale": "Capital-project leadership expanding Crusoe's power-equipment manufacturing capacity \u2014 adjacent to her equipment-strategy background but the subject is factory capacity, not generation development.",
+  "score": 55,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "ashby",
+  "title": "Project Manager II, Special Projects - Power Distribution",
+  "url": "https://jobs.ashbyhq.com/crusoe/3184315a-93c6-4557-ace3-e561266761fe",
+  "work_mode": ""
+ },
  "7c6ff7d0e389c144": {
   "band": "top",
   "company": "AltaGas",
@@ -7061,7 +7486,7 @@
   },
   "seniority_match": true,
   "source": "workday",
-  "title": "Power Transformer Sr Sales Mgr. PSS (Product Sales Specialist)",
+  "title": "Power Transformer Sr Sales Mgr. PSS (Product Sales Specialist",
   "url": "https://gevernova.wd5.myworkdayjobs.com/en-US/Vernova_ExternalSite/job/Remote/Power-Transformer-Sr-Sales-Mgr-PSS--Product-Sales-Specialist_R5044408-3",
   "work_mode": "remote"
  },
@@ -7200,6 +7625,35 @@
   "title": "Associate, Diligence Management, Infrastructure (Contract)",
   "url": "https://brookfield.wd5.myworkdayjobs.com/en-US/brookfield/job/Singapore/Associate--Diligence-Management--Infrastructure--Contract-_R2051341-1",
   "work_mode": ""
+ },
+ "7f5e1a328ba3ed38": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Microsoft",
+  "date_posted": "2026-08-28",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "United States, Multiple Locations, Multiple Locations",
+  "locations": [
+   "United States, Multiple Locations, Multiple Locations"
+  ],
+  "lowscore": true,
+  "pay": "USD $119,800 - $234,700 per year",
+  "priority": false,
+  "rationale": "Product management for GPU networking infrastructure, not power/generation.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "microsoft",
+  "title": "Senior Product Manager - AI Infrastructure",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556983195",
+  "work_mode": "onsite"
  },
  "8086703fae32c098": {
   "band": "weak",
@@ -7489,7 +7943,8 @@
   "first_seen_at": "2026-09-18T21:07:40Z",
   "location": "United States, Texas, Abilene",
   "locations": [
-   "United States, Texas, Abilene"
+   "United States, Texas, Abilene",
+   "United States, Wyoming, Cheyenne"
   ],
   "lowscore": true,
   "pay": "USD $84,400 - $168,800 per year",
@@ -7505,7 +7960,7 @@
   "seniority_match": false,
   "source": "microsoft",
   "title": "Data Center Program Manager",
-  "url": "https://apply.careers.microsoft.com/careers/job/1970393556928778",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556990455",
   "work_mode": "onsite"
  },
  "84cf3d06894d8ae0": {
@@ -7564,7 +8019,7 @@
   },
   "seniority_match": false,
   "source": "workday",
-  "title": "EPC Assistant Project Manager, Utility Scale Solar (Sullivan County, IN)",
+  "title": "EPC Assistant Project Manager, Utility Scale Solar (Tonopah, AZ)",
   "url": "https://solvenergy.wd1.myworkdayjobs.com/en-US/SOLV_External_Career/job/Tonopah-AZ/EPC-Assistant-Project-Manager--Utility-Scale-Solar--Tonopah--AZ-_J13362",
   "work_mode": ""
  },
@@ -7818,6 +8273,35 @@
   "source": "edged",
   "title": "Data Center Chief Engineer - ORD",
   "url": "https://jobs.dayforcehcm.com/en-US/edc/CandidatePortalEDC/jobs/845",
+  "work_mode": "onsite"
+ },
+ "892969f41eab79ea": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Microsoft",
+  "date_posted": "2026-09-04",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "United States, Washington, Redmond (+1 more)",
+  "locations": [
+   "United States, Washington, Redmond (+1 more)"
+  ],
+  "lowscore": true,
+  "pay": "USD $97,600 - $188,400 per year",
+  "priority": false,
+  "rationale": "Accounting/finance role with no power or development content.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "microsoft",
+  "title": "Senior Accounting Manager, Data Center Infrastructure",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556977502",
   "work_mode": "onsite"
  },
  "8976bfcaeab4db61": {
@@ -8382,6 +8866,32 @@
   "url": "https://nisource.wd1.myworkdayjobs.com/en-US/NiSource/job/Valparaiso-Eastport-Center/Sr-PM-Major-Projects-New-Power-Generation-Construction_R00942669",
   "work_mode": ""
  },
+ "910cbb82b5307dd3": {
+  "band": "weak",
+  "company": "Equinix",
+  "date_posted": "",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "2 Locations",
+  "locations": [
+   "2 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "No description; title alone is a single-discipline senior electrical engineer role.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "workday",
+  "title": "Senior Electrical Engineer",
+  "url": "https://equinix.wd1.myworkdayjobs.com/en-US/External/job/Barueri/Senior-Electrical-Engineer_JR-163026-1",
+  "work_mode": ""
+ },
  "9120f39a00021132": {
   "active": false,
   "band": "misfit",
@@ -8463,6 +8973,35 @@
   "url": "https://www.amazon.jobs/en/jobs/10543466/principal-development-manager-aws-data-center-supply-solutions",
   "work_mode": ""
  },
+ "928a0ebdc6832b40": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Tesla",
+  "date_posted": "2026-09-17",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "Burbank, CA, US",
+  "locations": [
+   "Burbank, CA, US"
+  ],
+  "lowscore": true,
+  "pay": "$102,600\u2013$153,900/yr",
+  "priority": false,
+  "rationale": "Field service crew management for residential solar installs, unrelated to generation development.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Field Manager, Crew Based, Residential Energy Service",
+  "url": "https://www.indeed.com/viewjob?jk=c7a4cb6508f638e6",
+  "work_mode": "onsite"
+ },
  "932ee9a1b6c2c183": {
   "band": "possible",
   "company": "PG&E",
@@ -8472,7 +9011,9 @@
   "location": "West Sacramento, CA, US, 95605",
   "locations": [
    "West Sacramento, CA, US, 95605",
-   "Fresno, CA, US, 93720"
+   "Fresno, CA, US, 93720",
+   "Oakland, CA, US, 94612",
+   "San Ramon, CA, US, 94583"
   ],
   "pay": "$144,000",
   "priority": false,
@@ -8543,6 +9084,35 @@
   "source": "workday",
   "title": "Senior Power Electronics Manager",
   "url": "https://gevernova.wd5.myworkdayjobs.com/en-US/Vernova_ExternalSite/job/Findlay-Township/Senior-Power-Electronics-Manager_R5053290-2",
+  "work_mode": ""
+ },
+ "9410f7a1bcbfd100": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Equinix",
+  "date_posted": "",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "JK1 Jakarta",
+  "locations": [
+   "JK1 Jakarta"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "No description, but the title names data center operations management \u2014 the defining operations near-miss.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Senior Manager, Data Center Operations",
+  "url": "https://equinix.wd1.myworkdayjobs.com/en-US/External/job/JK1-Jakarta/Senior-Manager--Data-Center-Operations_JR-162346",
   "work_mode": ""
  },
  "942fd4b68cc2829f": {
@@ -8628,6 +9198,32 @@
   "title": "Senior Innovation Manager - Data Centers",
   "url": "https://job-boards.greenhouse.io/sbenergy/jobs/6009467004",
   "work_mode": "hybrid"
+ },
+ "9701ceceb616319a": {
+  "band": "strong",
+  "company": "SpaceX",
+  "date_posted": "2026-09-01",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "Bastrop, TX",
+  "locations": [
+   "Bastrop, TX"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Owner-side site and utility expansion leadership for a large industrial campus, close to her siting/interconnection and load-growth targets.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "greenhouse",
+  "title": "Bastrop Site Expansion Manager",
+  "url": "https://job-boards.greenhouse.io/spacex/jobs/8488318002",
+  "work_mode": ""
  },
  "97a074148c9cf4d3": {
   "active": false,
@@ -8727,7 +9323,8 @@
   "location": "Waynesboro, GA, US, 30830",
   "locations": [
    "Waynesboro, GA, US, 30830",
-   "Buckeye, AZ, US, 85326"
+   "Buckeye, AZ, US, 85326",
+   "Palo, IA, US, 52324"
   ],
   "lowscore": true,
   "pay": "",
@@ -9432,6 +10029,32 @@
   "url": "https://www.indeed.com/viewjob?jk=9905fd29b0449784",
   "work_mode": ""
  },
+ "a54be54c538ab522": {
+  "band": "weak",
+  "company": "HDR",
+  "date_posted": "2026-09-17",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "Boston, MA, US",
+  "locations": [
+   "Boston, MA, US"
+  ],
+  "pay": "$85,260\u2013$139,200/yr",
+  "priority": true,
+  "rationale": "Single-discipline electrical execution engineering (load flow, short circuit studies) at a consulting/EPC firm.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Electrical Engineer Power & Renewables",
+  "url": "https://www.indeed.com/viewjob?jk=ca24426e3c5c80b0",
+  "work_mode": ""
+ },
  "a5610507428112cd": {
   "active": false,
   "band": "misfit",
@@ -9622,6 +10245,35 @@
   "source": "edged",
   "title": "Learning Program Manager - Operations, Construction, and EHS",
   "url": "https://jobs.dayforcehcm.com/en-US/edc/CandidatePortalEDC/jobs/910",
+  "work_mode": ""
+ },
+ "a8d72e3c920084c1": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Blue Origin",
+  "date_posted": "2026-09-16",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "Seattle, WA, US",
+  "locations": [
+   "Seattle, WA, US"
+  ],
+  "lowscore": true,
+  "pay": "$99,201\u2013$138,880/yr",
+  "priority": false,
+  "rationale": "Deep IC structural engineering for rocket test stands with no power or generation content.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Structural Engineer III - Ground System Test Infrastructure",
+  "url": "https://www.indeed.com/viewjob?jk=4ed038584ad29554",
   "work_mode": ""
  },
  "a928913adade9ae2": {
@@ -9906,6 +10558,35 @@
   "url": "https://job-boards.greenhouse.io/hut8/jobs/5169146008",
   "work_mode": ""
  },
+ "acd5d47671758f61": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Microsoft",
+  "date_posted": "2025-12-02",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "United States, Multiple Locations, Multiple Locations",
+  "locations": [
+   "United States, Multiple Locations, Multiple Locations"
+  ],
+  "lowscore": true,
+  "pay": "USD $142,800 - $274,800 per year",
+  "priority": false,
+  "rationale": "AI data/ML infrastructure role with no generation, power, or data center content.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "microsoft",
+  "title": "Data Infrastructure",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556627523",
+  "work_mode": "onsite"
+ },
  "ad195398f92d2fa7": {
   "band": "top",
   "company": "Aligned Data Centers",
@@ -10071,6 +10752,32 @@
   "title": "Manager, Insurance & Risk Management",
   "url": "https://job-boards.greenhouse.io/sbenergy/jobs/6097428004",
   "work_mode": "hybrid"
+ },
+ "af3e3587c85fc827": {
+  "band": "weak",
+  "company": "Crusoe",
+  "date_posted": "2026-09-15",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "Tulsa, OK - US (2)",
+  "locations": [
+   "Tulsa, OK - US (2)"
+  ],
+  "pay": "$100,000 -$110,000",
+  "priority": false,
+  "rationale": "Factory-floor manufacturing execution PM for switchboards, production throughput rather than power project development.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "ashby",
+  "title": "Project Manager, Power Distribution",
+  "url": "https://jobs.ashbyhq.com/crusoe/70c0adde-d850-4f73-80b8-36d255f0beb0",
+  "work_mode": ""
  },
  "afc260cd8cf6e8fc": {
   "band": "possible",
@@ -10403,7 +11110,7 @@
   "seniority_match": true,
   "source": "greenhouse",
   "title": "Sr. Counsel, Real Estate & Infrastructure",
-  "url": "https://job-boards.greenhouse.io/spacex/jobs/8808149002",
+  "url": "https://job-boards.greenhouse.io/spacex/jobs/8806151002",
   "work_mode": "onsite"
  },
  "b68882564a241a12": {
@@ -10567,7 +11274,7 @@
   },
   "seniority_match": true,
   "source": "greenhouse",
-  "title": "Director, Power Generation Development & Integration - Data Center Construction",
+  "title": "Director, Power Generation Development & Integration ",
   "url": "https://job-boards.greenhouse.io/sbenergy/jobs/6141379004",
   "work_mode": "hybrid"
  },
@@ -10847,6 +11554,32 @@
   "url": "https://job-boards.greenhouse.io/sbenergy/jobs/6118967004",
   "work_mode": "hybrid"
  },
+ "bdde8ccbad687bfe": {
+  "band": "weak",
+  "company": "Crusoe",
+  "date_posted": "2026-09-16",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "Tulsa, OK - US (2)",
+  "locations": [
+   "Tulsa, OK - US (2)"
+  ],
+  "pay": "$100,000 -$110,000",
+  "priority": false,
+  "rationale": "Manufacturing engineering/NPI industrialization PM, not power project origination or development.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "ashby",
+  "title": "Project Manager II, Power Distribution",
+  "url": "https://jobs.ashbyhq.com/crusoe/93c99cb7-4528-49f0-a367-60013190a86e",
+  "work_mode": ""
+ },
  "bf9e442ee9b9c9bf": {
   "band": "strong",
   "company": "SpaceX",
@@ -10901,6 +11634,35 @@
   "title": "Power Electronics Engineer (Starship)",
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8692894002",
   "work_mode": ""
+ },
+ "c025754d4b30a433": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Microsoft",
+  "date_posted": "2026-09-04",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "United States, Washington, Redmond (+1 more)",
+  "locations": [
+   "United States, Washington, Redmond (+1 more)"
+  ],
+  "lowscore": true,
+  "pay": "USD $116,900 - $203,600 per year",
+  "priority": false,
+  "rationale": "Accounting/finance role with no power or development content.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "microsoft",
+  "title": "Group Accounting Manager, Data Center Infrastructure",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556977525",
+  "work_mode": "onsite"
  },
  "c02aeef560e0c6af": {
   "band": "weak",
@@ -11032,6 +11794,35 @@
   "title": "Senior Staff Commissioning Engineer, Electrical",
   "url": "https://jobs.ashbyhq.com/crusoe/a0b9f5c4-10b1-447f-961d-63ebd22f0da8",
   "work_mode": ""
+ },
+ "c271df8a3ad3ecee": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Microsoft",
+  "date_posted": "2026-09-12",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "United States, Wisconsin, Milwaukee",
+  "locations": [
+   "United States, Wisconsin, Milwaukee"
+  ],
+  "lowscore": true,
+  "pay": "USD $106,400 - $203,600 per year",
+  "priority": false,
+  "rationale": "HR employee-relations role, no engineering or power content.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "microsoft",
+  "title": "Sr. HR Manager- Data Center Operations (Onsite - Greater Milwaukee / Mt Pleasant, WI)",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556978209",
+  "work_mode": "onsite"
  },
  "c2e40742017cbb1b": {
   "active": false,
@@ -11204,6 +11995,35 @@
   "source": "greenhouse",
   "title": "Electrical Engineer (Starship Avionics)",
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8559232002",
+  "work_mode": ""
+ },
+ "c8875f0c53f87011": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "SpaceX",
+  "date_posted": "2026-09-18",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "Starbase, TX",
+  "locations": [
+   "Starbase, TX"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "Shift-based technician supervision for cabling/comms infrastructure, unrelated to power development.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "greenhouse",
+  "title": "Supervisor, IT Network Infrastructure - 1st Shift",
+  "url": "https://job-boards.greenhouse.io/spacex/jobs/8818961002",
   "work_mode": ""
  },
  "c90f4fc2d79577c8": {
@@ -12335,7 +13155,7 @@
   },
   "seniority_match": true,
   "source": "greenhouse",
-  "title": "Sr. Supplier Quality Specialist, Data Center (Starlink)",
+  "title": "Sr. Supplier Quality Specialist, Data Center (Starlink) - Memphis",
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8653649002",
   "work_mode": "remote"
  },
@@ -12436,7 +13256,8 @@
   "locations": [
    "Tulsa, OK, US",
    "Columbus, OH, US",
-   "Charleston, WV, US"
+   "Charleston, WV, US",
+   "Shreveport, LA, US"
   ],
   "pay": "$98,993\u2013$129,000/yr",
   "priority": false,
@@ -12451,7 +13272,7 @@
   "seniority_match": true,
   "source": "indeed",
   "title": "Instrumentation & Controls Engineer Senior/New Generation",
-  "url": "https://www.indeed.com/viewjob?jk=69a00928eb064042",
+  "url": "https://www.indeed.com/viewjob?jk=79ff292e290808a4",
   "work_mode": "onsite"
  },
  "dc66957b4b30ff52": {
@@ -12511,6 +13332,35 @@
   "title": "Director, Security, Risk & Compliance Operations",
   "url": "https://jobs.dayforcehcm.com/en-US/edc/CandidatePortalEDC/jobs/848",
   "work_mode": "remote"
+ },
+ "dd791f61de10dc0a": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Microsoft",
+  "date_posted": "2026-08-26",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "United States, Washington, Redmond (+2 more)",
+  "locations": [
+   "United States, Washington, Redmond (+2 more)"
+  ],
+  "lowscore": true,
+  "pay": "USD $142,800 - $274,800 per year",
+  "priority": false,
+  "rationale": "Chip/platform power-performance architecture, a deep silicon IC discipline unrelated to generation development.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "microsoft",
+  "title": "Principal Platform Power and Performance Engineer",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556929417",
+  "work_mode": "onsite"
  },
  "dd91d29da06a7bfc": {
   "band": "weak",
@@ -12738,6 +13588,32 @@
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8563212002",
   "work_mode": ""
  },
+ "e102b14672a5f976": {
+  "band": "top",
+  "company": "Microsoft",
+  "date_posted": "2026-09-03",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "United States, Multiple Locations, Multiple Locations",
+  "locations": [
+   "United States, Multiple Locations, Multiple Locations"
+  ],
+  "pay": "USD $116,900 - $203,600 per year",
+  "priority": true,
+  "rationale": "Owner-side leadership of behind-the-meter power delivery for Microsoft data centers, from design through commissioning and energization.",
+  "score": 90,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "microsoft",
+  "title": "Power Infrastructure Delivery Lead",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556983201",
+  "work_mode": "onsite"
+ },
  "e13524987eba751b": {
   "active": false,
   "band": "misfit",
@@ -12864,7 +13740,8 @@
    "Concord, CA, US, 94518",
    "Gilroy, CA, US, 95020",
    "Oakland, CA, US, 94612",
-   "Daly City, CA, US, 94014"
+   "Daly City, CA, US, 94014",
+   "Danville, CA, US, 94583"
   ],
   "lowscore": true,
   "pay": "$115,128",
@@ -12880,7 +13757,7 @@
   "seniority_match": false,
   "source": "successfactors",
   "title": "Substation Project Engineer",
-  "url": "https://careers.pge.com/job/Oakland-Substation-Project-Engineer-CA-94612/1384405800/",
+  "url": "https://careers.pge.com/job/Fresno-Substation-Project-Engineer-CA-93720/1377600900/",
   "work_mode": "hybrid"
  },
  "e44905f75549fea0": {
@@ -12936,6 +13813,36 @@
   "source": "greenhouse",
   "title": "Associate",
   "url": "https://job-boards.greenhouse.io/digitalbridge/jobs/4578684007",
+  "work_mode": "onsite"
+ },
+ "e4c390f622f93386": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "PG&E",
+  "date_posted": "2026-09-19",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "Oakland, CA, US, 94612",
+  "locations": [
+   "Oakland, CA, US, 94612",
+   "Hayward, CA, US, 94545"
+  ],
+  "lowscore": true,
+  "pay": "$122,000.00",
+  "priority": false,
+  "rationale": "Deep IC electrical testing/analysis role (arc-flash, grounding studies), no development or ownership scope.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "successfactors",
+  "title": "Senior Electrical Engineer - ATS",
+  "url": "https://careers.pge.com/job/Danville-Senior-Electrical-Engineer-ATS-CA-94583/1381539100/",
   "work_mode": "onsite"
  },
  "e5a4d6a17b595934": {
@@ -13346,6 +14253,35 @@
   "url": "https://job-boards.greenhouse.io/sbenergy/jobs/6181216004",
   "work_mode": "hybrid"
  },
+ "e9bc9ffbe977ca62": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Microsoft",
+  "date_posted": "2026-09-19",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "United States, Illinois, Chicago (+2 more)",
+  "locations": [
+   "United States, Illinois, Chicago (+2 more)"
+  ],
+  "lowscore": true,
+  "pay": "USD $133,000 - $222,700 per year",
+  "priority": false,
+  "rationale": "Quota-carrying strategic account/sales role, excluded regardless of energy-industry focus.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "microsoft",
+  "title": "Strategic Account Director, Oil, Gas & Energy",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393557001424",
+  "work_mode": "onsite"
+ },
  "ea6cef565e5b6b67": {
   "active": false,
   "band": "misfit",
@@ -13404,6 +14340,33 @@
   "url": "https://job-boards.greenhouse.io/sbenergy/jobs/5853714004",
   "work_mode": "hybrid"
  },
+ "eab1b7e9d1146f63": {
+  "band": "strong",
+  "company": "Oracle",
+  "date_posted": "2026-08-20",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "Nashville, TN, US",
+  "locations": [
+   "Nashville, TN, US",
+   "Santa Clara, CA, US"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Owner-side long-lead mechanical/electrical equipment sourcing strategy for data centers mirrors her current equipment-strategy work.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Senior Data Center Supply Chain Manager (IC3)",
+  "url": "https://www.indeed.com/viewjob?jk=bafb1fbde6a42a5c",
+  "work_mode": ""
+ },
  "eb1d1f5a40cd3ba0": {
   "active": false,
   "band": "misfit",
@@ -13432,6 +14395,32 @@
   "title": "Sr. Power Electronics Engineer - Traveling Wave Tube Amplifier (Starlink)",
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8516120002",
   "work_mode": ""
+ },
+ "eb35c2a961f1c9ec": {
+  "band": "weak",
+  "company": "Microsoft",
+  "date_posted": "2026-08-12",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "United States, Washington, Redmond",
+  "locations": [
+   "United States, Washington, Redmond"
+  ],
+  "pay": "USD $119,800 - $234,700 per year",
+  "priority": false,
+  "rationale": "Power/cooling capacity planning and design, but scoped to engineering labs rather than generation or data center power.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "microsoft",
+  "title": "Global Lab Infrastructure Design Engineer, Microsoft Lab Services",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556959186",
+  "work_mode": "onsite"
  },
  "eb4aaaec2924a19e": {
   "active": false,
@@ -13887,6 +14876,32 @@
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8686804002",
   "work_mode": "remote"
  },
+ "f19118371e71299a": {
+  "band": "weak",
+  "company": "GE Vernova",
+  "date_posted": "",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "Oakbrook Terrace",
+  "locations": [
+   "Oakbrook Terrace"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "No description; title alone names a single-discipline substation project engineer role.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "workday",
+  "title": "Electrical  Substation Project Engineer   2",
+  "url": "https://gevernova.wd5.myworkdayjobs.com/en-US/Vernova_ExternalSite/job/Oakbrook-Terrace/Electrical--Substation-Project-Engineer---2_R5050344-2",
+  "work_mode": ""
+ },
  "f26a8ca89376fb43": {
   "active": false,
   "band": "misfit",
@@ -13914,6 +14929,32 @@
   "source": "workday",
   "title": "Director, EMEA Data Center Operations Services & Supply Chain",
   "url": "https://vantagedc.wd1.myworkdayjobs.com/en-US/Vantage/job/Newport-Wales/Director--EMEA-Data-Center-Operations-Services---Supply-Chain_R24097",
+  "work_mode": ""
+ },
+ "f2f23053329ee034": {
+  "band": "weak",
+  "company": "Oracle",
+  "date_posted": "2026-08-31",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "US",
+  "locations": [
+   "US"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Director-level but the subject is fit-out cost estimating and vendor pricing negotiation, not power development or equipment engineering.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Senior Director of Estimating \u2014 Data Center Fit-Out Cost Strategy",
+  "url": "https://www.indeed.com/viewjob?jk=6f7b1c8811c46bb1",
   "work_mode": ""
  },
  "f3577e29feb7be35": {
@@ -14117,8 +15158,8 @@
   },
   "seniority_match": true,
   "source": "greenhouse",
-  "title": " Sr. Site Reliability Engineer, AI Infrastructure (Starshield)",
-  "url": "https://job-boards.greenhouse.io/spacex/jobs/8807816002",
+  "title": "Sr. Site Reliability Engineer, AI Infrastructure (Starshield)",
+  "url": "https://job-boards.greenhouse.io/spacex/jobs/8807844002",
   "work_mode": ""
  },
  "f86dc1df975f9777": {
@@ -14212,7 +15253,8 @@
   "first_seen_at": "2026-09-18T21:07:41Z",
   "location": "Oakland, CA, US, 94612",
   "locations": [
-   "Oakland, CA, US, 94612"
+   "Oakland, CA, US, 94612",
+   "Danville, CA, US, 94583"
   ],
   "lowscore": true,
   "pay": "$38.74/hr",
@@ -14430,6 +15472,35 @@
   "title": "Electrical Safety Engineer (AI Supercomputer) - Memphis",
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8756045002",
   "work_mode": "hybrid"
+ },
+ "fdab208746fbe63c": {
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-09-19",
+  "company": "Microsoft",
+  "date_posted": "2026-09-15",
+  "first_seen": "2026-09-19",
+  "first_seen_at": "2026-09-19T22:00:56Z",
+  "location": "United States, Washington, Redmond (+4 more)",
+  "locations": [
+   "United States, Washington, Redmond (+4 more)"
+  ],
+  "lowscore": true,
+  "pay": "USD $119,800 - $234,700 per year",
+  "priority": true,
+  "rationale": "Deep IC hardware engineering on chip-level DC-DC power delivery, not generation or development.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-19T22:03Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "microsoft",
+  "title": "Senior Hardware Engineer - DC/DC Power",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556998647",
+  "work_mode": "onsite"
  },
  "fe42a11515a03289": {
   "active": false,
