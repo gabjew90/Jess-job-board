@@ -2421,7 +2421,8 @@
   "location": "Rocklin, CA, US, 95765",
   "locations": [
    "Rocklin, CA, US, 95765",
-   "Oakland, CA, US, 94612"
+   "Oakland, CA, US, 94612",
+   "Eureka, CA, US, 95501"
   ],
   "pay": "$122,000",
   "priority": false,
@@ -3483,7 +3484,8 @@
   "location": "Oakland, CA, US, 94612",
   "locations": [
    "Oakland, CA, US, 94612",
-   "Concord, CA, US, 94518"
+   "Concord, CA, US, 94518",
+   "San Ramon, CA, US, 94583"
   ],
   "pay": "$252,000",
   "priority": false,
@@ -4846,7 +4848,9 @@
   "location": "Oakland, CA, US, 94612",
   "locations": [
    "Oakland, CA, US, 94612",
-   "Gilroy, CA, US, 95020"
+   "Gilroy, CA, US, 95020",
+   "Concord, CA, US, 94518",
+   "San Ramon, CA, US, 94583"
   ],
   "lowscore": true,
   "pay": "$120,888",
@@ -7944,7 +7948,8 @@
   "location": "United States, Texas, Abilene",
   "locations": [
    "United States, Texas, Abilene",
-   "United States, Wyoming, Cheyenne"
+   "United States, Wyoming, Cheyenne",
+   "United States, Washington, Quincy"
   ],
   "lowscore": true,
   "pay": "USD $84,400 - $168,800 per year",
@@ -7960,7 +7965,7 @@
   "seniority_match": false,
   "source": "microsoft",
   "title": "Data Center Program Manager",
-  "url": "https://apply.careers.microsoft.com/careers/job/1970393556990455",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556986816",
   "work_mode": "onsite"
  },
  "84cf3d06894d8ae0": {
@@ -9013,7 +9018,8 @@
    "West Sacramento, CA, US, 95605",
    "Fresno, CA, US, 93720",
    "Oakland, CA, US, 94612",
-   "San Ramon, CA, US, 94583"
+   "San Ramon, CA, US, 94583",
+   "Gilroy, CA, US, 95020"
   ],
   "pay": "$144,000",
   "priority": false,
@@ -10401,7 +10407,8 @@
   "location": "Oakland, CA, US, 94612",
   "locations": [
    "Oakland, CA, US, 94612",
-   "San Carlos, CA, US, 94070"
+   "San Carlos, CA, US, 94070",
+   "Eureka, CA, US, 95501"
   ],
   "pay": "$140,000",
   "priority": false,
@@ -11110,7 +11117,7 @@
   "seniority_match": true,
   "source": "greenhouse",
   "title": "Sr. Counsel, Real Estate & Infrastructure",
-  "url": "https://job-boards.greenhouse.io/spacex/jobs/8806151002",
+  "url": "https://job-boards.greenhouse.io/spacex/jobs/8808149002",
   "work_mode": "onsite"
  },
  "b68882564a241a12": {
@@ -15159,7 +15166,7 @@
   "seniority_match": true,
   "source": "greenhouse",
   "title": "Sr. Site Reliability Engineer, AI Infrastructure (Starshield)",
-  "url": "https://job-boards.greenhouse.io/spacex/jobs/8807844002",
+  "url": "https://job-boards.greenhouse.io/spacex/jobs/8807816002",
   "work_mode": ""
  },
  "f86dc1df975f9777": {
@@ -15254,7 +15261,8 @@
   "location": "Oakland, CA, US, 94612",
   "locations": [
    "Oakland, CA, US, 94612",
-   "Danville, CA, US, 94583"
+   "Danville, CA, US, 94583",
+   "Hayward, CA, US, 94545"
   ],
   "lowscore": true,
   "pay": "$38.74/hr",
