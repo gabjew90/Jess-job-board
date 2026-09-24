@@ -58,5 +58,16 @@
    "weak": 24,
    "misfit": 8
   }
+ },
+ {
+  "date": "2026-09-24",
+  "scored": 85,
+  "bands": {
+   "weak": 36,
+   "misfit": 34,
+   "possible": 5,
+   "strong": 7,
+   "top": 3
+  }
  }
 ]
