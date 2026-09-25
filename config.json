@@ -15,10 +15,8 @@
     "Calpine",
     "Vistra",
     "NRG Energy",
-    "Talen Energy",
     "Constellation Energy",
     "Competitive Power Ventures",
-    "Invenergy",
     "Tenaska",
     "Stonepeak",
     "Energy Capital Partners",
@@ -105,6 +103,11 @@
       "provider": "greenhouse",
       "board": "aligned",
       "company": "Aligned Data Centers"
+    },
+    {
+      "provider": "lever",
+      "board": "cleanspark",
+      "company": "CleanSpark"
     }
   ],
   "workday_boards": [
@@ -161,6 +164,30 @@
       "tenant": "solvenergy",
       "site": "SOLV_External_Career",
       "company": "SOLV Energy"
+    },
+    {
+      "host": "talenenergy.wd1.myworkdayjobs.com",
+      "tenant": "talenenergy",
+      "site": "TalenCareers",
+      "company": "Talen Energy"
+    },
+    {
+      "host": "invenergyllc.wd1.myworkdayjobs.com",
+      "tenant": "invenergyllc",
+      "site": "invenergycareers",
+      "company": "Invenergy"
+    },
+    {
+      "host": "aep.wd1.myworkdayjobs.com",
+      "tenant": "aep",
+      "site": "AEPCareerSite",
+      "company": "American Electric Power"
+    },
+    {
+      "host": "iberdrola.wd3.myworkdayjobs.com",
+      "tenant": "iberdrola",
+      "site": "Iberdrola",
+      "company": "Avangrid"
     }
   ],
   "successfactors_boards": [
