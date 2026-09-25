@@ -2244,6 +2244,341 @@
      "error": null
     }
    }
+  },
+  {
+   "date": "2026-09-25 22:52",
+   "sources": {
+    "indeed-watch:Calpine": {
+     "ok": true,
+     "count": 2,
+     "error": null
+    },
+    "indeed-watch:Vistra": {
+     "ok": true,
+     "count": 7,
+     "error": null
+    },
+    "indeed-watch:NRG Energy": {
+     "ok": true,
+     "count": 0,
+     "error": null
+    },
+    "indeed-watch:Constellation Energy": {
+     "ok": true,
+     "count": 46,
+     "error": null
+    },
+    "indeed-watch:Competitive Power Ventures": {
+     "ok": true,
+     "count": 1,
+     "error": null
+    },
+    "indeed-watch:Tenaska": {
+     "ok": true,
+     "count": 1,
+     "error": null
+    },
+    "indeed-watch:Stonepeak": {
+     "ok": true,
+     "count": 0,
+     "error": null
+    },
+    "indeed-watch:Energy Capital Partners": {
+     "ok": true,
+     "count": 0,
+     "error": null
+    },
+    "indeed-watch:ArcLight Capital": {
+     "ok": true,
+     "count": 0,
+     "error": null
+    },
+    "indeed-watch:KKR": {
+     "ok": true,
+     "count": 1,
+     "error": null
+    },
+    "indeed-watch:Quantum Capital Group": {
+     "ok": true,
+     "count": 0,
+     "error": null
+    },
+    "indeed-watch:QTS Data Centers": {
+     "ok": true,
+     "count": 27,
+     "error": null
+    },
+    "indeed-watch:Switch": {
+     "ok": true,
+     "count": 1,
+     "error": null
+    },
+    "indeed-watch:Compass Datacenters": {
+     "ok": true,
+     "count": 0,
+     "error": null
+    },
+    "indeed-watch:Digital Realty": {
+     "ok": true,
+     "count": 11,
+     "error": null
+    },
+    "indeed-watch:CyrusOne": {
+     "ok": true,
+     "count": 12,
+     "error": null
+    },
+    "indeed-watch:EdgeConneX": {
+     "ok": true,
+     "count": 0,
+     "error": null
+    },
+    "indeed-watch:STACK Infrastructure": {
+     "ok": true,
+     "count": 7,
+     "error": null
+    },
+    "indeed-watch:CloudHQ": {
+     "ok": true,
+     "count": 1,
+     "error": null
+    },
+    "indeed-watch:Prometheus Hyperscale": {
+     "ok": true,
+     "count": 0,
+     "error": null
+    },
+    "indeed-watch:Core Scientific": {
+     "ok": true,
+     "count": 0,
+     "error": null
+    },
+    "indeed-watch:TeraWulf": {
+     "ok": true,
+     "count": 0,
+     "error": null
+    },
+    "indeed-watch:Lancium": {
+     "ok": true,
+     "count": 1,
+     "error": null
+    },
+    "indeed-watch:Oracle": {
+     "ok": true,
+     "count": 50,
+     "error": null
+    },
+    "indeed-watch:Enchanted Rock": {
+     "ok": true,
+     "count": 3,
+     "error": null
+    },
+    "indeed-watch:VoltaGrid": {
+     "ok": true,
+     "count": 3,
+     "error": null
+    },
+    "indeed-watch:PowerSecure": {
+     "ok": true,
+     "count": 1,
+     "error": null
+    },
+    "indeed-watch:Solaris Energy Infrastructure": {
+     "ok": true,
+     "count": 0,
+     "error": null
+    },
+    "indeed-watch:ProEnergy": {
+     "ok": true,
+     "count": 15,
+     "error": null
+    },
+    "indeed-watch:Siemens Energy": {
+     "ok": true,
+     "count": 35,
+     "error": null
+    },
+    "indeed-watch:Mitsubishi Power": {
+     "ok": true,
+     "count": 17,
+     "error": null
+    },
+    "indeed-watch:Blue Origin": {
+     "ok": true,
+     "count": 50,
+     "error": null
+    },
+    "indeed-watch:Anduril": {
+     "ok": true,
+     "count": 39,
+     "error": null
+    },
+    "indeed-watch:Tesla": {
+     "ok": true,
+     "count": 50,
+     "error": null
+    },
+    "indeed-watch:Sempra": {
+     "ok": true,
+     "count": 1,
+     "error": null
+    },
+    "indeed-watch:San Diego Gas & Electric": {
+     "ok": true,
+     "count": 0,
+     "error": null
+    },
+    "jobspy:indeed": {
+     "ok": true,
+     "count": 350,
+     "error": null
+    },
+    "microsoft": {
+     "ok": true,
+     "count": 40,
+     "error": "429 Client Error: Too Many Requests for url: https://apply.careers.microsoft.com/api/pcsx/search?domain=microsoft.com&query=data+center+power&location=United+States&num=20"
+    },
+    "amazon": {
+     "ok": true,
+     "count": 21,
+     "error": null
+    },
+    "google": {
+     "ok": true,
+     "count": 26,
+     "error": null
+    },
+    "greenhouse:spacex": {
+     "ok": true,
+     "count": 2589,
+     "error": null
+    },
+    "ashby:crusoe": {
+     "ok": true,
+     "count": 351,
+     "error": null
+    },
+    "greenhouse:coreweave": {
+     "ok": true,
+     "count": 305,
+     "error": null
+    },
+    "edged:all": {
+     "ok": true,
+     "count": 68,
+     "error": null
+    },
+    "greenhouse:hut8": {
+     "ok": true,
+     "count": 43,
+     "error": null
+    },
+    "greenhouse:sbenergy": {
+     "ok": true,
+     "count": 47,
+     "error": null
+    },
+    "ashby:generate": {
+     "ok": true,
+     "count": 19,
+     "error": null
+    },
+    "greenhouse:digitalbridge": {
+     "ok": true,
+     "count": 5,
+     "error": null
+    },
+    "greenhouse:aligned": {
+     "ok": true,
+     "count": 8,
+     "error": null
+    },
+    "lever:cleanspark": {
+     "ok": true,
+     "count": 12,
+     "error": null
+    },
+    "workday:gevernova": {
+     "ok": true,
+     "count": 96,
+     "error": null
+    },
+    "workday:brookfield": {
+     "ok": true,
+     "count": 36,
+     "error": null
+    },
+    "workday:blackstone": {
+     "ok": true,
+     "count": 29,
+     "error": null
+    },
+    "workday:vantagedc": {
+     "ok": true,
+     "count": 69,
+     "error": null
+    },
+    "workday:bloomenergy": {
+     "ok": true,
+     "count": 54,
+     "error": null
+    },
+    "workday:equinix": {
+     "ok": true,
+     "count": 57,
+     "error": null
+    },
+    "workday:nisource": {
+     "ok": true,
+     "count": 31,
+     "error": null
+    },
+    "workday:wgl": {
+     "ok": true,
+     "count": 22,
+     "error": null
+    },
+    "workday:solvenergy": {
+     "ok": true,
+     "count": 65,
+     "error": null
+    },
+    "workday:talenenergy": {
+     "ok": true,
+     "count": 13,
+     "error": null
+    },
+    "workday:invenergyllc": {
+     "ok": true,
+     "count": 61,
+     "error": null
+    },
+    "workday:aep": {
+     "ok": true,
+     "count": 73,
+     "error": null
+    },
+    "workday:iberdrola": {
+     "ok": true,
+     "count": 56,
+     "error": null
+    },
+    "successfactors:PG&E": {
+     "ok": true,
+     "count": 73,
+     "error": null
+    },
+    "successfactors:NextEra Energy": {
+     "ok": true,
+     "count": 42,
+     "error": null
+    },
+    "adp:Applied Digital": {
+     "ok": true,
+     "count": 7,
+     "error": null
+    }
+   }
   }
  ]
 }

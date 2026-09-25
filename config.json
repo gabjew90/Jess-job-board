@@ -23,7 +23,6 @@
     "ArcLight Capital",
     "KKR",
     "Quantum Capital Group",
-    "QTS Data Centers",
     "Switch",
     "Compass Datacenters",
     "Digital Realty",
@@ -188,6 +187,18 @@
       "tenant": "iberdrola",
       "site": "Iberdrola",
       "company": "Avangrid"
+    },
+    {
+      "host": "shell.wd3.myworkdayjobs.com",
+      "tenant": "shell",
+      "site": "shellcareers",
+      "company": "Shell"
+    },
+    {
+      "host": "qtsdatacenters.wd5.myworkdayjobs.com",
+      "tenant": "qtsdatacenters",
+      "site": "qts",
+      "company": "QTS"
     }
   ],
   "successfactors_boards": [
