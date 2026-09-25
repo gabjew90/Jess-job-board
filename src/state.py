@@ -90,7 +90,8 @@ def split_new(jobs: list[Job], state: dict) -> list[Job]:
                 if job.location and job.location not in locs:
                     locs.append(job.location)
                 for field, value in (("date_posted", job.date_posted),
-                                     ("pay", job.pay), ("work_mode", job.work_mode)):
+                                     ("pay", job.pay), ("work_mode", job.work_mode),
+                                     ("apply_url", job.apply_url)):
                     if value and not twin.get(field):
                         twin[field] = value
                 continue
@@ -98,7 +99,8 @@ def split_new(jobs: list[Job], state: dict) -> list[Job]:
             # Backfill fields added after this record was first stored.
             rec = state[job.job_id]
             for field, value in (("date_posted", job.date_posted),
-                                 ("pay", job.pay), ("work_mode", job.work_mode)):
+                                 ("pay", job.pay), ("work_mode", job.work_mode),
+                                 ("apply_url", job.apply_url)):
                 if value and not rec.get(field):
                     rec[field] = value
             continue
@@ -114,6 +116,7 @@ def split_new(jobs: list[Job], state: dict) -> list[Job]:
             "date_posted": job.date_posted,
             "pay": job.pay,
             "work_mode": job.work_mode,
+            "apply_url": job.apply_url,
             "locations": [job.location],
         }
         twins[twin_key(job.company, job.title, job.location)] = state[job.job_id]

@@ -15,40 +15,6 @@ from .models import Job
 log = logging.getLogger(__name__)
 
 
-AGGREGATOR_SOURCES = {"indeed", "glassdoor", "zip_recruiter", "google"}
-
-
-def coverage_suggestions(seen: dict, config: dict) -> list[str]:
-    """Companies whose postings score >=70 but reach us only via aggregators
-    — candidates for a direct board. Suggested once, the day the company
-    first crosses the bar."""
-    from datetime import datetime, timezone
-    from .util import company_key
-    direct = {company_key(e.get("company", ""))
-              for key in ("ats_boards", "workday_boards", "successfactors_boards",
-                          "career_sites")
-              for e in config.get(key, [])}
-    # Watched employers are deliberately boardless (no reachable ATS) —
-    # per the coverage doctrine they are covered, not candidates.
-    direct |= {company_key(c) for c in config.get("indeed_company_watch", [])}
-    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    by_company: dict[str, list[dict]] = {}
-    for r in seen.values():
-        if r.get("active", True) and r.get("company"):
-            by_company.setdefault(r["company"], []).append(r)
-    out = []
-    for company, recs in by_company.items():
-        if company_key(company) in direct:
-            continue
-        if not all(r.get("source") in AGGREGATOR_SOURCES for r in recs):
-            continue
-        best = max(recs, key=lambda r: r.get("score") or 0)
-        if (best.get("score") or 0) >= 70 and best.get("first_seen") == today:
-            out.append(f"**{company}** (top {best['score']}: "
-                       f"{_esc(best.get('title', ''), 55)})")
-    return out[:6]
-
-
 def _esc(text: str, limit: int = 0) -> str:
     text = (text or "").replace("|", "\\|").replace("\n", " ").strip()
     return text[:limit] + "…" if limit and len(text) > limit else text
@@ -66,7 +32,7 @@ def build_digest(records: list[dict],
                  health_summary: list[dict] | None = None,
                  closed_recs: list[dict] | None = None,
                  digest_floor: int = 40,
-                 suggestions: list[str] | None = None,
+                 unresolved: list[dict] | None = None,
                  audit_recs: list[dict] | None = None,
                  discovered: list[dict] | None = None,
                  reject_audit: list[dict] | None = None,
@@ -154,11 +120,15 @@ def build_digest(records: list[dict],
                      "(canonical links, full descriptions, exact expiry):")
         lines += [f"- **{d['company']}** — {d['provider']} `{d['board']}`"
                   for d in discovered]
-    if suggestions:
-        lines.append("\n## 🔭 Coverage suggestions\n")
-        lines.append("High scorers from companies we only see via aggregators "
-                     "— name one in chat to get its direct board probed:")
-        lines += [f"- {s}" for s in suggestions]
+    if unresolved:
+        lines.append("\n## 🔭 No direct board found\n")
+        lines.append("Strong roles from these companies reach us only through "
+                     "Indeed. Their postings linked no careers board we can "
+                     "read and no board guess matched. Retried automatically "
+                     "in 30 days, or sooner if a new posting links a board:")
+        for u in sorted(unresolved, key=lambda u: -(u.get("score") or 0)):
+            lines.append(f"- **{_esc(u['company'])}** (top {u['score']}: "
+                         f"{_esc(u.get('title', ''), 55)})")
     unhealthy = [s for s in health_summary or [] if s["status"] != "ok"]
     if unhealthy:
         lines.append("\n## ⚠️ Source issues\n")
@@ -177,7 +147,7 @@ def post_issue(records: list[dict],
                health_summary: list[dict] | None = None,
                closed_recs: list[dict] | None = None,
                digest_floor: int = 40,
-               suggestions: list[str] | None = None,
+               unresolved: list[dict] | None = None,
                audit_recs: list[dict] | None = None,
                discovered: list[dict] | None = None,
                reject_audit: list[dict] | None = None,
@@ -193,7 +163,7 @@ def post_issue(records: list[dict],
     if closed_recs:
         title += f", {len(closed_recs)} closed"
     body = build_digest(records, health_summary, closed_recs,
-                        digest_floor, suggestions, audit_recs, discovered,
+                        digest_floor, unresolved, audit_recs, discovered,
                         reject_audit, screen_stats)
 
     if not token or not repo:

@@ -20,6 +20,9 @@ class Job:
     pay: str = ""
     work_mode: str = ""  # onsite | hybrid | remote | ""
     priority: bool = False
+    # The employer's own apply link, when an aggregator passes one through
+    # (Indeed usually does). It names the company's real careers board.
+    apply_url: str = ""
 
     @property
     def job_id(self) -> str:
