@@ -111,15 +111,18 @@ def main() -> None:
     # only see via aggregators get their direct board found and wired in, so
     # future postings arrive with canonical links, descriptions and exact
     # expiry instead of an aggregator copy that dies on its own schedule.
-    discovered = discovery.run(seen, config)
+    discovered, unresolved = discovery.run(seen, config)
     if discovered:
         cfg_path = Path("config.json")
         cfg = json.loads(cfg_path.read_text())
-        cfg["ats_boards"].extend(discovered)
-        watch_out = {d["company"].lower() for d in discovered}
-        cfg["indeed_company_watch"] = [c for c in cfg.get("indeed_company_watch", [])
-                                       if c.lower() not in watch_out]
+        for d in discovered:
+            cfg.setdefault(d["kind"], []).append(d["entry"])
+        # A wired company no longer needs its Indeed watch query.
+        cfg["indeed_company_watch"] = [
+            c for c in cfg.get("indeed_company_watch", [])
+            if not any(discovery.same_org(c, d["company"]) for d in discovered)]
         cfg_path.write_text(json.dumps(cfg, indent=2) + "\n")
+        config = cfg
         for d in discovered:
             log.info("Wired direct board: %s via %s/%s",
                      d["company"], d["provider"], d["board"])
@@ -142,7 +145,6 @@ def main() -> None:
     if new_jobs or closed_recs:
         # Digest floor never sits below the archive floor.
         digest_floor = max(config.get("digest_min_score", 40), archive_floor)
-        suggestions = notify.coverage_suggestions(seen, config)
         # Weekly (Mondays): sample archived records for hand-grading — the
         # archive filter's false-negative rate is invisible otherwise.
         audit_recs, reject_audit = [], []
@@ -159,7 +161,7 @@ def main() -> None:
         log.info("Digest: %d postings in the last %dh (%d new this run)",
                  len(window), window_h, len(new_jobs))
         notify.post_issue(window, health.summary(), closed_recs,
-                          digest_floor, suggestions, audit_recs, discovered,
+                          digest_floor, unresolved, audit_recs, discovered,
                           reject_audit, screen_stats)
     else:
         log.info("No new or closed postings; skipping notification.")

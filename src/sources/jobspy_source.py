@@ -69,6 +69,7 @@ def fetch(config: dict) -> list[Job]:
                     date_posted=_s(row.get("date_posted")),
                     pay=_pay(row),
                     work_mode=_mode(row),
+                    apply_url=_s(row.get("job_url_direct")),
                 ))
             log.info("jobspy company-watch %r: %d results", company, len(df))
             health.record(label, ok=True, count=len(df))
@@ -103,6 +104,7 @@ def fetch(config: dict) -> list[Job]:
                         date_posted=_s(row.get("date_posted")),
                         pay=_pay(row),
                         work_mode=_mode(row),
+                        apply_url=_s(row.get("job_url_direct")),
                     ))
                 log.info("jobspy %s / %r: %d results", site, term, len(df))
                 health.record(f"jobspy:{site}", ok=True, count=len(df))
