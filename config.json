@@ -199,6 +199,12 @@
       "tenant": "qtsdatacenters",
       "site": "qts",
       "company": "QTS"
+    },
+    {
+      "host": "aes.wd1.myworkdayjobs.com",
+      "tenant": "aes",
+      "site": "aes_clean_energy",
+      "company": "AES Corporation"
     }
   ],
   "successfactors_boards": [

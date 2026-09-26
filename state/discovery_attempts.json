@@ -1,4 +1,10 @@
 {
+ "aes": {
+  "boards": [
+   "workday:aes.wd1.myworkdayjobs.com/aes_clean_energy"
+  ],
+  "date": "2026-09-26"
+ },
  "atlantica sustainable infrastructure": {
   "boards": [],
   "date": "2026-09-25"
@@ -7,9 +13,21 @@
   "boards": [],
   "date": "2026-09-25"
  },
+ "engie": {
+  "boards": [],
+  "date": "2026-09-26"
+ },
+ "naes": {
+  "boards": [],
+  "date": "2026-09-26"
+ },
  "oracle": {
   "boards": [],
   "date": "2026-09-25"
+ },
+ "proenergy services": {
+  "boards": [],
+  "date": "2026-09-26"
  },
  "qts": {
   "boards": [
@@ -27,6 +45,14 @@
   ],
   "date": "2026-09-25"
  },
+ "spacexai": {
+  "boards": [],
+  "date": "2026-09-26"
+ },
+ "srp": {
+  "boards": [],
+  "date": "2026-09-26"
+ },
  "stack infrastructure us": {
   "boards": [],
   "date": "2026-09-25"
@@ -34,5 +60,9 @@
  "tesla": {
   "boards": [],
   "date": "2026-09-25"
+ },
+ "world bank": {
+  "boards": [],
+  "date": "2026-09-26"
  }
 }
