@@ -455,6 +455,33 @@
   "url": "https://www.indeed.com/viewjob?jk=94e0ecf6bf82445b",
   "work_mode": ""
  },
+ "03853c7222f9860d": {
+  "apply_url": "",
+  "band": "possible",
+  "company": "SOLV Energy",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "49 Locations",
+  "locations": [
+   "49 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Senior HV PM at SOLV \u2014 HV/interconnection-adjacent construction leadership, EPC-side but senior scope and remote.",
+  "score": 55,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Senior HV Project Manager (Remote)",
+  "url": "https://solvenergy.wd1.myworkdayjobs.com/en-US/SOLV_External_Career/job/Remote---CA/Senior-HV-Project-Manager--Remote-_J12893",
+  "work_mode": "remote"
+ },
  "04791643ed9913e9": {
   "active": false,
   "band": "misfit",
@@ -717,7 +744,8 @@
   "first_seen_at": "2026-09-23T22:46:20Z",
   "location": "Houston, TX, US",
   "locations": [
-   "Houston, TX, US"
+   "Houston, TX, US",
+   "Houston, TX"
   ],
   "pay": "",
   "priority": true,
@@ -730,9 +758,9 @@
    "rubric": "86b5faf1d6"
   },
   "seniority_match": true,
-  "source": "indeed",
+  "source": "workday",
   "title": "Director, Development Permitting & Environmental",
-  "url": "https://www.indeed.com/viewjob?jk=436a2e8a57bd61c5",
+  "url": "https://talenenergy.wd1.myworkdayjobs.com/en-US/TalenCareers/job/Houston-TX/Director--Development-Permitting---Environmental_R0004252",
   "work_mode": ""
  },
  "06831083163f5d8b": {
@@ -873,6 +901,36 @@
   "source": "workday",
   "title": "Data Center Critical Facilities VI (Shift lead)",
   "url": "https://equinix.wd1.myworkdayjobs.com/en-US/External/job/Sydney/Data-Center-Critical-Facilities-VI--Shift-lead-_JR-161198",
+  "work_mode": ""
+ },
+ "074515ed3c756e09": {
+  "active": false,
+  "apply_url": "",
+  "band": "misfit",
+  "closed": "2026-09-27",
+  "company": "Equinix",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Sydney",
+  "locations": [
+   "Sydney"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "Data Centre Operations leadership \u2014 running existing facilities, the operations near-miss pattern applied to data centers.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Senior Director, Data Centre Operations, Australia",
+  "url": "https://equinix.wd1.myworkdayjobs.com/en-US/External/job/Sydney/Senior-Director--Data-Centre-Operations--Australia_JR-163361",
   "work_mode": ""
  },
  "075f95a4c03910af": {
@@ -1148,6 +1206,33 @@
   "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/US-GA-Peach-Tree/Analyst--Energy-Strategy---Operations_R2026-1829-1",
   "work_mode": ""
  },
+ "0b9040286cd8c460": {
+  "apply_url": "",
+  "band": "possible",
+  "company": "QTS",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Eagle Mountain, UT",
+  "locations": [
+   "Eagle Mountain, UT"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Development PM role at QTS but scoped to quality systems rather than power/commercial development content.",
+  "score": 55,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Development Project Manager Q-Systems Quality",
+  "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/Eagle-Mountain-UT/Development-Project-Manager-Q-Systems-Quality_R2026-1974-2",
+  "work_mode": ""
+ },
  "0bcc4cbf6cf8cb55": {
   "band": "strong",
   "company": "QTS",
@@ -1337,6 +1422,33 @@
   "url": "https://jobs.ashbyhq.com/generate/5580609d-ec6b-4bb4-8ca8-dd81be483154",
   "work_mode": "remote"
  },
+ "0e0df04947308633": {
+  "apply_url": "",
+  "band": "top",
+  "company": "Invenergy",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Denver, CO",
+  "locations": [
+   "Denver, CO"
+  ],
+  "pay": "",
+  "priority": true,
+  "rationale": "Manager, Origination at Invenergy is the unambiguous primary target: development/origination, manager level, top-tier IPP employer.",
+  "score": 90,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Manager, Origination",
+  "url": "https://invenergyllc.wd1.myworkdayjobs.com/en-US/invenergycareers/job/Denver-CO/Manager--Origination_R11110-1",
+  "work_mode": ""
+ },
  "0e1eb7319d1a1290": {
   "apply_url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/Ashburn-VA/Project-Delivery-Manager-II_R2026-2009-2",
   "band": "weak",
@@ -1391,6 +1503,33 @@
   "title": "Category Manager, Electrical Equipment - Data Center Supply Chain",
   "url": "https://job-boards.greenhouse.io/sbenergy/jobs/6143373004",
   "work_mode": "hybrid"
+ },
+ "0e882f15444c4435": {
+  "apply_url": "",
+  "band": "strong",
+  "company": "American Electric Power",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "2 Locations",
+  "locations": [
+   "2 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Siting for new nuclear generation development at a major utility is squarely the siting/site-acquisition development category.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Siting Project Manager - Nuclear Dev - Columbus, OH / Dallas, TX",
+  "url": "https://aep.wd1.myworkdayjobs.com/en-US/AEPCareerSite/job/Columbus-OH/Siting-Project-Manager---Nuclear-Dev---Columbus--OH---Dallas--TX_R19343",
+  "work_mode": ""
  },
  "0e8ec78722e0a83b": {
   "active": false,
@@ -2032,7 +2171,7 @@
   },
   "seniority_match": true,
   "source": "workday",
-  "title": "Project Manager (Staff - Staff Sr.) | NEW GENERATION (Construction Utility Projects) - Charleston, WV",
+  "title": "Project Manager (Staff \u2013 Staff Sr.) | NEW GENERATION (Columbus, OH)",
   "url": "https://aep.wd1.myworkdayjobs.com/en-US/AEPCareerSite/job/Columbus-OH/Project-Manager--Staff---Staff-Sr----NEW-GENERATION--Columbus--OH-_R18495",
   "work_mode": "onsite"
  },
@@ -2201,6 +2340,33 @@
   "title": "Sr. Procurement Manager - Data Center Retrofits",
   "url": "https://apply.careers.microsoft.com/careers/job/1970393556977327",
   "work_mode": "onsite"
+ },
+ "15d293a768e9e98c": {
+  "apply_url": "",
+  "band": "weak",
+  "company": "SOLV Energy",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "47 Locations",
+  "locations": [
+   "47 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Same EPC-side HV construction PM profile as the other SOLV postings, remote but still field-delivery focused.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "HV Project Manager (Remote)",
+  "url": "https://solvenergy.wd1.myworkdayjobs.com/en-US/SOLV_External_Career/job/Remote---CA/HV-Project-Manager_J13268",
+  "work_mode": "remote"
  },
  "16162ebf930d48bd": {
   "band": "weak",
@@ -2581,6 +2747,33 @@
   "source": "indeed",
   "title": "Director, Project Development - Gas-Fired Power Plant",
   "url": "https://www.indeed.com/viewjob?jk=aef87efadc242754",
+  "work_mode": ""
+ },
+ "198056fd3193832c": {
+  "apply_url": "",
+  "band": "strong",
+  "company": "Invenergy",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Chicago, IL",
+  "locations": [
+   "Chicago, IL"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Commercial Contracts Manager at Invenergy (major IPP) fits the PPA/tolling commercial-development sweet spot.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Manager, Commercial Contracts",
+  "url": "https://invenergyllc.wd1.myworkdayjobs.com/en-US/invenergycareers/job/Chicago-IL/Manager--Commercial-Contracts_R10893-2",
   "work_mode": ""
  },
  "1984948087ddd32f": {
@@ -3225,7 +3418,9 @@
   "first_seen_at": "2026-09-18T21:07:41Z",
   "location": "West, TX, US",
   "locations": [
-   "West, TX, US"
+   "West, TX, US",
+   "EUR UK Remote",
+   "Fayetteville, GA"
   ],
   "pay": "",
   "priority": false,
@@ -3238,9 +3433,9 @@
    "rubric": "deae532890"
   },
   "seniority_match": true,
-  "source": "indeed",
+  "source": "workday",
   "title": "Development Project Manager",
-  "url": "https://www.indeed.com/viewjob?jk=f0bd42a0c8f9823a",
+  "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/Fayetteville-GA/Development-Project-Manager_R2026-1785-1",
   "work_mode": ""
  },
  "1f151f258d9af347": {
@@ -3278,7 +3473,8 @@
   "first_seen_at": "2026-09-26T22:39:19Z",
   "location": "Houston, TX, US",
   "locations": [
-   "Houston, TX, US"
+   "Houston, TX, US",
+   "US, Flexible, TX"
   ],
   "pay": "",
   "priority": true,
@@ -3291,9 +3487,9 @@
    "rubric": "86b5faf1d6"
   },
   "seniority_match": true,
-  "source": "indeed",
+  "source": "workday",
   "title": "Permitting Project Manager-1",
-  "url": "https://www.indeed.com/viewjob?jk=b424510db67bf960",
+  "url": "https://aes.wd1.myworkdayjobs.com/en-US/aes_clean_energy/job/US-Flexible-TX/Permitting-Project-Manager-1_R1065071-2",
   "work_mode": "remote"
  },
  "205213fff2d87915": {
@@ -3850,6 +4046,33 @@
   "source": "ashby",
   "title": "Senior Paralegal",
   "url": "https://jobs.ashbyhq.com/generate/ebf38c06-9c92-4611-8da2-fdf1c9b8332c",
+  "work_mode": "remote"
+ },
+ "269e8a8188381600": {
+  "apply_url": "",
+  "band": "possible",
+  "company": "SOLV Energy",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "48 Locations",
+  "locations": [
+   "48 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "SVP over SOLV's HV business line is senior EPC-side leadership on transmission-adjacent work, but VP+ level exceeds her target scope and it's vendor- not owner-side.",
+  "score": 55,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Senior Vice President, High Voltage (Remote)",
+  "url": "https://solvenergy.wd1.myworkdayjobs.com/en-US/SOLV_External_Career/job/Remote---CA/Senior-Vice-President--High-Voltage--Remote-_J13328",
   "work_mode": "remote"
  },
  "2722e756a094e996": {
@@ -4731,6 +4954,33 @@
   "url": "https://jobs.ashbyhq.com/crusoe/a02d7665-254c-439b-8771-b8eaa30addd0",
   "work_mode": ""
  },
+ "2ee34513bb26f071": {
+  "apply_url": "",
+  "band": "weak",
+  "company": "AltaGas",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Calgary, AB",
+  "locations": [
+   "Calgary, AB"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Commercial asset-management touch on generation assets is on-thesis, but 'Representative' title reads junior with no description to confirm scope.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "workday",
+  "title": "AltaGas - Representative, Asset Management Commercial",
+  "url": "https://wgl.wd5.myworkdayjobs.com/en-US/AltaGas/job/Calgary-AB/AltaGas---Representative--Asset-Management-Commercial_R7260-1",
+  "work_mode": ""
+ },
  "2efc7287abc91d8c": {
   "band": "possible",
   "company": "Xcel Energy",
@@ -5022,7 +5272,8 @@
   "first_seen_at": "2026-09-18T21:07:40Z",
   "location": "Cedar Rapids, IA, US",
   "locations": [
-   "Cedar Rapids, IA, US"
+   "Cedar Rapids, IA, US",
+   "Fayetteville, GA"
   ],
   "pay": "",
   "priority": false,
@@ -5035,9 +5286,9 @@
    "rubric": "deae532890"
   },
   "seniority_match": false,
-  "source": "indeed",
+  "source": "workday",
   "title": "Senior Development Project Engineer (Data Center Construction)",
-  "url": "https://www.indeed.com/viewjob?jk=14ba1f8f14a19926",
+  "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/Fayetteville-GA/Senior-Development-Project-Engineer--Data-Center-Construction-_R2026-0859",
   "work_mode": ""
  },
  "3386eaf4b7865234": {
@@ -5093,6 +5344,33 @@
   "source": "ashby",
   "title": "Infrastructure Project Manager",
   "url": "https://jobs.ashbyhq.com/crusoe/58374130-c292-4206-ab5f-a4491ce078e3",
+  "work_mode": ""
+ },
+ "33eabaf56c01a5cc": {
+  "apply_url": "",
+  "band": "weak",
+  "company": "QTS",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Cedar Rapids, IA",
+  "locations": [
+   "Cedar Rapids, IA"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Development PM at QTS scoped to security systems \u2014 development-adjacent title but no power or commercial content.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Development Project Manager Q Systems (Security)",
+  "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/Cedar-Rapids-IA/Development-Project-Manager--Security-_R2026-1488-1",
   "work_mode": ""
  },
  "342e289bcef9a068": {
@@ -5681,8 +5959,10 @@
   "work_mode": ""
  },
  "39426b92aeaa4d88": {
+  "active": false,
   "apply_url": "https://careers.westinghousenuclear.com/job/Cranberry-Township-Senior-Project-Engineer-NC/1433924500/",
   "band": "weak",
+  "closed": "2026-09-27",
   "company": "Westinghouse Electric Company, LLC",
   "date_posted": "2026-09-25",
   "first_seen": "2026-09-25",
@@ -5955,6 +6235,36 @@
   "url": "https://vantagedc.wd1.myworkdayjobs.com/en-US/Vantage/job/Cyberjaya-Malaysia/Senior-Director--Development-Delivery_R20121",
   "work_mode": ""
  },
+ "3c83d7f6e1400f8d": {
+  "active": false,
+  "apply_url": "",
+  "band": "misfit",
+  "closed": "2026-09-27",
+  "company": "NextEra Energy",
+  "date_posted": "2026-09-27",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Juno Beach, FL, US, 33408",
+  "locations": [
+   "Juno Beach, FL, US, 33408"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "Legal/regulatory advisory role with no generation, development, or technical power content.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "successfactors",
+  "title": "Principal Attorney - Energy Advisory",
+  "url": "https://jobs.nexteraenergy.com/job/Houston-Principal-Attorney-Energy-Advisory-TX-77002/1414625400/",
+  "work_mode": ""
+ },
  "3cb1f99bc7d19ef2": {
   "band": "possible",
   "company": "Invenergy",
@@ -5963,7 +6273,8 @@
   "first_seen_at": "2026-09-21T23:11:01Z",
   "location": "Chicago, IL, US",
   "locations": [
-   "Chicago, IL, US"
+   "Chicago, IL, US",
+   "Chicago, IL"
   ],
   "pay": "$129,000\u2013$165,000/yr",
   "priority": false,
@@ -5976,9 +6287,9 @@
    "rubric": "86b5faf1d6"
   },
   "seniority_match": true,
-  "source": "indeed",
+  "source": "workday",
   "title": "Manager, Strategy",
-  "url": "https://www.indeed.com/viewjob?jk=891f1fed175eb7ad",
+  "url": "https://invenergyllc.wd1.myworkdayjobs.com/en-US/invenergycareers/job/Chicago-IL/Manager--Strategy_R11478-1",
   "work_mode": "remote"
  },
  "3cd1b2f4e7ae9cc9": {
@@ -6258,6 +6569,33 @@
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8631444002",
   "work_mode": "onsite"
  },
+ "4075f574d4e97618": {
+  "apply_url": "",
+  "band": "strong",
+  "company": "Avangrid",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "United States Of America, Texas,",
+  "locations": [
+   "United States Of America, Texas,"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Senior Business Developer for ERCOT generation development at Avangrid is direct origination/development work.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Senior Business Developer - ERCOT Development",
+  "url": "https://iberdrola.wd3.myworkdayjobs.com/en-US/Iberdrola/job/United-States-Of-America-Texas/Senior-Business-Developer---ERCOT-Development_R-32949",
+  "work_mode": ""
+ },
  "40cf97e36bbefd93": {
   "active": false,
   "band": "weak",
@@ -6342,6 +6680,33 @@
   "source": "greenhouse",
   "title": "Structural Engineer, Launch Infrastructure (Starship)",
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8737416002",
+  "work_mode": ""
+ },
+ "41eadb1752a6f18b": {
+  "apply_url": "",
+  "band": "top",
+  "company": "AES Corporation",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "4 Locations",
+  "locations": [
+   "4 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Development Engineer at AES (IPP) is a direct title match to the conceptual-design/technology-selection development work she does today.",
+  "score": 90,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Development Engineer",
+  "url": "https://aes.wd1.myworkdayjobs.com/en-US/aes_clean_energy/job/US-Louisville-CO/Development-Engineer_R1064778-1",
   "work_mode": ""
  },
  "423d4af05da6f916": {
@@ -6929,6 +7294,33 @@
   "title": "Principal, Quantitative Power System Analyst",
   "url": "https://careers.pge.com/job/Oakland-Principal%2C-Quantitative-Power-System-Analyst-CA-94612/1410322000/",
   "work_mode": "hybrid"
+ },
+ "4693c39a1e81bbd6": {
+  "apply_url": "",
+  "band": "top",
+  "company": "QTS",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "West Texas, TX",
+  "locations": [
+   "West Texas, TX"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Senior Development Project Manager at QTS is owner-side data-center development leadership at the right seniority.",
+  "score": 90,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Senior Development Project Manager (WTX)",
+  "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/West-Texas-TX/Senior-Development-Project-Manager--WTX-_R2026-1872-1",
+  "work_mode": ""
  },
  "470d6943dc599fdf": {
   "apply_url": "",
@@ -7544,6 +7936,33 @@
   "url": "https://www.indeed.com/viewjob?jk=c4e9a9656f0c5a28",
   "work_mode": ""
  },
+ "4c68d1a37495e6f4": {
+  "apply_url": "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=4ed21fb4-b29a-428d-aecb-adba9f0ee0d9&ccId=19000101_000001&jobId=575061&source=IN&lang=en_US",
+  "band": "weak",
+  "company": "Onsite Partners, Inc",
+  "date_posted": "2026-09-27",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Columbus, OH, US",
+  "locations": [
+   "Columbus, OH, US"
+  ],
+  "pay": "$105,000\u2013$130,000/yr",
+  "priority": true,
+  "rationale": "Junior (3-5 yr) IC engineering support role doing cost estimation and feasibility for behind-the-meter development, not development ownership.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Energy Solutions Dev Engineer-DistributedGen",
+  "url": "https://www.indeed.com/viewjob?jk=e4eb27462303386b",
+  "work_mode": "onsite"
+ },
  "4d94db7d4f6e1c7f": {
   "band": "top",
   "company": "Edged U.S.",
@@ -7802,7 +8221,8 @@
   "locations": [
    "",
    "Houston, TX, US, 77002",
-   "Juno Beach, FL, US, 33408"
+   "Juno Beach, FL, US, 33408",
+   "Tucson, AZ, US, 85756"
   ],
   "pay": "",
   "priority": true,
@@ -8778,6 +9198,36 @@
   "url": "https://brookfield.wd5.myworkdayjobs.com/en-US/brookfield/job/Toronto-Ontario/Sr-Analyst--Global-Development_R2051965",
   "work_mode": ""
  },
+ "57b8d82b3abbfd9b": {
+  "active": false,
+  "apply_url": "https://careers-delta-americas.icims.com/jobs/1387/job?utm_source=indeed_integration&iis=Job%20Board&iisn=Indeed&indeed-apply-token=73a2d2b2a8d6d5c0a62696875eaebd669103652d3f0c2cd5445d3e66b1592b0f",
+  "band": "misfit",
+  "closed": "2026-09-27",
+  "company": "Delta Electronics (Americas) Ltd.",
+  "date_posted": "2026-09-25",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Morrisville, NC, US",
+  "locations": [
+   "Morrisville, NC, US"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": true,
+  "rationale": "Deep single-discipline electrical analysis (load flow, short-circuit, protection studies) plus BD/consulting support \u2014 the IC design-engineering profile that bands low regardless of domain.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Power Systems Engineer - Raleigh, NC",
+  "url": "https://www.indeed.com/viewjob?jk=94178bf454d9902e",
+  "work_mode": ""
+ },
  "57c17d33bb2090b2": {
   "active": false,
   "band": "misfit",
@@ -9100,7 +9550,8 @@
   "first_seen_at": "2026-09-26T22:39:19Z",
   "location": "Juno Beach, FL, US, 33408",
   "locations": [
-   "Juno Beach, FL, US, 33408"
+   "Juno Beach, FL, US, 33408",
+   "Pueblo, CO, US, 81006"
   ],
   "pay": "",
   "priority": false,
@@ -9256,6 +9707,33 @@
   "source": "workday",
   "title": "Senior Engineer Interconnections & Grid Analysis",
   "url": "https://invenergyllc.wd1.myworkdayjobs.com/en-US/invenergycareers/job/Chicago-IL/Senior-Engineer-Interconnections---Grid-Analysis_R11146-1",
+  "work_mode": ""
+ },
+ "5b13c482590d12d2": {
+  "apply_url": "",
+  "band": "strong",
+  "company": "AES Corporation",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "4 Locations",
+  "locations": [
+   "4 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Principal Engineer over Thermal Projects at AES reads as technology/project ownership for gas-fired development, not single-discipline design.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Principal Engineer - Thermal Projects",
+  "url": "https://aes.wd1.myworkdayjobs.com/en-US/aes_clean_energy/job/US-Louisville-CO/Principal-Engineer---Thermal-Projects_R1064922-2",
   "work_mode": ""
  },
  "5b5828e1fa1a9fe3": {
@@ -9789,6 +10267,33 @@
   "source": "workday",
   "title": "Technical Director Electrical Engineering",
   "url": "https://vantagedc.wd1.myworkdayjobs.com/en-US/Vantage/job/London-England/Technical-Director-Electrical-Engineering_R23057-1",
+  "work_mode": ""
+ },
+ "5ff7cd32cdcb6b42": {
+  "apply_url": "",
+  "band": "top",
+  "company": "Invenergy",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Chicago, IL",
+  "locations": [
+   "Chicago, IL"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Manager, Thermal Contracts at Invenergy is commercial structuring for gas-fired generation at manager level \u2014 direct thesis match.",
+  "score": 90,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Manager, Thermal Contracts",
+  "url": "https://invenergyllc.wd1.myworkdayjobs.com/en-US/invenergycareers/job/Chicago-IL/Manager--Thermal-Contracts_R11163-1",
   "work_mode": ""
  },
  "606063ea6221e8bf": {
@@ -10545,8 +11050,10 @@
   "work_mode": "hybrid"
  },
  "68ceb7c85144c190": {
+  "active": false,
   "apply_url": "https://careers.westinghousenuclear.com/job/Waynesboro-Director%2C-Federal-APX-Project-Development-PA-17268/1434152300/",
   "band": "weak",
+  "closed": "2026-09-27",
   "company": "Westinghouse Electric Company, LLC",
   "date_posted": "2026-09-26",
   "first_seen": "2026-09-26",
@@ -10795,6 +11302,33 @@
   "title": "\u00a0Staff Engineer, Energy Storage",
   "url": "https://job-boards.greenhouse.io/sbenergy/jobs/6127995004",
   "work_mode": "hybrid"
+ },
+ "6ae0d7f911323c1e": {
+  "apply_url": "",
+  "band": "top",
+  "company": "QTS",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Ashburn, VA",
+  "locations": [
+   "Ashburn, VA"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Pre-Development Program Manager at QTS is early-stage owner-side data-center development leadership at the right seniority.",
+  "score": 90,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Pre-Development Program Manager",
+  "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/Ashburn-VA/Pre-Development-Program-Manager_R2026-0608-1",
+  "work_mode": ""
  },
  "6afdaef9b7a93ff3": {
   "band": "weak",
@@ -11679,6 +12213,33 @@
   "url": "https://iberdrola.wd3.myworkdayjobs.com/en-US/Iberdrola/job/United-States-Of-America-Oregon-Portland/Wind-Turbine-Engineer---Mechanical-Systems_R-32328",
   "work_mode": ""
  },
+ "73875e9d4c668a7d": {
+  "apply_url": "",
+  "band": "strong",
+  "company": "Bloom Energy",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "San Jose, California",
+  "locations": [
+   "San Jose, California"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Senior Director of Commissioning at Bloom Energy directly mirrors her prior field-execution leadership on new fuel-cell builds.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Senior Director - Commissioning",
+  "url": "https://bloomenergy.wd1.myworkdayjobs.com/en-US/BloomEnergyCareers/job/San-Jose-California/Senior-Director---Commissioning_JR-22572",
+  "work_mode": ""
+ },
  "73b5209bbda60bd1": {
   "band": "weak",
   "company": "CoreWeave",
@@ -12097,8 +12658,35 @@
   },
   "seniority_match": true,
   "source": "workday",
-  "title": "Development Program Manager (Data Center Construction MEPR)",
+  "title": "Development Program Manager (Data Center Construction)",
   "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/Eagle-Mountain-UT/Development-Program-Manager--Data-Center-Construction-_R2025-1205",
+  "work_mode": ""
+ },
+ "77af72b2e7e9782a": {
+  "apply_url": "",
+  "band": "possible",
+  "company": "Talen Energy",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "2 Locations",
+  "locations": [
+   "2 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Program Manager, Strategic Delivery & Execution at Talen (an IPP) is plausibly on-thesis but the title alone doesn't confirm generation-development scope.",
+  "score": 55,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Program Manager, Strategic Delivery & Execution",
+  "url": "https://talenenergy.wd1.myworkdayjobs.com/en-US/TalenCareers/job/Houston-TX/Program-Manager--Strategic-Delivery---Execution_R0004251",
   "work_mode": ""
  },
  "7864b5cbfb0df15f": {
@@ -12325,6 +12913,33 @@
   "url": "https://iberdrola.wd3.myworkdayjobs.com/en-US/Iberdrola/job/United-States-Of-America-Connecticut-Orange/Program-Manager---Clean-Energy-Policy_R-33631",
   "work_mode": ""
  },
+ "7a4c94acfce700e8": {
+  "apply_url": "",
+  "band": "possible",
+  "company": "Avangrid",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "United States Of America, New York, Binghamton",
+  "locations": [
+   "United States Of America, New York, Binghamton"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Generic 'Manager - Programs/Projects' at a utility with no description to confirm whether scope touches generation or T&D development.",
+  "score": 55,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Manager - Programs/Projects",
+  "url": "https://iberdrola.wd3.myworkdayjobs.com/en-US/Iberdrola/job/United-States-Of-America-New-York-Binghamton/Manager---Programs-Projects_R-33669-2",
+  "work_mode": ""
+ },
  "7a8b3284ca757d78": {
   "band": "possible",
   "company": "SpaceX",
@@ -12491,6 +13106,33 @@
   "title": "Transmission Operations Engineer",
   "url": "https://careers.pge.com/job/Vacaville-Transmission-Operations-Engineer-CA-95688/1432301000/",
   "work_mode": "hybrid"
+ },
+ "7ba0ff7e81b5e73e": {
+  "apply_url": "https://careers2-quanta.icims.com/jobs/18795/job?utm_source=indeed_integration&iis=Job%20Board&iisn=Indeed&indeed-apply-token=73a2d2b2a8d6d5c0a62696875eaebd669103652d3f0c2cd5445d3e66b1592b0f",
+  "band": "weak",
+  "company": "Quanta Infrastructure Solutions Group",
+  "date_posted": "2026-09-26",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Houston, TX, US",
+  "locations": [
+   "Houston, TX, US"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Director-level construction/PMO delivery leadership with no stated power or generation content \u2014 building-delivery not power-delivery.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Director, Operations - QDC",
+  "url": "https://www.indeed.com/viewjob?jk=9513aa2fc3087d57",
+  "work_mode": ""
  },
  "7ba480af0ae74502": {
   "active": false,
@@ -12662,6 +13304,36 @@
   "url": "https://gevernova.wd5.myworkdayjobs.com/en-US/Vernova_ExternalSite/job/Remote/Power-Transformer-Sr-Sales-Mgr-PSS--Product-Sales-Specialist_R5044408-3",
   "work_mode": "remote"
  },
+ "7ccbe09b1c918021": {
+  "active": false,
+  "apply_url": "https://jobs.bilfinger.com/job/Austin_TX-Senior-Project-Manager-Austin%2C-TX-Texa-78758/1441639333/",
+  "band": "misfit",
+  "closed": "2026-09-27",
+  "company": "Bilfinger NL",
+  "date_posted": "2026-09-27",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Austin, TX, US",
+  "locations": [
+   "Austin, TX, US"
+  ],
+  "lowscore": true,
+  "pay": "$2,000 to $500,000",
+  "priority": false,
+  "rationale": "General commercial/industrial construction PM at a GC with no power or generation content \u2014 field construction delivery she's moving away from.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Senior Project Manager - Austin, TX",
+  "url": "https://www.indeed.com/viewjob?jk=c945cf297d4c51d2",
+  "work_mode": ""
+ },
  "7d051cfd2cf81559": {
   "active": false,
   "band": "misfit",
@@ -12781,7 +13453,8 @@
   "first_seen_at": "2026-09-26T22:39:19Z",
   "location": "Cedar Rapids, IA",
   "locations": [
-   "Cedar Rapids, IA"
+   "Cedar Rapids, IA",
+   "Fayetteville, GA"
   ],
   "pay": "",
   "priority": false,
@@ -12796,7 +13469,7 @@
   "seniority_match": true,
   "source": "workday",
   "title": "Development Project Engineer (Data Center Construction)",
-  "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/Cedar-Rapids-IA/Development-Project-Engineer--Data-Center-Construction-_R2026-2119",
+  "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/Fayetteville-GA/Development-Project-Engineer--Data-Center-Construction-MEPR-_R2026-1101",
   "work_mode": ""
  },
  "7e9f10da70968672": {
@@ -13000,7 +13673,8 @@
   "location": "Tucson, AZ, US, 85756",
   "locations": [
    "Tucson, AZ, US, 85756",
-   "Juno Beach, FL, US, 33408"
+   "Juno Beach, FL, US, 33408",
+   "Pueblo, CO, US, 81006"
   ],
   "pay": "",
   "priority": true,
@@ -13462,7 +14136,7 @@
   "seniority_match": false,
   "source": "microsoft",
   "title": "Data Center Program Manager",
-  "url": "https://apply.careers.microsoft.com/careers/job/1970393556972035",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556990455",
   "work_mode": "onsite"
  },
  "8489131f20dadc5f": {
@@ -14132,6 +14806,33 @@
   "url": "https://gevernova.wd5.myworkdayjobs.com/en-US/Vernova_ExternalSite/job/Charleroi-USA/Business-Development-Manager-for-765kv-Portfolio_R5047403-2",
   "work_mode": ""
  },
+ "8a2553ee396a875d": {
+  "apply_url": "",
+  "band": "possible",
+  "company": "QTS",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "US FL Remote",
+  "locations": [
+   "US FL Remote"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Director, Capital Planning at QTS could touch power-infrastructure capex strategy but reads finance-first with no description to confirm.",
+  "score": 55,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Director, Capital Planning",
+  "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/US-FL-Remote/Director--Capital-Planning_R2026-1774-1",
+  "work_mode": "remote"
+ },
  "8ae05c231cfe1eb2": {
   "active": false,
   "band": "misfit",
@@ -14510,6 +15211,33 @@
   "source": "google-careers",
   "title": "Energy Strategic Negotiator, Power Generation Solutions",
   "url": "https://www.google.com/about/careers/applications/jobs/results/74464758442402502-energy-strategic-negotiator-power-generation-solutions",
+  "work_mode": ""
+ },
+ "8d98f104a67b097a": {
+  "apply_url": "",
+  "band": "strong",
+  "company": "Invenergy",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Chicago - OSW",
+  "locations": [
+   "Chicago - OSW"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "VP, Thermal and New Technology Development at Invenergy matches her gas-fired development thesis exactly, though VP grade caps it below top.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Vice President, Thermal and New Technology Development",
+  "url": "https://invenergyllc.wd1.myworkdayjobs.com/en-US/invenergycareers/job/Chicago---OSW/Vice-President--Thermal-and-New-Technology-Development_R10340",
   "work_mode": ""
  },
  "8db1483ebed69f93": {
@@ -15743,6 +16471,33 @@
   "url": "https://www.indeed.com/viewjob?jk=a93046b286bd5873",
   "work_mode": "remote"
  },
+ "9ae52b83a0617cc2": {
+  "apply_url": "",
+  "band": "weak",
+  "company": "AES Corporation",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "3 Locations",
+  "locations": [
+   "3 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Equipment/procurement strategy on the owner's side at an IPP fits her long-lead sourcing work, but Specialist grade reads junior of manager level.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "workday",
+  "title": "Senior Procurement Specialist, Renewable Energy",
+  "url": "https://aes.wd1.myworkdayjobs.com/en-US/aes_clean_energy/job/US-Louisville-CO/Senior-Specialist--Solar-Modules-and-Racking--Procurement-Execution_R1064733",
+  "work_mode": ""
+ },
  "9b3ee33bd4edba2c": {
   "band": "weak",
   "company": "Hut 8",
@@ -15807,7 +16562,8 @@
   "location": "Palm Beach Gardens, FL, US, 33410",
   "locations": [
    "Palm Beach Gardens, FL, US, 33410",
-   "Juno Beach, FL, US, 33408"
+   "Juno Beach, FL, US, 33408",
+   "Houston, TX, US, 77002"
   ],
   "lowscore": true,
   "pay": "",
@@ -15857,6 +16613,33 @@
   "title": "Transmission Substation Construction Inspector, Senior",
   "url": "https://careers.pge.com/job/Antioch-Transmission-Substation-Construction-Inspector%2C-Senior-CA-94509/1432099100/",
   "work_mode": "onsite"
+ },
+ "9c281dc091f158b5": {
+  "apply_url": "",
+  "band": "strong",
+  "company": "AES Corporation",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "5 Locations",
+  "locations": [
+   "5 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Interconnection Manager at AES (IPP) is exactly the strategy/program-ownership interconnection role the profile favors.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Interconnection Manager",
+  "url": "https://aes.wd1.myworkdayjobs.com/en-US/aes_clean_energy/job/US-San-Francisco-CA/Interconnection-Manager_R1063879-2",
+  "work_mode": ""
  },
  "9c3764636c54da96": {
   "active": false,
@@ -16241,6 +17024,33 @@
   "title": "Director, Recruiting, Digital Infrastructure",
   "url": "https://jobs.ashbyhq.com/crusoe/09b085c5-dc6e-4009-b330-378ff0c11fb2",
   "work_mode": "onsite"
+ },
+ "9f56c15331d6f2da": {
+  "apply_url": "https://energyresiliencepartnersllc.applytojob.com/apply/B93CgM3VRT/Lake-City-ERP-CHP-Project-Manager?source=INDE&~",
+  "band": "possible",
+  "company": "",
+  "date_posted": "2026-09-27",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Independence, MO, US",
+  "locations": [
+   "Independence, MO, US"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Prime-contractor delivery of a new turbine/CHP microgrid matches her equipment and commissioning background, but it's EPC-side, site-resident construction leadership rather than owner-side development.",
+  "score": 55,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Lake City ERP CHP Project Manager",
+  "url": "https://www.indeed.com/viewjob?jk=ca57ee7ed8d7892b",
+  "work_mode": "remote"
  },
  "9fbfdefb45b3fe7c": {
   "band": "weak",
@@ -17375,7 +18185,8 @@
   "location": "Columbus, OH, US",
   "locations": [
    "Columbus, OH, US",
-   "Dallas, TX, US"
+   "Dallas, TX, US",
+   "2 Locations"
   ],
   "pay": "$189,000\u2013$245,080/yr",
   "priority": false,
@@ -17388,9 +18199,9 @@
    "rubric": "86b5faf1d6"
   },
   "seniority_match": true,
-  "source": "indeed",
+  "source": "workday",
   "title": "Director, Major Projects | NUCLEAR DEVELOPMENT (multiple opportunities) - Columbus, OH / Dallas, TX",
-  "url": "https://www.indeed.com/viewjob?jk=c4ba12d8cc240a8f",
+  "url": "https://aep.wd1.myworkdayjobs.com/en-US/AEPCareerSite/job/AEP-Headquarters/Director--Major-Projects---NUCLEAR-DEVELOPMENT--multiple-opportunities----Columbus--OH---Dallas--TX_R19256",
   "work_mode": "onsite"
  },
  "ab8e8dd17dd3b33d": {
@@ -17531,6 +18342,34 @@
   "source": "greenhouse",
   "title": " Digital Delivery \"BIM\" , Principal",
   "url": "https://job-boards.greenhouse.io/hut8/jobs/5169146008",
+  "work_mode": ""
+ },
+ "acad164b757fc511": {
+  "apply_url": "",
+  "band": "weak",
+  "company": "QTS",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Irving, TX",
+  "locations": [
+   "Irving, TX",
+   "Denver, CO"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Land Development Specialist at QTS is development/siting-adjacent but land/permitting focused rather than power, and 'Specialist' reads junior.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": false,
+  "source": "workday",
+  "title": "Land Development Project Specialist",
+  "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/Denver-CO/Pre-Development-Project-Analyst_R2026-1574-1",
   "work_mode": ""
  },
  "acd5d47671758f61": {
@@ -17920,6 +18759,33 @@
   "url": "https://vantagedc.wd1.myworkdayjobs.com/en-US/Vantage/job/Atlanta-Georgia/Technical-Project-Manager--Site-Deployment---Electrical-Design-Assurance--NA_R24277",
   "work_mode": ""
  },
+ "b00bc14aa72a8856": {
+  "apply_url": "",
+  "band": "possible",
+  "company": "Avangrid",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "United States Of America, Connecticut, Orange",
+  "locations": [
+   "United States Of America, Connecticut, Orange"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "T&D Planning Manager could be load-growth/transmission strategy (a sweet spot) or routine system-planning engineering; no description to distinguish.",
+  "score": 55,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Manager - Planning T&D",
+  "url": "https://iberdrola.wd3.myworkdayjobs.com/en-US/Iberdrola/job/United-States-Of-America-Connecticut-Orange/Manager---Planning-T-D_R-32301",
+  "work_mode": ""
+ },
  "b08412c67aec12ae": {
   "band": "weak",
   "company": "GE Vernova",
@@ -18003,6 +18869,33 @@
   "source": "workday",
   "title": "Lead Application Engineer - Grid Integration and Stability",
   "url": "https://gevernova.wd5.myworkdayjobs.com/en-US/Vernova_ExternalSite/job/Bengaluru/Lead-Application-Engineer---Grid-Integration-and-Stability_R5052771-1",
+  "work_mode": ""
+ },
+ "b1a69f747de45aaa": {
+  "apply_url": "",
+  "band": "strong",
+  "company": "Invenergy",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Chicago, IL",
+  "locations": [
+   "Chicago, IL"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Senior PM for new geothermal generation development at a major IPP \u2014 same owner-side new-build program leadership, different generation tech.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Sr. Project Manager, Geothermal Project Management",
+  "url": "https://invenergyllc.wd1.myworkdayjobs.com/en-US/invenergycareers/job/Chicago-IL/Sr-Project-Manager--Geothermal-Project-Management_R10890-1",
   "work_mode": ""
  },
  "b1b1404dbf495776": {
@@ -18534,6 +19427,33 @@
   "source": "indeed",
   "title": "Engineer III, Projects",
   "url": "https://www.indeed.com/viewjob?jk=18af2c90b2d47118",
+  "work_mode": ""
+ },
+ "b7bef6295aa8ec6c": {
+  "apply_url": "",
+  "band": "strong",
+  "company": "AES Corporation",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "US, Louisville, CO",
+  "locations": [
+   "US, Louisville, CO"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Senior Wind Project Engineer at AES (IPP) is development/technology-selection project engineering, same profile as her current role on a different generation type.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Senior Wind Project Engineer",
+  "url": "https://aes.wd1.myworkdayjobs.com/en-US/aes_clean_energy/job/US-Louisville-CO/Senior-Wind-Project-Engineer_R1064940-2",
   "work_mode": ""
  },
  "b7c6450abd5996f1": {
@@ -20063,6 +20983,33 @@
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8818961002",
   "work_mode": ""
  },
+ "c8b71a6026b66192": {
+  "apply_url": "",
+  "band": "weak",
+  "company": "SOLV Energy",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Sacramento, CA",
+  "locations": [
+   "Sacramento, CA"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "SOLV services PM role, EPC/vendor-side field project management with no stated development or power-strategy content.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "SDI Senior Project Manager, SDI Services",
+  "url": "https://solvenergy.wd1.myworkdayjobs.com/en-US/SOLV_External_Career/job/Sacramento-CA/SDI-Senior-Project-Manager--SDI-Services_J13357",
+  "work_mode": ""
+ },
  "c90f4fc2d79577c8": {
   "active": false,
   "band": "misfit",
@@ -20350,6 +21297,33 @@
   "source": "greenhouse",
   "title": "Sr. AI Engineer, Platform Infrastructure, Special Programs",
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8557126002",
+  "work_mode": ""
+ },
+ "caaf4d0ae0d2179b": {
+  "apply_url": "",
+  "band": "strong",
+  "company": "AES Corporation",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "4 Locations",
+  "locations": [
+   "4 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Senior Project Engineer for Mega Projects and M&A Engineering at AES combines her project-engineering strength with development/diligence exposure.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Senior Project Engineer, Mega Projects and M&A Engineering",
+  "url": "https://aes.wd1.myworkdayjobs.com/en-US/aes_clean_energy/job/US-Louisville-CO/Senior-Project-Engineer--Mega-Projects-and-M-A-Engineering_R1064865-2",
   "work_mode": ""
  },
  "cae23a542f59f0f8": {
@@ -21258,6 +22232,36 @@
   "title": "Manager, Contract Management - Data Center Supply Chain",
   "url": "https://job-boards.greenhouse.io/sbenergy/jobs/6138340004",
   "work_mode": "hybrid"
+ },
+ "d2baa36777bd435c": {
+  "active": false,
+  "apply_url": "",
+  "band": "misfit",
+  "closed": "2026-09-27",
+  "company": "Talen Energy",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "Waterford, OH",
+  "locations": [
+   "Waterford, OH"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "Plant Manager at an operating generating asset \u2014 the defining operations near-miss regardless of title match.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Plant Manager - Waterford Energy Center",
+  "url": "https://talenenergy.wd1.myworkdayjobs.com/en-US/TalenCareers/job/Waterford-OH/Plant-Manager---Waterford-Energy-Center_R0004259",
+  "work_mode": ""
  },
  "d2c4b432779bca07": {
   "apply_url": "",
@@ -22983,7 +23987,8 @@
    "New Albany, OH, US",
    "Salem, PA",
    "Eagle Mountain, UT",
-   "Fayetteville, GA"
+   "Fayetteville, GA",
+   "Cedar Rapids, IA"
   ],
   "pay": "",
   "priority": false,
@@ -22997,8 +24002,8 @@
   },
   "seniority_match": true,
   "source": "workday",
-  "title": "Development Project Manager (Data Center Construction OFCI)",
-  "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/Fayetteville-GA/Development-Project-Manager--Data-Center-Construction-_R2026-0118",
+  "title": "Development Project Manager (Data Center Construction)",
+  "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/Cedar-Rapids-IA/Development-Project-Manager--Data-Center-Construction-_R2026-2120",
   "work_mode": ""
  },
  "e6897ed244716bdd": {
@@ -23947,6 +24952,33 @@
   "title": "Sr Director - Program Management",
   "url": "https://www.indeed.com/viewjob?jk=395b5920be73f562",
   "work_mode": "remote"
+ },
+ "ecdb7142cf6bf082": {
+  "apply_url": "",
+  "band": "strong",
+  "company": "AES Corporation",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "7 Locations",
+  "locations": [
+   "7 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Sr. High Voltage Project Engineer at AES reads as interconnection/transmission project engineering for new generation rather than single-discipline HV design.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Sr. High Voltage Project Engineer",
+  "url": "https://aes.wd1.myworkdayjobs.com/en-US/aes_clean_energy/job/US-Salt-Lake-City-UT/Sr-High-Voltage-Project-Engineer_R1064501-2",
+  "work_mode": ""
  },
  "ecf4c25dd3254ade": {
   "apply_url": "",
@@ -24922,6 +25954,60 @@
   "url": "https://www.indeed.com/viewjob?jk=051aa28f33e004be",
   "work_mode": ""
  },
+ "f6289664130a3b52": {
+  "apply_url": "",
+  "band": "weak",
+  "company": "SOLV Energy",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "11 Locations",
+  "locations": [
+   "11 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "HV Project Manager at an EPC contractor (SOLV) reads as field/site construction PM, vendor-side, with no description confirming development scope.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "HV Project Manager",
+  "url": "https://solvenergy.wd1.myworkdayjobs.com/en-US/SOLV_External_Career/job/Edison-NJ/HV-Project-Manager_J13214",
+  "work_mode": ""
+ },
+ "f648253eeaf5f38d": {
+  "apply_url": "",
+  "band": "strong",
+  "company": "QTS",
+  "date_posted": "",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "7 Locations",
+  "locations": [
+   "7 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Development Project Engineer at QTS (data-center developer) mirrors her current project-engineering-for-development role, on the owner's side of a hyperscale build.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Development Project Engineer",
+  "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/Duluth-GA/Development-Project-Engineer_R2026-2147-1",
+  "work_mode": ""
+ },
  "f68d023f86228221": {
   "band": "strong",
   "company": "Invenergy",
@@ -25459,6 +26545,33 @@
   "title": "Senior Technology Design Manager - Data Hall Fit Out",
   "url": "https://job-boards.greenhouse.io/coreweave/jobs/4683488006",
   "work_mode": ""
+ },
+ "fcee0cd4d24b7500": {
+  "apply_url": "",
+  "band": "strong",
+  "company": "Microsoft",
+  "date_posted": "2026-09-23",
+  "first_seen": "2026-09-27",
+  "first_seen_at": "2026-09-27T23:02:12Z",
+  "location": "United States, Multiple Locations, Multiple Locations",
+  "locations": [
+   "United States, Multiple Locations, Multiple Locations"
+  ],
+  "pay": "USD $102,100 - $202,200 per year",
+  "priority": false,
+  "rationale": "Owner-side (Microsoft) program/portfolio leadership over hyperscale capacity delivery spanning power and commissioning systems.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-09-27T23:05Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "microsoft",
+  "title": "Technical Program Manager, E2E Portfolio/Strategy Management",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556982568",
+  "work_mode": "onsite"
  },
  "fd48fa66a4de3486": {
   "active": false,
