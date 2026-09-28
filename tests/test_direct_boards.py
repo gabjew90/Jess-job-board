@@ -195,3 +195,14 @@ def test_digest_lists_unresolved_best_first():
     assert "No direct board found" in body
     assert "name one in chat" not in body
     assert body.index("RWE") < body.index("SRP")
+# --- Workday posted dates ---------------------------------------------
+
+def test_workday_posted_on_becomes_a_date():
+    from datetime import datetime, timedelta, timezone
+    from src.sources.workday import posted_date
+    day = lambda n: (datetime.now(timezone.utc) - timedelta(days=n)).strftime("%Y-%m-%d")
+    assert posted_date("Posted Today") == day(0)
+    assert posted_date("Posted Yesterday") == day(1)
+    assert posted_date("Posted 4 Days Ago") == day(4)
+    assert posted_date("Posted 30+ Days Ago") == ""   # no date to give
+    assert posted_date("") == ""
