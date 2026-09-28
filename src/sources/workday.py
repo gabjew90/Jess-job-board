@@ -10,7 +10,9 @@ company's host/tenant/site from its careers URL:
 https://{tenant}.wdN.myworkdayjobs.com/{site}
 """
 import logging
+import re
 import time
+from datetime import datetime, timedelta, timezone
 
 import requests
 
@@ -21,6 +23,25 @@ from ..util import HEADERS
 log = logging.getLogger(__name__)
 
 RESULTS_PER_TERM = 20
+
+
+def posted_date(posted_on: str) -> str:
+    """Workday states age, not a date: "Posted Today", "Posted Yesterday",
+    "Posted 3 Days Ago". "Posted 30+ Days Ago" gives no date, so it stays
+    blank rather than inventing one."""
+    text = (posted_on or "").lower()
+    if "30+" in text:
+        return ""
+    if "today" in text:
+        days = 0
+    elif "yesterday" in text:
+        days = 1
+    else:
+        m = re.search(r"(\d+)\s+days?\s+ago", text)
+        if not m:
+            return ""
+        days = int(m.group(1))
+    return (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%d")
 
 
 def fetch_board(board: dict, terms: list[str]) -> list[Job]:
@@ -39,6 +60,7 @@ def fetch_board(board: dict, terms: list[str]) -> list[Job]:
                 location=p.get("locationsText", ""),
                 url=f"https://{board['host']}/en-US/{board['site']}{path}",
                 source="workday",
+                date_posted=posted_date(p.get("postedOn", "")),
             )
             jobs[job.job_id] = job
         time.sleep(1)
