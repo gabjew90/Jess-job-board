@@ -9,17 +9,45 @@
   "boards": [],
   "date": "2026-09-25"
  },
+ "commonwealth fusion systems": {
+  "boards": [
+   "lever:cfsenergy"
+  ],
+  "date": "2026-09-30"
+ },
  "competitive power ventures": {
   "boards": [],
   "date": "2026-09-25"
+ },
+ "cyrusone": {
+  "boards": [
+   "workday:cyrusone.wd1.myworkdayjobs.com/cyrusonecareerportal"
+  ],
+  "date": "2026-09-30"
+ },
+ "digital realty": {
+  "boards": [],
+  "date": "2026-09-30"
  },
  "edf": {
   "boards": [],
   "date": "2026-09-29"
  },
+ "enchanted rock": {
+  "boards": [],
+  "date": "2026-09-30"
+ },
  "engie": {
   "boards": [],
   "date": "2026-09-26"
+ },
+ "entergy": {
+  "boards": [],
+  "date": "2026-09-30"
+ },
+ "hoosier energy": {
+  "boards": [],
+  "date": "2026-09-30"
  },
  "hunt energy": {
   "boards": [],
@@ -66,8 +94,10 @@
   "date": "2026-09-26"
  },
  "stack infrastructure us": {
-  "boards": [],
-  "date": "2026-09-25"
+  "boards": [
+   "workday:stackinfra.wd108.myworkdayjobs.com/stack_amer"
+  ],
+  "date": "2026-09-30"
  },
  "tesla": {
   "boards": [],

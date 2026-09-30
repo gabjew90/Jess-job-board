@@ -26,9 +26,7 @@
     "Switch",
     "Compass Datacenters",
     "Digital Realty",
-    "CyrusOne",
     "EdgeConneX",
-    "STACK Infrastructure",
     "CloudHQ",
     "Prometheus Hyperscale",
     "Core Scientific",
@@ -107,6 +105,11 @@
       "provider": "lever",
       "board": "cleanspark",
       "company": "CleanSpark"
+    },
+    {
+      "provider": "lever",
+      "board": "cfsenergy",
+      "company": "Commonwealth Fusion Systems"
     }
   ],
   "workday_boards": [
@@ -205,6 +208,18 @@
       "tenant": "aes",
       "site": "aes_clean_energy",
       "company": "AES Corporation"
+    },
+    {
+      "host": "stackinfra.wd108.myworkdayjobs.com",
+      "tenant": "stackinfra",
+      "site": "STACK_AMER",
+      "company": "STACK Infrastructure US"
+    },
+    {
+      "host": "cyrusone.wd1.myworkdayjobs.com",
+      "tenant": "cyrusone",
+      "site": "CyrusOneCareerPortal",
+      "company": "CyrusOne"
     }
   ],
   "successfactors_boards": [
