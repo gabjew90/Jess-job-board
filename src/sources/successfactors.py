@@ -23,7 +23,8 @@ log = logging.getLogger(__name__)
 _desc_cache: dict = {}
 
 
-DESC_START = re.compile(r'itemprop="description"|class="jobdescription"', re.I)
+# An element carrying the posting, not <meta itemprop="description"> in <head>.
+DESC_START = re.compile(r'<(?!meta\b)[a-z][\w-]*[^>]*?(?:itemprop="description"|class="jobdescription")', re.I)
 DESC_END = ('id="similar', 'class="social', 'class="jobShare"', '</main>')
 
 
@@ -33,12 +34,21 @@ def page_description(html: str) -> str:
     'jobDescription' pattern stopped matching, and the fallback kept the
     page's first 6,000 characters (cookie banner and scripts), so scoring
     saw no description and the pay range further down was cut off."""
+    html = re.sub(r"<(script|style)\b.*?</\1>", " ", html, flags=re.S | re.I)
     m = DESC_START.search(html)
     if not m:
-        body = re.sub(r"<(script|style)\b.*?</\1>", " ", html, flags=re.S | re.I)
-        return strip_html(body)[:6000]
+        # No posting block (seen on PG&E pages for closed postings): the
+        # page is site chrome only, and scoring on it is worse than on the
+        # title alone.
+        return ""
     seg = html[html.find(">", m.end()) + 1:]  # past the opening tag's attributes
-    ends = [i for i in (seg.find(e) for e in DESC_END) if i > 0]
+    # Cut at the start of the tag carrying the end marker ('</main>' is
+    # itself a tag start; attribute markers sit inside one).
+    ends = []
+    for e in DESC_END:
+        i = seg.find(e)
+        if i >= 0:
+            ends.append(i if e.startswith("<") else max(seg.rfind("<", 0, i), 0))
     return strip_html(seg[:min(ends) if ends else 40000])[:12000]
 
 

@@ -7,6 +7,7 @@ from pathlib import Path
 from . import (dashboard, discovery, expiry, feedback, filters,
                health, notify, screen, state as state_mod, triage)
 from .models import Job
+from .util import company_key
 from .sources import (ats_boards, career_sites, hyperscalers, jobspy_source,
                       successfactors, workday)
 
@@ -43,7 +44,8 @@ def main() -> None:
     kept = [j for j in kept if not feedback.matches(j, fb["hide"])]
 
     feedback.sweep_state(seen, fb["hide"])
-    feedback.apply_verdicts(seen, fb["verdicts"])
+    archive_floor = config.get("auto_archive_below", 25)
+    feedback.apply_verdicts(seen, fb["verdicts"], archive_floor)
     closed_recs = expiry.sweep(seen, raw, config)
     new_jobs = state_mod.split_new(kept, seen)
     seen = state_mod.prune(seen, config.get("state_retention_days", 180))
@@ -60,38 +62,65 @@ def main() -> None:
     # they'd otherwise never be scored again (score() only sees new jobs).
     new_ids = {j.job_id for j in new_jobs}
     desc_by_id = {j.job_id: j.description for j in raw if j.description}
-    rescue_jobs = [
-        Job(title=seen[jid]["title"], company=seen[jid]["company"],
-            location=seen[jid]["location"], url=seen[jid]["url"],
-            source=seen[jid]["source"], description=desc_by_id.get(jid, ""))
-        for jid in state_mod.unscored_active(seen, new_ids)
-    ]
+    # A record merged from another source's copy is keyed by that copy's
+    # id, so the description this run fetched is also found by company and
+    # the exact title (not group_key, whose 40-character title prefix lets
+    # two different postings share a description).
+    exact = lambda company, title: (company_key(company), " ".join(title.lower().split()))
+    desc_by_title = {exact(j.company, j.title): j.description for j in raw if j.description}
+
+    def description_for(jid: str) -> str:
+        r = seen[jid]
+        return desc_by_id.get(jid) or desc_by_title.get(
+            exact(r.get("company", ""), r.get("title", "")), "")
+
+    # A record's key is the job_id it was stored under; a title renamed in
+    # place no longer hashes to it, so rebuilt jobs map back explicitly.
+    state_key: dict[str, str] = {}
+
+    def from_record(jid: str) -> Job:
+        r = seen[jid]
+        job = Job(title=r["title"], company=r["company"], location=r["location"],
+                  url=r["url"], source=r["source"], description=description_for(jid))
+        state_key[job.job_id] = jid
+        return job
+
+    rescue_jobs = [from_record(jid) for jid in state_mod.unscored_active(seen, new_ids)]
     if rescue_jobs:
         log.warning("Rescuing %d previously unscored records (failed chunks)",
                     len(rescue_jobs))
 
-    # One-time re-scoring after a rubric change: records banded strong or top
-    # before `rescore_scored_before` are scored again, but only when this
-    # run fetched the posting with a description (so the new band reads the
-    # real text, not a title), and at most `rescore_max_per_run` per run.
-    # Owner verdicts are never overwritten. Remove the key when done.
+    # One-time re-scoring after a rubric or fetcher change: records scored
+    # before `rescore_scored_before` are scored again when they banded strong
+    # or top, or come from a source in `rescore_sources` (any band, archived
+    # low scores included: a source that fed the scorer bad descriptions
+    # mis-banded low as well as high). Only when this run fetched the
+    # posting's description, so the new band reads the real text; at most
+    # `rescore_max_per_run` per run; owner verdicts are never overwritten.
+    # Remove the keys when done.
     rescore_jobs = []
     cutoff = config.get("rescore_scored_before")
     if cutoff:
         taken = new_ids | {j.job_id for j in rescue_jobs}
+        sources = set(config.get("rescore_sources", []))
+
+        def wanted(r: dict) -> bool:
+            if r.get("hidden") or r.get("excluded") or r.get("duplicate"):
+                return False
+            if r.get("source") in sources:
+                return r.get("active", True) or r.get("lowscore")
+            return r.get("active", True) and r.get("band") in ("top", "strong")
+
         due = [jid for jid, r in seen.items()
-               if r.get("active", True) and r.get("band") in ("top", "strong")
-               and jid in desc_by_id and jid not in taken
+               if jid not in taken and wanted(r)
                and not (r.get("scoring_fingerprint") or {}).get("owner")
-               and (r.get("scoring_fingerprint") or {}).get("at", "") < cutoff]
-        due.sort(key=lambda jid: seen[jid].get("band") != "top")  # top first
-        rescore_jobs = [
-            Job(title=seen[jid]["title"], company=seen[jid]["company"],
-                location=seen[jid]["location"], url=seen[jid]["url"],
-                source=seen[jid]["source"], description=desc_by_id[jid])
-            for jid in due[:config.get("rescore_max_per_run", 60)]]
+               and (r.get("scoring_fingerprint") or {}).get("at", "") < cutoff
+               and description_for(jid)]
+        due.sort(key=lambda jid: (seen[jid].get("band") != "top",
+                                  seen[jid].get("band") != "strong"))
+        rescore_jobs = [from_record(jid) for jid in due[:config.get("rescore_max_per_run", 60)]]
         if rescore_jobs:
-            log.info("Re-scoring %d of %d records banded before %s",
+            log.info("Re-scoring %d of %d records scored before %s",
                      len(rescore_jobs), len(due), cutoff)
 
     to_score = new_jobs + rescue_jobs + rescore_jobs
@@ -99,13 +128,13 @@ def main() -> None:
     fingerprint = triage.scoring_fingerprint(fb["text"])
     # Clear misfits (score < 25) are auto-archived: they stay in state for
     # dedupe but never occupy the dashboard or future attention.
-    archive_floor = config.get("auto_archive_below", 25)
     for job in to_score:
         s = scores.get(job.job_id)
         if not s:
             continue
-        rec = seen.get(job.job_id)
-        if rec is not None:
+        rec = seen.get(state_key.get(job.job_id, job.job_id))
+        owner = rec is not None and (rec.get("scoring_fingerprint") or {}).get("owner")
+        if rec is not None and not owner:  # an owner's verdict is never overwritten
             rec.update({k: s[k] for k in ("band", "score", "rationale",
                                           "seniority_match")})
             rec["scoring_fingerprint"] = fingerprint
@@ -113,6 +142,10 @@ def main() -> None:
                 rec["active"] = False
                 rec["closed"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
                 rec["lowscore"] = True
+            elif rec.get("lowscore"):
+                # Re-scored above the floor: an archived low score comes back.
+                rec.update(active=True, lowscore=False)
+                rec.pop("closed", None)
         # LLM-extracted pay/mode fill gaps only — structured API fields win.
         for field in ("pay", "work_mode"):
             if s.get(field) and not getattr(job, field):

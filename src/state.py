@@ -41,7 +41,8 @@ def unscored_active(state: dict, exclude_ids: set[str]) -> list[str]:
 def _better_pay(field: str, new: str, old: str) -> bool:
     """A range replaces a single figure stored earlier ("$126,000" before
     the minimum/maximum format was read)."""
-    rng = lambda s: bool(re.search(r"\d\s?(?:[-–—]|to)\s?\$?\s?\d", s))
+    rng = lambda s: bool(re.search(
+        r"\d\s?[kK]?\s?(?:/\s?\w+\s?)?(?:[-–—]|to)\s?\$?\s?\d", s))
     return field == "pay" and rng(new) and not rng(old)
 
 
