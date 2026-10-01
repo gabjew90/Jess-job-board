@@ -43,6 +43,7 @@ def main() -> None:
     kept = [j for j in kept if not feedback.matches(j, fb["hide"])]
 
     feedback.sweep_state(seen, fb["hide"])
+    feedback.apply_verdicts(seen, fb["verdicts"])
     closed_recs = expiry.sweep(seen, raw, config)
     new_jobs = state_mod.split_new(kept, seen)
     seen = state_mod.prune(seen, config.get("state_retention_days", 180))
@@ -69,7 +70,31 @@ def main() -> None:
         log.warning("Rescuing %d previously unscored records (failed chunks)",
                     len(rescue_jobs))
 
-    to_score = new_jobs + rescue_jobs
+    # One-time re-scoring after a rubric change: records banded strong or top
+    # before `rescore_scored_before` are scored again, but only when this
+    # run fetched the posting with a description (so the new band reads the
+    # real text, not a title), and at most `rescore_max_per_run` per run.
+    # Owner verdicts are never overwritten. Remove the key when done.
+    rescore_jobs = []
+    cutoff = config.get("rescore_scored_before")
+    if cutoff:
+        taken = new_ids | {j.job_id for j in rescue_jobs}
+        due = [jid for jid, r in seen.items()
+               if r.get("active", True) and r.get("band") in ("top", "strong")
+               and jid in desc_by_id and jid not in taken
+               and not (r.get("scoring_fingerprint") or {}).get("owner")
+               and (r.get("scoring_fingerprint") or {}).get("at", "") < cutoff]
+        due.sort(key=lambda jid: seen[jid].get("band") != "top")  # top first
+        rescore_jobs = [
+            Job(title=seen[jid]["title"], company=seen[jid]["company"],
+                location=seen[jid]["location"], url=seen[jid]["url"],
+                source=seen[jid]["source"], description=desc_by_id[jid])
+            for jid in due[:config.get("rescore_max_per_run", 60)]]
+        if rescore_jobs:
+            log.info("Re-scoring %d of %d records banded before %s",
+                     len(rescore_jobs), len(due), cutoff)
+
+    to_score = new_jobs + rescue_jobs + rescore_jobs
     scores = triage.score(to_score, fb["text"])
     fingerprint = triage.scoring_fingerprint(fb["text"])
     # Clear misfits (score < 25) are auto-archived: they stay in state for

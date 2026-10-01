@@ -46,7 +46,8 @@ def _issue_entries() -> list[dict]:
         resp.raise_for_status()
         # By label OR by the dashboard's "feedback:" title prefix: some
         # clients drop the `labels=` parameter from the new-issue URL.
-        return [{"title": i.get("title", ""), "body": i.get("body") or ""}
+        return [{"number": i.get("number"), "title": i.get("title", ""),
+                 "body": i.get("body") or ""}
                 for i in resp.json()
                 if not i.get("pull_request")
                 and ("feedback" in {lb.get("name") for lb in i.get("labels") or []}
@@ -57,9 +58,11 @@ def _issue_entries() -> list[dict]:
 
 
 def load() -> dict:
-    """Return {"text": prompt block, "hide": [substring, ...]}."""
+    """Return {"text": prompt block, "hide": [substring, ...],
+    "verdicts": [{"issue", "job_id", "target", "direction", "reason"}]}."""
     parts: list[str] = []
     hide: list[str] = []
+    verdicts: list[dict] = []
 
     if FILE.exists():
         # HTML comments hold inert examples — never parse or forward them.
@@ -83,14 +86,54 @@ def load() -> dict:
         if "feed directly into future scoring:" in body:
             body = body.split("feed directly into future scoring:", 1)[1]
         body = re.sub(r"^---\s*$.*", "", body, flags=re.S | re.M)
-        body = re.sub(r"^\s*Action:\s*hide\b.*$", "", body, flags=re.I | re.M).strip()
+        body = re.sub(r"^\s*Action:\s*hide\b.*$", "", body, flags=re.I | re.M)
+        body = re.sub(r"^Tap Create to send\..*$", "", body, flags=re.M).strip()
         parts.append(f"[issue] {issue['title']}\n{body}".strip())
+        v = re.search(r"^\s*Verdict:\s*(higher|lower)\b", issue["body"], re.I | re.M)
+        if v:
+            r = re.search(r"^\s*Reason:\s*(.+)$", issue["body"], re.I | re.M)
+            j = re.search(r"<!--\s*job:\s*([0-9a-f]+)\s*-->", issue["body"])
+            verdicts.append({
+                "issue": issue.get("number"), "job_id": j.group(1) if j else None,
+                "target": re.sub(r"^feedback:\s*", "", issue["title"], flags=re.I).strip(),
+                "direction": v.group(1).lower(), "reason": r.group(1).strip() if r else ""})
         if re.search(r"^\s*Action:\s*hide\b", issue["body"], re.I | re.M):
             target = re.sub(r"^feedback:\s*", "", issue["title"], flags=re.I).strip()
             if target:
                 hide.append(target)
 
-    return {"text": "\n\n".join(p for p in parts if p), "hide": hide}
+    return {"text": "\n\n".join(p for p in parts if p), "hide": hide,
+            "verdicts": verdicts}
+
+
+def apply_verdicts(seen: dict, verdicts: list[dict]) -> int:
+    """Move each verdict's posting one band, once per issue. The issue
+    stays open as scoring guidance; the record remembers which issues it
+    has absorbed, so later runs do not move it again, and the owner stamp
+    keeps re-scoring from overwriting the owner's call."""
+    from datetime import datetime, timezone
+    from .triage import BAND_ORDER, BAND_SCORE
+    n = 0
+    for v in verdicts:
+        recs = ([seen[v["job_id"]]] if v.get("job_id") in seen else
+                [r for r in seen.values()
+                 if v["target"] and _match_one(v["target"], r.get("title", ""), r.get("company", ""))])
+        for rec in recs:
+            done = rec.setdefault("verdicts_applied", [])
+            if v["issue"] in done or rec.get("band") not in BAND_ORDER:
+                continue
+            i = BAND_ORDER.index(rec["band"]) + (1 if v["direction"] == "higher" else -1)
+            band = BAND_ORDER[max(0, min(i, len(BAND_ORDER) - 1))]
+            rec.update(band=band, score=BAND_SCORE[band])
+            rec["rationale"] = (f"Owner feedback (#{v['issue']}): {v['reason']}. "
+                                + (rec.get("rationale") or ""))
+            fp = rec.setdefault("scoring_fingerprint", {})
+            fp["owner"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            done.append(v["issue"])
+            n += 1
+    if n:
+        log.info("Feedback: applied %d one-tap verdicts", n)
+    return n
 
 
 def _match_one(target: str, title: str, company: str) -> bool:
