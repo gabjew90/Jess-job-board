@@ -43,10 +43,10 @@ def build_digest(records: list[dict],
     (GitHub's cron is erratic); a run-scoped digest meant anything found
     between two digests could be missed entirely."""
     def sort_key(r: dict):
-        # Band desc, priority flag, posted date desc — deterministic
-        # within-band ordering, no sub-band precision implied.
-        return (-(r.get("score") or -1), not r.get("priority"),
-                _rev_date(r.get("date_posted", "")))
+        # Band desc, posted date desc, then priority flag — newest first
+        # within a band, matching the dashboard; no sub-band precision implied.
+        return (-(r.get("score") or -1), _rev_date(r.get("date_posted", "")),
+                not r.get("priority"))
 
     def _rev_date(d: str) -> str:
         return "".join(chr(255 - ord(c)) for c in (d or "0000-00-00"))

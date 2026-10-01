@@ -113,17 +113,19 @@ function defaultSort() {{
   }}).forEach(r => tb.appendChild(r));
   col = 5; dir = -1;
 }}
-// Documented default sort: fit band desc, then priority flag, then posted
-// date desc (first-seen fallback), then pay presence. Within-band order is
-// deterministic — no reliance on sub-band score precision.
+// Documented default sort: fit band desc, then posted date desc (first-seen
+// fallback), then priority flag, then pay presence. Newest first within a
+// band: with the flag ahead of the date, weeks-old starred rows buried every
+// new unstarred role. Within-band order is deterministic — no reliance on
+// sub-band score precision.
 function bandSort() {{
   const tb = document.querySelector("#t tbody");
   const s = r => parseFloat(r.cells[7].dataset.s ?? "-1");
   const d = r => r.cells[5].innerText.trim() || r.cells[6].innerText.trim().slice(0, 10);
   [...tb.rows].sort((a, b) =>
     (s(b) - s(a))
-    || (b.classList.contains("priority") - a.classList.contains("priority"))
     || d(b).localeCompare(d(a))
+    || (b.classList.contains("priority") - a.classList.contains("priority"))
     || ((b.cells[4].innerText.trim() ? 1 : 0) - (a.cells[4].innerText.trim() ? 1 : 0))
   ).forEach(r => tb.appendChild(r));
   col = 7; dir = -1;
