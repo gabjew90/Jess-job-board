@@ -106,7 +106,7 @@ def load() -> dict:
             "verdicts": verdicts}
 
 
-def apply_verdicts(seen: dict, verdicts: list[dict]) -> int:
+def apply_verdicts(seen: dict, verdicts: list[dict], archive_below: int = 25) -> int:
     """Move each verdict's posting one band, once per issue. The issue
     stays open as scoring guidance; the record remembers which issues it
     has absorbed, so later runs do not move it again, and the owner stamp
@@ -115,9 +115,13 @@ def apply_verdicts(seen: dict, verdicts: list[dict]) -> int:
     from .triage import BAND_ORDER, BAND_SCORE
     n = 0
     for v in verdicts:
+        # By id; otherwise only the same title at the same company. A
+        # substring match would move every "Engineer @ PG&E" each run.
+        key = v["target"].lower().strip()
         recs = ([seen[v["job_id"]]] if v.get("job_id") in seen else
-                [r for r in seen.values()
-                 if v["target"] and _match_one(v["target"], r.get("title", ""), r.get("company", ""))])
+                [r for r in seen.values() if key and key in {
+                    f"{t} @ {r.get('company', '')}".lower().strip()
+                    for t in (r.get("title", ""), r.get("title", "")[:80])}])  # dashboard cuts titles at 80
         for rec in recs:
             done = rec.setdefault("verdicts_applied", [])
             if v["issue"] in done or rec.get("band") not in BAND_ORDER:
@@ -128,7 +132,13 @@ def apply_verdicts(seen: dict, verdicts: list[dict]) -> int:
             rec["rationale"] = (f"Owner feedback (#{v['issue']}): {v['reason']}. "
                                 + (rec.get("rationale") or ""))
             fp = rec.setdefault("scoring_fingerprint", {})
-            fp["owner"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            fp["owner"] = today
+            if rec["score"] < archive_below and rec.get("active", True):
+                rec.update(active=False, lowscore=True, closed=today)
+            elif rec["score"] >= archive_below and rec.get("lowscore"):
+                rec.update(active=True, lowscore=False)  # raised out of the archive
+                rec.pop("closed", None)
             done.append(v["issue"])
             n += 1
     if n:

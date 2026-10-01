@@ -55,7 +55,7 @@ def _verdict_body(rec: dict, direction: str, reason: str) -> str:
         "",
         "---",
         f"<!-- job: {rec.get('_id', '')} -->",
-        f"Scored {rec.get('band', '?')}: {rec.get('rationale') or '(no rationale)'}",
+        f"Scored {rec.get('band', '?')}.",
     ])
 
 

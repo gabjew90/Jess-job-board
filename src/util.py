@@ -104,11 +104,21 @@ def extract_pay(text: str) -> str:
     # the first pair is the posting's headline locality.
     # Also "Minimum Base Salary (Bay Area) $140,000.00 ... Maximum ..." and
     # "CA Minimum, $161,520 CA Maximum, $207,504".
-    m = re.search(r"Minimum\b[^$]{0,40}\$\s?(\d[\d,]*(?:\.\d+)?)"
-                  r".{0,160}?Maximum\b[^$]{0,40}\$\s?(\d[\d,]*(?:\.\d+)?)", text, re.S)
-    if m:
+    # Only in a pay context, so a "Minimum $5,000 relocation" line is not
+    # read as salary; an hourly unit after the maximum is kept.
+    text = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", text)  # zero-width spaces ("$\u200b122,000")
+    for m in re.finditer(r"\bMin(?:imum)?\b[^$]{0,40}\$\s?(\d[\d,]*(?:\.\d+)?)"
+                         r"(?:(?!\bMin(?:imum)?\b).){0,160}?"  # a pair never spans another minimum
+                         r"\bMax(?:imum)?\b[^$]{0,40}\$\s?(\d[\d,]*(?:\.\d+)?)", text, re.S | re.I):
+        if re.search(r"bonus|relocation|signing|stipend", m.group(0), re.I):
+            continue
+        label = m.group(0)[:m.group(0).find("$")]  # "Minimum Base Salary (Bay Area)"
+        if not re.search(r"\b(?:salary|pay|compensation|wages?)\b",
+                         text[max(0, m.start() - 600):m.start()] + label, re.I):
+            continue
         lo, hi = (re.sub(r"\.00$", "", g) for g in m.groups())
-        return f"${lo}–${hi}"
+        hourly = re.match(r"\s*(?:per hour|/\s?h(?:ou)?r|hourly)", text[m.end():m.end() + 20], re.I)
+        return f"${lo}–${hi}" + ("/hr" if hourly else "")
     m = re.search(
         r"(?:USD\s?)?\$\s?\d[\d,.]*\s?[kK]?\s?(?:[-–—]|to)\s?"
         r"(?:USD\s?)?\$?\s?\d[\d,.]*\s?[kK]?(?:\s?(?:per|/)\s?\w+)?",
