@@ -23,6 +23,25 @@ log = logging.getLogger(__name__)
 _desc_cache: dict = {}
 
 
+DESC_START = re.compile(r'itemprop="description"|class="jobdescription"', re.I)
+DESC_END = ('id="similar', 'class="social', 'class="jobShare"', '</main>')
+
+
+def page_description(html: str) -> str:
+    """The posting body from a CSB job page. PG&E's pages mark it
+    itemprop="description" / class="jobdescription" (lowercase); the old
+    'jobDescription' pattern stopped matching, and the fallback kept the
+    page's first 6,000 characters (cookie banner and scripts), so scoring
+    saw no description and the pay range further down was cut off."""
+    m = DESC_START.search(html)
+    if not m:
+        body = re.sub(r"<(script|style)\b.*?</\1>", " ", html, flags=re.S | re.I)
+        return strip_html(body)[:6000]
+    seg = html[html.find(">", m.end()) + 1:]  # past the opening tag's attributes
+    ends = [i for i in (seg.find(e) for e in DESC_END) if i > 0]
+    return strip_html(seg[:min(ends) if ends else 40000])[:12000]
+
+
 def _description(url: str) -> str:
     """Search tiles carry no description; fetch the job page once per run.
     Without this, utility roles are scored on title alone — and PG&E is a
@@ -31,10 +50,7 @@ def _description(url: str) -> str:
         try:
             time.sleep(0.3)
             html = requests.get(url, headers=HEADERS, timeout=25).text
-            # The posting body sits in the jobDescription block on CSB pages.
-            m = re.search(r'class="jobDescription"(.*?)(?:class="jobShare"|</main>)',
-                          html, re.S)
-            _desc_cache[url] = strip_html(m.group(1) if m else html)[:6000]
+            _desc_cache[url] = page_description(html)
         except Exception as e:  # noqa: BLE001
             log.debug("successfactors description fetch failed for %s: %s", url, e)
             _desc_cache[url] = ""

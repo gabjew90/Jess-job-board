@@ -33,6 +33,32 @@ def _feedback_body(rec: dict) -> str:
     ]
     return "\n".join(lines)
 
+# One-tap verdicts (owner, 2026-10-01). Each opens a pre-filled feedback
+# issue; the next run moves that posting one band and the issue keeps
+# steering future scoring (feedback.apply_verdicts).
+VERDICTS = (
+    ("higher", "👍 great fit", "Great fit, belongs higher"),
+    ("lower", "🔧 too technical", "Too technical, belongs lower"),
+    ("lower", "📉 lack experience", "Lack experience, belongs lower"),
+    ("lower", "🏭 wrong industry", "Wrong industry, belongs lower"),
+)
+
+
+def _verdict_body(rec: dict, direction: str, reason: str) -> str:
+    """Verdict lines first; the scoring context sits below '---', which
+    feedback.load strips before the issue reaches the scoring prompt."""
+    return "\n".join([
+        f"Verdict: {direction}",
+        f"Reason: {reason}",
+        "",
+        "Tap Create to send. Add notes here if you like.",
+        "",
+        "---",
+        f"<!-- job: {rec.get('_id', '')} -->",
+        f"Scored {rec.get('band', '?')}: {rec.get('rationale') or '(no rationale)'}",
+    ])
+
+
 OUT = Path("docs/index.html")
 
 _PAGE = """<!DOCTYPE html>
@@ -190,11 +216,16 @@ def _row(rec: dict) -> str:
     if not rec.get("active", True):
         first_seen += f' <small>(closed {rec.get("closed", "")})</small>'
     ref = quote(rec.get("title", "")[:80] + " @ " + rec.get("company", ""))
+    verdicts = " · ".join(
+        f'<a href="https://github.com/{REPO}/issues/new?labels=feedback'
+        f'&title={quote("feedback: ")}{ref}&body={quote(_verdict_body(rec, d, reason))}"'
+        f' target="_blank">{label}</a>'
+        for d, label, reason in VERDICTS)
     fb_url = (f"https://github.com/{REPO}/issues/new?labels=feedback"
               f"&title={quote('feedback: ')}{ref}&body={quote(_feedback_body(rec))}")
     return (
         f'<tr{cls}><td><a href="{e(best_link(rec))}" target="_blank">{e(rec.get("title"))}</a>'
-        f'<br><small>{e(rec.get("source"))} · <a href="{fb_url}" target="_blank">feedback</a>'
+        f'<br><small>{e(rec.get("source"))} · {verdicts} · <a href="{fb_url}" target="_blank">✏️ other</a>'
         f'</small></td>'
         f'<td>{e(rec.get("company"))}</td><td>{e(rec.get("location"))}{_extra_locs(rec)}</td>'
         f'<td>{mode}</td><td>{e(rec.get("pay"))}</td>'
@@ -242,6 +273,7 @@ def _select_rows(state: dict, max_rows: int) -> tuple[list[dict], int, int]:
 
 def generate(state: dict, health_summary: list[dict] | None = None,
              max_rows: int = 500) -> None:
+    state = {jid: {**r, "_id": jid} for jid, r in state.items()}  # copies: the id rides on the row
     selected, active, closed = _select_rows(state, max_rows)
     records = sorted(selected, key=lambda r: r.get("first_seen", ""), reverse=True)
     OUT.parent.mkdir(parents=True, exist_ok=True)

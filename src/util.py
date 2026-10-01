@@ -100,6 +100,15 @@ def extract_pay(text: str) -> str:
     """Pull a salary range out of free text (US pay-transparency style)."""
     if not text:
         return ""
+    # "Minimum: $126,000 ... Maximum: $200,000" (PG&E and other utilities):
+    # the first pair is the posting's headline locality.
+    # Also "Minimum Base Salary (Bay Area) $140,000.00 ... Maximum ..." and
+    # "CA Minimum, $161,520 CA Maximum, $207,504".
+    m = re.search(r"Minimum\b[^$]{0,40}\$\s?(\d[\d,]*(?:\.\d+)?)"
+                  r".{0,160}?Maximum\b[^$]{0,40}\$\s?(\d[\d,]*(?:\.\d+)?)", text, re.S)
+    if m:
+        lo, hi = (re.sub(r"\.00$", "", g) for g in m.groups())
+        return f"${lo}–${hi}"
     m = re.search(
         r"(?:USD\s?)?\$\s?\d[\d,.]*\s?[kK]?\s?(?:[-–—]|to)\s?"
         r"(?:USD\s?)?\$?\s?\d[\d,.]*\s?[kK]?(?:\s?(?:per|/)\s?\w+)?",

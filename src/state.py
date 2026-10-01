@@ -1,5 +1,6 @@
 """Seen-postings state: dedupe across runs, committed to the repo as JSON."""
 import json
+import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -35,6 +36,13 @@ def unscored_active(state: dict, exclude_ids: set[str]) -> list[str]:
     return [job_id for job_id, rec in state.items()
             if rec.get("active", True) and "score" not in rec
             and job_id not in exclude_ids]
+
+
+def _better_pay(field: str, new: str, old: str) -> bool:
+    """A range replaces a single figure stored earlier ("$126,000" before
+    the minimum/maximum format was read)."""
+    rng = lambda s: bool(re.search(r"\d\s?(?:[-–—]|to)\s?\$?\s?\d", s))
+    return field == "pay" and rng(new) and not rng(old)
 
 
 def split_new(jobs: list[Job], state: dict) -> list[Job]:
@@ -88,7 +96,7 @@ def split_new(jobs: list[Job], state: dict) -> list[Job]:
                 for field, value in (("date_posted", job.date_posted),
                                      ("pay", job.pay), ("work_mode", job.work_mode),
                                      ("apply_url", job.apply_url)):
-                    if value and not twin.get(field):
+                    if value and (not twin.get(field) or _better_pay(field, value, twin[field])):
                         twin[field] = value
                 continue
         if job.job_id in state:
@@ -97,7 +105,7 @@ def split_new(jobs: list[Job], state: dict) -> list[Job]:
             for field, value in (("date_posted", job.date_posted),
                                  ("pay", job.pay), ("work_mode", job.work_mode),
                                  ("apply_url", job.apply_url)):
-                if value and not rec.get(field):
+                if value and (not rec.get(field) or _better_pay(field, value, rec[field])):
                     rec[field] = value
             continue
         state[job.job_id] = {
