@@ -4,13 +4,9 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from .models import Job
-from .util import company_key, group_key, source_id, twin_key
+from .util import AGGREGATOR_SOURCES, company_key, group_key, source_id, twin_key
 
 STATE_FILE = Path("state/seen_jobs.json")
-
-# Sources whose links die on their own schedule, independent of the
-# employer's posting.
-AGGREGATOR_SOURCES = {"indeed", "glassdoor", "zip_recruiter", "google"}
 
 
 def _today() -> str:

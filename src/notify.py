@@ -11,6 +11,7 @@ from pathlib import Path
 import requests
 
 from .models import Job
+from .util import best_link
 
 log = logging.getLogger(__name__)
 
@@ -69,7 +70,7 @@ def build_digest(records: list[dict],
             locs = len(r.get("locations") or [])
             extra = f" +{locs - 1}" if locs > 1 else ""
             lines.append(
-                f"| {score}{star} | [{_esc(r.get('title'), 70)}]({r.get('url')}){rationale} "
+                f"| {score}{star} | [{_esc(r.get('title'), 70)}]({best_link(r)}){rationale} "
                 f"| {_esc(r.get('company'))} | {_esc(r.get('location'), 34)}{extra} "
                 f"| {r.get('work_mode', '')} | {_esc(r.get('pay'), 45)} | {r.get('date_posted', '')} |")
     if omitted:
@@ -92,7 +93,7 @@ def build_digest(records: list[dict],
                      "filter got WRONG and file feedback on them:")
         for r in audit_recs:
             lines.append(f"- [ ] {r.get('band', r.get('score', '?'))}: "
-                         f"[{_esc(r.get('title', ''), 60)}]({r.get('url', '')}) — "
+                         f"[{_esc(r.get('title', ''), 60)}]({best_link(r)}) — "
                          f"{_esc(r.get('company', ''))}"
                          f"<br><sub>{_esc(r.get('rationale', ''), 140)}</sub>")
     if reject_audit:
@@ -110,7 +111,7 @@ def build_digest(records: list[dict],
                      f"the only view of what the filter loses. Check any that "
                      f"should have been scored and file feedback:{stats}")
         for r in reject_audit:
-            lines.append(f"- [ ] [{_esc(r.get('title', ''), 60)}]({r.get('url', '')}) — "
+            lines.append(f"- [ ] [{_esc(r.get('title', ''), 60)}]({best_link(r)}) — "
                          f"{_esc(r.get('company', ''))} · {_esc(r.get('location', ''), 30)}"
                          f" <sub>{_esc(r.get('source', ''))}</sub>")
     if discovered:
