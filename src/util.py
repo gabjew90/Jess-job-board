@@ -1,5 +1,6 @@
 import html
 import re
+from urllib.parse import urlparse
 
 BROWSER_UA = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
@@ -149,3 +150,22 @@ def role_excerpt(description: str, limit: int) -> str:
         start = max(0, min(hits) - 100)
         return description[start:start + limit]
     return description[:limit]
+
+
+# Sources whose links die on their own schedule, independent of the
+# employer's posting.
+AGGREGATOR_SOURCES = {"indeed", "glassdoor", "zip_recruiter", "google"}
+AGGREGATOR_HOSTS = ("indeed.com", "glassdoor.com", "ziprecruiter.com", "linkedin.com")
+
+
+def best_link(rec: dict) -> str:
+    """The link a person should click. An aggregator copy dies on its own
+    schedule, so when an aggregator record carries the employer's own apply
+    link, that is the one shown. rec["url"] stays the aggregator's: expiry
+    checks the listing through it."""
+    apply = rec.get("apply_url") or ""
+    if rec.get("source") in AGGREGATOR_SOURCES and apply.startswith("http"):
+        host = (urlparse(apply).hostname or "").lower()
+        if not any(host == h or host.endswith("." + h) for h in AGGREGATOR_HOSTS):
+            return apply
+    return rec.get("url", "")

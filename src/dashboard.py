@@ -4,6 +4,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import quote
 
+from .util import best_link
+
 REPO = "gabjew90/Jess-job-board"
 
 
@@ -148,19 +150,37 @@ def _extra_locs(rec: dict) -> str:
     return f' <small>+{n} more</small>' if n > 0 else ""
 
 
+BAND_SCORE = {"top": 90, "strong": 75, "possible": 55, "weak": 35, "misfit": 15}
+
+
+def _band(rec: dict) -> str:
+    """The band to show and sort by. Records scored before bands existed
+    carry only a number (76, 82, 85...), and sorting on it put every one of
+    them above every current strong (75) posting, burying new roles under
+    months-old ones. They take the nearest band."""
+    if rec.get("band") in BAND_SCORE:
+        return rec["band"]
+    score = rec.get("score")
+    if score is None:
+        return ""
+    for name, floor in (("top", 82.5), ("strong", 65), ("possible", 45), ("weak", 25)):
+        if score >= floor:
+            return name
+    return "misfit"
+
+
 def _row(rec: dict) -> str:
     classes = (["priority"] if rec.get("priority") else []) + (
         [] if rec.get("active", True) else ["closed"])
     cls = f' class="{" ".join(classes)}"' if classes else ""
     e = lambda s: html.escape(str(s or ""))
-    score = rec.get("score")
-    band = rec.get("band", "")
     fp = rec.get("scoring_fingerprint") or {}
     tooltip = e(rec.get("rationale"))
     if fp:
         tooltip += f' [{e(fp.get("model", ""))} · rubric {e(fp.get("rubric", ""))} · {e(fp.get("at", ""))}]'
-    label = e(band or (str(score) if score is not None else ""))
-    score_cell = (f'<td data-s="{score if score is not None else -1}" '
+    band = _band(rec)
+    label = e(band)
+    score_cell = (f'<td data-s="{BAND_SCORE.get(band, -1)}" '
                   f'title="{tooltip}">{label}</td>')
     mode = {"onsite": "🏢 onsite", "hybrid": "🔀 hybrid", "remote": "🏠 remote"}.get(
         rec.get("work_mode", ""), "")
@@ -171,7 +191,7 @@ def _row(rec: dict) -> str:
     fb_url = (f"https://github.com/{REPO}/issues/new?labels=feedback"
               f"&title={quote('feedback: ')}{ref}&body={quote(_feedback_body(rec))}")
     return (
-        f'<tr{cls}><td><a href="{e(rec.get("url"))}" target="_blank">{e(rec.get("title"))}</a>'
+        f'<tr{cls}><td><a href="{e(best_link(rec))}" target="_blank">{e(rec.get("title"))}</a>'
         f'<br><small>{e(rec.get("source"))} · <a href="{fb_url}" target="_blank">feedback</a>'
         f'</small></td>'
         f'<td>{e(rec.get("company"))}</td><td>{e(rec.get("location"))}{_extra_locs(rec)}</td>'
@@ -194,8 +214,8 @@ def _health_row(s: dict) -> str:
 
 
 def _select_rows(state: dict, max_rows: int) -> tuple[list[dict], int, int]:
-    """Top-N active by score. Fresh rows (last 7 days) always show unless
-    they alone exceed the cap — then even fresh rows rank by score. The
+    """Top-N active by band. Fresh rows (last 7 days) always show unless
+    they alone exceed the cap — then even fresh rows rank by band. The
     closed toggle shows only genuine market closures (100 most recent):
     auto-archived misfits, feedback-hidden, and duplicate records stay in
     state for dedupe but are not listed."""
@@ -204,13 +224,15 @@ def _select_rows(state: dict, max_rows: int) -> tuple[list[dict], int, int]:
               and not (r.get("lowscore") or r.get("hidden")
                        or r.get("excluded") or r.get("duplicate"))]
     fresh_cutoff = (datetime.now(timezone.utc) - timedelta(days=7)).strftime("%Y-%m-%d")
-    def score_key(r):
-        return -(r["score"] if r.get("score") is not None else -1)
+    def rank(r):
+        # Band, then newest: a raw score would let pre-band numbers (82,
+        # 85) outrank every current strong posting.
+        return (BAND_SCORE.get(_band(r), -1), r.get("first_seen", ""))
     fresh = [r for r in active if r.get("first_seen", "") >= fresh_cutoff]
     backlog = sorted((r for r in active if r.get("first_seen", "") < fresh_cutoff),
-                     key=score_key)
-    if len(fresh) > max_rows:  # a flood week: even fresh rows rank by score
-        fresh = sorted(fresh, key=score_key)[:max_rows]
+                     key=rank, reverse=True)
+    if len(fresh) > max_rows:  # a flood week: even fresh rows rank by band
+        fresh = sorted(fresh, key=rank, reverse=True)[:max_rows]
     shown = fresh + backlog[:max(0, max_rows - len(fresh))]
     closed_shown = sorted(closed, key=lambda r: str(r.get("closed", "")), reverse=True)[:100]
     return shown + closed_shown, len(active), len(closed)
