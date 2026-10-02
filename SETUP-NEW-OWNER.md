@@ -232,7 +232,7 @@ The scorer (`src/triage.py`) needs no edit — it reads `profile.md`.
 Trigger "Daily job watch" manually from the Actions tab. It takes 15–25
 minutes. Then check:
 
-- A new issue titled "Job watch <date>: N postings in 24h" exists.
+- A new digest issue exists, titled after the best new role (e.g. "🔥 Top fit: <role> at <company> (+2 strong)").
 - Its table has bands (top / strong / possible / weak) and rationales
   that make sense to the owner. If everything is "misfit", `profile.md`
   or the search terms are wrong — fix and re-run before doing anything
