@@ -381,5 +381,7 @@
     "origination"
   ],
   "state_retention_days": 180,
-  "dashboard_max_rows": 500
+  "dashboard_max_rows": 500,
+  "theme": "gas",
+  "board_title": "Jess's Job Board"
 }
