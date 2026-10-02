@@ -5,7 +5,6 @@ the digest is just printed.
 """
 import logging
 import os
-from datetime import datetime, timezone
 
 import requests
 
@@ -33,6 +32,24 @@ def _esc(text: str, limit: int = 0) -> str:
     return text[:limit] + "…" if limit and len(text) > limit else text
 
 
+def _rev_date(d: str) -> str:
+    return "".join(chr(255 - ord(c)) for c in (d or "0000-00-00"))
+
+
+def _newest(r: dict):
+    """Order within a rating: newest posted first (first-seen when the
+    posting gave no date), then postings with pay, matching the dashboard;
+    no sub-band precision implied."""
+    return (_rev_date(r.get("date_posted") or r.get("first_seen", "")),
+            not r.get("pay"))
+
+
+def _above_floor(records: list[dict], digest_floor: int) -> list[dict]:
+    """The records the digest itemizes: unscored ones and those at or above
+    the floor. Clear misfits are only counted."""
+    return [r for r in records if r.get("score") is None or r["score"] >= digest_floor]
+
+
 def build_digest(records: list[dict],
                  health_summary: list[dict] | None = None,
                  closed_recs: list[dict] | None = None,
@@ -47,22 +64,11 @@ def build_digest(records: list[dict],
     posting appears in every digest for 24h. Runs fire several times a day
     (GitHub's cron is erratic); a run-scoped digest meant anything found
     between two digests could be missed entirely."""
-    def _rev_date(d: str) -> str:
-        return "".join(chr(255 - ord(c)) for c in (d or "0000-00-00"))
-
-    def newest(r: dict):
-        # Newest posted first within a rating (first-seen when the posting
-        # gave no date), then postings with pay, matching the dashboard; no
-        # sub-band precision implied.
-        return (_rev_date(r.get("date_posted") or r.get("first_seen", "")),
-                not r.get("pay"))
-
     th = themes.get(theme)
     lines = [f"[![{th['tagline']}]({dashboard_url()}banner.svg)]({dashboard_url()})",
              ""]
     # Digest floor: don't itemize clear misfits, just count them.
-    visible = [r for r in records
-               if r.get("score") is None or r["score"] >= digest_floor]
+    visible = _above_floor(records, digest_floor)
     omitted = len(records) - len(visible)
     groups: dict[str, list[dict]] = {}
     for r in visible:
@@ -84,7 +90,7 @@ def build_digest(records: list[dict],
         lines.append(f"\n## {th['icons'][band]} {GROUP_NAMES[band]}\n")
         lines.append("| Role | Company | Location | Mode | Pay | Posted |")
         lines.append("|---|---|---|---|---|---|")
-        for r in sorted(groups[band], key=newest):
+        for r in sorted(groups[band], key=_newest):
             rationale = (f"<br><sub>{_esc(r['rationale'], 160)}</sub>"
                          if r.get("rationale") else "")
             locs = len(r.get("locations") or [])
@@ -94,7 +100,7 @@ def build_digest(records: list[dict],
                 f"| {_esc(r.get('company'))} | {_esc(r.get('location'), 34)}{extra} "
                 f"| {r.get('work_mode', '')} | {_esc(r.get('pay'), 45)} | {r.get('date_posted', '')} |")
     for band, heading in (("possible", None), ("weak", None), ("misfit", None), ("", "Not yet rated")):
-        rows = sorted(groups.get(band, []), key=newest)
+        rows = sorted(groups.get(band, []), key=_newest)
         if not rows:
             continue
         name = heading or GROUP_NAMES[band]
@@ -176,6 +182,49 @@ def build_digest(records: list[dict],
 
 
 
+def _short(text: str, limit: int) -> str:
+    text = " ".join((text or "").split())
+    return text if len(text) <= limit else text[:limit - 1].rstrip(" ,-–") + "…"
+
+
+def digest_title(records: list[dict], closed_recs: list[dict] | None = None,
+                 digest_floor: int = 40, theme: str | None = None) -> str:
+    """The issue title, which is also the notification email's subject, so
+    it leads with the best role (owner, 2026-10-02): "⚡ Top fit: Senior
+    Product Manager at Google (+2 top, 5 strong)". The role named is the
+    first row of the digest's best section. The tally comes last: a phone
+    inbox may cut it, and the role matters more. GitHub adds the repo name
+    and issue number around the title."""
+    th = themes.get(theme)
+    visible = _above_floor(records, digest_floor)
+    groups: dict[str, list[dict]] = {}
+    for r in visible:
+        groups.setdefault(_band(r) or "", []).append(r)
+    unrated = len(groups.get("", []))
+    # Weak roles (legacy scores just above the floor) never headline.
+    band = next((b for b in ("top", "strong", "possible")
+                 if any((r.get("title") or "").strip() for r in groups.get(b, []))), None)
+    if band:
+        best = next(r for r in sorted(groups[band], key=_newest)
+                    if (r.get("title") or "").strip())
+        role = _short(best["title"], 45)
+        if (best.get("company") or "").strip():
+            role += f" at {_short(best['company'], 25)}"
+        label = {"top": "Top fit", "strong": "Strong fit"}.get(band, "Possible fit")
+        others = [f"{len(groups.get(b, [])) - (b == band)} {b}" for b in ("top", "strong")
+                  if len(groups.get(b, [])) - (b == band) > 0]
+        if unrated:
+            others.append(f"{unrated} unrated")
+        title = f"{th['icons'][band]} {label}: {role}" + (f" (+{', '.join(others)})" if others else "")
+    elif unrated:
+        title = f"⏳ {unrated} new posting{'s' if unrated != 1 else ''}, not yet rated"
+    else:
+        title = "Job watch: no new fits"
+    if closed_recs:
+        title += f" · {len(closed_recs)} closed"
+    return title
+
+
 def post_issue(records: list[dict],
                health_summary: list[dict] | None = None,
                closed_recs: list[dict] | None = None,
@@ -188,14 +237,7 @@ def post_issue(records: list[dict],
                theme: str | None = None) -> None:
     token = os.environ.get("GITHUB_TOKEN")
     repo = os.environ.get("GITHUB_REPOSITORY")
-    date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    title = f"Job watch {date}: {len(records)} posting{'s' if len(records) != 1 else ''} in 24h"
-    banded = [r for r in records if r.get("band")]
-    if banded:
-        best = max(banded, key=lambda r: r.get("score") or 0)
-        title += f" (top: {best['band']})"
-    if closed_recs:
-        title += f", {len(closed_recs)} closed"
+    title = digest_title(records, closed_recs, digest_floor, theme)
     body = build_digest(records, health_summary, closed_recs,
                         digest_floor, unresolved, audit_recs, discovered,
                         reject_audit, screen_stats, theme)
