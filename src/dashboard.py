@@ -128,7 +128,11 @@ _PAGE = """<!DOCTYPE html>
   .fb a {{ font-size: .75rem; padding: .1rem .5rem; border-radius: 999px; white-space: nowrap;
           border: 1px solid var(--border); color: var(--muted); text-decoration: none; background: var(--bg); }}
   .fb a:hover {{ border-color: var(--accent); color: var(--accent); }}
-  tr.priority td:first-child::before {{ content: "⭐ "; }}
+  tr.grp td {{ background: var(--head); font-weight: 800; font-size: .95rem; color: var(--ink);
+              padding: .55rem .75rem; border-top: 2px solid var(--border); }}
+  tr.grp small {{ font-weight: 400; color: var(--muted); margin-left: .4rem; }}
+  .you {{ display: block; margin-top: .2rem; font-size: .72rem; color: var(--accent); white-space: nowrap; }}
+  .legend {{ color: var(--muted); font-size: .85rem; margin: -.3rem 0 .9rem; max-width: 52rem; }}
   tr.closed {{ opacity: .45; }}
   tr.closed td:first-child a {{ text-decoration: line-through; }}
   label {{ font-size: .85rem; user-select: none; color: var(--muted); }}
@@ -146,7 +150,8 @@ _PAGE = """<!DOCTYPE html>
 <header class="hero">{art}<div class="txt"><h1>{mark} {title}</h1><p>{tagline}</p></div></header>
 <main>
 <div class="chips"><span class="chip"><b>{active_count}</b>active{shown_note}</span><span class="chip"><b>{top_count}</b>top fits</span><span class="chip"><b>{new_count}</b>new this week</span><span class="chip"><b>{closed_count}</b>closed</span></div>
-<div class="controls"><input id="q" type="search" placeholder="Filter by title, company, place…" oninput="applyVis()"><label><input id="sc" type="checkbox" onchange="applyVis()"> show closed</label><span class="meta">Updated <span id="upd" data-ts="{generated_iso}">{generated} UTC</span></span></div>
+<p class="legend">Each role is rated against the profile: top, strong, possible, weak or misfit, newest first within each rating. Weak and misfit roles are hidden unless you tick the box or search. The buttons under a role move it one rating up or down on the next run and teach future ratings.</p>
+<div class="controls"><input id="q" type="search" placeholder="Filter by title, company, place…" oninput="applyVis()"><label><input id="lo" type="checkbox" onchange="applyVis()"> show weak &amp; misfit</label><label><input id="sc" type="checkbox" onchange="applyVis()"> show closed</label><span class="meta">Updated <span id="upd" data-ts="{generated_iso}">{generated} UTC</span></span></div>
 <div class="tablewrap">
 <table id="t">
 <thead><tr>
@@ -171,53 +176,70 @@ _PAGE = """<!DOCTYPE html>
 </div>
 <script>
 let dir = -1, col = 6;
+const GROUPS = {groups};
+const LOW = ["weak", "misfit"];
 function sortBy(c, numeric) {{
+  // Fit toggles between the grouped order (best first) and a flat
+  // lowest-first list, e.g. to review misfits.
+  if (c === 7 && !(col === 7 && dir === -1)) {{ bandSort(); applyVis(); return; }}
   dir = (c === col) ? -dir : (numeric ? -1 : 1); col = c;
   const tb = document.querySelector("#t tbody");
+  tb.querySelectorAll("tr.grp").forEach(g => g.remove());  // headings belong to the rating order
   [...tb.rows].sort((a, b) => {{
     const val = (r) => numeric ? parseFloat(r.cells[c].dataset.s ?? r.cells[c].innerText) || -1
                                : r.cells[c].innerText;
     return numeric ? dir * (val(a) - val(b)) : dir * val(a).localeCompare(val(b));
   }}).forEach(r => tb.appendChild(r));
+  applyVis();
 }}
 function applyVis() {{
   const q = document.getElementById("q").value.toLowerCase();
   const showClosed = document.getElementById("sc").checked;
-  for (const r of document.querySelectorAll("#t tbody tr")) {{
-    const hideClosed = r.classList.contains("closed") && !showClosed;
+  // A search looks through every rating; only browsing hides weak and misfit.
+  const showLow = document.getElementById("lo").checked || q !== "";
+  for (const r of document.querySelectorAll("#t tbody tr:not(.grp)")) {{
+    const hideClosed = (r.classList.contains("closed") && !showClosed)
+      || (LOW.includes(r.dataset.band) && !showLow);
     // Title, company and location only: the row's buttons ("too technical",
     // "industry") would otherwise match every row.
     const text = (r.cells[0].querySelector("a").innerText + " " + r.cells[1].innerText
                   + " " + r.cells[2].innerText).toLowerCase();
     r.style.display = !hideClosed && text.includes(q) ? "" : "none";
   }}
+  // Each rating heading counts the rows showing under it, and hides at zero.
+  let head = null, n = 0;
+  const close = () => {{ if (head) {{ head.querySelector("small").textContent = n;
+                                     head.style.display = n ? "" : "none"; }} }};
+  for (const r of document.querySelectorAll("#t tbody tr")) {{
+    if (r.classList.contains("grp")) {{ close(); head = r; n = 0; }}
+    else if (r.style.display !== "none") n++;
+  }}
+  close();
 }}
-function defaultSort() {{
-  // Newest first by posted date (falling back to first-seen), score breaks ties.
-  const tb = document.querySelector("#t tbody");
-  [...tb.rows].sort((a, b) => {{
-    const d = r => r.cells[5].innerText.trim() || r.cells[6].innerText.trim().slice(0, 10);
-    const cmp = d(b).localeCompare(d(a));
-    if (cmp) return cmp;
-    return (parseFloat(b.cells[7].innerText) || -1) - (parseFloat(a.cells[7].innerText) || -1);
-  }}).forEach(r => tb.appendChild(r));
-  col = 5; dir = -1;
-}}
-// Documented default sort: fit band desc, then posted date desc (first-seen
-// fallback), then priority flag, then pay presence. Newest first within a
-// band: with the flag ahead of the date, weeks-old starred rows buried every
-// new unstarred role. Within-band order is deterministic — no reliance on
-// sub-band score precision.
+// Default order (owner, 2026-10-02): grouped by rating under a heading per
+// rating, newest posted first within each (first-seen when the posting gave
+// no date), then postings with pay. Within-rating order is deterministic: no
+// reliance on sub-band score precision.
 function bandSort() {{
   const tb = document.querySelector("#t tbody");
+  tb.querySelectorAll("tr.grp").forEach(g => g.remove());
   const s = r => parseFloat(r.cells[7].dataset.s ?? "-1");
   const d = r => r.cells[5].innerText.trim() || r.cells[6].innerText.trim().slice(0, 10);
-  [...tb.rows].sort((a, b) =>
+  const rows = [...tb.rows].sort((a, b) =>
     (s(b) - s(a))
     || d(b).localeCompare(d(a))
-    || (b.classList.contains("priority") - a.classList.contains("priority"))
-    || ((b.cells[4].innerText.trim() ? 1 : 0) - (a.cells[4].innerText.trim() ? 1 : 0))
-  ).forEach(r => tb.appendChild(r));
+    || ((b.cells[4].innerText.trim() ? 1 : 0) - (a.cells[4].innerText.trim() ? 1 : 0)));
+  let last = null;
+  for (const r of rows) {{
+    if (r.dataset.band !== last) {{
+      last = r.dataset.band;
+      const g = document.createElement("tr");
+      g.className = "grp";
+      g.innerHTML = `<td colspan="8">${{GROUPS[last] || "Not yet rated"}}<small></small></td>`;
+      tb.appendChild(g);
+    }}
+    tb.appendChild(r);
+  }}
   col = 7; dir = -1;
 }}
 bandSort(); applyVis();
@@ -244,6 +266,10 @@ def _extra_locs(rec: dict) -> str:
     return f' <small>+{n} more</small>' if n > 0 else ""
 
 
+# Rating headings, best first. Keys match triage.BAND_SCORE (a test holds
+# them together).
+GROUP_NAMES = {"top": "Top fits", "strong": "Strong fits", "possible": "Possible fits",
+               "weak": "Weak fits", "misfit": "Misfits"}
 BAND_SCORE = {"top": 90, "strong": 75, "possible": 55, "weak": 35, "misfit": 15}
 
 
@@ -265,9 +291,7 @@ def _band(rec: dict) -> str:
 
 def _row(rec: dict, theme: dict | None = None) -> str:
     theme = theme or themes.get(None)
-    classes = (["priority"] if rec.get("priority") else []) + (
-        [] if rec.get("active", True) else ["closed"])
-    cls = f' class="{" ".join(classes)}"' if classes else ""
+    cls = "" if rec.get("active", True) else ' class="closed"'
     e = lambda s: html.escape(str(s or ""))
     fp = rec.get("scoring_fingerprint") or {}
     tooltip = e(rec.get("rationale"))
@@ -276,6 +300,8 @@ def _row(rec: dict, theme: dict | None = None) -> str:
     band = _band(rec)
     icon = theme["icons"].get(band, "")
     label = f'<span class="band band-{e(band)}">{icon} {e(band)}</span>' if band else ""
+    if fp.get("owner"):  # moved by one of the owner's verdicts
+        label += '<small class="you">✓ your rating</small>'
     score_cell = (f'<td data-s="{BAND_SCORE.get(band, -1)}" '
                   f'title="{tooltip}">{label}</td>')
     mode = {"onsite": "🏢 onsite", "hybrid": "🔀 hybrid", "remote": "🏠 remote"}.get(
@@ -359,6 +385,7 @@ def generate(state: dict, health_summary: list[dict] | None = None,
     OUT.write_text(_PAGE.format(
         title=html.escape(title), theme_css=themes.css_vars(theme), art=theme["art"],
         verdict_js=_verdict_js(),
+        groups=json.dumps({b: f"{theme['icons'][b]} {name}" for b, name in GROUP_NAMES.items()}),
         mark=theme["mark"], tagline=html.escape(theme["tagline"]),
         top_count=sum(1 for r in live if _band(r) == "top"),
         new_count=sum(1 for r in live if r.get("first_seen", "") >= week_ago),

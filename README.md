@@ -19,7 +19,7 @@ Workday / SuccessFactors boards (Brookfield, Blackstone, Vantage, Equinix,
   GE Vernova, Bloom Energy, NiSource, AltaGas, SOLV, PG&E, NextEra)
 careers-site APIs (Radancy/HiBob/ADP/Jibe/SmartRecruiters/Breezy —
   Applied Digital)
-  → keyword filter + title exclusions + priority-topic ⭐
+  → keyword filter + title exclusions (+ a priority-topic flag, stored only)
   → title screen: Haiku judges new postings' title+company, dropping obvious
     misfits and rescuing keyword-rejected titles that carry a leadership or
     role-type signal (rescue_title_keywords); ≤600 titles/run (screen.py)
@@ -49,7 +49,7 @@ careers-site APIs (Radancy/HiBob/ADP/Jibe/SmartRecruiters/Breezy —
    Actions). No API key billing — triage runs on your subscription. Without
    the secret, runs still work; digests are just unscored.
 3. **Tune `config.json`**: search terms, keyword filter, title exclusions,
-   priority topics, ATS boards, retention. `profile.md`
+   ATS boards, retention. `profile.md`
    is what postings are scored against — keep it current.
 
 ## Running locally
