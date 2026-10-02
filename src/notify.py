@@ -12,12 +12,15 @@ import requests
 from .models import Job
 from . import themes
 from .util import best_link
+from .dashboard import GROUP_NAMES, _band
+
+POSSIBLE_CAP = 25  # one-line rows per lower rating before "…and N more"
 
 
 def dashboard_url() -> str:
     """The GitHub Pages URL for this repo's dashboard, derived from the
     repository so a fork points at its own board rather than the original."""
-    from .dashboard import REPO
+    from .dashboard import REPO  # noqa: PLC0415 - read at call time so tests can patch it
     repo = os.environ.get("GITHUB_REPOSITORY") or REPO
     owner, _, name = repo.partition("/")
     return f"https://{owner}.github.io/{name}/"
@@ -44,40 +47,65 @@ def build_digest(records: list[dict],
     posting appears in every digest for 24h. Runs fire several times a day
     (GitHub's cron is erratic); a run-scoped digest meant anything found
     between two digests could be missed entirely."""
-    def sort_key(r: dict):
-        # Band desc, posted date desc, then priority flag — newest first
-        # within a band, matching the dashboard; no sub-band precision implied.
-        return (-(r.get("score") or -1), _rev_date(r.get("date_posted", "")),
-                not r.get("priority"))
-
     def _rev_date(d: str) -> str:
         return "".join(chr(255 - ord(c)) for c in (d or "0000-00-00"))
 
+    def newest(r: dict):
+        # Newest posted first within a rating (first-seen when the posting
+        # gave no date), then postings with pay, matching the dashboard; no
+        # sub-band precision implied.
+        return (_rev_date(r.get("date_posted") or r.get("first_seen", "")),
+                not r.get("pay"))
+
     th = themes.get(theme)
     lines = [f"[![{th['tagline']}]({dashboard_url()}banner.svg)]({dashboard_url()})",
-             "",
-             f"{th['mark']} **[Open the full board]({dashboard_url()})**: every posting, "
-             "filterable, with one-tap feedback.\n"]
+             ""]
     # Digest floor: don't itemize clear misfits, just count them.
     visible = [r for r in records
                if r.get("score") is None or r["score"] >= digest_floor]
     omitted = len(records) - len(visible)
-    if visible:
-        lines.append("| Fit | Role | Company | Location | Mode | Pay | Posted |")
-        lines.append("|--:|---|---|---|---|---|---|")
-        for r in sorted(visible, key=sort_key):
-            band = r.get("band") or r.get("score")
-            icon = th["icons"].get(r.get("band"), "")
-            score = f"{icon} **{band}**" if band is not None else "–"
-            star = " ⭐" if r.get("priority") else ""
+    groups: dict[str, list[dict]] = {}
+    for r in visible:
+        groups.setdefault(_band(r) or "", []).append(r)
+    counts = " · ".join(f"{th['icons'][b]} **{len(groups[b])}** {b}"
+                        for b in GROUP_NAMES if groups.get(b))
+    if groups.get(""):
+        counts += f"{' · ' if counts else ''}⏳ **{len(groups[''])}** not yet rated"
+    lines.append(f"{counts or 'Nothing above the floor'} in the last 24h. "
+                 f"**[Open the full board]({dashboard_url()})** for every posting "
+                 "and one-tap feedback.\n")
+    # Top and strong roles get a full row with the rationale, lower ones a
+    # line each. Rated weak and misfit roles sit below the digest floor and
+    # only count toward `omitted`; their sections catch legacy records that
+    # carry just a number above the floor (40-44 reads as weak).
+    for band in ("top", "strong"):
+        if not groups.get(band):
+            continue
+        lines.append(f"\n## {th['icons'][band]} {GROUP_NAMES[band]}\n")
+        lines.append("| Role | Company | Location | Mode | Pay | Posted |")
+        lines.append("|---|---|---|---|---|---|")
+        for r in sorted(groups[band], key=newest):
             rationale = (f"<br><sub>{_esc(r['rationale'], 160)}</sub>"
                          if r.get("rationale") else "")
             locs = len(r.get("locations") or [])
             extra = f" +{locs - 1}" if locs > 1 else ""
             lines.append(
-                f"| {score}{star} | [{_esc(r.get('title'), 70)}]({best_link(r)}){rationale} "
+                f"| [{_esc(r.get('title'), 70)}]({best_link(r)}){rationale} "
                 f"| {_esc(r.get('company'))} | {_esc(r.get('location'), 34)}{extra} "
                 f"| {r.get('work_mode', '')} | {_esc(r.get('pay'), 45)} | {r.get('date_posted', '')} |")
+    for band, heading in (("possible", None), ("weak", None), ("misfit", None), ("", "Not yet rated")):
+        rows = sorted(groups.get(band, []), key=newest)
+        if not rows:
+            continue
+        name = heading or GROUP_NAMES[band]
+        icon = th["icons"].get(band, "⏳")
+        lines.append(f"\n## {icon} {name}\n")
+        for r in rows[:POSSIBLE_CAP]:
+            pay = f" · {_esc(r.get('pay'), 45)}" if r.get("pay") else ""
+            lines.append(f"- [{_esc(r.get('title'), 70)}]({best_link(r)}) · "
+                         f"{_esc(r.get('company'))} · {_esc(r.get('location'), 34)}{pay}")
+        if len(rows) > POSSIBLE_CAP:
+            lines.append(f"- …and {len(rows) - POSSIBLE_CAP} more on the board")
     if omitted:
         lines.append(f"\n_{omitted} low-fit posting{'s' if omitted != 1 else ''} "
                      f"(score < {digest_floor}) omitted; clear misfits are "
