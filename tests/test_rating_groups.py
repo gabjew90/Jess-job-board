@@ -71,3 +71,17 @@ def test_gas_banner_matches_its_generator():
     art = subprocess.run([sys.executable, "scripts/gas_banner.py"], check=True,
                          capture_output=True, text=True).stdout
     assert art.strip() == themes.GAS_ART.strip()
+
+
+def test_phone_cards_target_named_cells(tmp_path, monkeypatch):
+    """The phone layout styles cells by class; every row carries all eight
+    and the heading row's cell is not one of them (it keeps its box)."""
+    import re
+    monkeypatch.setattr(dashboard, "OUT", tmp_path / "index.html")
+    dashboard.generate({"1": rec("Role", "top")}, [], theme="battery")
+    page = (tmp_path / "index.html").read_text()
+    row = re.search(r"<tr data-id=.*?</tr>", page, re.S).group(0)
+    assert re.findall(r'<td class="(c-[a-z]+)"', row) == [
+        "c-title", "c-co", "c-loc", "c-mode", "c-pay", "c-posted", "c-seen", "c-fit"]
+    assert "#t td.c-title { display: contents; }" in page
+    assert 'g.innerHTML = `<td colspan="8">' in page   # heading cell has no c- class

@@ -100,7 +100,6 @@ _PAGE = """<!DOCTYPE html>
   .hero::after {{ content: ""; position: absolute; inset: 0;
                  background: linear-gradient(90deg, #0008, #0000 65%); }}
   .hero .txt {{ position: relative; z-index: 1; padding: 2rem 1.5rem 1.6rem; max-width: 34rem; }}
-  @media (max-width: 640px) {{ .hero {{ height: 12rem; }} .hero svg {{ opacity: .45; }} }}
   .hero h1 {{ margin: 0; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -.02em;
              text-shadow: 0 2px 12px #0006; }}
   .hero p {{ margin: .35rem 0 0; opacity: .85; text-shadow: 0 1px 8px #0006; }}
@@ -144,6 +143,35 @@ _PAGE = """<!DOCTYPE html>
   .band-weak {{ background: var(--b-weak); color: var(--b-weak-ink); }}
   .band-misfit {{ background: var(--b-misfit); color: var(--b-misfit-ink); }}
   h2 {{ font-size: 1.05rem; margin: 2rem 0 .6rem; }}
+  /* Phones: each posting becomes a card, so every detail fits the width
+     with no sideways scrolling. Title and rating on top, then company,
+     place and pay, then source, mode and dates on one small line, with the
+     buttons last. Cells are targeted by class (set in _row), not position.
+     Column sorting needs the header, so phones keep the grouped rating
+     order (the script restores it when the screen narrows). */
+  @media (max-width: 640px) {{
+    .hero {{ height: 12rem; }} .hero svg {{ opacity: .45; }}
+    #t thead {{ display: none; }}
+    #t, #t tbody {{ display: block; }}
+    #t tr {{ display: flex; flex-wrap: wrap; align-items: baseline; column-gap: .45rem;
+             padding: .8rem .9rem; border-bottom: 1px solid var(--border); }}
+    #t td {{ border: 0; padding: 0; min-width: 0; overflow-wrap: anywhere; }}
+    #t td:empty {{ display: none; }}
+    /* The title cell dissolves so its parts take their own places in the card. */
+    #t td.c-title {{ display: contents; }}
+    #t td.c-title > a:first-child {{ order: 1; flex: 1 1 0; min-width: 0; overflow-wrap: anywhere; }}
+    #t td.c-title > .src {{ order: 5; margin: 0; font-size: .8rem; }}
+    #t td.c-title > .fb {{ order: 9; flex-basis: 100%; margin-top: .45rem; }}
+    #t td.c-fit {{ order: 2; flex: 0 0 auto; text-align: right; }}
+    #t td.c-co {{ order: 3; flex-basis: 100%; font-weight: 600; margin-top: .1rem; }}
+    #t td.c-loc, #t td.c-pay {{ order: 4; flex-basis: 100%; }}
+    #t td.c-mode, #t td.c-posted, #t td.c-seen {{ order: 5; font-size: .8rem; color: var(--muted); }}
+    #t td.c-mode::before {{ content: "· "; }}
+    #t td.c-posted::before {{ content: "· Posted "; }}
+    #t td.c-seen::before {{ content: "· Seen "; }}
+    #t tr.grp {{ padding: 0; }}
+    #t tr.grp td {{ flex-basis: 100%; padding: .55rem .9rem; }}
+  }}
 </style>
 </head>
 <body>
@@ -243,6 +271,11 @@ function bandSort() {{
   col = 7; dir = -1;
 }}
 bandSort(); applyVis();
+// Phones have no column headers to sort by: narrowing to one (rotating a
+// tablet) brings back the grouped rating order if a column sort removed it.
+matchMedia("(max-width: 640px)").addEventListener("change", ev => {{
+  if (ev.matches && !document.querySelector("#t tr.grp")) {{ bandSort(); applyVis(); }}
+}});
 function ago() {{
   const el = document.getElementById("upd");
   const ts = new Date(el.dataset.ts);
@@ -302,7 +335,7 @@ def _row(rec: dict, theme: dict | None = None) -> str:
     label = f'<span class="band band-{e(band)}">{icon} {e(band)}</span>' if band else ""
     if fp.get("owner"):  # moved by one of the owner's verdicts
         label += '<small class="you">✓ your rating</small>'
-    score_cell = (f'<td data-s="{BAND_SCORE.get(band, -1)}" '
+    score_cell = (f'<td class="c-fit" data-s="{BAND_SCORE.get(band, -1)}" '
                   f'title="{tooltip}">{label}</td>')
     mode = {"onsite": "🏢 onsite", "hybrid": "🔀 hybrid", "remote": "🏠 remote"}.get(
         rec.get("work_mode", ""), "")
@@ -320,13 +353,13 @@ def _row(rec: dict, theme: dict | None = None) -> str:
     return (
         f'<tr{cls} data-id="{e(rec.get("_id"))}" data-band="{e(_band(rec) or "?")}"'
         f' data-ref="{e(rec.get("title", "")[:80] + " @ " + rec.get("company", ""))}">'
-        f'<td><a href="{e(best_link(rec))}" target="_blank">{e(rec.get("title"))}</a>'
+        f'<td class="c-title"><a href="{e(best_link(rec))}" target="_blank">{e(rec.get("title"))}</a>'
         f'<small class="src">{e(rec.get("source"))}</small>'
         f'<span class="fb">{verdicts}<a href="{fb_url}" target="_blank" title="Write your own note">✏️ note</a></span>'
         f'</td>'
-        f'<td>{e(rec.get("company"))}</td><td>{e(rec.get("location"))}{_extra_locs(rec)}</td>'
-        f'<td>{mode}</td><td>{e(rec.get("pay"))}</td>'
-        f'<td>{e(rec.get("date_posted"))}</td><td>{first_seen}</td>{score_cell}</tr>'
+        f'<td class="c-co">{e(rec.get("company"))}</td><td class="c-loc">{e(rec.get("location"))}{_extra_locs(rec)}</td>'
+        f'<td class="c-mode">{mode}</td><td class="c-pay">{e(rec.get("pay"))}</td>'
+        f'<td class="c-posted">{e(rec.get("date_posted"))}</td><td class="c-seen">{first_seen}</td>{score_cell}</tr>'
     )
 
 
