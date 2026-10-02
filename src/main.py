@@ -49,6 +49,7 @@ def main() -> None:
     closed_recs = expiry.sweep(seen, raw, config)
     new_jobs = state_mod.split_new(kept, seen)
     seen = state_mod.prune(seen, config.get("state_retention_days", 180))
+    successfactors.backfill_pay(seen, config.get("pay_backfill_per_run", 40))
     log.info("%d NEW postings (%d tracked total)", len(new_jobs), len(seen))
 
     # Full records (with capped descriptions), for inspection/debugging.
