@@ -16,7 +16,9 @@ Two tiers, by how each source can be checked:
      per call with an `expired` flag; a key it no longer knows is gone.
    - workday: the CxS job endpoint is 200 for a live posting, 404 for a
      removed one.
-   - successfactors: a removed posting redirects to /errorpage/.
+   - successfactors: a removed posting redirects to /errorpage/, or keeps
+     the job-details page shell with no posting on it and drops out of the
+     site's own search.
    - amazon: the job page is 404 once removed.
    - smartrecruiters: the public postings API is 404 once removed.
    - jibe: the site's own search by req_id returns the posting or nothing.
@@ -37,11 +39,13 @@ import logging
 import re
 import time
 from datetime import datetime, timezone
+from urllib.parse import urlparse
 
 import requests
 
 from . import health
 from .models import Job
+from .sources import successfactors
 from .util import HEADERS, group_key
 
 log = logging.getLogger(__name__)
@@ -58,6 +62,10 @@ INDEED_QUERY = ("query JobKeys($keys: [ID!]!) { jobData(input: {jobKeys: $keys})
 WORKDAY_URL = re.compile(r"https://([^.]+)\.(wd\d+)\.myworkdayjobs\.com/"
                          r"(?:[a-z]{2}-[A-Z]{2}/)?([^/]+)/job/(.+)$")
 INDEED_KEY = re.compile(r"[?&]jk=([0-9a-f]{16})")
+SF_TITLE_FIELD = 'data-careersite-propertyid="title"'
+SF_DETAILS_TITLE = re.compile(r"<title>[^<]*Job Details \|", re.I)
+SF_JOB_LINK = re.compile(r'href="/job/[^"]*?/(\d{6,})/"')
+SF_REQ_ID = re.compile(r"/(\d{6,})/?$")
 # A probe that finds more than this share of a source dead in one run is
 # treated as broken (site change, block) and closes nothing for that source.
 SUSPECT_DEAD_SHARE = 0.5
@@ -136,15 +144,66 @@ def _workday_alive(url: str) -> bool | None:
         return None
 
 
-def _successfactors_alive(url: str) -> bool | None:
+def _successfactors_alive(url: str, title: str = "") -> bool | None:
+    """A removed posting either redirects to /errorpage/ or (PG&E and
+    NextEra, seen 2026-10-02) still answers 200 with the site's
+    job-details shell: the title tag but no posting on the page. A shell
+    alone is not proof (one bad page load would close a live posting for
+    good), so it counts as removed only when the site's own search for the
+    title no longer lists the posting either. A live page has the title
+    field (PG&E) or the posting block (both sites). Anything else is
+    unknown."""
     try:
         resp = requests.get(url, headers=HEADERS, timeout=20, allow_redirects=True)
-        if "/errorpage" in resp.url:
-            return False
-        return True if resp.status_code == 200 else None
     except Exception as e:  # noqa: BLE001
         log.debug("successfactors liveness check failed for %s: %s", url, e)
         return None
+    if "/errorpage" in resp.url:
+        return False
+    if resp.status_code != 200:
+        return None
+    if SF_TITLE_FIELD in resp.text or successfactors.page_description(resp.text):
+        return True
+    if "/job/" in resp.url and SF_DETAILS_TITLE.search(resp.text):
+        listed = _sf_listed(url, title)
+        return None if listed is None else listed
+    return None
+
+
+def _sf_listed(url: str, title: str, max_pages: int = 20) -> bool | None:
+    """Whether the site's search for `title` lists this posting's
+    requisition number, paging through the results. Only job links count:
+    the search box echoes the query, and a query with no matches falls back
+    to a default list. None when the search can't be read or runs past
+    `max_pages` without an answer. A broad title can match a couple of
+    hundred postings (NextEra, 2026-10-02: 228, ten pages); a quoted search
+    would be narrower, but the site gives no sign when a phrase matches
+    nothing, so it could not prove a posting gone."""
+    m = SF_REQ_ID.search(urlparse(url).path)
+    if not m or not title.strip():
+        return None
+    search = f"https://{urlparse(url).netloc}/search/"
+    seen: set[str] = set()
+    start = 0
+    for page in range(max_pages):
+        try:
+            resp = requests.get(search, params={"q": title, "startrow": start},
+                                headers=HEADERS, timeout=20)
+        except requests.RequestException:
+            return None
+        if resp.status_code != 200:
+            return None
+        ids = list(dict.fromkeys(SF_JOB_LINK.findall(resp.text)))
+        if not ids:
+            return None if page == 0 else False
+        if m.group(1) in ids:
+            return True
+        if set(ids) <= seen:  # past the last page: the search repeats it
+            return False
+        seen.update(ids)
+        start += len(ids)
+        time.sleep(0.3)
+    return None
 
 
 def _status_alive(url: str, headers: dict | None = None) -> bool | None:
@@ -223,7 +282,7 @@ PROBES = {
     "microsoft": lambda rec: _microsoft_alive(rec.get("url", "")),
     "google-careers": lambda rec: _google_alive(rec.get("url", ""), rec.get("title", "")),
     "workday": lambda rec: _workday_alive(rec.get("url", "")),
-    "successfactors": lambda rec: _successfactors_alive(rec.get("url", "")),
+    "successfactors": lambda rec: _successfactors_alive(rec.get("url", ""), rec.get("title", "")),
     "amazon": lambda rec: _status_alive(rec.get("url", "")),
     "smartrecruiters": lambda rec: _smartrecruiters_alive(rec.get("url", "")),
     "jibe": lambda rec: _jibe_alive(rec.get("url", "")),
