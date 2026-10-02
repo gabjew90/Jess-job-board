@@ -143,9 +143,11 @@ def test_verdict_down_to_misfit_archives_it():
 def test_dashboard_row_has_the_four_buttons():
     row = dashboard._row({"_id": "abc123", "title": "Role", "company": "Co", "band": "strong",
                           "score": 75, "url": "https://example.com"})
-    for label in ("great fit", "too technical", "lack experience", "wrong industry", "other"):
+    for label in ("great fit", "too technical", "experience", "industry", "note"):
         assert label in row
-    assert "Verdict%3A%20higher" in row and row.count("Verdict%3A%20lower") == 3
+    assert row.count('class="v"') == 4 and 'data-id="abc123"' in row and 'data-ref="Role @ Co"' in row
+    js = dashboard._verdict_js()
+    assert '"higher"' in js and js.count('"lower"') == 3 and "<!-- job: {job_id} -->" in js
 
 
 # --- refreshing tracked records -----------------------------------------

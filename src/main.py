@@ -187,7 +187,9 @@ def main() -> None:
                      d["company"], d["provider"], d["board"])
 
     dashboard.generate(seen, health.summary(),
-                       config.get("dashboard_max_rows", 500))
+                       config.get("dashboard_max_rows", 500),
+                       theme=config.get("theme"),
+                       title=config.get("board_title", "Job Watcher"))
 
     # Digest covers a rolling window rather than only this run's finds:
     # several runs fire per day, so a run-scoped digest could strand
@@ -221,7 +223,7 @@ def main() -> None:
                  len(window), window_h, len(new_jobs))
         notify.post_issue(window, health.summary(), closed_recs,
                           digest_floor, unresolved, audit_recs, discovered,
-                          reject_audit, screen_stats)
+                          reject_audit, screen_stats, theme=config.get("theme"))
     else:
         log.info("No new or closed postings; skipping notification.")
 
