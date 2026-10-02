@@ -5942,7 +5942,7 @@
    "Rocklin, CA, US, 95765"
   ],
   "lowscore": true,
-  "pay": "",
+  "pay": "$140,000\u2013$238,000",
   "priority": false,
   "rationale": "Deep technical IC engineering role performing lab/field testing and grid modeling analysis.",
   "score": 15,
@@ -6430,6 +6430,36 @@
   "source": "workday",
   "title": "Data Center Critical Facilities Engineer (Controls)",
   "url": "https://equinix.wd1.myworkdayjobs.com/en-US/External/job/Derrimut/Data-Center-Critical-Facilities-Engineer--Controls-_JR-162848",
+  "work_mode": ""
+ },
+ "366e3bb7757cd3a5": {
+  "active": false,
+  "apply_url": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/preview/125410",
+  "band": "misfit",
+  "closed": "2026-10-02",
+  "company": "Honeywell Aerospace",
+  "date_posted": "2026-10-01",
+  "first_seen": "2026-10-02",
+  "first_seen_at": "2026-10-02T00:18:36Z",
+  "location": "Phoenix, AZ, US",
+  "locations": [
+   "Phoenix, AZ, US"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": true,
+  "rationale": "Single-discipline IC certification/regulatory-compliance engineering on aerospace engines, not power-project development or owner-side leadership.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-10-02T00:19Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Principal Engine Certification Engineer",
+  "url": "https://www.indeed.com/viewjob?jk=844eec8a9d49c288",
   "work_mode": ""
  },
  "36a8407fd7981a53": {
@@ -7210,7 +7240,7 @@
    "Danville, CA, US, 94583"
   ],
   "lowscore": true,
-  "pay": "$153,828",
+  "pay": "$153,828\u2013$197,628",
   "priority": false,
   "rationale": "Deep technical IC role performing transmission load-forecast and generator modeling studies, not strategy or program ownership.",
   "score": 15,
@@ -16489,7 +16519,7 @@
   "source": "successfactors",
   "title": "Power Generation Technical Services Specialist - Asset Management",
   "url": "https://jobs.nexteraenergy.com/job/Palm-Beach-Gardens-Power-Generation-Technical-Services-Specialist-Asset-Management-FL-33410/1435916600/",
-  "work_mode": ""
+  "work_mode": "onsite"
  },
  "82f37302e8ce905f": {
   "active": false,
@@ -16940,6 +16970,33 @@
   "title": "Electrical Engineer, Energy Infrastructure & Generation",
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8658859002",
   "work_mode": "hybrid"
+ },
+ "8570dbf055d6795a": {
+  "apply_url": "https://faithtechnologies.wd1.myworkdayjobs.com/en-US/FTI/job/TX---Fort-Stockton/EPC-Project-Manager_R12334",
+  "band": "weak",
+  "company": "Faith Technologies Incorporated",
+  "date_posted": "2026-10-01",
+  "first_seen": "2026-10-02",
+  "first_seen_at": "2026-10-02T00:18:36Z",
+  "location": "Fort Stockton, TX, US",
+  "locations": [
+   "Fort Stockton, TX, US"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Field-leaning EPC construction PM with a business-development/new-business-generation component, lower seniority signal, and no clear power-generation focus.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-10-02T00:19Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "EPC Project Manager",
+  "url": "https://www.indeed.com/viewjob?jk=8a383e243b8db26c",
+  "work_mode": "onsite"
  },
  "8599c51d720dfc6a": {
   "band": "weak",
@@ -18707,9 +18764,10 @@
    "Oakland, CA, US, 94612",
    "San Ramon, CA, US, 94583",
    "Gilroy, CA, US, 95020",
-   "Danville, CA, US, 94583"
+   "Danville, CA, US, 94583",
+   "Rocklin, CA, US, 95765"
   ],
-  "pay": "$144,000",
+  "pay": "$144,000\u2013$244,000",
   "priority": false,
   "rationale": "Principal PM running the Rule 21 DER interconnection program is program-operations leadership but centers on general DG interconnection admin rather than new-load/data-center development.",
   "score": 55,
@@ -18722,7 +18780,7 @@
   "seniority_match": true,
   "source": "successfactors",
   "title": "Program Manager, Principal",
-  "url": "https://careers.pge.com/job/San-Ramon-Program-Manager%2C-Principal-CA-94583/1420306100/",
+  "url": "https://careers.pge.com/job/Oakland-Program-Manager%2C-Principal-CA-94612/1435307600/",
   "work_mode": "hybrid"
  },
  "934acb6e5828c821": {
@@ -18738,7 +18796,7 @@
    "Morgan Hill, CA, US, 95037",
    "Rocklin, CA, US, 95765"
   ],
-  "pay": "$126,000",
+  "pay": "$126,000\u2013$200,000",
   "priority": false,
   "rationale": "Generic utility electric program management role with no stated generation or large-load subject matter.",
   "score": 35,
@@ -23349,7 +23407,7 @@
   },
   "seniority_match": true,
   "source": "workday",
-  "title": "Director, Major Projects | NEW GENERATION (Construction Utility Projects)",
+  "title": "Director, Major Projects | NEW GENERATION (Construction Utility Projects) - Tulsa, OK",
   "url": "https://aep.wd1.myworkdayjobs.com/en-US/AEPCareerSite/job/Tulsa-OK/Director--Major-Projects---NEW-GENERATION--Construction-Utility-Projects----Tulsa--OK_R19046",
   "work_mode": "onsite"
  },
@@ -25081,7 +25139,8 @@
    "Fulton, CA, US, 95439",
    "Morgan Hill, CA, US, 95037",
    "Oakland, CA, US, 94612",
-   "Cupertino, CA, US, 95014"
+   "Cupertino, CA, US, 95014",
+   "Rocklin, CA, US, 95765"
   ],
   "lowscore": true,
   "pay": "$140,000 - $189,000.",
@@ -26771,6 +26830,33 @@
   "url": "https://www.indeed.com/viewjob?jk=f456be68652c298e",
   "work_mode": ""
  },
+ "d35f075a18ede929": {
+  "apply_url": "https://faithtechnologies.wd1.myworkdayjobs.com/en-US/FTI/job/TX---Fort-Stockton/Senior-EPC-Project-Manager_R12333-2",
+  "band": "possible",
+  "company": "Faith Technologies Incorporated",
+  "date_posted": "2026-10-01",
+  "first_seen": "2026-10-02",
+  "first_seen_at": "2026-10-02T00:18:36Z",
+  "location": "Fort Stockton, TX, US",
+  "locations": [
+   "Fort Stockton, TX, US"
+  ],
+  "pay": "",
+  "priority": true,
+  "rationale": "Senior EPC PM with real front-end development involvement (feasibility, conceptual design, proposals) but EPC-side rather than owner-side, and domain isn't clearly power generation.",
+  "score": 55,
+  "scoring_fingerprint": {
+   "at": "2026-10-02T00:19Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Senior EPC Project Manager",
+  "url": "https://www.indeed.com/viewjob?jk=4ee2420a47714e49",
+  "work_mode": ""
+ },
  "d3768721eaecec32": {
   "band": "top",
   "company": "Google",
@@ -27351,7 +27437,7 @@
    "San Jose, CA, US, 95126",
    "San Ramon, CA, US, 94583"
   ],
-  "pay": "$161,520",
+  "pay": "$153,828\u2013$197,628",
   "priority": false,
   "rationale": "Union-represented individual-contributor PM for transmission substation/line capital projects, not a director-level program-owner scope.",
   "score": 35,
@@ -27366,6 +27452,36 @@
   "title": "Senior Project Manager",
   "url": "https://careers.pge.com/job/Oakland-Senior-Project-Manager-CA-94612/1356323600/",
   "work_mode": "hybrid"
+ },
+ "d939fc05721c1aff": {
+  "active": false,
+  "apply_url": "https://aresmgmt.wd1.myworkdayjobs.com/en-US/External/job/Bellevue-WA/Director--Capital-Controls---Planning_R8591-1",
+  "band": "misfit",
+  "closed": "2026-10-02",
+  "company": "Ares Management",
+  "date_posted": "2026-10-01",
+  "first_seen": "2026-10-02",
+  "first_seen_at": "2026-10-02T00:18:36Z",
+  "location": "Bellevue, WA, US",
+  "locations": [
+   "Bellevue, WA, US"
+  ],
+  "lowscore": true,
+  "pay": "$200,000\u2013$250,000/yr",
+  "priority": false,
+  "rationale": "Capital controls/fund accounting and CAPEX reporting is a back-office finance function on the fund itself, not an asset-facing development or power role.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-10-02T00:19Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "86b5faf1d6"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Director, Capital Controls & Planning",
+  "url": "https://www.indeed.com/viewjob?jk=ace45440eae1bbf4",
+  "work_mode": ""
  },
  "d93d643d1c8d1cd8": {
   "active": false,
