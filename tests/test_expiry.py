@@ -160,3 +160,84 @@ def test_search_that_never_ends_is_unknown(monkeypatch):
     pages = [[str(1400000000 + n)] for n in range(100)]               # always a fresh page
     monkeypatch.setattr(expiry.requests, "get", _fake_site(SF_SHELL, pages))
     assert expiry._successfactors_alive(SF_URL, SF_TITLE) is None
+
+
+# --- Indeed copies whose employer page is gone ---------------------------
+
+NRG_LINK = ("https://career4.successfactors.com/career?company=C0004920031P"
+            "&career_ns=job_listing&career_job_req_id=45819&lang=en_US&source=Indeed")
+NRG_GONE = ("<td>This job cannot be viewed at this time. It has either been "
+            "deleted or is no longer available for application.</td>")
+
+
+def indeed(n, apply_url, own=True):
+    return rec("indeed", url=f"https://www.indeed.com/viewjob?jk={n:016x}",
+               apply_url=apply_url, apply_url_own=own)
+
+
+@pytest.fixture
+def indeed_live(monkeypatch):
+    monkeypatch.setattr(expiry, "_indeed_expired", lambda keys: {k: False for k in keys})
+
+
+def test_indeed_copy_closes_when_its_employer_page_is_gone(monkeypatch, indeed_live):
+    """NRG, 2026-10-02: Indeed still listed the role; NRG's link said gone."""
+    monkeypatch.setattr(expiry.requests, "get", lambda url, **k: _SFResp(NRG_GONE, url))
+    seen = {"nrg": indeed(1, NRG_LINK),
+            "other": indeed(2, "https://example.com/careers/1"),
+            "borrowed": indeed(3, NRG_LINK, own=False)}   # link from a twin elsewhere
+    closed = expiry.sweep(seen, [], {})
+    assert closed == [seen["nrg"]]
+    assert seen["other"]["active"] and seen["borrowed"]["active"]
+
+
+def test_portal_notice_must_repeat(monkeypatch):
+    pages = iter([_SFResp(NRG_GONE, NRG_LINK), _SFResp("<title>Job</title>", NRG_LINK)])
+    monkeypatch.setattr(expiry.requests, "get", lambda url, **k: next(pages))
+    assert expiry._sf_legacy_alive(NRG_LINK) is None
+
+
+def test_a_broken_employer_probe_closes_nothing(monkeypatch, indeed_live):
+    """Workday answering 404 for every link reads as a broken probe."""
+    monkeypatch.setattr(expiry, "PROBES", {**expiry.PROBES, "workday": lambda r: False})
+    seen = {f"w{n}": indeed(n, f"https://aes.wd1.myworkdayjobs.com/AES_US/job/X/R{n}")
+            for n in range(6)}
+    assert expiry.sweep(seen, [], {}) == []
+
+
+def test_employer_links_are_read_when_the_indeed_api_is_down(monkeypatch):
+    monkeypatch.setattr(expiry, "_indeed_expired", lambda keys: None)
+    monkeypatch.setattr(expiry.requests, "get", lambda url, **k: _SFResp(NRG_GONE, url))
+    seen = {"nrg": indeed(1, NRG_LINK)}
+    assert expiry.sweep(seen, [], {}) == [seen["nrg"]]
+
+
+@pytest.mark.parametrize("url", [
+    "https://aes.wd1.myworkdayjobs.com/AES_US/job/US-UT/Engineer_R1?source=Indeed",
+    "https://aes.wd1.myworkdayjobs.com/AES_US/job/US-UT/Engineer_R1/apply",
+    "https://aes.wd1.myworkdayjobs.com/AES_US/job/US-UT/Engineer_R1/apply/applyManually?src=x",
+    "https://aes.wd1.myworkdayjobs.com/AES_US/job/US-UT/Engineer_R1/",
+])
+def test_workday_apply_links_point_at_the_posting(url):
+    assert expiry._apply_target({"apply_url": url, "apply_url_own": True}) == (
+        "workday", "https://aes.wd1.myworkdayjobs.com/AES_US/job/US-UT/Engineer_R1")
+
+
+def test_unreadable_or_unprobed_links_are_not_targets():
+    assert expiry._apply_target({"apply_url": "https://careers.google.com/jobs/results/1-x/",
+                                 "apply_url_own": True}) is None
+    assert expiry._apply_target({"apply_url": "", "apply_url_own": True}) is None
+    assert expiry._apply_target({"apply_url": NRG_LINK}) is None   # not known to be its own
+
+
+def test_own_apply_link_is_marked_and_refreshed():
+    from src import state
+    job = Job("Director", "NRG Energy", "Houston, TX", "https://www.indeed.com/viewjob?jk=1",
+              "indeed", apply_url=NRG_LINK)
+    seen: dict = {}
+    state.split_new([job], seen)
+    assert seen[job.job_id]["apply_url_own"] is True
+    seen[job.job_id].update(apply_url="https://old.example/1", apply_url_own=False)
+    state.split_new([job], seen)                      # the posting's link moved
+    assert seen[job.job_id]["apply_url"] == NRG_LINK
+    assert seen[job.job_id]["apply_url_own"] is True

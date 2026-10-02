@@ -121,8 +121,16 @@ def split_new(jobs: list[Job], state: dict) -> list[Job]:
                 updated += _merge_fields(twin, job)
                 continue
         if job.job_id in state:
+            rec = state[job.job_id]
+            # This posting's own apply link is current, and marked as its
+            # own: expiry may close the record when that page is gone, but
+            # never on a link borrowed from a twin (fill-only above).
+            if job.apply_url and (rec.get("apply_url") != job.apply_url
+                                  or not rec.get("apply_url_own")):
+                rec.update(apply_url=job.apply_url, apply_url_own=True)
+                updated += 1
             # Backfill fields added after this record was first stored.
-            updated += _merge_fields(state[job.job_id], job)
+            updated += _merge_fields(rec, job)
             continue
         state[job.job_id] = {
             "title": job.title,
@@ -137,6 +145,7 @@ def split_new(jobs: list[Job], state: dict) -> list[Job]:
             "pay": job.pay,
             "work_mode": job.work_mode,
             "apply_url": job.apply_url,
+            "apply_url_own": bool(job.apply_url),
             "locations": [job.location],
         }
         twins[twin_key(job.company, job.title, job.location)] = state[job.job_id]
