@@ -5,6 +5,7 @@ nothing).
 Run: python -m pytest -q tests
 """
 import json
+import re
 
 from src import dashboard, notify
 
@@ -80,7 +81,7 @@ def test_phone_cards_target_named_cells(tmp_path, monkeypatch):
     monkeypatch.setattr(dashboard, "OUT", tmp_path / "index.html")
     dashboard.generate({"1": rec("Role", "top")}, [], theme="battery")
     page = (tmp_path / "index.html").read_text()
-    row = re.search(r"<tr data-id=.*?</tr>", page, re.S).group(0)
+    row = re.search(r"<tr[^>]* data-id=.*?</tr>", page, re.S).group(0)
     assert re.findall(r'<td class="(c-[a-z]+)"', row) == [
         "c-title", "c-co", "c-loc", "c-mode", "c-pay", "c-posted", "c-seen", "c-fit"]
     assert "#t td.c-title { display: contents; }" in page
@@ -112,3 +113,24 @@ def test_title_for_lower_ratings_and_edge_cases():
         "⚡ Top fit: Real at Acme (+1 top)"
     long = notify.digest_title([rec("X" * 80, "top")], [], 40)
     assert long == "⚡ Top fit: " + "X" * 44 + "… at Acme"
+
+
+def test_recent_finds_carry_the_new_badge(tmp_path, monkeypatch):
+    from datetime import datetime, timedelta, timezone
+    day = lambda n: (datetime.now(timezone.utc) - timedelta(days=n)).strftime("%Y-%m-%d")
+    monkeypatch.setattr(dashboard, "OUT", tmp_path / "index.html")
+    dashboard.generate({"1": rec("Fresh", "top", day(1)), "2": rec("Older", "top", day(2)),
+                        "3": rec("Gone", "top", day(0), active=False, closed=day(0))}, [])
+    page = (tmp_path / "index.html").read_text()
+    classes = dict((t, c) for c, t in re.findall(
+        r'<tr(?: class="([^"]*)")? data-id=[^>]*>.*?_blank">([^<]+)</a>', page, re.S))
+    assert classes == {"Fresh": "new", "Older": "", "Gone": "closed"}
+    assert '💵 ' in page and 'content: "NEW"' in page
+
+
+def test_every_theme_defines_the_money_colours():
+    from src import themes
+    for th in themes.THEMES.values():
+        for mode in ("light", "dark"):
+            assert {"money-bg", "money-ink"} <= set(th[mode])
+    assert "--money-bg:" in themes.css_vars(themes.get("gas"))
