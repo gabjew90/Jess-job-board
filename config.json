@@ -110,6 +110,16 @@
       "provider": "lever",
       "board": "cfsenergy",
       "company": "Commonwealth Fusion Systems"
+    },
+    {
+      "provider": "ashby",
+      "board": "planted",
+      "company": "Planted"
+    },
+    {
+      "provider": "ashby",
+      "board": "blue-energy",
+      "company": "Blue Energy"
     }
   ],
   "workday_boards": [
@@ -220,6 +230,18 @@
       "tenant": "cyrusone",
       "site": "CyrusOneCareerPortal",
       "company": "CyrusOne"
+    },
+    {
+      "host": "prologis.wd5.myworkdayjobs.com",
+      "tenant": "prologis",
+      "site": "Prologis_External_Careers",
+      "company": "Prologis"
+    },
+    {
+      "host": "prim.wd108.myworkdayjobs.com",
+      "tenant": "prim",
+      "site": "Primoris",
+      "company": "Primoris Services Corporation"
     }
   ],
   "successfactors_boards": [

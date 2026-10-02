@@ -9,6 +9,12 @@
   "boards": [],
   "date": "2026-09-25"
  },
+ "blue energy": {
+  "boards": [
+   "ashby:blue-energy"
+  ],
+  "date": "2026-10-02"
+ },
  "commonwealth fusion systems": {
   "boards": [
    "lever:cfsenergy"
@@ -65,9 +71,27 @@
   "boards": [],
   "date": "2026-09-25"
  },
+ "planted": {
+  "boards": [
+   "ashby:planted"
+  ],
+  "date": "2026-10-02"
+ },
+ "primoris services": {
+  "boards": [
+   "workday:prim.wd108.myworkdayjobs.com/primoris"
+  ],
+  "date": "2026-10-02"
+ },
  "proenergy services": {
   "boards": [],
   "date": "2026-09-26"
+ },
+ "prologis": {
+  "boards": [
+   "workday:prologis.wd5.myworkdayjobs.com/prologis_external_careers"
+  ],
+  "date": "2026-10-02"
  },
  "qts": {
   "boards": [
@@ -102,6 +126,10 @@
  "tesla": {
   "boards": [],
   "date": "2026-09-25"
+ },
+ "vestas": {
+  "boards": [],
+  "date": "2026-10-02"
  },
  "world bank": {
   "boards": [],
