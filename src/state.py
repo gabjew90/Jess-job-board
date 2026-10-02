@@ -1,11 +1,14 @@
 """Seen-postings state: dedupe across runs, committed to the repo as JSON."""
 import json
+import logging
 import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from .models import Job
 from .util import AGGREGATOR_SOURCES, company_key, group_key, source_id, twin_key
+
+log = logging.getLogger(__name__)
 
 STATE_FILE = Path("state/seen_jobs.json")
 
@@ -38,12 +41,32 @@ def unscored_active(state: dict, exclude_ids: set[str]) -> list[str]:
             and job_id not in exclude_ids]
 
 
+def has_range(pay: str) -> bool:
+    """'$120,000–$150,000', '$120K-$150K', '$45/hr - $60/hr', '$1 to $2'."""
+    return bool(re.search(r"\d\s?[kK]?\s?(?:/\s?\w+\s?)?(?:[-–—]|to)\s?\$?\s?\d", pay or ""))
+
+
 def _better_pay(field: str, new: str, old: str) -> bool:
     """A range replaces a single figure stored earlier ("$126,000" before
     the minimum/maximum format was read)."""
-    rng = lambda s: bool(re.search(
-        r"\d\s?[kK]?\s?(?:/\s?\w+\s?)?(?:[-–—]|to)\s?\$?\s?\d", s))
-    return field == "pay" and rng(new) and not rng(old)
+    return field == "pay" and has_range(new) and not has_range(old)
+
+
+# Fields a later fetch may fill in or improve on a stored record: filled
+# when empty, and pay upgraded from a single figure to a range. Never
+# replaced otherwise, so copies of one posting (metros, sources) cannot
+# flip the stored value run to run.
+MERGE_FIELDS = ("date_posted", "pay", "work_mode", "apply_url")
+
+
+def _merge_fields(rec: dict, job: Job) -> bool:
+    changed = False
+    for field in MERGE_FIELDS:
+        value = getattr(job, field)
+        if value and (not rec.get(field) or _better_pay(field, value, rec[field])):
+            rec[field] = value
+            changed = True
+    return changed
 
 
 def split_new(jobs: list[Job], state: dict) -> list[Job]:
@@ -67,6 +90,7 @@ def split_new(jobs: list[Job], state: dict) -> list[Job]:
         if sid:
             by_source_id[(company_key(r.get("company", "")), sid)] = r
     new = []
+    updated = 0
     for job in jobs:
         if job.job_id not in state:
             sid = source_id(job.url)
@@ -94,20 +118,11 @@ def split_new(jobs: list[Job], state: dict) -> list[Job]:
                 locs = twin.setdefault("locations", [twin.get("location", "")])
                 if job.location and job.location not in locs:
                     locs.append(job.location)
-                for field, value in (("date_posted", job.date_posted),
-                                     ("pay", job.pay), ("work_mode", job.work_mode),
-                                     ("apply_url", job.apply_url)):
-                    if value and (not twin.get(field) or _better_pay(field, value, twin[field])):
-                        twin[field] = value
+                updated += _merge_fields(twin, job)
                 continue
         if job.job_id in state:
             # Backfill fields added after this record was first stored.
-            rec = state[job.job_id]
-            for field, value in (("date_posted", job.date_posted),
-                                 ("pay", job.pay), ("work_mode", job.work_mode),
-                                 ("apply_url", job.apply_url)):
-                if value and (not rec.get(field) or _better_pay(field, value, rec[field])):
-                    rec[field] = value
+            updated += _merge_fields(state[job.job_id], job)
             continue
         state[job.job_id] = {
             "title": job.title,
@@ -129,4 +144,6 @@ def split_new(jobs: list[Job], state: dict) -> list[Job]:
         if (sid := source_id(job.url)):
             by_source_id[(company_key(job.company), sid)] = state[job.job_id]
         new.append(job)
+    if updated:
+        log.info("State: filled or improved fields on %d tracked record(s)", updated)
     return new

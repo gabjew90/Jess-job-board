@@ -67,6 +67,55 @@ def _description(url: str) -> str:
     return _desc_cache[url]
 
 
+def backfill_pay(seen: dict, limit: int = 40, tries: int = 3) -> int:
+    """Read pay from the posting page for open SuccessFactors records whose
+    stored pay is missing or a single figure. The board search returns a
+    limited slice per term, so most open postings are not re-fetched on a
+    given day and keep pay read under an older parser. Plain page requests,
+    no model calls, at most `limit` per run; pages this run already fetched
+    are read from the cache. A page that fails to load or shows no posting
+    gets `tries` attempts across runs, least-tried first, so failures
+    cannot crowd out the rest; five failures in a row end the run's pass
+    (a board blocking requests)."""
+    from ..state import has_range
+    todo = [r for r in seen.values()
+            if r.get("source") == "successfactors" and r.get("active", True)
+            and not (r.get("hidden") or r.get("duplicate") or r.get("lowscore"))
+            and r.get("url") and not r.get("pay_checked") and not has_range(r.get("pay"))]
+    todo.sort(key=lambda r: r.get("pay_tries", 0))
+    filled = read = streak = 0
+    for rec in todo[:limit]:
+        desc = _desc_cache.get(rec["url"])
+        if desc is None:
+            try:
+                time.sleep(0.3)
+                resp = requests.get(rec["url"], headers=HEADERS, timeout=12)
+                resp.raise_for_status()
+                desc = page_description(resp.text)
+            except Exception as e:  # noqa: BLE001
+                log.debug("pay backfill fetch failed for %s: %s", rec["url"], e)
+                desc = ""
+        if not desc:  # failed load, or a page with no posting block
+            rec["pay_tries"] = rec.get("pay_tries", 0) + 1
+            rec["pay_checked"] = rec["pay_tries"] >= tries
+            streak += 1
+            if streak >= 5:
+                log.info("successfactors pay backfill: 5 failures in a row, stopping")
+                break
+            continue
+        streak = 0
+        read += 1
+        rec["pay_checked"] = True  # the posting was read; one look is enough
+        pay = extract_pay(desc)
+        if pay and (not rec.get("pay") or (has_range(pay) and not has_range(rec["pay"]))):
+            rec["pay"] = pay
+            filled += 1
+    if todo:
+        log.info("successfactors pay backfill: %d postings read, pay filled or improved on %d",
+                 read, filled)
+    return filled
+
+
 TILE_RE = re.compile(
     r'<a[^>]*class="jobTitle-link"[^>]*href="([^"]+)"[^>]*>\s*([^<]+)', re.S)
 LOC_RE = re.compile(r'class="jobLocation"[^>]*>\s*([^<]+)', re.S)

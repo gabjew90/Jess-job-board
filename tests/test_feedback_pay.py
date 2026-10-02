@@ -146,3 +146,102 @@ def test_dashboard_row_has_the_four_buttons():
     for label in ("great fit", "too technical", "lack experience", "wrong industry", "other"):
         assert label in row
     assert "Verdict%3A%20higher" in row and row.count("Verdict%3A%20lower") == 3
+
+
+# --- refreshing tracked records -----------------------------------------
+
+def _job(**kw):
+    from src.models import Job
+    base = dict(title="Senior, Grid Innovation Engineer - Resiliency", company="PG&E",
+                location="Oakland, CA", url="https://careers.pge.com/job/Oakland-x/1435999",
+                source="successfactors")
+    return Job(**{**base, **kw})
+
+
+def test_screen_passes_tracked_postings_so_their_records_refresh(monkeypatch):
+    """A screen-rescued posting fails the keyword filter on every later run;
+    passing tracked postings through lets split_new refresh its pay."""
+    from src import screen, state
+    monkeypatch.setattr(screen, "load", lambda: {})
+    monkeypatch.setattr(screen, "save", lambda s: None)
+    monkeypatch.setattr(screen, "judge", lambda jobs: {})
+    job = _job(pay="$122,000–$194,000")
+    seen = {job.job_id: {"title": job.title, "company": "PG&E", "location": job.location,
+                         "url": job.url, "source": "successfactors", "pay": "$122,000"}}
+    hidden = _job(title="Hidden role", url="https://careers.pge.com/job/h/1")
+    seen[hidden.job_id] = {"title": hidden.title, "company": "PG&E", "hidden": True}
+    kept, _, _ = screen.apply([job, hidden], [], seen, {"title_exclusions": []})
+    assert [j.job_id for j in kept] == [job.job_id], "tracked passes; hidden does not"
+    assert state.split_new(kept, seen) == [], "tracked postings are not new, so never re-scored"
+    assert seen[job.job_id]["pay"] == "$122,000–$194,000"
+
+
+def test_merge_only_fills_or_upgrades_never_flips():
+    from src import state
+    job = _job(pay="$100,000–$160,000", work_mode="onsite")
+    seen = {job.job_id: {"title": job.title, "company": "PG&E", "location": job.location,
+                         "source": "successfactors", "pay": "$122,000–$194,000", "work_mode": "hybrid"}}
+    state.split_new([job], seen)
+    assert (seen[job.job_id]["pay"], seen[job.job_id]["work_mode"]) == ("$122,000–$194,000", "hybrid"), \
+        "another metro's copy never replaces a stored range"
+    state.split_new([_job(pay="$150,000")], seen)
+    assert seen[job.job_id]["pay"] == "$122,000–$194,000", "a single figure never replaces a range"
+
+
+def test_pay_backfill_reads_open_pages_and_retries_failed_loads(monkeypatch):
+    class Resp:
+        def __init__(self, text, ok=True): self.text, self.ok = text, ok
+        def raise_for_status(self):
+            if not self.ok: raise RuntimeError("503")
+    pages = {"https://careers.pge.com/a": Resp("<div itemprop=\"description\">A reasonable salary range is: "
+                                               "Bay Area Minimum: $122,000 Bay Area Maximum: $194,000</div>"),
+             "https://careers.pge.com/b": Resp("<div>closed posting</div>"),
+             "https://careers.pge.com/f": Resp("", ok=False)}
+    calls = []
+    monkeypatch.setattr(successfactors.requests, "get", lambda u, **k: calls.append(u) or pages[u])
+    monkeypatch.setattr(successfactors.time, "sleep", lambda s: None)
+    seen = {
+        "a": {"source": "successfactors", "url": "https://careers.pge.com/a", "pay": "$122,000"},
+        "b": {"source": "successfactors", "url": "https://careers.pge.com/b", "pay": ""},
+        "f": {"source": "successfactors", "url": "https://careers.pge.com/f", "pay": ""},
+        "c": {"source": "successfactors", "url": "https://careers.pge.com/c", "pay": "$1–$2"},  # has a range
+        "d": {"source": "successfactors", "url": "https://careers.pge.com/d", "pay": "", "duplicate": True},
+        "e": {"source": "successfactors", "url": "https://careers.pge.com/e", "pay": "", "active": False},
+    }
+    successfactors._desc_cache.clear()
+    assert successfactors.backfill_pay(seen) == 1
+    assert seen["a"]["pay"] == "$122,000–$194,000" and seen["a"]["pay_checked"]
+    assert not seen["b"].get("pay_checked") and not seen["f"].get("pay_checked"), \
+        "no posting block or a failed load: tried again next run"
+    for _ in range(2):
+        calls.clear()
+        successfactors.backfill_pay(seen)
+        assert sorted(calls) == ["https://careers.pge.com/b", "https://careers.pge.com/f"]
+    assert seen["b"]["pay_checked"] and seen["f"]["pay_tries"] == 3, "three tries, then left alone"
+    calls.clear()
+    successfactors.backfill_pay(seen)
+    assert calls == []
+
+
+def test_pay_backfill_uses_pages_this_run_already_fetched(monkeypatch):
+    url = "https://careers.pge.com/z"
+    successfactors._desc_cache[url] = "A reasonable salary range is: Minimum: $1,000 Maximum: $2,000"
+    monkeypatch.setattr(successfactors.requests, "get", lambda *a, **k: (_ for _ in ()).throw(AssertionError("fetched")))
+    seen = {"z": {"source": "successfactors", "url": url, "pay": ""}}
+    assert successfactors.backfill_pay(seen) == 1 and seen["z"]["pay"] == "$1,000–$2,000"
+    successfactors._desc_cache.pop(url)
+
+
+def test_screen_passes_a_record_stored_under_another_copy(monkeypatch):
+    from src import screen
+    monkeypatch.setattr(screen, "load", lambda: {})
+    monkeypatch.setattr(screen, "save", lambda s: None)
+    judged = []
+    monkeypatch.setattr(screen, "judge", lambda jobs: judged.extend(jobs) or {})
+    stored = _job(location="Oakland, California")
+    seen = {stored.job_id: {"title": stored.title, "company": "PG&E", "url": stored.url,
+                            "source": "successfactors"}}
+    today = _job(location="Oakland, CA")  # same employer posting id, other wording
+    kept, _, _ = screen.apply([today], [], seen, {"title_exclusions": []})
+    assert [j.job_id for j in kept] == [today.job_id] and judged == [], \
+        "matched by the employer's posting id, so passed through and not judged again"

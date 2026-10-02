@@ -25,6 +25,7 @@ from pathlib import Path
 
 from . import filters, triage
 from .models import Job
+from .util import company_key, source_id
 
 log = logging.getLogger(__name__)
 
@@ -47,32 +48,30 @@ applies. The steps are a procedure, not a list of preferences: once a step
 decides, the later steps do not get a say.
 
 STEP 1 — Does the title name executive or head-of scope (VP, SVP, Vice
-President, Head, Chief, Director, Principal, Senior Manager, or "<area>
-Leader"/"Lead of <area>") over anything in the candidate's domains —
-power generation (gas, combined cycle, reciprocating, fuel cell), on-site
-and behind-the-meter power, project development and origination, data
-center power and infrastructure, interconnection and transmission, or
-energy infrastructure investment? KEEP, and skip STEP 3 entirely. At this
+President, Head, Chief, Director, Principal, or "<area> Leader"/"Lead of
+<area>") over anything in the candidate's domains — energy, power, grid,
+interconnection, battery storage, datacenter infrastructure, energy
+finance, or AI applied to energy? KEEP, and skip STEP 3 entirely. At this
 level the title names someone who owns the area rather than works in it,
-so "Director, Power Plant Development" keeps even though "Power Plant
-Operator" drops, and "Head of On-Site Generation" keeps even at a company
-outside the energy industry.
+so "VP, Facilities Engineering & Critical Infrastructure" keeps even
+though "Building Engineer" drops, and "Digital Infrastructure Power
+Leader" keeps even at a company outside the industry.
 
-STEP 2 — Is it a development, origination, program, strategy, procurement
-or investment role in those domains? KEEP, and skip STEP 3. This covers a
-flat "Project Manager", "Development Manager" or "Program Manager" at a
-developer, IPP, data center operator, infrastructure fund or industrial
-operator building its own generation, where the title understates the
-scope; and engineering titles that carry development or commercial
-ownership ("Project Development Engineer, Gas Generation"), which are
-project-creating roles rather than bench engineering.
+STEP 2 — Is it a senior product, program, strategy, development,
+procurement or investment role in those domains? KEEP, and skip STEP 3.
+This covers a flat "Program Manager", "Technical Program Manager" or
+"Development Manager" at a datacenter, storage, utility, energy or AI
+infrastructure company, where the title understates the scope; and
+engineering titles that carry development, product or commercial
+ownership ("Project Development Engineer, Solar and BESS"), which are
+deal-side roles rather than bench engineering.
 
 STEP 3 — Otherwise DROP clear misfits: trades, field, technician,
-construction crew, plant operators, and site-resident facilities and O&M
-roles (running a plant's or building's systems — but a MANAGER-or-above
-"Power Plant" title is not decided here: from the title alone it could be
-developing a new plant or running an existing one, so it keeps and the
-next pass reads the description);
+construction crew, commissioning, facilities-operations and O&M roles
+(operating a site's building systems — but NOT operating an energy or
+power portfolio: "Manager, Energy Operations" at a datacenter, utility
+or energy company runs supply, procurement and the grid interface, which
+is domain work and keeps);
 supervisors and superintendents; junior, entry-level, intern, associate,
 coordinator, analyst; hands-on individual-contributor engineering of any
 discipline (electrical, mechanical, controls, reliability, project,
@@ -137,7 +136,8 @@ def judge(jobs: list[Job]) -> dict[str, bool]:
 def apply(raw: list[Job], kept: list[Job], seen: dict, config: dict
           ) -> tuple[list[Job], list[Job], dict]:
     """Reconcile the keyword filter's output with title-screen verdicts for
-    postings not yet tracked. Returns (kept, rejected, stats); `rejected`
+    postings not yet tracked; tracked postings pass through so split_new
+    refreshes their records. Returns (kept, rejected, stats); `rejected`
     is what was turned away before scoring this run (screen drops, or the
     keyword rejects when the screen is unavailable) for the weekly audit.
     """
@@ -151,8 +151,33 @@ def apply(raw: list[Job], kept: list[Job], seen: dict, config: dict
     held = [j for j in kept if j.job_id in screened]
     kept = [j for j in kept if j.job_id not in screened]
     kept_ids = {j.job_id for j in kept}
+    # A posting already tracked passed the gate the day it was stored, by
+    # keyword or by a rescue. Rescues fail the keyword filter again on every
+    # later run and the screen judges only untracked postings, so without
+    # this they never reached split_new again: their records kept the pay
+    # and links of the first day. Tracked postings are not re-scored.
+    # Matched by id, or by the employer's own posting id for a record stored
+    # under another copy (other location wording, source or metro).
+    by_sid = {(company_key(r.get("company", "")), sid): r for r in seen.values()
+              if (sid := source_id(r.get("url", "")))}
+
+    def tracked_rec(j):
+        if j.job_id in seen:
+            return seen[j.job_id]
+        sid = source_id(j.url)
+        return by_sid.get((company_key(j.company), sid)) if sid else None
+
+    unique_raw = list({j.job_id: j for j in raw}.values())
+    tracked = [j for j in unique_raw
+               if j.job_id not in kept_ids and j.job_id not in screened
+               and (rec := tracked_rec(j)) is not None and not rec.get("hidden")
+               and not filters.is_excluded(j, config["title_exclusions"])]
+    kept += tracked
+    kept_ids |= {j.job_id for j in tracked}
+    tracked_ids = {j.job_id for j in tracked}
     candidates = [j for j in raw
                   if j.job_id not in seen and j.job_id not in screened
+                  and j.job_id not in tracked_ids
                   and not filters.is_excluded(j, config["title_exclusions"])]
     # Dedupe by identity: the same req arrives from several sources.
     unseen = list({j.job_id: j for j in candidates}.values())
