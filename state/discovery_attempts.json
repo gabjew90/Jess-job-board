@@ -5,6 +5,12 @@
   ],
   "date": "2026-09-26"
  },
+ "ameresco": {
+  "boards": [
+   "workday:ameresco.wd5.myworkdayjobs.com/ameresco"
+  ],
+  "date": "2026-10-03"
+ },
  "atlantica sustainable infrastructure": {
   "boards": [],
   "date": "2026-09-25"
@@ -34,6 +40,10 @@
  "digital realty": {
   "boards": [],
   "date": "2026-09-30"
+ },
+ "dte energy": {
+  "boards": [],
+  "date": "2026-10-03"
  },
  "edf": {
   "boards": [],
@@ -70,6 +80,10 @@
  "oracle": {
   "boards": [],
   "date": "2026-09-25"
+ },
+ "pacifico energy": {
+  "boards": [],
+  "date": "2026-10-03"
  },
  "planted": {
   "boards": [
