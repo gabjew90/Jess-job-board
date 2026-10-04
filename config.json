@@ -120,6 +120,11 @@
       "provider": "ashby",
       "board": "blue-energy",
       "company": "Blue Energy"
+    },
+    {
+      "provider": "lever",
+      "board": "intersect",
+      "company": "Intersect"
     }
   ],
   "workday_boards": [
