@@ -5,6 +5,10 @@
   ],
   "date": "2026-09-26"
  },
+ "amd": {
+  "boards": [],
+  "date": "2026-10-04"
+ },
  "ameresco": {
   "boards": [
    "workday:ameresco.wd5.myworkdayjobs.com/ameresco"

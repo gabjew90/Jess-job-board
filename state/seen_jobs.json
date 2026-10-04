@@ -25,6 +25,34 @@
   "url": "https://www.indeed.com/viewjob?jk=c6662905ada27ad9",
   "work_mode": "onsite"
  },
+ "003665a44229a373": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "weak",
+  "company": "Intersect",
+  "date_posted": "2026-06-18",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "United States",
+  "locations": [
+   "United States"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Senior civil-engineering standards/governance role for solar and wind sites \u2014 single-discipline engineering leadership, not generation development.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": true,
+  "source": "lever",
+  "title": "Civil Engineering Technical Lead (Standards & Innovation)",
+  "url": "https://jobs.lever.co/intersect/92880447-50f8-4acb-a3f0-1cb3cda48f37",
+  "work_mode": "remote"
+ },
  "00935ea68f15fef9": {
   "active": false,
   "band": "misfit",
@@ -82,6 +110,34 @@
   "title": "Senior Analyst, Fund Management, Capital Markets",
   "url": "https://job-boards.greenhouse.io/sbenergy/jobs/6129268004",
   "work_mode": "hybrid"
+ },
+ "00c8b592477f5b54": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "weak",
+  "company": "Intersect",
+  "date_posted": "2026-09-17",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "United States",
+  "locations": [
+   "United States"
+  ],
+  "pay": "",
+  "priority": true,
+  "rationale": "PPA and gas-supply origination and structuring \u2014 her primary target category, though the 'help support' phrasing reads as a support-level rather than manager-owned seat.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": false,
+  "source": "lever",
+  "title": "Originator",
+  "url": "https://jobs.lever.co/intersect/db776cea-029f-4029-a6fa-32d84d85da6c",
+  "work_mode": "remote"
  },
  "0112319215f63f9e": {
   "band": "possible",
@@ -510,6 +566,34 @@
   "url": "https://solvenergy.wd1.myworkdayjobs.com/en-US/SOLV_External_Career/job/Remote---CA/Senior-HV-Project-Manager--Remote-_J12893",
   "work_mode": "remote"
  },
+ "0390c4bb79df8ebf": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "top",
+  "company": "Intersect",
+  "date_posted": "2026-09-08",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "United States",
+  "locations": [
+   "United States"
+  ],
+  "pay": "",
+  "priority": true,
+  "rationale": "End-to-end ownership of utility-scale generation and load project development and commercial structuring from strategy through construction handover \u2014 the unambiguous target role.",
+  "score": 90,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": true,
+  "source": "lever",
+  "title": "Power Developer",
+  "url": "https://jobs.lever.co/intersect/13caf800-6fd1-4173-b492-82011baee049",
+  "work_mode": "remote"
+ },
  "03e9ac4fab120d8c": {
   "active": false,
   "apply_url": "https://xcelenergy.wd1.myworkdayjobs.com/External/job/Henderson-CO-80640/Production-Specialist-III_JR116342-1",
@@ -594,6 +678,34 @@
   "source": "indeed",
   "title": "Construction Project Director - Power Generation",
   "url": "https://www.indeed.com/viewjob?jk=ba9c811c5d62d3d9",
+  "work_mode": ""
+ },
+ "048b18106ccf16bf": {
+  "apply_url": "https://careers.amd.com/jobs/92894/job?utm_source=indeed_integration&iis=Job%20Board&iisn=Indeed&indeed-apply-token=73a2d2b2a8d6d5c0a62696875eaebd669103652d3f0c2cd5445d3e66b1592b0f",
+  "apply_url_own": true,
+  "band": "top",
+  "company": "AMD",
+  "date_posted": "2026-10-03",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "San Jose, CA, US",
+  "locations": [
+   "San Jose, CA, US"
+  ],
+  "pay": "",
+  "priority": true,
+  "rationale": "Owner/client-side technical validation lead spanning gas supply through generation to data-center load \u2014 exactly her development/owner-side target.",
+  "score": 90,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Lead Engineer- Behind-the-Meter Power Infrastructure",
+  "url": "https://www.indeed.com/viewjob?jk=99e0a1c85fee3c70",
   "work_mode": ""
  },
  "04fb3e79f242d538": {
@@ -919,6 +1031,34 @@
   "title": "Civil Design Engineer, Substation",
   "url": "https://careers.pge.com/job/Oakland-Civil-Design-Engineer%2C-Substation-CA-94612/1404149800/",
   "work_mode": "hybrid"
+ },
+ "06c186f629183cff": {
+  "apply_url": "https://ats.rippling.com/pacifico-energy-llc/jobs/3d8c456e-b0bb-4f45-8da2-b9164784b8d7?jobSite=Indeed",
+  "apply_url_own": true,
+  "band": "strong",
+  "company": "Pacifico Energy",
+  "date_posted": "2026-10-04",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "Cedar Creek, TX, US",
+  "locations": [
+   "Cedar Creek, TX, US"
+  ],
+  "pay": "",
+  "priority": true,
+  "rationale": "Owner-side project engineering manager for a new gas turbine plant, representing the owner over the EPC under lump-sum \u2014 close match to her current LS Power scope.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Project Engineering Manager",
+  "url": "https://www.indeed.com/viewjob?jk=8b97f63169e4cd86",
+  "work_mode": ""
  },
  "06efbe3fbe34a7f4": {
   "active": false,
@@ -1688,7 +1828,9 @@
   "location": "Oakland, CA, US, 94612",
   "locations": [
    "Oakland, CA, US, 94612",
-   "Dublin, CA, US, 94568"
+   "Dublin, CA, US, 94568",
+   "Newark, CA, US, 94538",
+   "San Carlos, CA, US, 94070"
   ],
   "lowscore": true,
   "pay": "$155,000\u2013$265,000",
@@ -2411,6 +2553,37 @@
   "title": "Electrical Design Engineer (Starshield)",
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8676042002",
   "work_mode": ""
+ },
+ "1222f222e8bfd5bd": {
+  "active": false,
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "misfit",
+  "closed": "2026-10-04",
+  "company": "Intersect",
+  "date_posted": "2026-09-01",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "United States",
+  "locations": [
+   "United States"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": true,
+  "rationale": "Insurance and risk-management leadership \u2014 no generation, development or technical engineering content.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": true,
+  "source": "lever",
+  "title": "Head of Insurance and Risk Management",
+  "url": "https://jobs.lever.co/intersect/bafa64f8-d87a-4ba1-b467-688e1c6ac506",
+  "work_mode": "remote"
  },
  "122f8f5a5e0e55db": {
   "apply_url": "",
@@ -3242,6 +3415,34 @@
   "title": "Senior Electrical Substation Project Engineering Manager",
   "url": "https://gevernova.wd5.myworkdayjobs.com/en-US/Vernova_ExternalSite/job/Remote/Senior-Electrical-Substation-Project-Engineering-Manager_R5049580-1",
   "work_mode": ""
+ },
+ "188d90754cc25b45": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "strong",
+  "company": "Intersect",
+  "date_posted": "2026-03-20",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "United States",
+  "locations": [
+   "United States"
+  ],
+  "pay": "",
+  "priority": true,
+  "rationale": "Directs HV/MV design and interconnection strategy from development through construction and commissioning across generation and data-center projects \u2014 strong interconnection/transmission strategy fit.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": true,
+  "source": "lever",
+  "title": "High Voltage Power Engineering Lead",
+  "url": "https://jobs.lever.co/intersect/504b0648-03c0-4654-93ad-fee62a36a553",
+  "work_mode": "remote"
  },
  "18cc7dc25ba00fef": {
   "active": false,
@@ -4510,7 +4711,7 @@
  },
  "20838950350d6dd5": {
   "active": false,
-  "apply_url": "https://jsv3.recruitics.com/redirect?rx_cid=3426&rx_jobId=01878421&rx_url=https%3A%2F%2Fcareers.rtx.com%2Fglobal%2Fen%2Fjob%2F01878421%3Frx_a%3D0%26rx_c%3D%26rx_ch%3Djobp4p%26rx_group%3D122223%26rx_id%3De98a23af-bf14-11f1-b193-0f6903fd348d%26rx_job%3D01878421%26rx_medium%3Dcpc%26rx_r%3Dnone%26rx_source%3Dindeed%26rx_ts%3D20261003T220405Z%26rx_vp%3Dcpc",
+  "apply_url": "https://jsv3.recruitics.com/redirect?rx_cid=3426&rx_jobId=01878421&rx_url=https%3A%2F%2Fcareers.rtx.com%2Fglobal%2Fen%2Fjob%2F01878421%3Frx_a%3D0%26rx_c%3D%26rx_ch%3Djobp4p%26rx_group%3D122223%26rx_id%3De98a23af-bf14-11f1-b193-0f6903fd348d%26rx_job%3D01878421%26rx_medium%3Dcpc%26rx_r%3Dnone%26rx_source%3Dindeed%26rx_ts%3D20261004T220404Z%26rx_vp%3Dcpc",
   "apply_url_own": true,
   "band": "misfit",
   "closed": "2026-10-03",
@@ -6506,6 +6707,34 @@
   "url": "https://jobs.ashbyhq.com/crusoe/a02d7665-254c-439b-8771-b8eaa30addd0",
   "work_mode": ""
  },
+ "2ed782ce4d07f150": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "weak",
+  "company": "Ameresco",
+  "date_posted": "2026-09-24",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "United Kingdom - Bristol",
+  "locations": [
+   "United Kingdom - Bristol"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Programme manager for decarbonisation with no description and no stated generation-development or data-center content.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Programme Manager Decarbonisation",
+  "url": "https://ameresco.wd5.myworkdayjobs.com/en-US/Ameresco/job/United-Kingdom---Bristol/Programme-Manager-Decarbonisation_R4031",
+  "work_mode": ""
+ },
  "2ee34513bb26f071": {
   "apply_url": "",
   "band": "weak",
@@ -7074,7 +7303,7 @@
  },
  "339406808d5713fa": {
   "active": false,
-  "apply_url": "https://pcctalentacquisitionportal.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-7/xf-3fcf10300f54/candidate/so/pm/1/pl/3/opp/24405-Product-Engineer/en-GB",
+  "apply_url": "https://pcctalentacquisitionportal.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-7/xf-342b8e69b790/candidate/so/pm/1/pl/3/opp/24405-Product-Engineer/en-GB",
   "apply_url_own": true,
   "band": "misfit",
   "closed": "2026-10-02",
@@ -8672,6 +8901,34 @@
   "url": "https://invenergyllc.wd1.myworkdayjobs.com/en-US/invenergycareers/job/Chicago-IL/Manager--Strategy_R11478-1",
   "work_mode": "remote"
  },
+ "3cbfd0e22b162416": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "strong",
+  "company": "Ameresco",
+  "date_posted": "",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "United States - Arizona - Phoenix",
+  "locations": [
+   "United States - Arizona - Phoenix"
+  ],
+  "pay": "",
+  "priority": true,
+  "rationale": "Title signals project development engineering (not a single engineering discipline), matching prior feedback that similarly named Development Engineer roles band higher.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Project Development Engineer",
+  "url": "https://ameresco.wd5.myworkdayjobs.com/en-US/Ameresco/job/United-States---Arizona---Phoenix/Project-Development-Engineer_R3698",
+  "work_mode": ""
+ },
  "3cd1b2f4e7ae9cc9": {
   "active": false,
   "band": "misfit",
@@ -9269,6 +9526,37 @@
   "title": "Head of Engine Design Group",
   "url": "https://www.indeed.com/viewjob?jk=2c97f18ef72bfbcf",
   "work_mode": "onsite"
+ },
+ "42334bc4782bee64": {
+  "active": false,
+  "apply_url": "https://careers.jacobs.com/en_US/careers/JobDetail/Digital-Delivery-VDC-BIM-Project-Lead-Data-Centers/46252",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-10-04",
+  "company": "Jacobs",
+  "date_posted": "2026-10-04",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "Dallas, TX, US",
+  "locations": [
+   "Dallas, TX, US"
+  ],
+  "lowscore": true,
+  "pay": "$113,100\u2013$155,500/yr",
+  "priority": false,
+  "rationale": "BIM/VDC digital-delivery leadership for data center construction with no power or generation content.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Digital Delivery (VDC/BIM) Project Lead (Data Centers)",
+  "url": "https://www.indeed.com/viewjob?jk=59f916141a0e5bf2",
+  "work_mode": "hybrid"
  },
  "423d4af05da6f916": {
   "band": "weak",
@@ -11852,7 +12140,8 @@
    "St. Paul, MN, US, 55107",
    "Loxahatchee, FL, US, 33470",
    "Wingate, TX, US, 79566",
-   "Juno Beach, FL, US, 33408"
+   "Juno Beach, FL, US, 33408",
+   "Spearville, KS, US, 67876"
   ],
   "pay": "",
   "pay_checked": true,
@@ -11869,7 +12158,7 @@
   "seniority_match": true,
   "source": "successfactors",
   "title": "Senior Project Manager, Gas Development",
-  "url": "https://jobs.nexteraenergy.com/job/Juno-Beach-Senior-Project-Manager%2C-Gas-Development-FL-33408/1435689700/",
+  "url": "https://jobs.nexteraenergy.com/job/Juno-Beach-Senior-Project-Manager%2C-Gas-Development-FL-33408/1435688700/",
   "verdicts_applied": [
    38
   ],
@@ -13083,6 +13372,34 @@
   "source": "indeed",
   "title": "Portfolio Manager - Power Purchase",
   "url": "https://www.indeed.com/viewjob?jk=d802469bb11688cc",
+  "work_mode": "hybrid"
+ },
+ "59e67cd003dbd3f9": {
+  "apply_url": "https://iren.careers.hibob.com/jobs/e00807e0-5499-4b06-a3f6-f06d1041d9a9",
+  "apply_url_own": true,
+  "band": "weak",
+  "company": "IREN",
+  "date_posted": "2026-10-04",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "San Francisco, CA, US",
+  "locations": [
+   "San Francisco, CA, US"
+  ],
+  "pay": "$152,000\u2013$205,000/yr",
+  "priority": false,
+  "rationale": "Industrial engineering/manhour and make-vs-buy analysis for modular data center manufacturing \u2014 construction/manufacturing delivery, not power.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Senior Manager, Industrial Engineering",
+  "url": "https://www.indeed.com/viewjob?jk=7e37059159e2f4f6",
   "work_mode": "hybrid"
  },
  "59f46a67eb9751ef": {
@@ -15066,6 +15383,34 @@
   "url": "https://www.indeed.com/viewjob?jk=1323875846230b80",
   "work_mode": ""
  },
+ "6809f483ee629c78": {
+  "apply_url": "https://iren.careers.hibob.com/jobs/89f53c59-064f-42da-b1dc-9341386832c6",
+  "apply_url_own": true,
+  "band": "weak",
+  "company": "IREN",
+  "date_posted": "2026-10-04",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "San Francisco, CA, US",
+  "locations": [
+   "San Francisco, CA, US"
+  ],
+  "pay": "$192,000\u2013$250,000/yr",
+  "priority": false,
+  "rationale": "Director over technical project management, controls and supplier qualification for modular data center fabrication/construction \u2014 construction-delivery leadership, not power-focused.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Director, Project Management",
+  "url": "https://www.indeed.com/viewjob?jk=1232c622dcf667e5",
+  "work_mode": "hybrid"
+ },
  "681875a749082968": {
   "active": false,
   "apply_url": "",
@@ -16400,7 +16745,7 @@
  },
  "6f8766ce543649ca": {
   "active": false,
-  "apply_url": "https://pcctalentacquisitionportal.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-7/xf-3fcf10300f54/candidate/so/pm/1/pl/3/opp/24029-Sr-Quality-Engineer/en-GB",
+  "apply_url": "https://pcctalentacquisitionportal.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-7/xf-342b8e69b790/candidate/so/pm/1/pl/3/opp/24029-Sr-Quality-Engineer/en-GB",
   "apply_url_own": true,
   "band": "misfit",
   "closed": "2026-10-03",
@@ -16693,12 +17038,14 @@
   "apply_url_own": false,
   "band": "strong",
   "company": "NextEra Energy",
-  "date_posted": "",
+  "date_posted": "2026-10-04",
   "first_seen": "2026-10-03",
   "first_seen_at": "2026-10-03T22:49:03Z",
   "location": "",
   "locations": [
-   ""
+   "",
+   "McCamey, TX, US, 79752",
+   "Green Cove Springs, FL, US, 32043"
   ],
   "pay": "$60.77 to $91.15 per hour",
   "priority": false,
@@ -17798,6 +18145,34 @@
   "title": "Principal Electrical Engineer, Global",
   "url": "https://vantagedc.wd1.myworkdayjobs.com/en-US/Vantage/job/Denver-Colorado/Principal-Electrical-Engineer--Global_R23404-1",
   "work_mode": ""
+ },
+ "78a86c01e225c18e": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "possible",
+  "company": "Ameresco",
+  "date_posted": "2026-10-02",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "United States - Massachusetts - Remote",
+  "locations": [
+   "United States - Massachusetts - Remote"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Senior PM for solar PV/BESS project execution \u2014 adjacent generation domain but execution-side delivery rather than gas-fired, data-center or development work; no description to confirm scope.",
+  "score": 55,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Senior Project Manager - Solar PV & BESS",
+  "url": "https://ameresco.wd5.myworkdayjobs.com/en-US/Ameresco/job/United-States---Massachusetts---Remote/Senior-Project-Manager---Solar-PV---BESS_R4066",
+  "work_mode": "remote"
  },
  "78af25fefc2ac101": {
   "active": false,
@@ -20193,7 +20568,7 @@
   },
   "seniority_match": true,
   "source": "ashby",
-  "title": "Procurement Lead",
+  "title": "Procurement Lead ",
   "url": "https://jobs.ashbyhq.com/blue-energy/71a74fa7-c91d-479e-9c70-64e140ae34b7",
   "work_mode": "remote"
  },
@@ -21545,6 +21920,37 @@
   "url": "https://jobs.dayforcehcm.com/en-US/edc/CandidatePortalEDC/jobs/894",
   "work_mode": ""
  },
+ "8defbfeba04c6412": {
+  "active": false,
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "misfit",
+  "closed": "2026-10-04",
+  "company": "Intersect",
+  "date_posted": "2026-05-26",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "United States",
+  "locations": [
+   "United States"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "Head of HV Operations & Maintenance \u2014 running and maintaining an existing transmission/substation fleet, the defining operations near-miss regardless of seniority.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": true,
+  "source": "lever",
+  "title": "Head of High Voltage Operations",
+  "url": "https://jobs.lever.co/intersect/2c621c8c-4a3f-4ca7-8743-63fb7e475b9b",
+  "work_mode": "remote"
+ },
  "8e0ed887750aedd9": {
   "apply_url": "",
   "band": "weak",
@@ -22580,7 +22986,8 @@
   "locations": [
    "Oakland, CA, US, 94612",
    "Sacramento, CA, US, 95826",
-   "West Sacramento, CA, US, 95605"
+   "West Sacramento, CA, US, 95605",
+   "Cupertino, CA, US, 95014"
   ],
   "pay": "$85,000\u2013$127,000",
   "priority": false,
@@ -22774,6 +23181,37 @@
   "title": "Electrical Project Engineer (Power Infrastructure)",
   "url": "https://www.indeed.com/viewjob?jk=650cdaea45ff711e",
   "work_mode": "hybrid"
+ },
+ "95cff87ea8e6ab03": {
+  "active": false,
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "misfit",
+  "closed": "2026-10-04",
+  "company": "Intersect",
+  "date_posted": "2026-10-03",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "Austin, TX",
+  "locations": [
+   "Austin, TX"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "Government affairs/regulatory lobbying role, not engineering or project development.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": true,
+  "source": "lever",
+  "title": "GOVERNMENT AFFAIRS SOUTH CENTRAL REGULATORY LEAD",
+  "url": "https://jobs.lever.co/intersect/ce25ea3e-8ca1-4024-afa4-947155b93a83",
+  "work_mode": "remote"
  },
  "9615c3e880029d0f": {
   "active": false,
@@ -25048,7 +25486,8 @@
   "first_seen_at": "2026-10-03T22:49:03Z",
   "location": "Remote, US",
   "locations": [
-   "Remote, US"
+   "Remote, US",
+   "2 Locations"
   ],
   "pay": "$111,000\u2013$161,500/yr",
   "priority": true,
@@ -25061,9 +25500,9 @@
    "rubric": "a34b700a29"
   },
   "seniority_match": true,
-  "source": "indeed",
+  "source": "workday",
   "title": "Senior Project Manager",
-  "url": "https://www.indeed.com/viewjob?jk=52c31989d5346595",
+  "url": "https://ameresco.wd5.myworkdayjobs.com/en-US/Ameresco/job/USA-Remote/Senior-Project-Manager_R4065",
   "work_mode": "remote"
  },
  "a6b9a0940a3ef386": {
@@ -26838,7 +27277,8 @@
   "locations": [
    "Sacramento, CA, US, 95826",
    "Oakland, CA, US, 94612",
-   "Cupertino, CA, US, 95014"
+   "Cupertino, CA, US, 95014",
+   "West Sacramento, CA, US, 95605"
   ],
   "pay": "$105,000\u2013$169,000",
   "priority": false,
@@ -26966,7 +27406,7 @@
  },
  "b2e320d6083444e6": {
   "active": false,
-  "apply_url": "https://pcctalentacquisitionportal.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-7/xf-3fcf10300f54/candidate/so/pm/1/pl/3/opp/24404-Technical-and-Quality-Director/en-GB",
+  "apply_url": "https://pcctalentacquisitionportal.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-7/xf-342b8e69b790/candidate/so/pm/1/pl/3/opp/24404-Technical-and-Quality-Director/en-GB",
   "apply_url_own": true,
   "band": "misfit",
   "closed": "2026-10-02",
@@ -27364,6 +27804,37 @@
   "source": "indeed",
   "title": "WattBridge- Senior Director, Information Technology",
   "url": "https://www.indeed.com/viewjob?jk=4881bc651ea77af0",
+  "work_mode": "remote"
+ },
+ "b53843799db81b2d": {
+  "active": false,
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "misfit",
+  "closed": "2026-10-04",
+  "company": "Intersect",
+  "date_posted": "2026-04-08",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "United States",
+  "locations": [
+   "United States"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "Market settlements/accounting role within Corporate Finance \u2014 no technical or development content.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": true,
+  "source": "lever",
+  "title": "ERCOT Settlements Lead",
+  "url": "https://jobs.lever.co/intersect/99943607-46ba-4abd-b2cf-ac75db39b3e3",
   "work_mode": "remote"
  },
  "b553362ed60330a5": {
@@ -28589,6 +29060,37 @@
   "title": "Project Director, Hub Integration",
   "url": "https://jobs.nexteraenergy.com/job/Juno-Beach-Project-Director%2C-Hub-Integration-FL-33408/1435259400/",
   "work_mode": ""
+ },
+ "bd3f5e1b2b049e45": {
+  "active": false,
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "misfit",
+  "closed": "2026-10-04",
+  "company": "Intersect",
+  "date_posted": "2026-07-30",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "United States",
+  "locations": [
+   "United States"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "Community engagement/stakeholder outreach role with no engineering or power content.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": false,
+  "source": "lever",
+  "title": "Community Engagement Team Member",
+  "url": "https://jobs.lever.co/intersect/432c092d-aca0-4ea9-97bd-9a139b000562",
+  "work_mode": "remote"
  },
  "bd59e720876e7a64": {
   "active": false,
@@ -29872,6 +30374,37 @@
   "url": "https://invenergyllc.wd1.myworkdayjobs.com/en-US/invenergycareers/job/Chicago-IL/Electrical-Engineer-II--Inverters---Operations-Engineering_R11241",
   "work_mode": ""
  },
+ "c785f938686a30d6": {
+  "active": false,
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "misfit",
+  "closed": "2026-10-04",
+  "company": "Ameresco",
+  "date_posted": "",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "United States - Texas - Remote",
+  "locations": [
+   "United States - Texas - Remote"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "Director of Project Controls & Preconstruction Development \u2014 preconstruction/scheduling leadership explicitly called out as a near-miss regardless of seniority.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Director of Project Controls & Preconstruction Development",
+  "url": "https://ameresco.wd5.myworkdayjobs.com/en-US/Ameresco/job/United-States---Texas---Remote/Director-of-Project-Controls---Preconstruction-Development_R3941",
+  "work_mode": "remote"
+ },
  "c79e70b0209d742d": {
   "band": "weak",
   "company": "GE Vernova",
@@ -30846,7 +31379,7 @@
  },
  "cd0abef82675b017": {
   "active": false,
-  "apply_url": "https://pcctalentacquisitionportal.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-7/xf-3fcf10300f54/candidate/so/pm/1/pl/3/opp/24350-Strategic-Account-Manager/en-GB",
+  "apply_url": "https://pcctalentacquisitionportal.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-7/xf-342b8e69b790/candidate/so/pm/1/pl/3/opp/24350-Strategic-Account-Manager/en-GB",
   "apply_url_own": true,
   "band": "misfit",
   "closed": "2026-10-03",
@@ -32247,6 +32780,34 @@
   "url": "https://www.indeed.com/viewjob?jk=3c310bb9656c588b",
   "work_mode": ""
  },
+ "d4c52bedc3c8be32": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "weak",
+  "company": "Intersect",
+  "date_posted": "2026-06-16",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "San Francisco, CA",
+  "locations": [
+   "San Francisco, CA"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Controls/HIL validation engineering for microgrid systems \u2014 single-discipline technical testing, not development or owner-side leadership.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": true,
+  "source": "lever",
+  "title": "Microgrid Validation Lead",
+  "url": "https://jobs.lever.co/intersect/162e0a36-7b5c-4fb6-8483-3303f124e6a4",
+  "work_mode": "remote"
+ },
  "d4d9d256f8ce1780": {
   "apply_url": "",
   "band": "top",
@@ -32501,7 +33062,7 @@
  },
  "d6b9d4033daaf62b": {
   "active": false,
-  "apply_url": "https://pcctalentacquisitionportal.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-7/xf-3fcf10300f54/candidate/so/pm/1/pl/3/opp/24417-LPC-T-Foundry-and-Cleaning-Process-Control-Engineer/en-GB",
+  "apply_url": "https://pcctalentacquisitionportal.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-7/xf-342b8e69b790/candidate/so/pm/1/pl/3/opp/24417-LPC-T-Foundry-and-Cleaning-Process-Control-Engineer/en-GB",
   "apply_url_own": true,
   "band": "misfit",
   "closed": "2026-10-03",
@@ -34585,7 +35146,7 @@
   "work_mode": "hybrid"
  },
  "e56cd40982c5423c": {
-  "apply_url": "https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/346445",
+  "apply_url": "https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/346447",
   "apply_url_own": true,
   "band": "strong",
   "company": "Oracle",
@@ -34844,6 +35405,34 @@
   "source": "indeed",
   "title": "Supplier Quality Engineer- Electrical",
   "url": "https://www.indeed.com/viewjob?jk=f1b3873f583ae0c0",
+  "work_mode": "remote"
+ },
+ "e72e1dc189740466": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "weak",
+  "company": "Intersect",
+  "date_posted": "2026-08-07",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "United States",
+  "locations": [
+   "United States"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Project-finance/capital-markets structuring role \u2014 a finance-first track with no technical engineering content.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": true,
+  "source": "lever",
+  "title": "Capital Markets Lead",
+  "url": "https://jobs.lever.co/intersect/7c23e957-76c1-42a7-8dab-f91f499e69fe",
   "work_mode": "remote"
  },
  "e74325e6101d0ded": {
@@ -36770,6 +37359,34 @@
   "url": "https://invenergyllc.wd1.myworkdayjobs.com/en-US/invenergycareers/job/Chicago-IL/Director--Renewables-Regional-O-M_R11493-2",
   "work_mode": ""
  },
+ "f0d215dba2dfe1d6": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "weak",
+  "company": "Intersect",
+  "date_posted": "2026-02-05",
+  "first_seen": "2026-10-04",
+  "first_seen_at": "2026-10-04T22:51:59Z",
+  "location": "United States",
+  "locations": [
+   "United States"
+  ],
+  "pay": "",
+  "priority": true,
+  "rationale": "Individual-contributor civil/structural design engineering for site layouts, not development or power leadership.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-10-04T22:53Z",
+   "model": "claude-sonnet-5",
+   "policy": "139133cf50",
+   "rubric": "a34b700a29"
+  },
+  "seniority_match": false,
+  "source": "lever",
+  "title": "Civil Development Engineer, Renewable Energy",
+  "url": "https://jobs.lever.co/intersect/df3fa83b-271e-4c4d-852c-80bc35bc8c03",
+  "work_mode": "remote"
+ },
  "f0f2183d09c23cf2": {
   "active": false,
   "apply_url": "https://ats.rippling.com/pacifico-energy-llc/jobs/2fbe6263-52c8-402e-9a9f-a902aae85820?jobSite=Indeed",
@@ -38078,7 +38695,7 @@
  },
  "fb5664f011f3613a": {
   "active": false,
-  "apply_url": "https://jsv3.recruitics.com/redirect?rx_cid=3426&rx_jobId=01876394&rx_url=https%3A%2F%2Fcareers.rtx.com%2Fglobal%2Fen%2Fjob%2F01876394%3Frx_a%3D0%26rx_c%3D%26rx_ch%3Djobp4p%26rx_group%3D122223%26rx_id%3D9be1753d-beb0-11f1-ba52-c98e465b5895%26rx_job%3D01876394%26rx_medium%3Dcpc%26rx_r%3Dnone%26rx_source%3Dindeed%26rx_ts%3D20261003T220405Z%26rx_vp%3Dcpc",
+  "apply_url": "https://jsv3.recruitics.com/redirect?rx_cid=3426&rx_jobId=01876394&rx_url=https%3A%2F%2Fcareers.rtx.com%2Fglobal%2Fen%2Fjob%2F01876394%3Frx_a%3D0%26rx_c%3D%26rx_ch%3Djobp4p%26rx_group%3D122223%26rx_id%3D9be1753d-beb0-11f1-ba52-c98e465b5895%26rx_job%3D01876394%26rx_medium%3Dcpc%26rx_r%3Dnone%26rx_source%3Dindeed%26rx_ts%3D20261004T220404Z%26rx_vp%3Dcpc",
   "apply_url_own": true,
   "band": "misfit",
   "closed": "2026-10-03",
