@@ -77,6 +77,10 @@
   "boards": [],
   "date": "2026-09-29"
  },
+ "ls power development": {
+  "boards": [],
+  "date": "2026-10-06"
+ },
  "naes": {
   "boards": [],
   "date": "2026-09-26"
@@ -144,6 +148,10 @@
  "tesla": {
   "boards": [],
   "date": "2026-09-25"
+ },
+ "valar atomics": {
+  "boards": [],
+  "date": "2026-10-06"
  },
  "vestas": {
   "boards": [],

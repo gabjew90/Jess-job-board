@@ -125,6 +125,11 @@
       "provider": "lever",
       "board": "intersect",
       "company": "Intersect"
+    },
+    {
+      "provider": "greenhouse",
+      "board": "valaratomics",
+      "company": "Valar Atomics"
     }
   ],
   "workday_boards": [
