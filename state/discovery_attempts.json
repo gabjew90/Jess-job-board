@@ -45,6 +45,10 @@
   "boards": [],
   "date": "2026-09-30"
  },
+ "digitalocean": {
+  "boards": [],
+  "date": "2026-10-06"
+ },
  "dte energy": {
   "boards": [],
   "date": "2026-10-03"
@@ -65,6 +69,18 @@
   "boards": [],
   "date": "2026-09-30"
  },
+ "ferrovial": {
+  "boards": [
+   "workday:ferrovial.wd3.myworkdayjobs.com/ferrovial_career_site"
+  ],
+  "date": "2026-10-06"
+ },
+ "fluidstack": {
+  "boards": [
+   "ashby:fluidstack"
+  ],
+  "date": "2026-10-06"
+ },
  "hoosier energy": {
   "boards": [],
   "date": "2026-09-30"
@@ -84,6 +100,10 @@
  "naes": {
   "boards": [],
   "date": "2026-09-26"
+ },
+ "net power": {
+  "boards": [],
+  "date": "2026-10-06"
  },
  "oracle": {
   "boards": [],

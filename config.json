@@ -130,6 +130,11 @@
       "provider": "greenhouse",
       "board": "valaratomics",
       "company": "Valar Atomics"
+    },
+    {
+      "provider": "ashby",
+      "board": "fluidstack",
+      "company": "Fluidstack"
     }
   ],
   "workday_boards": [
