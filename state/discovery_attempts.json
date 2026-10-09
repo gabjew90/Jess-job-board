@@ -25,6 +25,10 @@
   ],
   "date": "2026-10-02"
  },
+ "central coast community energy": {
+  "boards": [],
+  "date": "2026-10-09"
+ },
  "commonwealth fusion systems": {
   "boards": [
    "lever:cfsenergy"
@@ -135,6 +139,12 @@
   ],
   "date": "2026-10-02"
  },
+ "propwr": {
+  "boards": [
+   "workday:propetroservices.wd5.myworkdayjobs.com/propwr_careers"
+  ],
+  "date": "2026-10-09"
+ },
  "qts": {
   "boards": [
    "workday:qtsdatacenters.wd5.myworkdayjobs.com/qts"
@@ -168,6 +178,12 @@
  "tesla": {
   "boards": [],
   "date": "2026-09-25"
+ },
+ "thea energy": {
+  "boards": [
+   "lever:thea.energy"
+  ],
+  "date": "2026-10-09"
  },
  "valar atomics": {
   "boards": [],

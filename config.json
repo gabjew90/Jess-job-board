@@ -135,6 +135,11 @@
       "provider": "ashby",
       "board": "fluidstack",
       "company": "Fluidstack"
+    },
+    {
+      "provider": "lever",
+      "board": "thea.energy",
+      "company": "Thea Energy"
     }
   ],
   "workday_boards": [
@@ -263,6 +268,12 @@
       "tenant": "ameresco",
       "site": "Ameresco",
       "company": "Ameresco"
+    },
+    {
+      "host": "propetroservices.wd5.myworkdayjobs.com",
+      "tenant": "propetroservices",
+      "site": "PROPWR_Careers",
+      "company": "PROPWR"
     }
   ],
   "successfactors_boards": [
