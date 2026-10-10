@@ -274,6 +274,12 @@
       "tenant": "propetroservices",
       "site": "PROPWR_Careers",
       "company": "PROPWR"
+    },
+    {
+      "host": "alliantenergy.wd1.myworkdayjobs.com",
+      "tenant": "alliantenergy",
+      "site": "private_alliant",
+      "company": "Alliant Energy"
     }
   ],
   "successfactors_boards": [

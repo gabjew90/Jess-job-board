@@ -5,6 +5,16 @@
   ],
   "date": "2026-09-26"
  },
+ "alliant energy": {
+  "boards": [
+   "workday:alliantenergy.wd1.myworkdayjobs.com/private_alliant"
+  ],
+  "date": "2026-10-10"
+ },
+ "amazon com": {
+  "boards": [],
+  "date": "2026-10-10"
+ },
  "amd": {
   "boards": [],
   "date": "2026-10-04"
@@ -44,6 +54,10 @@
    "workday:cyrusone.wd1.myworkdayjobs.com/cyrusonecareerportal"
   ],
   "date": "2026-09-30"
+ },
+ "desri": {
+  "boards": [],
+  "date": "2026-10-10"
  },
  "digital realty": {
   "boards": [],
