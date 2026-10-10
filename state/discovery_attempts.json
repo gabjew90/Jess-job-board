@@ -169,6 +169,10 @@
   "boards": [],
   "date": "2026-09-25"
  },
+ "satoshi energy": {
+  "boards": [],
+  "date": "2026-10-10"
+ },
  "shell": {
   "boards": [
    "workday:shell.wd3.myworkdayjobs.com/shellcareers"
@@ -198,6 +202,10 @@
    "lever:thea.energy"
   ],
   "date": "2026-10-09"
+ },
+ "totalenergies": {
+  "boards": [],
+  "date": "2026-10-10"
  },
  "valar atomics": {
   "boards": [],
