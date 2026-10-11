@@ -140,6 +140,11 @@
       "provider": "lever",
       "board": "thea.energy",
       "company": "Thea Energy"
+    },
+    {
+      "provider": "greenhouse",
+      "board": "relativity",
+      "company": "Relativity Space"
     }
   ],
   "workday_boards": [
