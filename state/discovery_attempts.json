@@ -29,6 +29,10 @@
   "boards": [],
   "date": "2026-09-25"
  },
+ "avantus": {
+  "boards": [],
+  "date": "2026-10-13"
+ },
  "blue energy": {
   "boards": [
    "ashby:blue-energy"
@@ -111,9 +115,19 @@
   "boards": [],
   "date": "2026-09-29"
  },
+ "link logistics real estate": {
+  "boards": [
+   "workday:linklogistics.wd5.myworkdayjobs.com/link"
+  ],
+  "date": "2026-10-13"
+ },
  "ls power development": {
   "boards": [],
   "date": "2026-10-06"
+ },
+ "montera": {
+  "boards": [],
+  "date": "2026-10-13"
  },
  "naes": {
   "boards": [],
