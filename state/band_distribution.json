@@ -296,5 +296,16 @@
    "possible": 8,
    "strong": 1
   }
+ },
+ {
+  "date": "2026-10-15",
+  "scored": 104,
+  "bands": {
+   "misfit": 33,
+   "weak": 31,
+   "possible": 17,
+   "strong": 14,
+   "top": 9
+  }
  }
 ]

@@ -25,6 +25,10 @@
   ],
   "date": "2026-10-03"
  },
+ "anduril": {
+  "boards": [],
+  "date": "2026-10-15"
+ },
  "atlantica sustainable infrastructure": {
   "boards": [],
   "date": "2026-09-25"
@@ -103,6 +107,10 @@
   ],
   "date": "2026-10-06"
  },
+ "fuse energy": {
+  "boards": [],
+  "date": "2026-10-15"
+ },
  "hoosier energy": {
   "boards": [],
   "date": "2026-09-30"
@@ -144,6 +152,10 @@
  "pacifico energy": {
   "boards": [],
   "date": "2026-10-03"
+ },
+ "pittsburgh career connector": {
+  "boards": [],
+  "date": "2026-10-15"
  },
  "planted": {
   "boards": [
@@ -197,6 +209,10 @@
   ],
   "date": "2026-09-25"
  },
+ "southern": {
+  "boards": [],
+  "date": "2026-10-15"
+ },
  "spacexai": {
   "boards": [],
   "date": "2026-09-26"
@@ -244,5 +260,9 @@
  "x elio": {
   "boards": [],
   "date": "2026-10-08"
+ },
+ "zenobe": {
+  "boards": [],
+  "date": "2026-10-15"
  }
 }
