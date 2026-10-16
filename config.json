@@ -23,7 +23,6 @@
     "ArcLight Capital",
     "KKR",
     "Quantum Capital Group",
-    "Switch",
     "Compass Datacenters",
     "Digital Realty",
     "EdgeConneX",
@@ -150,6 +149,11 @@
       "provider": "greenhouse",
       "board": "avantus",
       "company": "Avantus"
+    },
+    {
+      "provider": "greenhouse",
+      "board": "switch-data-centers",
+      "company": "Switch Data Centers"
     }
   ],
   "workday_boards": [
