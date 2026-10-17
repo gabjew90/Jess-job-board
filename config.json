@@ -154,6 +154,11 @@
       "provider": "greenhouse",
       "board": "switch-data-centers",
       "company": "Switch Data Centers"
+    },
+    {
+      "provider": "greenhouse",
+      "board": "fervoenergy",
+      "company": "Fervo Energy"
     }
   ],
   "workday_boards": [
@@ -300,6 +305,18 @@
       "tenant": "linklogistics",
       "site": "Link",
       "company": "Link Logistics Real Estate"
+    },
+    {
+      "host": "xcelenergy.wd1.myworkdayjobs.com",
+      "tenant": "xcelenergy",
+      "site": "External",
+      "company": "Xcel Energy"
+    },
+    {
+      "host": "recurrentenergy.wd12.myworkdayjobs.com",
+      "tenant": "recurrentenergy",
+      "site": "RecurrentEnergy",
+      "company": "Recurrent Energy"
     }
   ],
   "successfactors_boards": [

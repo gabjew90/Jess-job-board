@@ -101,6 +101,10 @@
   ],
   "date": "2026-10-06"
  },
+ "fervo energy": {
+  "boards": [],
+  "date": "2026-10-17"
+ },
  "fluidstack": {
   "boards": [
    "ashby:fluidstack"
@@ -191,6 +195,12 @@
   ],
   "date": "2026-09-25"
  },
+ "recurrent energy": {
+  "boards": [
+   "workday:recurrentenergy.wd12.myworkdayjobs.com/recurrentenergy"
+  ],
+  "date": "2026-10-17"
+ },
  "relativity space": {
   "boards": [],
   "date": "2026-10-11"
@@ -264,6 +274,12 @@
  "x elio": {
   "boards": [],
   "date": "2026-10-08"
+ },
+ "xcel energy": {
+  "boards": [
+   "workday:xcelenergy.wd1.myworkdayjobs.com/external"
+  ],
+  "date": "2026-10-17"
  },
  "zenobe": {
   "boards": [],
