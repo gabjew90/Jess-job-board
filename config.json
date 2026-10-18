@@ -159,6 +159,11 @@
       "provider": "greenhouse",
       "board": "fervoenergy",
       "company": "Fervo Energy"
+    },
+    {
+      "provider": "lever",
+      "board": "xcimer",
+      "company": "XCimer Energy"
     }
   ],
   "workday_boards": [

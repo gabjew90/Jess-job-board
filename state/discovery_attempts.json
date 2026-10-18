@@ -281,6 +281,12 @@
   ],
   "date": "2026-10-17"
  },
+ "xcimer energy": {
+  "boards": [
+   "lever:xcimer"
+  ],
+  "date": "2026-10-18"
+ },
  "zenobe": {
   "boards": [],
   "date": "2026-10-15"
