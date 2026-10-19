@@ -95,6 +95,10 @@
   "boards": [],
   "date": "2026-09-30"
  },
+ "fermi": {
+  "boards": [],
+  "date": "2026-10-19"
+ },
  "ferrovial": {
   "boards": [
    "workday:ferrovial.wd3.myworkdayjobs.com/ferrovial_career_site"
@@ -115,6 +119,10 @@
   "boards": [],
   "date": "2026-10-15"
  },
+ "geronimo power": {
+  "boards": [],
+  "date": "2026-10-19"
+ },
  "hoosier energy": {
   "boards": [],
   "date": "2026-09-30"
@@ -126,6 +134,10 @@
  "j t business consulting": {
   "boards": [],
   "date": "2026-09-29"
+ },
+ "kohlberg kravis roberts": {
+  "boards": [],
+  "date": "2026-10-19"
  },
  "link logistics real estate": {
   "boards": [
@@ -266,6 +278,10 @@
  "vestas": {
   "boards": [],
   "date": "2026-10-02"
+ },
+ "viridan": {
+  "boards": [],
+  "date": "2026-10-19"
  },
  "world bank": {
   "boards": [],
