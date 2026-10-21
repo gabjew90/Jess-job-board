@@ -164,6 +164,11 @@
       "provider": "lever",
       "board": "xcimer",
       "company": "XCimer Energy"
+    },
+    {
+      "provider": "greenhouse",
+      "board": "quaise",
+      "company": "QUAISE ENERGY INC"
     }
   ],
   "workday_boards": [
