@@ -79,7 +79,8 @@
   "source": "indeed",
   "title": "Staff Electrical Engineer",
   "url": "https://www.indeed.com/viewjob?jk=c6662905ada27ad9",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "003665a44229a373": {
   "active": false,
@@ -1896,7 +1897,8 @@
   "source": "indeed",
   "title": "Project Manager",
   "url": "https://www.indeed.com/viewjob?jk=b5656d242c3ba129",
-  "work_mode": "remote"
+  "work_mode": "remote",
+  "work_mode_by": "triage"
  },
  "05ac0a508192a54f": {
   "active": false,
@@ -1986,7 +1988,8 @@
   "source": "indeed",
   "title": "Technical Field Advisor III, Mechanical",
   "url": "https://www.indeed.com/viewjob?jk=f1971075ab4722f5",
-  "work_mode": "onsite"
+  "work_mode": "onsite",
+  "work_mode_by": "triage"
  },
  "066380530a17d2c7": {
   "active": false,
@@ -3373,7 +3376,8 @@
   "source": "indeed",
   "title": "Principal Mechanical Engineer",
   "url": "https://www.indeed.com/viewjob?jk=1f3ace3e0b76b4c9",
-  "work_mode": "remote"
+  "work_mode": "hybrid",
+  "work_mode_by": "tag"
  },
  "0aea8b55881ada67": {
   "apply_url": "",
@@ -3569,7 +3573,8 @@
   "source": "indeed",
   "title": "Project Manager II",
   "url": "https://www.indeed.com/viewjob?jk=e87363cd7d99686c",
-  "work_mode": "remote"
+  "work_mode": "remote",
+  "work_mode_by": "triage"
  },
  "0be337779fc6bf0c": {
   "apply_url": "",
@@ -3597,7 +3602,8 @@
   "source": "indeed",
   "title": "Manager Development, Midwest",
   "url": "https://www.indeed.com/viewjob?jk=eb461ec9947d8098",
-  "work_mode": "remote"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "0c03a7225c6c8af4": {
   "active": false,
@@ -3860,7 +3866,8 @@
   "source": "indeed",
   "title": "Principal Electrical Engineer",
   "url": "https://www.indeed.com/viewjob?jk=c584a636e1ed4a9f",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "0cc3f4fd619373c9": {
   "active": false,
@@ -4674,7 +4681,8 @@
   "source": "indeed",
   "title": "Senior Project Development Manager - Energy Storage Technologies",
   "url": "https://www.indeed.com/viewjob?jk=d947ce4dbe241737",
-  "work_mode": "hybrid"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "0f628124863119de": {
   "band": "possible",
@@ -5080,7 +5088,8 @@
   "source": "indeed",
   "title": "Senior Performance Engineer",
   "url": "https://www.indeed.com/viewjob?jk=321da0262c27459e",
-  "work_mode": "remote"
+  "work_mode": "onsite",
+  "work_mode_by": "tag"
  },
  "112516e614e106b2": {
   "active": false,
@@ -5511,7 +5520,8 @@
   "source": "indeed",
   "title": "Senior Site Deployment Manager E2E - Data Center Facilities",
   "url": "https://www.indeed.com/viewjob?jk=2cec381e3fda623f",
-  "work_mode": "remote"
+  "work_mode": "onsite",
+  "work_mode_by": "fetch"
  },
  "12ac77fbd72465b0": {
   "active": false,
@@ -7487,7 +7497,8 @@
   "source": "indeed",
   "title": "Lead Instrumentation and Controls Engineer - Lead Systems Engineer",
   "url": "https://www.indeed.com/viewjob?jk=fd978f24f4e50c9c",
-  "work_mode": "remote"
+  "work_mode": "hybrid",
+  "work_mode_by": "fetch"
  },
  "1acfd849d875b675": {
   "active": false,
@@ -7544,7 +7555,8 @@
   "source": "indeed",
   "title": "Lead Land and Right of Way Manager",
   "url": "https://www.indeed.com/viewjob?jk=7cd2c2f18d65d505",
-  "work_mode": "remote"
+  "work_mode": "hybrid",
+  "work_mode_by": "fetch"
  },
  "1aebbaa3290b0372": {
   "active": false,
@@ -8375,7 +8387,8 @@
   "source": "indeed",
   "title": "Engineering Program Manager, Terafab",
   "url": "https://www.indeed.com/viewjob?jk=2b8e9fc018bf5895",
-  "work_mode": "onsite"
+  "work_mode": "onsite",
+  "work_mode_by": "triage"
  },
  "1e2c988ad161d785": {
   "active": false,
@@ -9302,7 +9315,8 @@
   "source": "indeed",
   "title": "Manager, Engineering (Power Generation & Utilities) - Memphis",
   "url": "https://www.indeed.com/viewjob?jk=de7c92c336a7742e",
-  "work_mode": ""
+  "work_mode": "onsite",
+  "work_mode_by": "fetch"
  },
  "222e25e6b1dd7df6": {
   "apply_url": "https://mhicareers.com/job/Lake-Mary-Technical-Field-Advisor-III%2C-Commissioning-FL-32746/1444815433/",
@@ -9330,7 +9344,8 @@
   "source": "indeed",
   "title": "Technical Field Advisor III, Commissioning",
   "url": "https://www.indeed.com/viewjob?jk=472b9b67c7443787",
-  "work_mode": "onsite"
+  "work_mode": "onsite",
+  "work_mode_by": "triage"
  },
  "222e57e8219ed873": {
   "active": false,
@@ -9562,7 +9577,8 @@
   "source": "indeed",
   "title": "Technical Field Adviser II, Mechanical",
   "url": "https://www.indeed.com/viewjob?jk=dafdd88b0d7e2b11",
-  "work_mode": "remote"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "228f3cce2974badf": {
   "apply_url": "https://cyrusone.wd1.myworkdayjobs.com/en-US/CyrusOneCareerPortal/job/Aurora-IL/Senior-Project-Manager--Construction---Development_R0008046",
@@ -9590,7 +9606,8 @@
   "source": "indeed",
   "title": "Senior Project Manager, Construction & Development",
   "url": "https://www.indeed.com/viewjob?jk=3f30243bdc96be04",
-  "work_mode": "onsite"
+  "work_mode": "onsite",
+  "work_mode_by": "triage"
  },
  "22c9d74e446f6dca": {
   "apply_url": "https://jobs.ashbyhq.com/fluidstack/ac945197-00f5-421b-9515-07799cbbf447",
@@ -10111,7 +10128,8 @@
   "source": "indeed",
   "title": "Sr. Microgrid Solutions Engineer",
   "url": "https://www.indeed.com/viewjob?jk=312e5bfb0ac1afa8",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "2516004ba49ce4bd": {
   "apply_url": "",
@@ -11052,7 +11070,8 @@
   "source": "indeed",
   "title": "Project Manager \u2013 Renewable Energy",
   "url": "https://www.indeed.com/viewjob?jk=08a11e3a6c5141a1",
-  "work_mode": "hybrid"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "280eb09ba768ce23": {
   "active": false,
@@ -11533,7 +11552,8 @@
   "source": "indeed",
   "title": "Principal SCADA Engineer",
   "url": "https://www.indeed.com/viewjob?jk=b9253a40dd0a3de3",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "2a0f265622fd235d": {
   "active": false,
@@ -12073,7 +12093,8 @@
   "source": "indeed",
   "title": "Controls Program Manager (Remote Eligible, U.S.)",
   "url": "https://www.indeed.com/viewjob?jk=3784c6dee4e9e179",
-  "work_mode": "remote"
+  "work_mode": "remote",
+  "work_mode_by": "triage"
  },
  "2be2fbf694b57e30": {
   "apply_url": "https://grnh.se/mb8kkone9us",
@@ -12356,7 +12377,8 @@
   "source": "indeed",
   "title": "Project Scheduler \u2013 Data Center Infrastructure",
   "url": "https://www.indeed.com/viewjob?jk=0c3ca88e792afab9",
-  "work_mode": "onsite"
+  "work_mode": "onsite",
+  "work_mode_by": "triage"
  },
  "2c9c0ca1d9d75613": {
   "active": false,
@@ -12447,7 +12469,8 @@
   "source": "indeed",
   "title": "Field Engineering Manager",
   "url": "https://www.indeed.com/viewjob?jk=192c7697911f21cc",
-  "work_mode": "hybrid"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "2ce1964327898c15": {
   "band": "strong",
@@ -15010,7 +15033,8 @@
   "source": "indeed",
   "title": "Project Manager II",
   "url": "https://www.indeed.com/viewjob?jk=ec372e1f6833cc6d",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "3704ae77344396ae": {
   "active": false,
@@ -15217,7 +15241,8 @@
   "source": "indeed",
   "title": "Utility Relations Consultant \u2013 Large Load Development \u2013 Mississippi",
   "url": "https://www.indeed.com/viewjob?jk=8298c39d49f30af7",
-  "work_mode": "remote"
+  "work_mode": "remote",
+  "work_mode_by": "triage"
  },
  "380a81632f287568": {
   "band": "weak",
@@ -16032,7 +16057,8 @@
   "source": "indeed",
   "title": "Director, Engineering - Substation Structural",
   "url": "https://www.indeed.com/viewjob?jk=d01dcba1e286b58e",
-  "work_mode": ""
+  "work_mode": "hybrid",
+  "work_mode_by": "tag"
  },
  "3b3deb390260d888": {
   "apply_url": "",
@@ -16300,7 +16326,8 @@
   "source": "indeed",
   "title": "Infrastructure TPM, Infra Capacity Delivery",
   "url": "https://www.indeed.com/viewjob?jk=0a1763c2d8fb201e",
-  "work_mode": "remote"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "3c603a99b8f491bb": {
   "active": false,
@@ -17229,7 +17256,8 @@
   "source": "indeed",
   "title": "Principal Data Center MEP PM",
   "url": "https://www.indeed.com/viewjob?jk=0c45766edd4f008c",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "4074562f7c7062ac": {
   "apply_url": "https://www.amazon.jobs/jobs/10575015/manager-ii-network-depl-eng-adc-nidd?cmpid=DA_INAD200785B",
@@ -17257,7 +17285,8 @@
   "source": "indeed",
   "title": "Manager II, Network Depl. Eng, ADC NIDD",
   "url": "https://www.indeed.com/viewjob?jk=8d9905b99208080d",
-  "work_mode": "remote"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "4075f574d4e97618": {
   "apply_url": "",
@@ -17550,7 +17579,8 @@
   "source": "indeed",
   "title": "Vice President, Capital Markets",
   "url": "https://www.indeed.com/viewjob?jk=5a09f0a0a4b6e80d",
-  "work_mode": "remote"
+  "work_mode": "remote",
+  "work_mode_by": "triage"
  },
  "4222c687f1a4dfd4": {
   "active": false,
@@ -19356,7 +19386,8 @@
   "source": "indeed",
   "title": "Civil Field Engineer",
   "url": "https://www.indeed.com/viewjob?jk=bf8d77bf3d01e6bd",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "48714ee1746bfe93": {
   "active": false,
@@ -20324,7 +20355,8 @@
   "source": "indeed",
   "title": "Energy Solutions Dev Engineer-DistributedGen",
   "url": "https://www.indeed.com/viewjob?jk=e4eb27462303386b",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "4d94db7d4f6e1c7f": {
   "band": "top",
@@ -20377,7 +20409,8 @@
   "source": "indeed",
   "title": "Project Manager",
   "url": "https://www.indeed.com/viewjob?jk=c416fbb9f943bb01",
-  "work_mode": "remote"
+  "work_mode": "hybrid",
+  "work_mode_by": "tag"
  },
  "4dce0331709f3aef": {
   "apply_url": "https://aes.wd1.myworkdayjobs.com/aes_clean_energy/job/US-Flexible-TX/Senior-Project-Manager--Fuel-Cells_R1065226",
@@ -20700,7 +20733,8 @@
   "source": "indeed",
   "title": "Senior Analyst, Origination",
   "url": "https://www.indeed.com/viewjob?jk=c9e0caf932c70423",
-  "work_mode": "remote"
+  "work_mode": "remote",
+  "work_mode_by": "triage"
  },
  "4e8f18080f2b062f": {
   "active": false,
@@ -22045,7 +22079,8 @@
   "source": "indeed",
   "title": "Principal, Strategic Partnerships Lead, Modular Data Center Infrastructure",
   "url": "https://www.indeed.com/viewjob?jk=9a7595d7b341f117",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "53be66608f73f40f": {
   "apply_url": "",
@@ -23152,7 +23187,8 @@
   "source": "indeed",
   "title": "Director, Construction & Development",
   "url": "https://www.indeed.com/viewjob?jk=205e56227cd26f6f",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "57a70a5944f58cd9": {
   "apply_url": "",
@@ -26061,7 +26097,8 @@
   "source": "indeed",
   "title": "Infrastructure Design Manager",
   "url": "https://www.indeed.com/viewjob?jk=8d6441cb62a17c49",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "610d0246d570954e": {
   "apply_url": "",
@@ -26406,7 +26443,8 @@
   "source": "indeed",
   "title": "Director of Engineering - Power Systems",
   "url": "https://www.indeed.com/viewjob?jk=5d54499cfac8fb57",
-  "work_mode": "remote"
+  "work_mode": "hybrid",
+  "work_mode_by": "fetch"
  },
  "6241e62ea0cfc647": {
   "active": false,
@@ -27459,7 +27497,8 @@
   "source": "indeed",
   "title": "Monitoring & Diagnostics Platforms Project Manager",
   "url": "https://www.indeed.com/viewjob?jk=23ccfc6e86dcb6e5",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "66f1a0fde4dc5db4": {
   "apply_url": "",
@@ -27988,7 +28027,8 @@
   "source": "indeed",
   "title": "EPC Project Director - Latin America",
   "url": "https://www.indeed.com/viewjob?jk=3099a45b4b124ba5",
-  "work_mode": "remote"
+  "work_mode": "onsite",
+  "work_mode_by": "tag"
  },
  "68f2ec0b93914eb3": {
   "apply_url": "",
@@ -28366,7 +28406,8 @@
   "source": "indeed",
   "title": "Project Manager \u2013 Engineering (EPC / Combined Cycle Power Generation)",
   "url": "https://www.indeed.com/viewjob?jk=224bc85390a1884d",
-  "work_mode": ""
+  "work_mode": "onsite",
+  "work_mode_by": "tag"
  },
  "69edde6e6eff3819": {
   "active": false,
@@ -30463,7 +30504,8 @@
   "source": "indeed",
   "title": "General Manager & VP, Power",
   "url": "https://www.indeed.com/viewjob?jk=0fe1ea3077416f83",
-  "work_mode": "hybrid"
+  "work_mode": "remote",
+  "work_mode_by": "fetch"
  },
  "7187a58c42f896a4": {
   "apply_url": "",
@@ -30702,7 +30744,8 @@
   "source": "indeed",
   "title": "Commercial Manager, Energy & Utilities",
   "url": "https://www.indeed.com/viewjob?jk=4ce1f6f7b0516569",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "728f81eb5b05dff6": {
   "active": false,
@@ -30785,7 +30828,8 @@
   "source": "indeed",
   "title": "Energy Engineer / Mechanical Engineer",
   "url": "https://www.indeed.com/viewjob?jk=885187aa44433700",
-  "work_mode": ""
+  "work_mode": "onsite",
+  "work_mode_by": "tag"
  },
  "72dd15452843d62f": {
   "apply_url": "",
@@ -30930,7 +30974,8 @@
   "source": "indeed",
   "title": "Senior Principal Data Center Delivery Technical PM Deployment & Integration (AI Infrastructure / GPU)",
   "url": "https://www.indeed.com/viewjob?jk=083f1ce2b33ad06d",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "73875e9d4c668a7d": {
   "apply_url": "",
@@ -31098,7 +31143,8 @@
   "source": "indeed",
   "title": "Power Delivery Project Manager",
   "url": "https://www.indeed.com/viewjob?jk=946447cd1e1da081",
-  "work_mode": "remote"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "73d7269942951dab": {
   "active": false,
@@ -31501,7 +31547,8 @@
   "source": "indeed",
   "title": "Project Quality Manager",
   "url": "https://www.indeed.com/viewjob?jk=6a461d581de6c497",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "76678ff8db8dde98": {
   "active": false,
@@ -31850,7 +31897,8 @@
   "source": "indeed",
   "title": "Project Manager-Senior-Principal",
   "url": "https://www.indeed.com/viewjob?jk=0f636d54c997a14e",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "782fd3b7c7253570": {
   "apply_url": "https://recruiting2.ultipro.com/HOO1006HEECI/JobBoard/d2bd89ae-5c9c-494f-9f12-45e36d897985/OpportunityDetail?opportunityId=0ecea91e-45ad-4c7c-9aa0-5b04a5077885&postingId=4f89680d-c1b3-4820-ad7b-5d715cb044fe",
@@ -31877,7 +31925,8 @@
   "source": "indeed",
   "title": "Sr. Manager, Origination & Large Load Strategy - Hybrid Remote",
   "url": "https://www.indeed.com/viewjob?jk=486191124a94f172",
-  "work_mode": "hybrid"
+  "work_mode": "hybrid",
+  "work_mode_by": "triage"
  },
  "78313263f3816779": {
   "apply_url": "https://jobs.siemens-energy.com/en_US/CareersMarketplace/FolderDetail/Commercial-Project-Manager-Project-Controller/303919",
@@ -32190,7 +32239,8 @@
   "source": "indeed",
   "title": "Contracts Senior Advisor (Renewable Energy)",
   "url": "https://www.indeed.com/viewjob?jk=b965484a8050301f",
-  "work_mode": "remote"
+  "work_mode": "hybrid",
+  "work_mode_by": "fetch"
  },
  "78ee3c2aa9b8b043": {
   "apply_url": "",
@@ -32513,7 +32563,8 @@
   "source": "indeed",
   "title": "Project Manager - CSS",
   "url": "https://www.indeed.com/viewjob?jk=629e05238c2a2adb",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "7a4c94acfce700e8": {
   "apply_url": "",
@@ -32884,7 +32935,8 @@
   "source": "indeed",
   "title": "Director, Operations - QDC",
   "url": "https://www.indeed.com/viewjob?jk=9513aa2fc3087d57",
-  "work_mode": ""
+  "work_mode": "onsite",
+  "work_mode_by": "tag"
  },
  "7ba480af0ae74502": {
   "active": false,
@@ -33437,7 +33489,8 @@
   "source": "indeed",
   "title": "Vice President Project Controls AMERS",
   "url": "https://www.indeed.com/viewjob?jk=bfb4b59366373fb8",
-  "work_mode": "remote"
+  "work_mode": "remote",
+  "work_mode_by": "triage"
  },
  "7ce8c0aa12471e89": {
   "active": false,
@@ -34021,7 +34074,8 @@
   "source": "indeed",
   "title": "Utility Transmission Planning Manager",
   "url": "https://www.indeed.com/viewjob?jk=96ece5b69c912709",
-  "work_mode": "remote"
+  "work_mode": "hybrid",
+  "work_mode_by": "fetch"
  },
  "7ed945655e5083ad": {
   "active": false,
@@ -34945,7 +34999,8 @@
   "source": "indeed",
   "title": "Frac Pump Design Engineer",
   "url": "https://www.indeed.com/viewjob?jk=96ed6d06a4ad0d53",
-  "work_mode": "remote"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "81db3084086a7d04": {
   "apply_url": "https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/342956",
@@ -35236,7 +35291,8 @@
   "source": "indeed",
   "title": "Director of Origination",
   "url": "https://www.indeed.com/viewjob?jk=3966daa736a58154",
-  "work_mode": "hybrid"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "82e9189c9e06965a": {
   "active": false,
@@ -36105,7 +36161,8 @@
   "source": "indeed",
   "title": "Project Director",
   "url": "https://www.indeed.com/viewjob?jk=9df523afe35ac2c0",
-  "work_mode": ""
+  "work_mode": "onsite",
+  "work_mode_by": "tag"
  },
  "8533172cff938aa3": {
   "active": false,
@@ -36220,7 +36277,8 @@
   "source": "indeed",
   "title": "EPC Project Manager",
   "url": "https://www.indeed.com/viewjob?jk=8a383e243b8db26c",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "8599c51d720dfc6a": {
   "band": "weak",
@@ -36484,7 +36542,8 @@
   "source": "indeed",
   "title": "Project Manager (Sr. - Staff) | NEW GENERATION (project development/acquisition, natural gas, renewables, BESS) *** multiple opportunities ***",
   "url": "https://www.indeed.com/viewjob?jk=c21ad0a092b341c2",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "8685e48275ee120f": {
   "active": false,
@@ -37187,7 +37246,8 @@
   "source": "indeed",
   "title": "Senior Principal, Data Center Delivery",
   "url": "https://www.indeed.com/viewjob?jk=0c3feaadff68225c",
-  "work_mode": "hybrid"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "88b79d1066d3167f": {
   "active": false,
@@ -38312,7 +38372,8 @@
   "source": "indeed",
   "title": "Electrical & Instrumentation Engineering Manager (PE Required)",
   "url": "https://www.indeed.com/viewjob?jk=87e95ba3cf0af2e5",
-  "work_mode": ""
+  "work_mode": "onsite",
+  "work_mode_by": "tag"
  },
  "8bbcacf2eb473624": {
   "active": false,
@@ -38555,7 +38616,8 @@
   "source": "indeed",
   "title": "Fluid Systems Project Engineer",
   "url": "https://www.indeed.com/viewjob?jk=ce6a862eb37f0dcd",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "8c4c74a7de21d8a0": {
   "active": false,
@@ -39243,7 +39305,8 @@
   "source": "indeed",
   "title": "Director, Project Controls",
   "url": "https://www.indeed.com/viewjob?jk=89067a8956e45eaf",
-  "work_mode": "remote"
+  "work_mode": "remote",
+  "work_mode_by": "triage"
  },
  "8e5ce4f176c7434a": {
   "apply_url": "https://grnh.se/6dmtib9p9us",
@@ -40279,7 +40342,8 @@
   "source": "indeed",
   "title": "Quality Systems & Supplier Quality Manager",
   "url": "https://www.indeed.com/viewjob?jk=f8deb00180cd450e",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "932478ea8de7b89b": {
   "active": false,
@@ -40800,7 +40864,8 @@
   "source": "indeed",
   "title": "Helix, Vice President, U.S. Energy Origination & Site Development New",
   "url": "https://www.indeed.com/viewjob?jk=f1201fef8e4c7f37",
-  "work_mode": "remote"
+  "work_mode": "remote",
+  "work_mode_by": "triage"
  },
  "94625c3e9cd5fb81": {
   "active": false,
@@ -41508,7 +41573,8 @@
   "source": "indeed",
   "title": "Senior Manager, Power Generation Engineering",
   "url": "https://www.indeed.com/viewjob?jk=109372e8d0d477af",
-  "work_mode": "remote"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "96aedfe70731476e": {
   "apply_url": "",
@@ -42148,7 +42214,8 @@
   "source": "indeed",
   "title": "Commercial Operations Senior Manager North America",
   "url": "https://www.indeed.com/viewjob?jk=4dac5020e8bd551f",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "99a6f81118f45cf6": {
   "apply_url": "https://alliantenergy.wd1.myworkdayjobs.com/private_alliant/job/Cedar-Rapids-IA/Lead-or-Principal-Program-Manager---Construction_JR-10135",
@@ -42750,7 +42817,8 @@
   "source": "indeed",
   "title": "Principal Power & Energy Infrastructure Lead",
   "url": "https://www.indeed.com/viewjob?jk=0712215bc5bb65e9",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "9bca33920a9b5e34": {
   "active": false,
@@ -43243,7 +43311,8 @@
   "source": "indeed",
   "title": "Contract Manager",
   "url": "https://www.indeed.com/viewjob?jk=5905a4a6b3efc732",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "9ebb290b3f63c786": {
   "band": "weak",
@@ -43794,7 +43863,8 @@
   "source": "indeed",
   "title": "Lake City ERP CHP Project Manager",
   "url": "https://www.indeed.com/viewjob?jk=ca57ee7ed8d7892b",
-  "work_mode": "remote"
+  "work_mode": "onsite",
+  "work_mode_by": "tag"
  },
  "9f8c6edfc4cbe461": {
   "apply_url": "",
@@ -43850,7 +43920,8 @@
   "source": "indeed",
   "title": "Senior Project Manager - Data Centers Development",
   "url": "https://www.indeed.com/viewjob?jk=fb39dc02c5f49e84",
-  "work_mode": "remote"
+  "work_mode": "remote",
+  "work_mode_by": "triage"
  },
  "9f9ef87bb7d8e6cb": {
   "apply_url": "",
@@ -44057,7 +44128,8 @@
   "source": "indeed",
   "title": "Sr. Technical Project Manager, Energy Self Perform",
   "url": "https://www.indeed.com/viewjob?jk=60309577b7b3ef68",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "a0be84effc87750f": {
   "apply_url": "",
@@ -44629,7 +44701,8 @@
   "source": "indeed",
   "title": "Manager, Energy Analytics",
   "url": "https://www.indeed.com/viewjob?jk=11c6bd5deaf71601",
-  "work_mode": "remote"
+  "work_mode": "remote",
+  "work_mode_by": "triage"
  },
  "a2bac12e0cd92aa4": {
   "active": false,
@@ -44891,7 +44964,8 @@
   "source": "indeed",
   "title": "Senior Category Manager, Power and Utilities, Global Procurement Organization (GPO)",
   "url": "https://www.indeed.com/viewjob?jk=a713a85828e46aad",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "a4a9f21e257a4ae1": {
   "active": false,
@@ -45965,7 +46039,8 @@
   "source": "indeed",
   "title": "Project Manager, Energy and Infrastructure Projects (Puerto Rico))",
   "url": "https://www.indeed.com/viewjob?jk=be29fdc57479d9db",
-  "work_mode": "hybrid"
+  "work_mode": "onsite",
+  "work_mode_by": "fetch"
  },
  "a80282fd0425ebbc": {
   "active": false,
@@ -47617,7 +47692,8 @@
   "source": "indeed",
   "title": "IB Sr Associate / Jr Vice President \u2013 Clean Energy & Power (New York)",
   "url": "https://www.indeed.com/viewjob?jk=92ef03454c16ed11",
-  "work_mode": ""
+  "work_mode": "onsite",
+  "work_mode_by": "tag"
  },
  "ae3c588c82ff8382": {
   "active": false,
@@ -49493,7 +49569,8 @@
   "source": "indeed",
   "title": "Project Engineering Manager",
   "url": "https://www.indeed.com/viewjob?jk=835fa5339a2185f5",
-  "work_mode": "remote"
+  "work_mode": "remote",
+  "work_mode_by": "triage"
  },
  "b51ffbfa48ca2694": {
   "active": false,
@@ -49903,7 +49980,8 @@
   "source": "indeed",
   "title": "Lead Principal Data Center Facilities Development Manager, Major Equipment & OFCI",
   "url": "https://www.indeed.com/viewjob?jk=49a4cf4415b7b342",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "b65fa88ee19ac9d4": {
   "active": false,
@@ -50542,7 +50620,8 @@
   "source": "indeed",
   "title": "Principal Data Center Design Manager",
   "url": "https://www.indeed.com/viewjob?jk=af0d8a534020d714",
-  "work_mode": "onsite"
+  "work_mode": "onsite",
+  "work_mode_by": "triage"
  },
  "b7e73f3de02b357c": {
   "active": false,
@@ -51904,7 +51983,8 @@
   "source": "indeed",
   "title": "Data Center Integrated Planning & Scheduling",
   "url": "https://www.indeed.com/viewjob?jk=c4277fa976801cdc",
-  "work_mode": "onsite"
+  "work_mode": "onsite",
+  "work_mode_by": "triage"
  },
  "bd3f5e1b2b049e45": {
   "active": false,
@@ -52079,7 +52159,8 @@
   "source": "indeed",
   "title": "Interconnection & Transmission Regulatory Manager",
   "url": "https://www.indeed.com/viewjob?jk=f46a878805049889",
-  "work_mode": ""
+  "work_mode": "onsite",
+  "work_mode_by": "tag"
  },
  "be1abef78663774d": {
   "apply_url": "",
@@ -52285,7 +52366,8 @@
   "source": "indeed",
   "title": "Design Engineer - Built World",
   "url": "https://www.indeed.com/viewjob?jk=f01fb259ba963d15",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "bebab6f546457735": {
   "apply_url": "",
@@ -52566,7 +52648,8 @@
   "source": "indeed",
   "title": "Electrical Engineer",
   "url": "https://www.indeed.com/viewjob?jk=3748b24661620722",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "c05b9ad60c9d4371": {
   "band": "possible",
@@ -53689,7 +53772,8 @@
   "source": "indeed",
   "title": "Sr Interconnection Engineer (Solar & Bess)",
   "url": "https://www.indeed.com/viewjob?jk=96a8fc3449905a90",
-  "work_mode": "hybrid"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "c5a2c80de58b6811": {
   "apply_url": "https://aep.wd1.myworkdayjobs.com/AEPCareerSite/job/New-Albany-OH/Procurement-Specialist_R19446",
@@ -53717,7 +53801,8 @@
   "source": "indeed",
   "title": "Procurement Specialist",
   "url": "https://www.indeed.com/viewjob?jk=2288ef8b0de90441",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "c5aa597dd5e31abd": {
   "active": false,
@@ -53776,7 +53861,8 @@
   "source": "indeed",
   "title": "Process Engineer, Prin",
   "url": "https://www.indeed.com/viewjob?jk=1097b20722446d61",
-  "work_mode": ""
+  "work_mode": "onsite",
+  "work_mode_by": "tag"
  },
  "c5c67e9203a5f45c": {
   "active": false,
@@ -54067,7 +54153,8 @@
   "source": "indeed",
   "title": "VP Energy & Site Selection",
   "url": "https://www.indeed.com/viewjob?jk=07fa6ac100040021",
-  "work_mode": "remote"
+  "work_mode": "hybrid",
+  "work_mode_by": "fetch"
  },
  "c6e7aa017461085c": {
   "apply_url": "",
@@ -54959,7 +55046,8 @@
   "source": "indeed",
   "title": "Director, Gas Turbine Repair",
   "url": "https://www.indeed.com/viewjob?jk=3394a99d32606dde",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "c98c1e03dab615b4": {
   "band": "weak",
@@ -55767,7 +55855,8 @@
   "source": "indeed",
   "title": "Senior Project Engineer - Rotating Equipment & Packaged Systems",
   "url": "https://www.indeed.com/viewjob?jk=2bd66d69fd7c48e6",
-  "work_mode": ""
+  "work_mode": "onsite",
+  "work_mode_by": "tag"
  },
  "cbe52c7261a78178": {
   "band": "weak",
@@ -56225,7 +56314,8 @@
   "source": "indeed",
   "title": "Sr Project Engineer (Utility-scale solar/BESS)",
   "url": "https://www.indeed.com/viewjob?jk=439aa6c6d5a55296",
-  "work_mode": "hybrid"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "cdc1cd433aa6f1cf": {
   "active": false,
@@ -58240,7 +58330,8 @@
   "source": "indeed",
   "title": "Senior Engineer, Interconnection",
   "url": "https://www.indeed.com/viewjob?jk=d6a2b57e6facd12d",
-  "work_mode": "remote"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "d3a2333c703531c0": {
   "band": "possible",
@@ -58294,7 +58385,8 @@
   "source": "indeed",
   "title": "Engineer III, Project Support",
   "url": "https://www.indeed.com/viewjob?jk=614f1546a573c587",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "d3dbaae4db8f7edf": {
   "active": false,
@@ -58588,7 +58680,8 @@
   "source": "indeed",
   "title": "Vice President Delivery Data Center Infrastructure North America",
   "url": "https://www.indeed.com/viewjob?jk=79d9fa3c0893fce1",
-  "work_mode": "remote"
+  "work_mode": "remote",
+  "work_mode_by": "triage"
  },
  "d50b97480936f704": {
   "band": "weak",
@@ -59891,7 +59984,8 @@
   "source": "indeed",
   "title": "Senior Automation Construction Manager, NA",
   "url": "https://www.indeed.com/viewjob?jk=3c78c07bc6aff4ee",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "dabd5ac09ec3c17c": {
   "active": false,
@@ -61101,7 +61195,8 @@
   "source": "indeed",
   "title": "Principal Data Center Commissioning Engineer",
   "url": "https://www.indeed.com/viewjob?jk=3a668ec93eec6962",
-  "work_mode": "onsite"
+  "work_mode": "onsite",
+  "work_mode_by": "triage"
  },
  "df540674aa1d7773": {
   "active": false,
@@ -61420,7 +61515,8 @@
   "source": "indeed",
   "title": "Director, Policy - Central Region",
   "url": "https://www.indeed.com/viewjob?jk=082b104b8eb0a070",
-  "work_mode": "remote"
+  "work_mode": "remote",
+  "work_mode_by": "triage"
  },
  "e0492ecce114b5eb": {
   "active": false,
@@ -62279,7 +62375,8 @@
   "source": "indeed",
   "title": "Category Manager",
   "url": "https://www.indeed.com/viewjob?jk=e26889636cc252d8",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "e2fc475913f08cf1": {
   "apply_url": "",
@@ -63336,7 +63433,8 @@
   "source": "indeed",
   "title": "Principal Data Center Fiber Deployment",
   "url": "https://www.indeed.com/viewjob?jk=14df9963a701221b",
-  "work_mode": "onsite"
+  "work_mode": "onsite",
+  "work_mode_by": "triage"
  },
  "e6c6db11013a9d8d": {
   "active": false,
@@ -63393,7 +63491,8 @@
   "source": "indeed",
   "title": "Supplier Quality Engineer- Electrical",
   "url": "https://www.indeed.com/viewjob?jk=f1b3873f583ae0c0",
-  "work_mode": "remote"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "e72e1dc189740466": {
   "active": false,
@@ -63715,7 +63814,8 @@
   "source": "indeed",
   "title": "Lead Principal Data Center Site Selection Manager",
   "url": "https://www.indeed.com/viewjob?jk=ec551d26d967d5c9",
-  "work_mode": "hybrid"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "e7f7a8914d92e7b7": {
   "apply_url": "",
@@ -64064,7 +64164,8 @@
   "source": "indeed",
   "title": "Senior Project Manager-EPC",
   "url": "https://www.indeed.com/viewjob?jk=25a3e7d7dadc009e",
-  "work_mode": "remote"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "e8b9a552c203aec4": {
   "active": false,
@@ -64240,7 +64341,8 @@
   "source": "indeed",
   "title": "Development Civil Engineer",
   "url": "https://www.indeed.com/viewjob?jk=f7467b0a093b4c3f",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "e971c02875bc532b": {
   "active": false,
@@ -66253,7 +66355,8 @@
   "source": "indeed",
   "title": "Infrastructure Technical Program Manager, Terafab",
   "url": "https://www.indeed.com/viewjob?jk=df3061cdb18137a2",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "ef18ee0e301de119": {
   "active": false,
@@ -66519,7 +66622,8 @@
   "source": "indeed",
   "title": "Operator Training and Simulation Program Manager",
   "url": "https://www.indeed.com/viewjob?jk=8bc2ff65790f64d8",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "f069a5f1930c9c65": {
   "band": "strong",
@@ -66626,7 +66730,8 @@
   "source": "indeed",
   "title": "Project Manager, Construction",
   "url": "https://www.indeed.com/viewjob?jk=d81f939315309e72",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "f0cdc724f0b5d188": {
   "active": false,
@@ -67083,7 +67188,8 @@
   "source": "indeed",
   "title": "Multiple U.S. Locations - Data Center Commissioning Engineer (CxE) - Electrical - All Levels",
   "url": "https://www.indeed.com/viewjob?jk=8470f60fd239d741",
-  "work_mode": "onsite"
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "f2f23053329ee034": {
   "band": "weak",
@@ -68061,7 +68167,8 @@
   "source": "indeed",
   "title": "Principal Data Center Facilities Engineer",
   "url": "https://www.indeed.com/viewjob?jk=a175194bd9f31345",
-  "work_mode": ""
+  "work_mode": "onsite",
+  "work_mode_by": "tag"
  },
  "f648253eeaf5f38d": {
   "apply_url": "",
