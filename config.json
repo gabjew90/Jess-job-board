@@ -169,6 +169,11 @@
       "provider": "greenhouse",
       "board": "quaise",
       "company": "QUAISE ENERGY INC"
+    },
+    {
+      "provider": "lever",
+      "board": "mainspringenergy",
+      "company": "Mainspring Energy"
     }
   ],
   "workday_boards": [
