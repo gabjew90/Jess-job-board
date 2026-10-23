@@ -6,7 +6,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from .models import Job
-from .util import AGGREGATOR_SOURCES, company_key, group_key, source_id, twin_key
+from .util import AGGREGATOR_SOURCES, company_key, group_key, legacy_text_mode, source_id, twin_key
 
 log = logging.getLogger(__name__)
 
@@ -129,6 +129,24 @@ def split_new(jobs: list[Job], state: dict) -> list[Job]:
                                   or not rec.get("apply_url_own")):
                 rec.update(apply_url=job.apply_url, apply_url_own=True)
                 updated += 1
+            # A work mode the posting's own source read from it is recomputed
+            # each time that source sees the posting again (the text rules
+            # tightened on 2026-10-23). The scorer's reading is kept, and so
+            # is a tag reading (scripts/recheck_indeed_work_mode.py) unless
+            # the source now gives a mode. A record from before
+            # work_mode_by counts as the source's only when the old rules
+            # explain its mode; otherwise it was the scorer's.
+            if job.source == rec.get("source"):
+                by = rec.get("work_mode_by")
+                old = rec.get("work_mode", "")
+                if by is None and old:
+                    by = "fetch" if legacy_text_mode(old, job.description) else "triage"
+                    rec["work_mode_by"] = by
+                if old != job.work_mode and (by in (None, "", "fetch")
+                                             or (by == "tag" and job.work_mode)):
+                    rec.update(work_mode=job.work_mode,
+                               work_mode_by="fetch" if job.work_mode else "")
+                    updated += 1
             # Backfill fields added after this record was first stored.
             updated += _merge_fields(rec, job)
             continue
@@ -144,6 +162,7 @@ def split_new(jobs: list[Job], state: dict) -> list[Job]:
             "date_posted": job.date_posted,
             "pay": job.pay,
             "work_mode": job.work_mode,
+            "work_mode_by": "fetch" if job.work_mode else "",
             "apply_url": job.apply_url,
             "apply_url_own": bool(job.apply_url),
             "locations": [job.location],

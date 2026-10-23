@@ -34,8 +34,9 @@ def _pay(row) -> str:
 
 
 def _mode(row) -> str:
-    if row.get("is_remote") is True:
-        return "remote"
+    # Not jobspy's is_remote: it is True whenever "remote" appears anywhere
+    # in the description ("remote diagnostics" made a Palo Alto Tesla role
+    # read remote, 2026-10-23).
     return infer_work_mode(_s(row.get("title")), _s(row.get("location")),
                            _s(row.get("description")))
 
