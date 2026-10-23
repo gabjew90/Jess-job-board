@@ -153,6 +153,8 @@ def main() -> None:
                 setattr(job, field, s[field])
                 if rec is not None and not rec.get(field):
                     rec[field] = s[field]
+                    if field == "work_mode":
+                        rec["work_mode_by"] = "triage"
     # Band distribution per run — a static distribution while the input mix
     # moves means the model is regressing to the band center.
     from collections import Counter

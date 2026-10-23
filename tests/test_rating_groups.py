@@ -7,7 +7,10 @@ Run: python -m pytest -q tests
 import json
 import re
 
+import pytest
+
 from src import dashboard, notify
+from src.models import Job
 
 
 def rec(title, band, posted="2026-10-01", **kw):
@@ -134,3 +137,74 @@ def test_every_theme_defines_the_money_colours():
         for mode in ("light", "dark"):
             assert {"money-bg", "money-ink"} <= set(th[mode])
     assert "--money-bg:" in themes.css_vars(themes.get("gas"))
+
+
+# --- work mode: arrangement phrasing only (2026-10-23) --------------------
+
+@pytest.mark.parametrize("title,location,desc,want", [
+    # The Tesla Staff PM that read remote from a product feature list.
+    ("Staff Product Manager", "Palo Alto, CA",
+     "black start, reactive power / Volt-VAR, anti-islanding, voltage ride-through, and remote diagnostics", ""),
+    ("Engineer", "US", "Remote monitoring of remote substations.", ""),
+    ("Engineer", "US", "Design hybrid inverters for hybrid solar + storage plants.", ""),
+    ("Developer", "US", "Originate on-site generation and onsite power projects.", ""),
+    ("Analyst", "Austin, TX", "This is a fully remote role.", "remote"),
+    ("Analyst", "US", "This position can be performed remotely from anywhere in the US.", "remote"),
+    ("Analyst", "US", "Remote (US) candidates welcome.", "remote"),
+    ("Analyst", "US", "This is not a remote position; remote work is not offered.", ""),
+    ("Manager", "Denver", "Hybrid work schedule: 3 days per week in office.", "hybrid"),
+    ("Manager", "Houston", "This role is on-site in Houston.", "onsite"),
+    ("Engineer (Hybrid)", "Denver", "", "hybrid"),
+    ("Engineer", "Remote - Texas", "", "remote"),
+    ("Engineer", "Houston, TX", "Must work 5 days per week in the office.", "onsite"),
+    ("Engineer", "US", "Batteries can be remotely monitored and dispatched.", ""),
+    ("Engineer", "US", "Operate fully remote-controlled substations.", ""),
+    ("Remote Sensing Scientist", "Houston, TX", "", ""),
+    ("Hybrid Inverter Engineer", "Austin, TX", "", ""),
+    ("Analyst", "Remote", "Hybrid work schedule available at our offices.", "remote"),
+    ("Analyst", "US", "This role is on-site in Houston; occasional work from home is allowed.", "onsite"),
+    ("Engineer", "US", "Design hybrid (PV + BESS) plants.", ""),
+    ("Engineer", "US", "Storage located onsite at customer facilities.", ""),
+])
+def test_work_mode_reads_arrangements_not_products(title, location, desc, want):
+    from src.util import infer_work_mode
+    assert infer_work_mode(title, location, desc) == want
+
+
+def test_fetched_work_mode_is_recomputed_but_the_scorers_is_kept():
+    from src import state
+    job = Job("Staff PM", "Tesla", "Palo Alto, CA", "https://www.indeed.com/viewjob?jk=1", "indeed",
+              description="voltage ride-through, and remote diagnostics")
+    rec = {"title": "Staff PM", "company": "Tesla", "location": "Palo Alto, CA",
+           "source": "indeed", "work_mode": "remote"}          # old misread, no provenance
+    seen = {job.job_id: rec}
+    state.split_new([job], seen)
+    assert rec["work_mode"] == "" and rec["work_mode_by"] == ""
+
+    # A legacy mode the old bare-word rules can't explain came from the scorer.
+    rec.update(work_mode="hybrid"); rec.pop("work_mode_by")
+    state.split_new([job], seen)
+    assert (rec["work_mode"], rec["work_mode_by"]) == ("hybrid", "triage")
+
+    # A tag reading holds until the source itself finds a mode.
+    rec.update(work_mode="hybrid", work_mode_by="tag")
+    state.split_new([job], seen)
+    assert rec["work_mode"] == "hybrid"
+    state.split_new([Job("Staff PM", "Tesla", "Palo Alto, CA", job.url, "indeed",
+                         description="This role is on-site in Palo Alto.", work_mode="onsite")], seen)
+    assert (rec["work_mode"], rec["work_mode_by"]) == ("onsite", "fetch")
+
+    # Another source's copy never rewrites it.
+    state.split_new([Job("Staff PM", "Tesla", "Palo Alto, CA", "https://x/1", "greenhouse",
+                         work_mode="remote")], seen)
+    assert rec["work_mode"] == "onsite"
+
+
+@pytest.mark.parametrize("desc", [
+    "This role is hybrid, with regular in-office presence in San Diego, CA.",
+    "Hybrid Mobility Classification – Work will be performed in office 3 days.",
+    "Work location: Hybrid",
+])
+def test_hybrid_phrasings(desc):
+    from src.util import infer_work_mode
+    assert infer_work_mode("Manager", "Denver, CO", desc) == "hybrid"

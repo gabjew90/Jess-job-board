@@ -182,10 +182,11 @@ def test_merge_only_fills_or_upgrades_never_flips():
     from src import state
     job = _job(pay="$100,000–$160,000", work_mode="onsite")
     seen = {job.job_id: {"title": job.title, "company": "PG&E", "location": job.location,
-                         "source": "successfactors", "pay": "$122,000–$194,000", "work_mode": "hybrid"}}
+                         "source": "successfactors", "pay": "$122,000–$194,000", "work_mode": "hybrid",
+                         "work_mode_by": "triage"}}
     state.split_new([job], seen)
     assert (seen[job.job_id]["pay"], seen[job.job_id]["work_mode"]) == ("$122,000–$194,000", "hybrid"), \
-        "another metro's copy never replaces a stored range"
+        "another copy never replaces a stored range or the scorer's work mode"
     state.split_new([_job(pay="$150,000")], seen)
     assert seen[job.job_id]["pay"] == "$122,000–$194,000", "a single figure never replaces a range"
 
