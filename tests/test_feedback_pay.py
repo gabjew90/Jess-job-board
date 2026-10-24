@@ -144,8 +144,9 @@ def test_verdict_down_to_misfit_archives_it():
 def test_dashboard_row_has_the_three_buttons():
     row = dashboard._row({"_id": "abc123", "title": "Role", "company": "Co", "band": "strong",
                           "score": 75, "url": "https://example.com"})
-    for label in ("good fit", "bad fit", "closed", "note"):
+    for label in ("good fit", "bad fit", "closed"):
         assert label in row
+    assert "✏️" not in row and "issues/new" not in row, "no free-form note link"
     assert row.count('class="v"') == 3 and 'data-id="abc123"' in row and 'data-ref="Role @ Co"' in row
     js = dashboard._verdict_js()
     assert all(f'"{d}"' in js for d in ("higher", "lower", "closed")) and "<!-- job: {job_id} -->" in js
@@ -162,6 +163,15 @@ def test_closed_verdict_closes_once_and_stays_out_of_scoring(monkeypatch):
     assert seen["a"]["active"] is False and seen["a"]["closed"] and seen["a"]["band"] == "top"
     assert "owner" not in seen["a"].get("scoring_fingerprint", {})
     assert feedback.apply_verdicts(seen, fb["verdicts"]) == 0, "an issue applies once"
+
+
+def test_note_typed_on_the_prompt_line_reaches_scoring(monkeypatch):
+    body = ("Verdict: lower\nReason: Bad fit, belongs lower\n\n"
+            "Tap Create to send. Add notes here if you like. needs a PE license\n\n---\nScored top.")
+    monkeypatch.setattr(feedback, "_issue_entries", lambda: [_issue(15, body)])
+    monkeypatch.setattr(feedback, "FILE", feedback.Path("/nonexistent"))
+    text = feedback.load()["text"]
+    assert "needs a PE license" in text and "Tap Create" not in text and "Scored top" not in text
 
 
 def test_closed_verdict_skips_later_reposts_and_blocks_revival():

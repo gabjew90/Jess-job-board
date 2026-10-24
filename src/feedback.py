@@ -2,14 +2,14 @@
 
 1. feedback.md in the repo — the curated preference file.
 2. Open GitHub issues labeled `feedback` — created from the dashboard's
-   per-row "feedback" link (mobile-friendly). Requires GITHUB_TOKEN, so
+   per-row verdict buttons (good fit, bad fit, closed). Requires GITHUB_TOKEN, so
    issue feedback applies on workflow runs; local runs use feedback.md only.
 
 Everything is injected verbatim into the triage scoring prompt so scores
 adapt to the stated "why". Additionally, hide directives are applied
 deterministically (no LLM involved):
 - in feedback.md: a line like      hide: transmission planning @ ICF
-- in a feedback issue: a body line  Action: hide
+- in a feedback issue: a body line  Action: hide, typed by hand
   (the job reference comes from the issue title "feedback: <title> @ <co>")
 
 A hide target matches any job whose "<title> @ <company>" contains every
@@ -86,13 +86,16 @@ def load() -> dict:
 
     for issue in _issue_entries():
         body = issue["body"]
-        # Strip the pre-filled how-this-was-scored template so only the
-        # owner's own notes are injected into scoring prompts.
+        # Strip pre-filled template text so only the owner's own notes reach
+        # scoring. The how-this-was-scored split is for issues opened from
+        # the retired note button (before 2026-10-24) that are still open.
         if "feed directly into future scoring:" in body:
             body = body.split("feed directly into future scoring:", 1)[1]
         body = re.sub(r"^---\s*$.*", "", body, flags=re.S | re.M)
         body = re.sub(r"^\s*Action:\s*hide\b.*$", "", body, flags=re.I | re.M)
-        body = re.sub(r"^Tap Create to send\..*$", "", body, flags=re.M).strip()
+        # Only the prompt itself: a note typed on the same line is kept.
+        body = re.sub(r"^Tap Create to send\.(?: Add notes here if you like\.)?", "", body,
+                      flags=re.M).strip()
         v = re.search(r"^\s*Verdict:\s*(higher|lower|closed)\b", issue["body"], re.I | re.M)
         # A "closed" report says nothing about fit, so it stays out of scoring.
         if not (v and v.group(1).lower() == "closed"):
