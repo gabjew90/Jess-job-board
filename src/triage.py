@@ -159,6 +159,44 @@ def score(new_jobs: list[Job], feedback_text: str = "") -> dict[str, dict]:
     return results
 
 
+def gap(a: str, b: str) -> int:
+    """How many bands `b` sits below `a` (negative when above)."""
+    return BAND_ORDER.index(a) - BAND_ORDER.index(b)
+
+
+def confirm_drops(jobs: list[Job], scores: dict[str, dict], prior: dict[str, dict],
+                  feedback_text: str = "") -> int:
+    """Re-score once each job whose new band sits two or more bands below
+    its prior top or strong band, and keep the median of the prior band and
+    the two results, so one sampled answer cannot bury a top fit while a
+    drop that repeats is kept. When the prior band is the median, the second
+    answer reached it or better, so its rationale stands with that band.
+    `prior` maps job_id to the record before this run (its "band" is read).
+    Returns how many jobs were re-scored."""
+    def was(jid: str) -> str:
+        return (prior.get(jid) or {}).get("band", "")
+
+    dropped = [j for j in jobs if j.job_id in scores and was(j.job_id) in ("top", "strong")
+               and gap(was(j.job_id), scores[j.job_id]["band"]) >= 2]
+    if not dropped:
+        return 0
+    second = score(dropped, feedback_text)
+    for j in dropped:
+        old, first, again = prior[j.job_id], scores[j.job_id], second.get(j.job_id)
+        if again is None:
+            continue
+        ranked = sorted([(BAND_ORDER.index(old["band"]), 0), (BAND_ORDER.index(first["band"]), 1),
+                         (BAND_ORDER.index(again["band"]), 2)])
+        pick = ranked[1][1]
+        if pick == 2:
+            scores[j.job_id] = again
+        elif pick == 0:   # the second answer backs the prior band (or better): keep that band
+            scores[j.job_id] = {**again, "band": old["band"], "score": BAND_SCORE[old["band"]]}
+        log.info("Drop check: %r %s -> %s, again %s; kept %s", j.title[:45], old["band"],
+                 first["band"], again["band"], scores[j.job_id]["band"])
+    return len(dropped)
+
+
 def _score_chunk(chunk: list[Job], profile: str, feedback: str) -> dict[str, dict]:
     postings = "\n\n".join(
         f"job_id: {j.job_id}\ntitle: {j.title}\ncompany: {j.company}\n"
