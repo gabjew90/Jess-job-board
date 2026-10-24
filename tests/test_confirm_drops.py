@@ -55,3 +55,4 @@ def test_no_second_answer_leaves_the_first(monkeypatch):
     monkeypatch.setattr(triage, "score", lambda jobs, fb="": {})
     triage.confirm_drops([j], scores, {j.job_id: {"band": "strong"}})
     assert scores[j.job_id]["band"] == "weak"
+
