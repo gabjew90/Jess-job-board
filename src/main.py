@@ -4,7 +4,7 @@ import logging
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from . import (dashboard, discovery, expiry, feedback, filters,
+from . import (dashboard, descriptions, discovery, expiry, feedback, filters,
                health, notify, screen, state as state_mod, triage)
 from .models import Job
 from .util import company_key
@@ -70,9 +70,11 @@ def main() -> None:
     exact = lambda company, title: (company_key(company), " ".join(title.lower().split()))
     desc_by_title = {exact(j.company, j.title): j.description for j in raw if j.description}
 
+    backfill: dict[str, str] = {}   # fetched for re-scoring (see below)
+
     def description_for(jid: str) -> str:
         r = seen[jid]
-        return desc_by_id.get(jid) or desc_by_title.get(
+        return backfill.get(jid) or desc_by_id.get(jid) or desc_by_title.get(
             exact(r.get("company", ""), r.get("title", "")), "")
 
     # A record's key is the job_id it was stored under; a title renamed in
@@ -96,7 +98,8 @@ def main() -> None:
     # or top, or come from a source in `rescore_sources` (any band, archived
     # low scores included: a source that fed the scorer bad descriptions
     # mis-banded low as well as high). Only when this run fetched the
-    # posting's description, so the new band reads the real text; at most
+    # posting's description, or the posting's own source returns it now
+    # (descriptions.fetch), so the new band reads the real text; at most
     # `rescore_max_per_run` per run; owner verdicts are never overwritten.
     # Remove the keys when done.
     rescore_jobs = []
@@ -115,14 +118,24 @@ def main() -> None:
         due = [jid for jid, r in seen.items()
                if jid not in taken and wanted(r)
                and not (r.get("scoring_fingerprint") or {}).get("owner")
-               and (r.get("scoring_fingerprint") or {}).get("at", "") < cutoff
-               and description_for(jid)]
+               and ((r.get("scoring_fingerprint") or {}).get("at") or "") < cutoff
+               and (description_for(jid) or r.get("source") in descriptions.SOURCES)]
         due.sort(key=lambda jid: (seen[jid].get("band") != "top",
                                   seen[jid].get("band") != "strong"))
-        rescore_jobs = [from_record(jid) for jid in due[:config.get("rescore_max_per_run", 60)]]
+        total, cap = len(due), config.get("rescore_max_per_run", 60)
+        # Fetch in slices until the cap is filled, so postings whose page
+        # cannot be read do not take the slots on every run.
+        picked, pos = [], 0
+        while len(picked) < cap and pos < min(len(due), 3 * cap):
+            batch = due[pos:pos + cap - len(picked)]
+            pos += len(batch)
+            backfill.update(descriptions.fetch({jid: seen[jid] for jid in batch
+                                                if not description_for(jid)}))
+            picked += [jid for jid in batch if description_for(jid)]
+        rescore_jobs = [from_record(jid) for jid in picked]
         if rescore_jobs:
             log.info("Re-scoring %d of %d records scored before %s",
-                     len(rescore_jobs), len(due), cutoff)
+                     len(rescore_jobs), total, cutoff)
 
     to_score = new_jobs + rescue_jobs + rescore_jobs
     scores = triage.score(to_score, fb["text"])
