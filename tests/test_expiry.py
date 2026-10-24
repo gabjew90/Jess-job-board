@@ -241,3 +241,100 @@ def test_own_apply_link_is_marked_and_refreshed():
     state.split_new([job], seen)                      # the posting's link moved
     assert seen[job.job_id]["apply_url"] == NRG_LINK
     assert seen[job.job_id]["apply_url_own"] is True
+
+
+# --- Workday: removed postings that answer 403 S22 ----------------------
+
+class _WDResp:
+    def __init__(self, status, body):
+        self.status_code, self._body = status, body
+
+    def json(self):
+        return self._body
+
+
+WD_URL = ("https://flextronics.wd1.myworkdayjobs.com/en-US/Careers/job/USA-Remote/"
+          "Product-Line-Director--DC-Power-and-BESS_WD229281-1")
+
+
+def _wd(monkeypatch, get_status, listed_paths, total=None, search_status=200):
+    searched = []
+    monkeypatch.setattr(expiry.requests, "get",
+                        lambda url, **kw: _WDResp(get_status, {"errorCode": "S22"}))
+
+    def post(url, json=None, **kw):
+        searched.append(json["searchText"])
+        return _WDResp(search_status, {"total": len(listed_paths) if total is None else total,
+                                       "jobPostings": [{"externalPath": p} for p in listed_paths]})
+    monkeypatch.setattr(expiry.requests, "post", post)
+    return searched
+
+
+def test_workday_403_s22_closes_when_search_lacks_the_requisition(monkeypatch):
+    searched = _wd(monkeypatch, 403, ["/job/USA-Remote/Other_WD230494-1"])
+    assert expiry._workday_alive(WD_URL) is False
+    assert searched == ["WD229281"]
+
+
+def test_workday_403_s22_stays_open_when_search_lists_it(monkeypatch):
+    _wd(monkeypatch, 403, ["/job/USA-Remote/Product-Line-Director--DC-Power-and-BESS_WD229281-1"])
+    assert expiry._workday_alive(WD_URL) is True
+
+
+def test_workday_403_s22_prefix_hit_is_not_a_match(monkeypatch):
+    _wd(monkeypatch, 403, ["/job/USA-Remote/Other_WD2292810", "/job/USA-Remote/Other_WD2292812-1"])
+    assert expiry._workday_alive(WD_URL) is False
+
+
+def test_workday_403_s22_unsure_search_is_unknown(monkeypatch):
+    _wd(monkeypatch, 403, ["/job/USA-Remote/Other_WD2292810"], total=45)
+    assert expiry._workday_alive(WD_URL) is None
+    _wd(monkeypatch, 403, [], search_status=500)
+    assert expiry._workday_alive(WD_URL) is None
+
+
+def test_workday_other_403_is_unknown(monkeypatch):
+    monkeypatch.setattr(expiry.requests, "get", lambda url, **kw: _WDResp(403, {"errorCode": "X1"}))
+    assert expiry._workday_alive(WD_URL) is None
+
+
+def test_workday_requisition_id_parser():
+    for path, req in [("A/B_WD229281-1", "WD229281"), ("A/B_JR-163358-1", "JR-163358"),
+                      ("A/B_R2026-2246-1", "R2026-2246"), ("A/B_NX-4907", "NX-4907"),
+                      ("A/B_92601746", "92601746"), ("A/B_REQ-2024-15", "REQ-2024-15")]:
+        assert expiry.WORKDAY_REQ.search(path).group(1) == req
+
+
+# --- Indeed: jobspy renamed its header constant -------------------------
+
+@pytest.mark.parametrize("name", ["api_headers", "headers"])
+def test_indeed_headers_either_jobspy_name(monkeypatch, name):
+    import sys
+    import types
+    constant = types.ModuleType("jobspy.indeed.constant")
+    setattr(constant, name, {"indeed-api-key": "k"})
+    constant.other = {"no": "key"}
+    pkg = types.ModuleType("jobspy.indeed")
+    pkg.constant = constant
+    monkeypatch.setitem(sys.modules, "jobspy", types.ModuleType("jobspy"))
+    monkeypatch.setitem(sys.modules, "jobspy.indeed", pkg)
+    monkeypatch.setitem(sys.modules, "jobspy.indeed.constant", constant)
+    assert expiry.indeed_headers() == {"indeed-api-key": "k", "indeed-co": "US", "indeed-locale": "en-US"}
+
+
+def test_indeed_headers_need_the_api_key(monkeypatch):
+    import sys
+    import types
+    constant = types.ModuleType("jobspy.indeed.constant")
+    constant.headers = {"Host": "www.indeed.com"}
+    pkg = types.ModuleType("jobspy.indeed")
+    pkg.constant = constant
+    monkeypatch.setitem(sys.modules, "jobspy", types.ModuleType("jobspy"))
+    monkeypatch.setitem(sys.modules, "jobspy.indeed", pkg)
+    monkeypatch.setitem(sys.modules, "jobspy.indeed.constant", constant)
+    assert expiry.indeed_headers() is None
+
+
+def test_indeed_headers_found_in_installed_jobspy():
+    pytest.importorskip("jobspy")
+    assert "indeed-api-key" in (expiry.indeed_headers() or {})

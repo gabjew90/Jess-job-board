@@ -36,19 +36,24 @@ def _issue_entries() -> list[dict]:
     if not token or not repo:
         return []
     try:
-        resp = requests.get(
-            f"https://api.github.com/repos/{repo}/issues",
-            params={"state": "open", "per_page": 100},
-            headers={"Authorization": f"Bearer {token}",
-                     "Accept": "application/vnd.github+json"},
-            timeout=30,
-        )
-        resp.raise_for_status()
+        issues = []
+        for page in range(1, 11):   # every open issue, not just the newest 100
+            resp = requests.get(
+                f"https://api.github.com/repos/{repo}/issues",
+                params={"state": "open", "per_page": 100, "page": page},
+                headers={"Authorization": f"Bearer {token}",
+                         "Accept": "application/vnd.github+json"},
+                timeout=30,
+            )
+            resp.raise_for_status()
+            issues += resp.json()
+            if len(resp.json()) < 100:
+                break
         # By label OR by the dashboard's "feedback:" title prefix: some
         # clients drop the `labels=` parameter from the new-issue URL.
         return [{"number": i.get("number"), "title": i.get("title", ""),
-                 "body": i.get("body") or ""}
-                for i in resp.json()
+                 "body": i.get("body") or "", "created": (i.get("created_at") or "")[:10]}
+                for i in issues
                 if not i.get("pull_request")
                 and ("feedback" in {lb.get("name") for lb in i.get("labels") or []}
                      or i.get("title", "").lower().startswith("feedback:"))]
@@ -88,15 +93,18 @@ def load() -> dict:
         body = re.sub(r"^---\s*$.*", "", body, flags=re.S | re.M)
         body = re.sub(r"^\s*Action:\s*hide\b.*$", "", body, flags=re.I | re.M)
         body = re.sub(r"^Tap Create to send\..*$", "", body, flags=re.M).strip()
-        parts.append(f"[issue] {issue['title']}\n{body}".strip())
-        v = re.search(r"^\s*Verdict:\s*(higher|lower)\b", issue["body"], re.I | re.M)
+        v = re.search(r"^\s*Verdict:\s*(higher|lower|closed)\b", issue["body"], re.I | re.M)
+        # A "closed" report says nothing about fit, so it stays out of scoring.
+        if not (v and v.group(1).lower() == "closed"):
+            parts.append(f"[issue] {issue['title']}\n{body}".strip())
         if v:
             r = re.search(r"^\s*Reason:\s*(.+)$", issue["body"], re.I | re.M)
             j = re.search(r"<!--\s*job:\s*([0-9a-f]+)\s*-->", issue["body"])
             verdicts.append({
                 "issue": issue.get("number"), "job_id": j.group(1) if j else None,
                 "target": re.sub(r"^feedback:\s*", "", issue["title"], flags=re.I).strip(),
-                "direction": v.group(1).lower(), "reason": r.group(1).strip() if r else ""})
+                "direction": v.group(1).lower(), "reason": r.group(1).strip() if r else "",
+                "created": issue.get("created", "")})
         if re.search(r"^\s*Action:\s*hide\b", issue["body"], re.I | re.M):
             target = re.sub(r"^feedback:\s*", "", issue["title"], flags=re.I).strip()
             if target:
@@ -107,13 +115,15 @@ def load() -> dict:
 
 
 def apply_verdicts(seen: dict, verdicts: list[dict], archive_below: int = 25) -> int:
-    """Move each verdict's posting one band, once per issue. The issue
-    stays open as scoring guidance; the record remembers which issues it
-    has absorbed, so later runs do not move it again, and the owner stamp
-    keeps re-scoring from overwriting the owner's call."""
+    """Move each verdict's posting one band, once per issue, or close it
+    for a "closed" verdict. The issue stays open as scoring guidance; the
+    record remembers which issues it has absorbed, so later runs do not
+    move it again, and the owner stamp keeps re-scoring from overwriting
+    the owner's call."""
     from datetime import datetime, timezone
     from .triage import BAND_ORDER, BAND_SCORE
     n = 0
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     for v in verdicts:
         # By id; otherwise only the same title at the same company. A
         # substring match would move every "Engineer @ PG&E" each run.
@@ -124,7 +134,19 @@ def apply_verdicts(seen: dict, verdicts: list[dict], archive_below: int = 25) ->
                     for t in (r.get("title", ""), r.get("title", "")[:80])}])  # dashboard cuts titles at 80
         for rec in recs:
             done = rec.setdefault("verdicts_applied", [])
-            if v["issue"] in done or rec.get("band") not in BAND_ORDER:
+            if v["issue"] in done:
+                continue
+            if v["direction"] == "closed":
+                # Only postings seen before the report: the issue stays open,
+                # and a later repost of the same role is a new opening.
+                if v.get("created") and rec.get("first_seen", "") > v["created"]:
+                    continue
+                rec.update(active=False, owner_closed=True, lowscore=False)
+                rec.setdefault("closed", today)
+                done.append(v["issue"])
+                n += 1
+                continue
+            if rec.get("band") not in BAND_ORDER:
                 continue
             i = BAND_ORDER.index(rec["band"]) + (1 if v["direction"] == "higher" else -1)
             band = BAND_ORDER[max(0, min(i, len(BAND_ORDER) - 1))]
@@ -132,11 +154,10 @@ def apply_verdicts(seen: dict, verdicts: list[dict], archive_below: int = 25) ->
             rec["rationale"] = (f"Owner feedback (#{v['issue']}): {v['reason']}. "
                                 + (rec.get("rationale") or ""))
             fp = rec.setdefault("scoring_fingerprint", {})
-            today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
             fp["owner"] = today
             if rec["score"] < archive_below and rec.get("active", True):
                 rec.update(active=False, lowscore=True, closed=today)
-            elif rec["score"] >= archive_below and rec.get("lowscore"):
+            elif rec["score"] >= archive_below and rec.get("lowscore") and not rec.get("owner_closed"):
                 rec.update(active=True, lowscore=False)  # raised out of the archive
                 rec.pop("closed", None)
             done.append(v["issue"])

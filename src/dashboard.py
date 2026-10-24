@@ -35,14 +35,14 @@ def _feedback_body(rec: dict) -> str:
     ]
     return "\n".join(lines)
 
-# One-tap verdicts (owner, 2026-10-01). Each opens a pre-filled feedback
-# issue; the next run moves that posting one band and the issue keeps
-# steering future scoring (feedback.apply_verdicts).
+# One-tap verdicts (owner, 2026-10-01; good/bad/closed 2026-10-24). Each
+# opens a pre-filled feedback issue. On the next run a fit verdict moves
+# that posting one band and keeps steering future scoring; "closed" moves
+# it to the closed list (feedback.apply_verdicts). The why goes in a note.
 VERDICTS = (
-    ("higher", "👍 great fit", "Great fit, belongs higher"),
-    ("lower", "🔧 too technical", "Too technical, belongs lower"),
-    ("lower", "📉 experience", "Lack experience, belongs lower"),
-    ("lower", "🏭 industry", "Wrong industry, belongs lower"),
+    ("higher", "👍 good fit", "Good fit, belongs higher"),
+    ("lower", "👎 bad fit", "Bad fit, belongs lower"),
+    ("closed", "🚫 closed", "Posting is closed"),
 )
 
 
@@ -208,7 +208,7 @@ _PAGE = """<!DOCTYPE html>
 <header class="hero">{art}<div class="txt"><h1>{mark} {title}</h1><p>{tagline}</p></div></header>
 <main>
 <div class="chips"><span class="chip"><b>{active_count}</b>active{shown_note}</span><span class="chip"><b>{top_count}</b>top fits</span><span class="chip"><b>{new_count}</b>new this week</span><span class="chip"><b>{closed_count}</b>closed</span></div>
-<p class="legend">Each role is rated against the profile: top, strong, possible, weak or misfit, newest first within each rating. Weak and misfit roles are hidden unless you tick the box or search. The buttons under a role move it one rating up or down on the next run and teach future ratings.</p>
+<p class="legend">Each role is rated against the profile: top, strong, possible, weak or misfit, newest first within each rating. Weak and misfit roles are hidden unless you tick the box or search. Under each role, 👍 good fit and 👎 bad fit move it one rating up or down on the next run and teach future ratings; 🚫 closed moves it to the closed list.</p>
 <div class="controls"><input id="q" type="search" placeholder="Filter by title, company, place…" oninput="applyVis()"><label><input id="lo" type="checkbox" onchange="applyVis()"> show weak &amp; misfit</label><label><input id="sc" type="checkbox" onchange="applyVis()"> show closed</label><span class="meta">Updated <span id="upd" data-ts="{generated_iso}">{generated} UTC</span></span></div>
 <div class="tablewrap boardwrap">
 <table id="t">
@@ -258,8 +258,8 @@ function applyVis() {{
   for (const r of document.querySelectorAll("#t tbody tr:not(.grp)")) {{
     const hideClosed = (r.classList.contains("closed") && !showClosed)
       || (LOW.includes(r.dataset.band) && !showLow);
-    // Title, company and location only: the row's buttons ("too technical",
-    // "industry") would otherwise match every row.
+    // Title, company and location only: the row's buttons ("good fit",
+    // "closed") would otherwise match every row.
     const text = (r.cells[0].querySelector("a").innerText + " " + r.cells[1].innerText
                   + " " + r.cells[2].innerText).toLowerCase();
     r.style.display = !hideClosed && text.includes(q) ? "" : "none";
@@ -377,8 +377,8 @@ def _row(rec: dict, theme: dict | None = None, fresh: str = "") -> str:
     if not rec.get("active", True):
         first_seen += f' <small>(closed {rec.get("closed", "")})</small>'
     ref = quote(rec.get("title", "")[:80] + " @ " + rec.get("company", ""))
-    # Built on tap from the row's data attributes (see VERDICT_JS): four
-    # pre-filled URLs per row doubled the page to 2 MB.
+    # Built on tap from the row's data attributes (see VERDICT_JS):
+    # pre-filled URLs in every row doubled the page to 2 MB.
     verdicts = "".join(
         f'<a class="v" data-v="{i}" href="#" target="_blank" title="{reason}">{label}</a>'
         for i, (_, label, reason) in enumerate(VERDICTS))
