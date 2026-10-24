@@ -90,13 +90,33 @@ def _run_claude(prompt: str, model: str) -> str:
     return payload["result"]
 
 
-def _parse_json(text: str):
-    text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text.strip(), flags=re.S)
-    start = text.find("[")
-    end = text.rfind("]")
-    if start == -1 or end == -1:
-        raise ValueError(f"no JSON array in response: {text[:200]}")
-    return json.loads(text[start:end + 1])
+def _parse_json(text: str) -> list[dict]:
+    """The result items in a model reply: every top-level JSON array whose
+    items are all objects carrying a "job_id", in order. Text around them
+    (a note, a code fence, brackets of its own) is ignored, and arrays
+    nested inside one already taken are skipped. Raises when no such array
+    is found, with the last decode error, so the chunk is logged as failed
+    instead of passing as scored."""
+    decoder = json.JSONDecoder()
+    items: list[dict] = []
+    last_error = ""
+    pos = text.find("[")
+    while pos != -1:
+        try:
+            value, end = decoder.raw_decode(text, pos)
+        except json.JSONDecodeError as e:
+            last_error = f"{e.msg} at char {e.pos}"
+            pos = text.find("[", pos + 1)
+            continue
+        if (isinstance(value, list) and value
+                and all(isinstance(x, dict) and "job_id" in x for x in value)):
+            items += value
+            pos = text.find("[", end)   # skip anything nested inside it
+        else:
+            pos = text.find("[", pos + 1)
+    if not items:
+        raise ValueError(f"no result array in response ({last_error or 'none found'}): {text[:200]}")
+    return items
 
 
 # The code-side scoring policy. The model answers a band; the band that
@@ -157,6 +177,44 @@ def score(new_jobs: list[Job], feedback_text: str = "") -> dict[str, dict]:
     for job_id, result in results.items():
         finalize(result, titles.get(job_id, ""))
     return results
+
+
+def gap(a: str, b: str) -> int:
+    """How many bands `b` sits below `a` (negative when above)."""
+    return BAND_ORDER.index(a) - BAND_ORDER.index(b)
+
+
+def confirm_drops(jobs: list[Job], scores: dict[str, dict], prior: dict[str, dict],
+                  feedback_text: str = "") -> int:
+    """Re-score once each job whose new band sits two or more bands below
+    its prior top or strong band, and keep the median of the prior band and
+    the two results, so one sampled answer cannot bury a top fit while a
+    drop that repeats is kept. When the prior band is the median, the second
+    answer reached it or better, so its rationale stands with that band.
+    `prior` maps job_id to the record before this run (its "band" is read).
+    Returns how many jobs were re-scored."""
+    def was(jid: str) -> str:
+        return (prior.get(jid) or {}).get("band", "")
+
+    dropped = [j for j in jobs if j.job_id in scores and was(j.job_id) in ("top", "strong")
+               and gap(was(j.job_id), scores[j.job_id]["band"]) >= 2]
+    if not dropped:
+        return 0
+    second = score(dropped, feedback_text)
+    for j in dropped:
+        old, first, again = prior[j.job_id], scores[j.job_id], second.get(j.job_id)
+        if again is None:
+            continue
+        ranked = sorted([(BAND_ORDER.index(old["band"]), 0), (BAND_ORDER.index(first["band"]), 1),
+                         (BAND_ORDER.index(again["band"]), 2)])
+        pick = ranked[1][1]
+        if pick == 2:
+            scores[j.job_id] = again
+        elif pick == 0:   # the second answer backs the prior band (or better): keep that band
+            scores[j.job_id] = {**again, "band": old["band"], "score": BAND_SCORE[old["band"]]}
+        log.info("Drop check: %r %s -> %s, again %s; kept %s", j.title[:45], old["band"],
+                 first["band"], again["band"], scores[j.job_id]["band"])
+    return len(dropped)
 
 
 def _score_chunk(chunk: list[Job], profile: str, feedback: str) -> dict[str, dict]:

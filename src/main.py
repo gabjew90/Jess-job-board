@@ -139,6 +139,9 @@ def main() -> None:
 
     to_score = new_jobs + rescue_jobs + rescore_jobs
     scores = triage.score(to_score, fb["text"])
+    # A re-score that buries a top or strong record is checked once more.
+    triage.confirm_drops(rescore_jobs, scores,
+                         {j.job_id: seen[state_key[j.job_id]] for j in rescore_jobs}, fb["text"])
     fingerprint = triage.scoring_fingerprint(fb["text"])
     # Clear misfits (score < 25) are auto-archived: they stay in state for
     # dedupe but never occupy the dashboard or future attention.

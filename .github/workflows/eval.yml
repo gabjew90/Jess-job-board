@@ -1,7 +1,20 @@
 name: Scoring eval
 
 on:
+  # Pull requests and main only: a working-branch push of the same change
+  # would spend another run of model calls (shared subscription) on
+  # identical inputs.
+  pull_request:
+    paths:
+      - "profile.md"
+      - "feedback.md"
+      - "src/triage.py"
+      - "src/screen.py"
+      - "src/eval_runner.py"
+      - "eval/**"
+      - ".github/workflows/eval.yml"
   push:
+    branches: [main]
     paths:
       - "profile.md"
       - "feedback.md"
