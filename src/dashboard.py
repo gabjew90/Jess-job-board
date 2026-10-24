@@ -3,7 +3,6 @@ import html
 import json
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from urllib.parse import quote
 
 from . import themes
 from .util import best_link
@@ -11,34 +10,10 @@ from .util import best_link
 REPO = "gabjew90/Jess-job-board"
 
 
-def _feedback_body(rec: dict) -> str:
-    """Pre-fill the feedback issue with how this posting was scored, so the
-    owner reacts to the model's actual reasoning."""
-    fp = rec.get("scoring_fingerprint") or {}
-    lines = [
-        "How this was scored:",
-        f"- Band: {rec.get('band', rec.get('score', '?'))}"
-        f" (seniority_match: {rec.get('seniority_match', '?')})",
-        f"- Rationale: {rec.get('rationale') or '(none recorded)'}",
-    ]
-    if fp:
-        lines.append(f"- By: {fp.get('model', '?')} · rubric {fp.get('rubric', '?')}"
-                     f" · {fp.get('at', '?')}")
-    lines += [
-        "",
-        "What's right or wrong with this reasoning? Write below — your notes",
-        "feed directly into future scoring:",
-        "",
-        "",
-        "---",
-        "To hide this posting entirely, include a line: Action: hide",
-    ]
-    return "\n".join(lines)
-
 # One-tap verdicts (owner, 2026-10-01; good/bad/closed 2026-10-24). Each
 # opens a pre-filled feedback issue. On the next run a fit verdict moves
 # that posting one band and keeps steering future scoring; "closed" moves
-# it to the closed list (feedback.apply_verdicts). The why goes in a note.
+# it to the closed list (feedback.apply_verdicts). Any why goes in the issue.
 VERDICTS = (
     ("higher", "👍 good fit", "Good fit, belongs higher"),
     ("lower", "👎 bad fit", "Bad fit, belongs lower"),
@@ -376,20 +351,17 @@ def _row(rec: dict, theme: dict | None = None, fresh: str = "") -> str:
     first_seen = rec.get("first_seen", "")
     if not rec.get("active", True):
         first_seen += f' <small>(closed {rec.get("closed", "")})</small>'
-    ref = quote(rec.get("title", "")[:80] + " @ " + rec.get("company", ""))
-    # Built on tap from the row's data attributes (see VERDICT_JS):
-    # pre-filled URLs in every row doubled the page to 2 MB.
+    # Built on tap from the row's data attributes (see _verdict_js):
+    # pre-filled issue URLs in every row doubled the page to 2 MB.
     verdicts = "".join(
         f'<a class="v" data-v="{i}" href="#" target="_blank" title="{reason}">{label}</a>'
         for i, (_, label, reason) in enumerate(VERDICTS))
-    fb_url = (f"https://github.com/{REPO}/issues/new?labels=feedback"
-              f"&title={quote('feedback: ')}{ref}&body={quote(_feedback_body(rec))}")
     return (
         f'<tr{cls} data-id="{e(rec.get("_id"))}" data-band="{e(_band(rec) or "?")}"'
         f' data-ref="{e(rec.get("title", "")[:80] + " @ " + rec.get("company", ""))}">'
         f'<td class="c-title"><a href="{e(best_link(rec))}" target="_blank">{e(rec.get("title"))}</a>'
         f'<small class="src">{e(rec.get("source"))}</small>'
-        f'<span class="fb">{verdicts}<a href="{fb_url}" target="_blank" title="Write your own note">✏️ note</a></span>'
+        f'<span class="fb">{verdicts}</span>'
         f'</td>'
         f'<td class="c-co">{e(rec.get("company"))}</td><td class="c-loc">{e(rec.get("location"))}{_extra_locs(rec)}</td>'
         f'<td class="c-mode">{mode}</td><td class="c-pay">{e(rec.get("pay"))}</td>'
