@@ -47,12 +47,14 @@ def tag_mode(labels: list[str]) -> str:
 
 
 def fetch(keys: list[str]) -> dict[str, dict]:
-    from jobspy.indeed.constant import api_headers  # noqa: PLC0415 - optional dep
+    api_headers = expiry.indeed_headers()
+    if api_headers is None:
+        raise SystemExit("jobspy's Indeed app headers not found")
     out = {}
     for i in range(0, len(keys), BATCH):
         resp = requests.post(expiry.INDEED_API, json={"query": QUERY,
                              "variables": {"keys": keys[i:i + BATCH]}},
-                             headers={**api_headers, "indeed-co": "US"}, timeout=60)
+                             headers=api_headers, timeout=60)
         resp.raise_for_status()
         data = (resp.json().get("data") or {}).get("jobData") or {}
         for result in data.get("results") or []:

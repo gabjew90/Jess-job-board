@@ -17,7 +17,8 @@ Two tiers, by how each source can be checked:
      An Indeed copy whose apply link is a Workday, Amazon or SuccessFactors
      portal page also closes when that page says the posting is gone.
    - workday: the CxS job endpoint is 200 for a live posting, 404 for a
-     removed one.
+     removed one. Some tenants answer a removed posting with 403 S22; then
+     the site's own search for the requisition ID decides.
    - successfactors: a removed posting redirects to /errorpage/, or keeps
      the job-details page shell with no posting on it and drops out of the
      site's own search.
@@ -63,6 +64,7 @@ INDEED_QUERY = ("query JobKeys($keys: [ID!]!) { jobData(input: {jobKeys: $keys})
                 " { results { job { key expired } } } }")
 WORKDAY_URL = re.compile(r"https://([^.]+)\.(wd\d+)\.myworkdayjobs\.com/"
                          r"(?:[a-z]{2}-[A-Z]{2}/)?([^/]+)/job/(.+)$")
+WORKDAY_REQ = re.compile(r"_([A-Za-z0-9-]+?)(?:-\d)?$")   # ..._WD229281-1 -> WD229281
 INDEED_KEY = re.compile(r"[?&]jk=([0-9a-f]{16})")
 SF_TITLE_FIELD = 'data-careersite-propertyid="title"'
 SF_DETAILS_TITLE = re.compile(r"<title>[^<]*Job Details \|", re.I)
@@ -141,10 +143,41 @@ def _workday_alive(url: str) -> bool | None:
                             headers={**HEADERS, "Accept": "application/json"}, timeout=20)
         if resp.status_code == 404:
             return False
+        if resp.status_code == 403 and _workday_error(resp) == "S22":
+            return _workday_listed(tenant, wd, site, path)
         return True if resp.status_code == 200 else None
     except Exception as e:  # noqa: BLE001
         log.debug("workday liveness check failed for %s: %s", url, e)
         return None
+
+
+def _workday_error(resp) -> str:
+    try:
+        return str(resp.json().get("errorCode") or "")
+    except ValueError:
+        return ""
+
+
+def _workday_listed(tenant: str, wd: str, site: str, path: str) -> bool | None:
+    """Whether the site's own search still lists the posting's requisition
+    ID. Some tenants answer a removed posting with 403 S22 instead of 404."""
+    m = WORKDAY_REQ.search(path)
+    if not m:
+        return None
+    req = m.group(1)
+    time.sleep(0.3)
+    resp = requests.post(f"https://{tenant}.{wd}.myworkdayjobs.com/wday/cxs/{tenant}/{site}/jobs",
+                         headers={**HEADERS, "Accept": "application/json"}, timeout=20,
+                         json={"searchText": req, "limit": 20, "offset": 0, "appliedFacets": {}})
+    if resp.status_code != 200:
+        return None
+    body = resp.json()
+    postings = body.get("jobPostings") or []
+    # The search matches prefixes (WD23229 finds WD232293), so compare IDs.
+    if any((hit := WORKDAY_REQ.search(j.get("externalPath") or "")) and hit.group(1) == req
+           for j in postings):
+        return True
+    return False if (body.get("total") or 0) <= len(postings) else None
 
 
 def _successfactors_alive(url: str, title: str = "") -> bool | None:
@@ -304,16 +337,29 @@ def _jibe_alive(url: str) -> bool | None:
         return None
 
 
+def indeed_headers() -> dict | None:
+    """Request headers for Indeed's mobile GraphQL API, built on the app
+    headers jobspy ships (jobspy 1.4 renamed api_headers to headers). None
+    when jobspy is missing or neither constant carries the API key."""
+    try:
+        from jobspy.indeed import constant  # noqa: PLC0415 - optional dep
+    except ImportError:
+        return None
+    for name in ("api_headers", "headers"):
+        found = getattr(constant, name, None)
+        if isinstance(found, dict) and "indeed-api-key" in found:
+            return {**found, "indeed-co": "US", "indeed-locale": "en-US"}
+    return None
+
+
 def _indeed_expired(keys: list[str]) -> dict[str, bool] | None:
     """{key: expired} for every key the API still knows. None when the API
     is unavailable (jobspy not installed, HTTP error, GraphQL error) so the
     caller leaves everything open."""
-    try:
-        from jobspy.indeed.constant import api_headers  # noqa: PLC0415 - optional dep
-    except ImportError:
-        log.warning("jobspy not installed; Indeed liveness probe skipped")
+    headers = indeed_headers()
+    if headers is None:
+        log.warning("jobspy's Indeed app headers not found; Indeed liveness probe skipped")
         return None
-    headers = {**api_headers, "indeed-co": "US"}
     out: dict[str, bool] = {}
     for i in range(0, len(keys), INDEED_BATCH):
         batch = keys[i:i + INDEED_BATCH]

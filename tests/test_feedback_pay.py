@@ -85,7 +85,8 @@ def test_verdict_issue_parses_and_stays_guidance(monkeypatch):
     fb = feedback.load()
     assert fb["verdicts"] == [{"issue": 7, "job_id": "abc123",
                                "target": "Principal Electric Program Manager @ PG&E",
-                               "direction": "lower", "reason": "Too technical, belongs lower"}]
+                               "direction": "lower", "reason": "Too technical, belongs lower",
+                               "created": ""}]
     assert "Reason: Too technical" in fb["text"]
     assert "Tap Create" not in fb["text"] and "Scored top" not in fb["text"]
 
@@ -140,14 +141,42 @@ def test_verdict_down_to_misfit_archives_it():
     assert seen["a"]["band"] == "misfit" and seen["a"]["active"] is False and seen["a"]["lowscore"]
 
 
-def test_dashboard_row_has_the_four_buttons():
+def test_dashboard_row_has_the_three_buttons():
     row = dashboard._row({"_id": "abc123", "title": "Role", "company": "Co", "band": "strong",
                           "score": 75, "url": "https://example.com"})
-    for label in ("great fit", "too technical", "experience", "industry", "note"):
+    for label in ("good fit", "bad fit", "closed", "note"):
         assert label in row
-    assert row.count('class="v"') == 4 and 'data-id="abc123"' in row and 'data-ref="Role @ Co"' in row
+    assert row.count('class="v"') == 3 and 'data-id="abc123"' in row and 'data-ref="Role @ Co"' in row
     js = dashboard._verdict_js()
-    assert '"higher"' in js and js.count('"lower"') == 3 and "<!-- job: {job_id} -->" in js
+    assert all(f'"{d}"' in js for d in ("higher", "lower", "closed")) and "<!-- job: {job_id} -->" in js
+
+
+def test_closed_verdict_closes_once_and_stays_out_of_scoring(monkeypatch):
+    body = "Verdict: closed\nReason: Posting is closed\n\n---\n<!-- job: a -->\nScored top."
+    monkeypatch.setattr(feedback, "_issue_entries", lambda: [_issue(11, body)])
+    monkeypatch.setattr(feedback, "FILE", feedback.Path("/nonexistent"))
+    fb = feedback.load()
+    assert fb["text"] == "" and fb["verdicts"][0]["direction"] == "closed"
+    seen = {"a": {"title": "Role", "company": "Co", "band": "top", "score": 90, "active": True}}
+    assert feedback.apply_verdicts(seen, fb["verdicts"]) == 1
+    assert seen["a"]["active"] is False and seen["a"]["closed"] and seen["a"]["band"] == "top"
+    assert "owner" not in seen["a"].get("scoring_fingerprint", {})
+    assert feedback.apply_verdicts(seen, fb["verdicts"]) == 0, "an issue applies once"
+
+
+def test_closed_verdict_skips_later_reposts_and_blocks_revival():
+    v = [{"issue": 12, "job_id": "a", "target": "Role @ Co", "direction": "closed",
+          "reason": "", "created": "2026-10-01"}]
+    repost = {"a": {"title": "Role", "company": "Co", "band": "top", "score": 90,
+                    "active": True, "first_seen": "2026-10-20"}}
+    assert feedback.apply_verdicts(repost, v) == 0 and repost["a"]["active"] is True
+    old = {"a": {"title": "Role", "company": "Co", "band": "misfit", "score": 15, "active": False,
+                 "lowscore": True, "closed": "2026-09-01", "first_seen": "2026-09-01"}}
+    feedback.apply_verdicts(old, v)
+    assert old["a"]["owner_closed"] and not old["a"]["lowscore"] and old["a"]["closed"] == "2026-09-01"
+    for issue in (13, 14):
+        feedback.apply_verdicts(old, [{**v[0], "issue": issue, "direction": "higher"}])
+    assert old["a"]["active"] is False, "a raise does not reopen an owner-closed posting"
 
 
 # --- refreshing tracked records -----------------------------------------
