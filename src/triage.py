@@ -187,7 +187,8 @@ def gap(a: str, b: str) -> int:
 def confirm_drops(jobs: list[Job], scores: dict[str, dict], prior: dict[str, dict],
                   feedback_text: str = "") -> int:
     """Re-score once each job whose new band sits two or more bands below
-    its prior top or strong band, and keep the median of the prior band and
+    its prior top, strong or possible band (a possible record dropping that
+    far lands in misfit and is archived), and keep the median of the prior band and
     the two results, so one sampled answer cannot bury a top fit while a
     drop that repeats is kept. When the prior band is the median, the second
     answer reached it or better, so its rationale stands with that band.
@@ -196,7 +197,7 @@ def confirm_drops(jobs: list[Job], scores: dict[str, dict], prior: dict[str, dic
     def was(jid: str) -> str:
         return (prior.get(jid) or {}).get("band", "")
 
-    dropped = [j for j in jobs if j.job_id in scores and was(j.job_id) in ("top", "strong")
+    dropped = [j for j in jobs if j.job_id in scores and was(j.job_id) in ("top", "strong", "possible")
                and gap(was(j.job_id), scores[j.job_id]["band"]) >= 2]
     if not dropped:
         return 0
