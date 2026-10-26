@@ -495,7 +495,7 @@
   "state_retention_days": 180,
   "dashboard_max_rows": 500,
   "rescore_scored_before": "2026-10-26T19:30Z",
-  "rescore_max_per_run": 90,
+  "rescore_max_per_run": 320,
   "rescore_bands": ["top", "strong", "possible", "weak"],
   "theme": "gas",
   "board_title": "Jess's Job Board"
