@@ -56,9 +56,9 @@ Return ONLY a JSON array, no prose, one object per posting:
   "rationale": "one sentence", "seniority_match": true/false,
   "pay": "...", "work_mode": "..."}}
 
-seniority_match = false when the role is below (or far above) the
-candidate's director/senior-PM level, e.g. technician, junior, or pure IC
-engineering roles.
+seniority_match = false when the role is below (or far above) the level
+the profile's seniority calibration targets, e.g. technician, junior or
+trade roles.
 
 pay = the salary/compensation range exactly as stated in the posting text,
 compact (e.g. "$153,000–$180,000/yr"); "" if the posting doesn't state pay.

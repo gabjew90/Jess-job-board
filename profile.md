@@ -5,16 +5,18 @@ definitions — what "fit" means for this candidate. Corrections arising
 from individual mis-scored postings belong in feedback.md, each citing
 its issue, with an eval case per issue. -->
 
-CORE THESIS: Jessica sits at the intersection of gas-fired generation and
-data-center load growth — one of the few people fluent in both. She is
-moving from engineering the projects to DEVELOPING and OWNING them:
-origination, commercial structuring, and owner's-side power leadership.
-When scoring, ask two questions: "does this role build or develop new
-generating capacity (or secure power for new load)?" and "does the holder
-sit on the OWNER's side of the table?" Development and owner-side roles
-outrank execution and vendor-side roles at equal seniority. The defining
-negative test is OPERATIONS: a role whose subject is running an existing
-plant is a misfit no matter how well its title and equipment list match.
+CORE THESIS (owner quiz, 2026-10-26): Jessica delivers new power plants
+from the owner's side of the table. Her best fits put her in charge of
+getting new gas-fired or fuel-cell generation (or the power and buildings
+for a data center campus) developed and built: owner's project and
+program management from development through construction and
+commissioning, development execution (land, permits, interconnection),
+and owner-side equipment and procurement leadership. When scoring, ask:
+"does she own the delivery of a new plant or campus for the owner?"
+Two near misses band low however well the domain matches: commercial
+roles whose core is origination, negotiation, deal structuring, financial
+models or finance; and deep single-discipline engineering. Running an
+existing plant (operations) stays a misfit.
 
 Jessica Kam, PMP — Manager, Project Engineering at LS Power, leading
 conceptual design and engineering development of gas-fired and islanded
@@ -38,73 +40,72 @@ full construction program controls (P6, change control, RFIs, BIM/MEP
 coordination, permitting, commissioning). B.S. Civil & Environmental
 Engineering (Honors), UC Berkeley; PMP.
 
-What she is moving toward, and what the scorer is for: she wants
-development and origination work, and owner's-side power leadership for
-large new load. Her construction and commissioning background is the
-evidence for why she can be trusted to deliver a project — it is NOT the
-job she wants back.
+What she wants (owner quiz, 2026-10-26): owner or developer side only;
+development work (land, permits, interconnection) and construction and
+commissioning delivery, led from the owner's seat. She does NOT want
+commercial or finance roles (origination, PPA and deal negotiation,
+financial modeling, asset finance, corporate strategy) or deep
+engineering design roles. Gas (CCGT, peakers, engines) and fuel cells are
+the generation types she wants; battery, solar, wind and nuclear projects
+rank lower. Her own example of a top fit is an owner's project manager
+building gas plants for co-located data centers at a developer.
 
 ## Score HIGH (75-100, seniority permitting)
 
-Manager / Senior Manager / Director / Head-of roles, owner-side, in:
+Owner-side roles, any title from project manager to director:
 
-- **Power project development and origination**: greenfield generation
-  development, project origination, siting and site acquisition for
-  generation, PPA / tolling origination and structuring, commercial
-  development for gas-fired, behind-the-meter and islanded projects.
-  This is the primary target — it is the direction of travel, so give a
-  development role the benefit of the doubt where the resume evidence is
-  adjacent rather than exact.
-- **Owner's-side power leadership for data centers**: powering new
-  hyperscale, colo and neocloud sites — on-site generation, bridge power,
-  behind-the-meter, utility and interconnection strategy, energy strategy
-  for a data center operator's fleet.
-- **New-build generation programs**: owner's project/program leadership
-  taking a plant from origination through FID, construction and
-  commissioning — CCGT, RICE, aeroderivative, fuel cell. Front-end
-  engineering development, technology selection, long-lead equipment
-  strategy.
+- **Owner's project and program management of new generation**: the
+  owner's PM, project director or program manager taking a new gas-fired
+  or fuel-cell plant from development through EPC, construction,
+  commissioning and COD — managing the EPC and OEM contracts, schedule,
+  cost and interconnection. This is the primary target. Utility "new
+  generation" project managers and project engineers count.
+- **Power for data centers, owner side**: on-site and behind-the-meter
+  generation leadership for a data center operator or hyperscaler
+  (on-site power generation directors, gas leads who take a site to
+  energization), and owner's program management of data center campus
+  construction.
+- **Development execution**: owner-side development project management —
+  site and land development, permitting, interconnection, development
+  milestones for new generation or data center campuses. Data center land
+  and site development WITHOUT power scope bands strong, not top.
+- **Owner-side equipment and procurement leadership**: long-lead
+  equipment and OEM procurement for turbines, engines, transformers and
+  switchgear on new plants or data centers. She does this today.
 - **Industrial and aerospace operators building their own generation**:
-  companies powering their own operations with on-site plants (SpaceX-type
-  power plant leadership, large manufacturing campuses). Same work, a
-  different kind of owner.
+  same work at a different kind of owner.
 
-At developers and IPPs, infrastructure funds and their portfolio companies,
-data center operators and hyperscalers, and industrial operators building
-their own power.
+At developers and IPPs, utilities building new generation, data center
+operators and hyperscalers, and industrial owners. Gas and fuel cells
+rank above battery, solar, wind and nuclear projects at equal scope.
 
-Employer preference, all else equal: developers / IPPs / infrastructure
-funds first, then data center operators, then industrial and aerospace
-owners. This orders ties; it does not by itself lift or cap a role.
+## MID (band possible to strong)
 
-## Secondary sweet spot (70-90)
-
-- **Energy and infrastructure INVESTORS** (Blackstone, Brookfield,
-  Stonepeak, KKR, Energy Capital Partners, Generate, DigitalBridge...):
-  technical diligence, asset management, and operating / portfolio roles
-  over generation and data center assets are strong fits — she brings the
-  technical diligence a generalist deal team lacks. Pure deal-execution
-  investment roles (analyst / associate / VP investments) score 50-65: a
-  finance-first track she has not been on.
-- **Interconnection, transmission and grid strategy** for large new load:
-  interconnection strategy and program leadership, capacity and
-  transmission-service strategy, load-growth programs at utilities. High
-  when the scope is strategy or program ownership; lower when it is
-  performing the studies (see Score LOW).
-- **Equipment strategy and supply-chain leadership** on the owner's side:
-  turbine / transformer / switchgear procurement strategy, long-lead
-  sourcing, OEM commercial management. She does this today.
-- **EPC-, OEM- and developer-adjacent project leadership** on new-build
-  generation — EPC or OEM project management for CCGT, RICE and fuel cell
-  programs. Real fits and worth surfacing, but the wrong side of the table
-  for her stated direction: band these possible-to-strong, below an
+- **Interconnection and power strategy for a data center operator**
+  (utility relationships, energy supply programs): strong at most; lower
+  when the core is procurement deals or tariffs.
+- **Owner-side contract management on new plants** after award (EPC and
+  equipment contract compliance, changes, claims): possible to strong.
+- **Engineering leadership on new generation** (managing the engineers on
+  a power plant program rather than doing the design): possible.
+- **EPC-, OEM- and service-firm project leadership** on new-build gas or
+  fuel-cell generation: she wants the owner's side, so possible, below an
   equivalent owner-side role. NOT sales or pre-sales (see Score LOW).
-- **Data center construction and delivery leadership** where the scope is
-  clearly power or MEP systems rather than general construction — e.g.
-  owner's-side electrical infrastructure delivery for a hyperscale program.
-  Her DPR and Bloom background is real evidence. Band possible unless the
-  power/development content is explicit; pure preconstruction and
-  construction-delivery leadership sits in Score LOW.
+- **Commissioning leadership** (owner-side commissioning authority across
+  a program, not a traveling technician): possible.
+- **Solar, wind, battery and nuclear project delivery** with the same
+  owner's-PM scope: one band below the gas or fuel-cell equivalent.
+
+## Commercial and finance — band weak (owner quiz, 2026-10-26)
+
+Origination, PPA / tolling / gas-supply negotiation, deal structuring and
+financial modeling, commercial development and strategic negotiator
+roles, project and asset finance,
+investor portfolio management, corporate strategy, and data center
+leasing or customer origination: weak, even at the right owners and on
+gas projects. She answered no to every one of these: "too commercial or
+finance". A development role whose core is permits, land, interconnection
+and getting the project built is NOT commercial and stays HIGH.
 
 ## Score LOW
 
@@ -120,30 +121,32 @@ owners. This orders ties; it does not by itself lift or cap a role.
   identical.
 - **Any on-call or rotating-shift role**: below 25.
 - **Field- and site-resident construction roles**: superintendent, field
-  engineer, site construction supervision, traveling commissioning
+  engineer, site MEP construction manager, traveling commissioning
   technician — work she has already done and is not going back to. Below
-  35. This also covers preconstruction and construction-delivery
-  leadership whose subject is building the building rather than powering
-  it (VP/Director of Preconstruction, construction scheduling).
+  35. Project controls, cost and scheduling roles sit here too. Owner's
+  PROGRAM leadership of a data center campus build is different: it is a
+  HIGH fit (owner quiz: applied to a data center construction program
+  manager, declined a site MEP construction manager).
 - **Quota-carrying sales, technical sales and pre-sales**: account
   executive, sales engineer, business development with a revenue number
   attached to her name, OEM application engineering sold as sales. Below
-  25. Development and origination roles are NOT sales — they are the
-  primary target; the distinction is whether the job is selling a product
-  or creating a project.
+  25. Owner-side development roles are NOT sales; the distinction is
+  whether the job is selling a product or getting a project built.
 - **Consulting and owner's-engineer advisory**: billable advisory at an
   engineering firm (owner's engineer, power-system studies, load flow and
   short-circuit analysis, feasibility consulting). She wants to own the
   project, not advise on it. Below 35 even in a perfect domain.
-- **Deep technical IC design engineering**: protection and controls
-  design, transmission line design, CAD, firmware and embedded, EMS
-  controls engineering. Below 35.
+- **Deep technical IC design engineering**: power systems and electrical
+  design, microgrid architecture, protection and controls design,
+  transmission line design, CAD, firmware and embedded, EMS controls
+  engineering, application engineering. Below 35 ("too deep engineering").
 - **Roles with no generation, power or data center content**: below 25.
 
 ## Seniority calibration
 
-Target scope is manager to director: Manager, Senior Manager, Director,
-Head of. She is a manager today with 10+ years of experience, a PMP, and
+Title does not matter to her (owner quiz, 2026-10-26): a project engineer
+or project manager who owns delivery of a new plant is as good a fit as a
+director. She is a manager today with 10+ years of experience, a PMP, and
 has managed 50+ people across concurrent programs.
 
 - Judge seniority from the DESCRIBED SCOPE, not the title alone. Owning a
