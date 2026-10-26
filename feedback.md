@@ -32,10 +32,15 @@ open while the preference should apply; close it to retire it.
   Electrical Engineer", "Mechanical Engineer", "Controls Engineer") bands
   weak, and a good employer or a senior grade does not lift it — do not
   infer development scope that the posting never states.
-  WITH A DESCRIPTION, judge the described scope instead: a posting titled
-  "Electrical Engineer" whose scope is leading the engineering,
-  construction, interconnection or startup of a NEW power plant is a top
-  fit, because that is my current job. (from issue #4, re: Vantage
+  WITH A DESCRIPTION, judge WHAT THE ROLE LEADS: a posting titled
+  "Electrical Engineer" whose scope is leading the delivery of a NEW power
+  plant itself (its engineering, construction, interconnection and
+  startup as a whole) is a top fit, because that is my current job. A
+  posting that leads one discipline's design ("Lead electrical design",
+  drawings, calculations, studies) is design work, weak or below, even on
+  a new plant and even at an industrial or aerospace owner building its
+  own generation (owner quiz, 2026-10-26: "too deep engineering" on a
+  SpaceX "Lead electrical design" posting). (from issue #4, re: Vantage
   Principal Electrical Engineer)
 - calibration: at investors and infrastructure funds the band is decided
   by WHAT THE ROLE TOUCHES, not by the employer being a fund. Roles whose
