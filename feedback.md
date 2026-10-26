@@ -38,18 +38,14 @@ open while the preference should apply; close it to retire it.
   fit, because that is my current job. (from issue #4, re: Vantage
   Principal Electrical Engineer)
 - calibration: at investors and infrastructure funds the band is decided
-  by WHAT THE ROLE TOUCHES, not by the employer being a fund. Roles that
-  originate, underwrite, diligence, acquire or manage generation and data
-  center ASSETS — investment principals and directors on power and
-  infrastructure deals, technical diligence, asset management, portfolio
-  operations — are strong fits and should band strong, because they need
-  exactly the technical judgment on plants and equipment that I bring.
-  Roles whose subject is the FUND ITSELF rather than its assets —
-  investor relations, LP and fund reporting, capital raising, fund
-  marketing, fund accounting, back-office finance — are misfits however
-  good the employer name is. Junior grades (analyst, associate) stay weak
-  on seniority regardless.
-  This is also NOT a rule favouring engineering roles: development,
-  origination and commercial work is the primary target and none of it is
-  engineering. (from issue #3, re: Brookfield Associate, Investor
-  Relations (Energy))
+  by WHAT THE ROLE TOUCHES, not by the employer being a fund. Roles whose
+  subject is the FUND ITSELF — investor relations, LP and fund reporting,
+  capital raising, fund marketing, fund accounting, back-office finance —
+  are misfits however good the employer name is. Investment roles that
+  originate, underwrite or finance assets, and portfolio management that
+  tracks their financial results, band weak: they are commercial and
+  finance work (owner quiz, 2026-10-26). A role at a fund or its
+  portfolio company that owns the DELIVERY of a new plant — owner's
+  project or construction management — follows the profile's HIGH rules.
+  Junior grades (analyst, associate) stay weak on seniority regardless.
+  (from issue #3, re: Brookfield Associate, Investor Relations (Energy))

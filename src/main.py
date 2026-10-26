@@ -94,8 +94,9 @@ def main() -> None:
                     len(rescue_jobs))
 
     # One-time re-scoring after a rubric or fetcher change: records scored
-    # before `rescore_scored_before` are scored again when they banded strong
-    # or top, or come from a source in `rescore_sources` (any band, archived
+    # before `rescore_scored_before` are scored again when they banded in
+    # `rescore_bands` (default top and strong), or come from a source in
+    # `rescore_sources` (any band, archived
     # low scores included: a source that fed the scorer bad descriptions
     # mis-banded low as well as high). Only when this run fetched the
     # posting's description, or the posting's own source returns it now
@@ -107,13 +108,14 @@ def main() -> None:
     if cutoff:
         taken = new_ids | {j.job_id for j in rescue_jobs}
         sources = set(config.get("rescore_sources", []))
+        bands = set(config.get("rescore_bands", ["top", "strong"]))
 
         def wanted(r: dict) -> bool:
             if r.get("hidden") or r.get("excluded") or r.get("duplicate"):
                 return False
             if r.get("source") in sources:
                 return r.get("active", True) or r.get("lowscore")
-            return r.get("active", True) and r.get("band") in ("top", "strong")
+            return r.get("active", True) and r.get("band") in bands
 
         due = [jid for jid, r in seen.items()
                if jid not in taken and wanted(r)
