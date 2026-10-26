@@ -38,7 +38,15 @@ def test_small_moves_and_low_priors_are_not_rechecked(monkeypatch):
     a, b = _job("c"), _job("d")
     scores = {a.job_id: _r("strong"), b.job_id: _r("misfit")}
     monkeypatch.setattr(triage, "score", lambda jobs, fb="": (_ for _ in ()).throw(AssertionError("no call")))
-    assert triage.confirm_drops([a, b], scores, {a.job_id: {"band": "top"}, b.job_id: {"band": "possible"}}) == 0
+    assert triage.confirm_drops([a, b], scores, {a.job_id: {"band": "top"}, b.job_id: {"band": "weak"}}) == 0
+
+
+def test_possible_dropping_to_misfit_is_rechecked(monkeypatch):
+    j = _job("g")
+    scores = {j.job_id: _r("misfit")}
+    monkeypatch.setattr(triage, "score", lambda jobs, fb="": {j.job_id: _r("possible")})
+    assert triage.confirm_drops([j], scores, {j.job_id: {"band": "possible"}}) == 1
+    assert scores[j.job_id]["band"] == "possible"
 
 
 def test_second_answer_lower_than_first_takes_the_first(monkeypatch):

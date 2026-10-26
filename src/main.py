@@ -109,6 +109,9 @@ def main() -> None:
         taken = new_ids | {j.job_id for j in rescue_jobs}
         sources = set(config.get("rescore_sources", []))
         bands = set(config.get("rescore_bands", ["top", "strong"]))
+        unknown = bands - set(triage.BAND_ORDER)
+        if unknown:
+            log.warning("rescore_bands has unknown band(s) %s; they match nothing", sorted(unknown))
 
         def wanted(r: dict) -> bool:
             if r.get("hidden") or r.get("excluded") or r.get("duplicate"):
@@ -122,8 +125,8 @@ def main() -> None:
                and not (r.get("scoring_fingerprint") or {}).get("owner")
                and ((r.get("scoring_fingerprint") or {}).get("at") or "") < cutoff
                and (description_for(jid) or r.get("source") in descriptions.SOURCES)]
-        due.sort(key=lambda jid: (seen[jid].get("band") != "top",
-                                  seen[jid].get("band") != "strong"))
+        rank = {b: i for i, b in enumerate(reversed(triage.BAND_ORDER))}   # top first
+        due.sort(key=lambda jid: rank.get(seen[jid].get("band"), len(rank)))
         total, cap = len(due), config.get("rescore_max_per_run", 60)
         # Fetch in slices until the cap is filled, so postings whose page
         # cannot be read do not take the slots on every run.
@@ -141,7 +144,8 @@ def main() -> None:
 
     to_score = new_jobs + rescue_jobs + rescore_jobs
     scores = triage.score(to_score, fb["text"])
-    # A re-score that buries a top or strong record is checked once more.
+    # A re-score that drops a top, strong or possible record two or more
+    # bands is checked once more (triage.confirm_drops).
     triage.confirm_drops(rescore_jobs, scores,
                          {j.job_id: seen[state_key[j.job_id]] for j in rescore_jobs}, fb["text"])
     fingerprint = triage.scoring_fingerprint(fb["text"])
