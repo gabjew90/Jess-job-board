@@ -187,14 +187,23 @@ def test_apply_link_is_stored_and_backfilled():
 
 # --- digest -----------------------------------------------------------
 
+def test_unresolved_boards_show_in_any_digest():
+    # Each company is probed once per 30 days, so its run is its one mention.
+    body = notify.build_digest([], health_summary=[],
+                               unresolved=[{"company": "SRP", "score": 75, "title": "Origination"}])
+    assert "SRP" in body and "75" not in body
+
+
 def test_digest_lists_unresolved_best_first():
     body = notify.build_digest(
         [], health_summary=[],
         unresolved=[{"company": "SRP", "score": 75, "title": "Origination"},
                     {"company": "RWE", "score": 90, "title": "Project Dev Manager"}])
-    assert "No direct board found" in body
+    assert "No careers page found" in body and "75" not in body
     assert "name one in chat" not in body
     assert body.index("RWE") < body.index("SRP")
+
+
 # --- Workday posted dates ---------------------------------------------
 
 def test_workday_posted_on_becomes_a_date():

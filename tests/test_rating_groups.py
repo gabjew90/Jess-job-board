@@ -33,7 +33,8 @@ def test_digest_groups_by_rating_newest_first():
     assert body.index("New Top") < body.index("Old Top") < strong
     # Possible roles get one line each, not a table row with a rationale.
     assert "- [A Possible](https://jobs.lever.co/acme/A Possible) · Acme" in body
-    assert "A Weak" not in body and "1 low-fit posting" in body
+    assert "A Weak" not in body and "1 lower-rated posting not listed" in body
+    assert "score" not in body.lower()
     assert "🔥 **2** top · 🌸 **1** strong · 💨 **1** possible" in body
     assert "⭐" not in body
 
@@ -265,3 +266,26 @@ def test_row_shows_reason_one_date_and_no_source():
 def test_reason_drops_the_owner_verdict_prefix():
     r = {"rationale": "Owner feedback (#67): Great fit, belongs higher. Owner feedback (#9): x. Senior TPM owning power."}
     assert dashboard._reason(r) == "Senior TPM owning power."
+
+
+def test_digest_closed_lines_say_how_long_not_a_score():
+    gone = {**rec("Old Role", "strong", "2026-09-01"), "first_seen": "2026-09-01", "closed": "2026-10-13",
+            "active": False, "score": 75}
+    body = notify.build_digest([], health_summary=[], closed_recs=[gone], theme="gas")
+    assert "~~Old Role~~ · Acme (strong, listed 6 weeks)" in body and "75" not in body
+
+
+def test_listed_for_uses_earliest_start_and_months():
+    from src.notify import _listed_for
+    assert _listed_for({"first_seen": "2026-10-20", "date_posted": "2026-09-01",
+                        "closed": "2026-10-23"}) == "listed 7 weeks"
+    assert _listed_for({"first_seen": "2026-04-01", "closed": "2026-10-01"}) == "listed 6 months"
+    assert _listed_for({"first_seen": "2026-10-05", "closed": "2026-10-01"}) == ""
+
+
+def test_archive_check_has_no_score_or_owner_prefix():
+    from src.notify import build_digest
+    body = build_digest([], health_summary=[], audit_recs=[
+        {"title": "Old", "company": "C", "score": 20, "url": "https://x/1",
+         "rationale": "Owner feedback (#67): Bad fit, belongs lower. Sells meters."}])
+    assert "20" not in body.split("archived roles")[1] and "Owner feedback" not in body

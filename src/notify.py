@@ -5,13 +5,14 @@ the digest is just printed.
 """
 import logging
 import os
+from datetime import date
 
 import requests
 
 from .models import Job
 from . import themes
 from .util import best_link
-from .dashboard import GROUP_NAMES, _band
+from .dashboard import BAND_SCORE, GROUP_NAMES, _band, _reason, place_summary
 
 POSSIBLE_CAP = 25  # one-line rows per lower rating before "…and N more"
 
@@ -30,6 +31,35 @@ log = logging.getLogger(__name__)
 def _esc(text: str, limit: int = 0) -> str:
     text = (text or "").replace("|", "\\|").replace("\n", " ").strip()
     return text[:limit] + "…" if limit and len(text) > limit else text
+
+
+def _place(r: dict, limit: int = 34) -> str:
+    first, more = place_summary(r)
+    return _esc(first, limit) + (f" +{more}" if more else "")
+
+
+def _listed_for(r: dict) -> str:
+    """How long a closed posting was open: from its posted date or first
+    sighting, whichever is earlier, to closing. Bad dates give ''."""
+    starts = []
+    for k in ("date_posted", "first_seen"):
+        try:
+            starts.append(date.fromisoformat(str(r.get(k))[:10]))
+        except ValueError:
+            pass
+    try:
+        days = (date.fromisoformat(str(r.get("closed"))[:10]) - min(starts)).days
+    except ValueError:
+        return ""
+    if days < 0:
+        return ""
+    if days < 1:
+        return "listed under a day"
+    if days < 14:
+        return f"listed {days} day{'s' if days != 1 else ''}"
+    if days < 60:
+        return f"listed {round(days / 7)} weeks"
+    return f"listed {round(days / 30)} months"
 
 
 def _rev_date(d: str) -> str:
@@ -91,13 +121,11 @@ def build_digest(records: list[dict],
         lines.append("| Role | Company | Location | Mode | Pay | Posted |")
         lines.append("|---|---|---|---|---|---|")
         for r in sorted(groups[band], key=_newest):
-            rationale = (f"<br><sub>{_esc(r['rationale'], 160)}</sub>"
-                         if r.get("rationale") else "")
-            locs = len(r.get("locations") or [])
-            extra = f" +{locs - 1}" if locs > 1 else ""
+            why = _reason(r)
+            rationale = f"<br><sub>{_esc(why, 160)}</sub>" if why else ""
             lines.append(
                 f"| [{_esc(r.get('title'), 70)}]({best_link(r)}){rationale} "
-                f"| {_esc(r.get('company'))} | {_esc(r.get('location'), 34)}{extra} "
+                f"| {_esc(r.get('company'))} | {_place(r)} "
                 f"| {r.get('work_mode', '')} | {_esc(r.get('pay'), 45)} | {r.get('date_posted', '')} |")
     for band, heading in (("possible", None), ("weak", None), ("misfit", None), ("", "Not yet rated")):
         rows = sorted(groups.get(band, []), key=_newest)
@@ -109,66 +137,63 @@ def build_digest(records: list[dict],
         for r in rows[:POSSIBLE_CAP]:
             pay = f" · {_esc(r.get('pay'), 45)}" if r.get("pay") else ""
             lines.append(f"- [{_esc(r.get('title'), 70)}]({best_link(r)}) · "
-                         f"{_esc(r.get('company'))} · {_esc(r.get('location'), 34)}{pay}")
+                         f"{_esc(r.get('company'))} · {_place(r)}{pay}")
         if len(rows) > POSSIBLE_CAP:
             lines.append(f"- …and {len(rows) - POSSIBLE_CAP} more on the board")
     if omitted:
-        lines.append(f"\n_{omitted} low-fit posting{'s' if omitted != 1 else ''} "
-                     f"(score < {digest_floor}) omitted; clear misfits are "
-                     f"auto-archived._")
+        lines.append(f"\n_{omitted} lower-rated posting{'s' if omitted != 1 else ''} "
+                     f"not listed; the board has them._")
     if records and all(r.get("score") is None for r in records):
         lines.append("\n_Unscored run (triage unavailable)._")
     if closed_recs:
         lines.append("\n## 🚫 Closed since last run\n")
-        by_score = sorted(closed_recs, key=lambda r: -(r.get("score") or -1))
-        for r in by_score[:30]:
-            score = f"{r['score']} · " if r.get("score") is not None else ""
-            lines.append(f"- ~~{_esc(r.get('title', ''), 70)}~~ — {_esc(r.get('company', ''))} ({score}first seen {r.get('first_seen', '?')})")
+        by_band = sorted(closed_recs, key=lambda r: -BAND_SCORE.get(_band(r), -1))
+        for r in by_band[:30]:
+            band = _band(r)
+            note = ", ".join(x for x in (band, _listed_for(r)) if x)
+            lines.append(f"- ~~{_esc(r.get('title', ''), 70)}~~ · {_esc(r.get('company', ''))}"
+                         + (f" ({note})" if note else ""))
         if len(closed_recs) > 30:
             lines.append(f"- …and {len(closed_recs) - 30} more")
     if audit_recs:
-        lines.append("\n## 🧪 Weekly archive audit\n")
-        lines.append("Random sample of auto-archived postings — check any the "
-                     "filter got WRONG and file feedback on them:")
+        lines.append("\n## 🧪 Weekly check: archived roles\n")
+        lines.append("A random sample of roles the watcher rated misfit and "
+                     "archived. If one looks wrong, file feedback on it.")
         for r in audit_recs:
-            lines.append(f"- [ ] {r.get('band', r.get('score', '?'))}: "
-                         f"[{_esc(r.get('title', ''), 60)}]({best_link(r)}) — "
+            why = _reason(r)
+            lines.append(f"- [ ] [{_esc(r.get('title', ''), 60)}]({best_link(r)}) · "
                          f"{_esc(r.get('company', ''))}"
-                         f"<br><sub>{_esc(r.get('rationale', ''), 140)}</sub>")
+                         + (f"<br><sub>{_esc(why, 140)}</sub>" if why else ""))
     if reject_audit:
-        lines.append("\n## 🧪 Weekly filter audit\n")
-        how = ("the title screen" if (screen_stats or {}).get("available")
-               else "the keyword filter")
+        lines.append("\n## 🧪 Weekly check: skipped titles\n")
         stats = ""
         if (screen_stats or {}).get("screened"):
-            stats = (f" This run the screen judged {screen_stats['screened']} "
-                     f"titles, rescued {screen_stats['rescued']} past the "
-                     f"keyword filter and dropped {screen_stats['dropped']} it "
-                     f"had passed.")
-        lines.append(f"Random sample of postings {how} turned away BEFORE "
-                     f"scoring this run — these never reach state, so this is "
-                     f"the only view of what the filter loses. Check any that "
-                     f"should have been scored and file feedback:{stats}")
+            stats = (f" This run it read {screen_stats['screened']} titles, kept "
+                     f"{screen_stats['rescued']} that a keyword match alone would "
+                     f"have skipped, and skipped {screen_stats['dropped']} that "
+                     f"keywords alone would have kept.")
+        lines.append("A random sample of postings the watcher skipped on their "
+                     "title, before rating them. Skipped postings never reach "
+                     "the board, so this is the only place to spot a miss. If one "
+                     f"should have been rated, file feedback.{stats}")
         for r in reject_audit:
-            lines.append(f"- [ ] [{_esc(r.get('title', ''), 60)}]({best_link(r)}) — "
-                         f"{_esc(r.get('company', ''))} · {_esc(r.get('location', ''), 30)}"
-                         f" <sub>{_esc(r.get('source', ''))}</sub>")
+            lines.append(f"- [ ] [{_esc(r.get('title', ''), 60)}]({best_link(r)}) · "
+                         f"{_esc(r.get('company', ''))} · {_place(r, 30)}")
     if discovered:
-        lines.append("\n## 🔗 Direct boards wired up\n")
-        lines.append("These companies kept surfacing strong roles through "
-                     "aggregators, so their own boards are now tracked "
-                     "(canonical links, full descriptions, exact expiry):")
-        lines += [f"- **{d['company']}** — {d['provider']} `{d['board']}`"
+        lines.append("\n## 🔗 New careers pages tracked\n")
+        lines.append("These companies kept showing up through job sites, so the "
+                     "watcher now reads their own careers pages: direct links, "
+                     "full descriptions, and closures spotted the same day.")
+        lines += [f"- **{d['company']}** ({str(d['provider']).title()})"
                   for d in discovered]
+    # Each company is probed once per 30 days, so this is its only mention.
     if unresolved:
-        lines.append("\n## 🔭 No direct board found\n")
-        lines.append("Strong roles from these companies reach us only through "
-                     "Indeed. Their postings linked no careers board we can "
-                     "read and no board guess matched. Retried automatically "
-                     "in 30 days, or sooner if a new posting links a board:")
+        lines.append("\n## 🔭 No careers page found\n")
+        lines.append("Good roles from these companies reach the watcher only "
+                     "through Indeed, so links and closures can lag. It checks "
+                     "again every 30 days.")
         for u in sorted(unresolved, key=lambda u: -(u.get("score") or 0)):
-            lines.append(f"- **{_esc(u['company'])}** (top {u['score']}: "
-                         f"{_esc(u.get('title', ''), 55)})")
+            lines.append(f"- **{_esc(u['company'])}** ({_esc(u.get('title', ''), 55)})")
     unhealthy = [s for s in health_summary or [] if s["status"] != "ok"]
     if unhealthy:
         lines.append("\n## ⚠️ Source issues\n")
