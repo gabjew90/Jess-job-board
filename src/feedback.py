@@ -102,9 +102,12 @@ def load() -> dict:
             parts.append(f"[issue] {issue['title']}\n{body}".strip())
         if v:
             r = re.search(r"^\s*Reason:\s*(.+)$", issue["body"], re.I | re.M)
-            j = re.search(r"<!--\s*job:\s*([0-9a-f]+)\s*-->", issue["body"])
+            # One id, or several when the board merged similar postings
+            # into one card: the verdict applies to each of them.
+            j = re.search(r"<!--\s*job:\s*([0-9a-f]+(?:\s+[0-9a-f]+)*)\s*-->", issue["body"])
             verdicts.append({
-                "issue": issue.get("number"), "job_id": j.group(1) if j else None,
+                "issue": issue.get("number"), "job_id": j.group(1).split()[0] if j else None,
+                "job_ids": j.group(1).split() if j else [],
                 "target": re.sub(r"^feedback:\s*", "", issue["title"], flags=re.I).strip(),
                 "direction": v.group(1).lower(), "reason": r.group(1).strip() if r else "",
                 "created": issue.get("created", "")})
@@ -131,7 +134,8 @@ def apply_verdicts(seen: dict, verdicts: list[dict], archive_below: int = 25) ->
         # By id; otherwise only the same title at the same company. A
         # substring match would move every "Engineer @ PG&E" each run.
         key = v["target"].lower().strip()
-        recs = ([seen[v["job_id"]]] if v.get("job_id") in seen else
+        ids = [i for i in (v.get("job_ids") or [v.get("job_id")]) if i in seen]
+        recs = ([seen[i] for i in ids] if ids else
                 [r for r in seen.values() if key and key in {
                     f"{t} @ {r.get('company', '')}".lower().strip()
                     for t in (r.get("title", ""), r.get("title", "")[:80])}])  # dashboard cuts titles at 80

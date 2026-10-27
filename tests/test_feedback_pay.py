@@ -83,7 +83,7 @@ def test_verdict_issue_parses_and_stays_guidance(monkeypatch):
     monkeypatch.setattr(feedback, "_issue_entries", lambda: [_issue(7, body)])
     monkeypatch.setattr(feedback, "FILE", feedback.Path("/nonexistent"))
     fb = feedback.load()
-    assert fb["verdicts"] == [{"issue": 7, "job_id": "abc123",
+    assert fb["verdicts"] == [{"issue": 7, "job_id": "abc123", "job_ids": ["abc123"],
                                "target": "Principal Electric Program Manager @ PG&E",
                                "direction": "lower", "reason": "Too technical, belongs lower",
                                "created": ""}]
@@ -287,3 +287,14 @@ def test_screen_passes_a_record_stored_under_another_copy(monkeypatch):
     kept, _, _ = screen.apply([today], [], seen, {"title_exclusions": []})
     assert [j.job_id for j in kept] == [today.job_id] and judged == [], \
         "matched by the employer's posting id, so passed through and not judged again"
+
+
+def test_merged_card_verdict_reaches_every_posting(monkeypatch):
+    body = "Verdict: closed\nReason: Posting is closed\n\n---\n<!-- job: a1 b2 -->\nScored top."
+    monkeypatch.setattr(feedback, "_issue_entries", lambda: [_issue(21, body)])
+    monkeypatch.setattr(feedback, "FILE", feedback.Path("/nonexistent"))
+    v = feedback.load()["verdicts"]
+    assert v[0]["job_ids"] == ["a1", "b2"]
+    seen = {k: {"title": "PM", "company": "Co", "band": "top", "active": True} for k in ("a1", "b2", "c3")}
+    assert feedback.apply_verdicts(seen, v) == 2
+    assert not seen["a1"]["active"] and not seen["b2"]["active"] and seen["c3"]["active"]
