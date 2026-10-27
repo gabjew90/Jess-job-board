@@ -56,6 +56,15 @@ Return ONLY a JSON array, no prose, one object per posting:
   "rationale": "one sentence", "seniority_match": true/false,
   "pay": "...", "work_mode": "..."}}
 
+rationale = one plain sentence of at most 25 words, written for the job
+seeker who reads it on the board: what the job actually is, then the one
+fact that decides its band. Example: "Owner's PM for a new combined-cycle
+gas plant in Ohio; runs the EPC contract through commercial operation."
+Do not mention the profile, its rules or section names, bands, scores,
+"the candidate", "his" or "her"; do not restate the title; join clauses
+with a comma or a semicolon, not a dash or a slash (hyphenated terms such
+as combined-cycle are fine).
+
 seniority_match = false when the role is below (or far above) the level
 the profile's seniority calibration targets, e.g. technician, junior or
 trade roles.

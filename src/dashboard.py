@@ -190,8 +190,8 @@ _PAGE = """<!DOCTYPE html>
 <body>
 <header class="hero">{art}<div class="txt"><h1>{mark} {title}</h1><p>{tagline}</p></div></header>
 <main>
-<div class="chips"><span class="chip"><b>{active_count}</b>active{shown_note}</span><span class="chip"><b>{top_count}</b>top fits</span><span class="chip"><b>{new_count}</b>new this week</span><span class="chip"><b>{closed_count}</b>closed</span></div>
-<p class="legend">Each role is rated against the profile: top, strong, possible, weak or misfit, newest first within each rating. Weak and misfit roles are hidden unless you tick the box or search. Under each role, 👍 good fit and 👎 bad fit move it one rating up or down on the next run and teach future ratings; 🚫 closed moves it to the closed list.</p>
+<div class="chips"><span class="chip">{active_chip}</span><span class="chip"><b>{top_count}</b>top fits</span><span class="chip"><b>{new_count}</b>new this week</span><span class="chip"><b>{closed_count}</b>closed</span></div>
+<p class="legend">Roles are rated top, strong, possible, weak or misfit against the profile, newest first. Weak and misfit roles stay hidden unless you tick the box or search.<br>👍 good fit and 👎 bad fit move a role one rating on the next run and teach future ratings. 🚫 closed moves it to the closed list.</p>
 <div class="controls"><input id="q" type="search" placeholder="Filter by title, company, place…" oninput="applyVis()"><label><input id="lo" type="checkbox" onchange="applyVis()"> show weak &amp; misfit</label><label><input id="sc" type="checkbox" onchange="applyVis()"> show closed</label><span class="meta">Updated <span id="upd" data-ts="{generated_iso}">{generated} UTC</span></span></div>
 <div class="tablewrap boardwrap">
 <table id="t">
@@ -384,13 +384,22 @@ def _reason(rec: dict) -> str:
     return why[:177].rsplit(" ", 1)[0] + "…" if len(why) > 180 else why
 
 
-def _location_cell(rec: dict, e) -> str:
-    """First named place, then '+N' for the rest (all named in the tooltip),
-    then how many similar postings this card stands for."""
+def _place_parts(rec: dict) -> tuple[str, int, list[str]]:
     places = rec.get("_places") or _places(rec)
     named = [p for p in places if p]
     first = named[0] if named else re.sub(r",?\s*\d{5}(-\d{4})?$", "", rec.get("location") or "")
-    more = len(places) - 1
+    return first, max(0, len(places) - 1), named
+
+
+def place_summary(rec: dict) -> tuple[str, int]:
+    """(first named place, how many more) for one posting or merged card."""
+    return _place_parts(rec)[:2]
+
+
+def _location_cell(rec: dict, e) -> str:
+    """First named place, then '+N' for the rest (all named in the tooltip),
+    then how many similar postings this card stands for."""
+    first, more, named = _place_parts(rec)
     tip = f' title="{e("; ".join(named))}"' if len(named) > 1 else ""
     text = e(first) + (f' <small>+{more}</small>' if more > 0 else "")
     if rec.get("_similar"):
@@ -584,8 +593,8 @@ def generate(state: dict, health_summary: list[dict] | None = None,
         mark=theme["mark"], tagline=html.escape(theme["tagline"]),
         top_count=sum(1 for r in live if _band(r) == "top"),
         new_count=sum(1 for r in live if r.get("first_seen", "") >= week_ago),
-        active_count=str(active),
-        shown_note=(f" · top {shown_active} shown" if shown_active < active else ""),
+        active_chip=(f"<b>{shown_active:,}</b>shown of {active:,} active" if shown_active < active
+                     else f"<b>{active:,}</b>active"),
         closed_count=closed,
         generated=now.strftime("%Y-%m-%d %H:%M"),
         generated_iso=now.strftime("%Y-%m-%dT%H:%M:%SZ"),
