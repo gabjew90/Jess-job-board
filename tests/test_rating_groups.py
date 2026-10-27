@@ -78,7 +78,7 @@ def test_gas_banner_matches_its_generator():
 
 
 def test_phone_cards_target_named_cells(tmp_path, monkeypatch):
-    """The phone layout styles cells by class; every row carries all eight
+    """The phone layout styles cells by class; every row carries all seven
     and the heading row's cell is not one of them (it keeps its box)."""
     import re
     monkeypatch.setattr(dashboard, "OUT", tmp_path / "index.html")
@@ -86,9 +86,9 @@ def test_phone_cards_target_named_cells(tmp_path, monkeypatch):
     page = (tmp_path / "index.html").read_text()
     row = re.search(r"<tr[^>]* data-id=.*?</tr>", page, re.S).group(0)
     assert re.findall(r'<td class="(c-[a-z]+)"', row) == [
-        "c-title", "c-co", "c-loc", "c-mode", "c-pay", "c-posted", "c-seen", "c-fit"]
+        "c-title", "c-co", "c-loc", "c-mode", "c-pay", "c-posted", "c-fit"]
     assert "#t td.c-title { display: contents; }" in page
-    assert 'g.innerHTML = `<td colspan="8">' in page   # heading cell has no c- class
+    assert 'g.innerHTML = `<td colspan="7">' in page   # heading cell has no c- class
 
 
 # --- the digest's title, which is also the email subject ----------------
@@ -208,3 +208,60 @@ def test_fetched_work_mode_is_recomputed_but_the_scorers_is_kept():
 def test_hybrid_phrasings(desc):
     from src.util import infer_work_mode
     assert infer_work_mode("Manager", "Denver, CO", desc) == "hybrid"
+
+
+# --- card details: places, merged postings, reason line, one date -------
+
+def test_url_place_and_place_dedupe():
+    assert dashboard._url_place("https://x.wd1.myworkdayjobs.com/en-US/S/job/Columbus-OH/PM_R1") == "Columbus, OH"
+    wd = "https://x.wd5.myworkdayjobs.com/en-US/S/job/"
+    assert dashboard._url_place(wd + "USA-TX-Austin/PM_R1") == "Austin, TX"
+    assert dashboard._url_place(wd + "Remote---North-Carolina-United-States/PM_R1") == "Remote, North Carolina United States"
+    assert dashboard._url_place(wd + "Denver-CO-80205/PM_R1") == "Denver, CO"
+    assert dashboard._url_place("https://careers.pge.com/job/Auburn-Design-Engineer-CA-95602/1431975700/") == ""
+    assert dashboard._places({"location": "Oak Brook, IL, US", "locations": ["Oak Brook, IL, US", "3 Locations"]}) == \
+        ["Oak Brook, IL, US", "", ""]
+    assert dashboard._places({"location": "3 Locations", "url": "https://www.indeed.com/viewjob?jk=1"}) == []
+    assert dashboard._places({"location": "Juno Beach, FL, US, 33408"}) == ["Juno Beach, FL, US"]
+    assert dashboard._location_cell({"location": "3 Locations", "url": "https://www.indeed.com/viewjob?jk=1"},
+                                    lambda s: s) == '<td class="c-loc">3 Locations</td>'
+    r = {"location": "Charleston, WV, US", "locations": ["Charleston, WV, US", "Charleston, WV", "Columbus, OH"]}
+    assert dashboard._places(r) == ["Charleston, WV, US", "Columbus, OH"]
+    w = {"location": "3 Locations", "locations": ["3 Locations"],
+         "url": "https://x.wd1.myworkdayjobs.com/en-US/S/job/Tulsa-OK/PM_R2"}
+    assert dashboard._places(w) == ["Tulsa, OK", "", ""]
+    cell = dashboard._location_cell(w, lambda s: s)
+    assert "Tulsa, OK <small>+2</small>" in cell
+
+
+def test_similar_postings_merge_into_one_card():
+    a = {**rec("Project Manager (Staff) | NEW GENERATION (PSO)", "strong", "2026-10-20", company="AEP"),
+         "location": "Tulsa, OK", "_id": "a"}
+    b = {**rec("Project Manager (Staff) | NEW GENERATION (Kentucky Power)", "top", "2026-10-22", company="AEP"),
+         "location": "Louisa, KY", "_id": "b"}
+    c = {**rec("Project Manager | TRANSMISSION", "top", company="AEP"), "_id": "c"}
+    shut = {**rec("Project Manager (Staff) | NEW GENERATION (Ohio)", "top", company="AEP"),
+            "_id": "d", "active": False}
+    other = {**rec("Project Manager (Staff) | NEW GENERATION (PSO)", "top", company="AEP Wire Co"), "_id": "e"}
+    out = dashboard._merge_similar([a, b, c, shut, other])
+    assert [r["_id"] for r in out] == ["b", "c", "d", "e"], \
+        "best-rated copy leads; other titles, closed rows and other companies stay"
+    assert out[0]["_ids"] == ["b", "a"]
+    row = dashboard._row(out[0])
+    assert 'data-ids="b a"' in row and 'data-places="Louisa, KY; Tulsa, OK"' in row
+    assert out[0]["_similar"] == 2 and out[0]["_places"] == ["Louisa, KY", "Tulsa, OK"]
+    assert "2 postings" in dashboard._location_cell(out[0], lambda s: s)
+
+
+def test_row_shows_reason_one_date_and_no_source():
+    r = {**rec("Role", "top", "2026-10-20"), "source": "indeed", "rationale": "x " * 200, "_id": "r"}
+    row = dashboard._row(r)
+    assert '<small class="why">' in row and "…" in row and "indeed" not in row
+    assert 'data-d="2026-10-20" data-k="posted"' in row
+    r2 = {**r, "date_posted": "", "first_seen": "2026-10-25"}
+    assert 'data-d="2026-10-25" data-k="seen"' in dashboard._row(r2)
+
+
+def test_reason_drops_the_owner_verdict_prefix():
+    r = {"rationale": "Owner feedback (#67): Great fit, belongs higher. Owner feedback (#9): x. Senior TPM owning power."}
+    assert dashboard._reason(r) == "Senior TPM owning power."
