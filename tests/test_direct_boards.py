@@ -204,6 +204,20 @@ def test_digest_lists_unresolved_best_first():
     assert body.index("RWE") < body.index("SRP")
 
 
+def test_footer_link_is_not_glued_to_markdown():
+    body = notify.build_digest([], health_summary=[])
+    assert f"]({notify.dashboard_url()})" in body.splitlines()[-1]
+    assert f"{notify.dashboard_url()}_" not in body
+
+
+def test_pages_404_sends_mangled_links_to_the_board():
+    from pathlib import Path
+    from src.dashboard import REPO
+    page = (Path(__file__).parent.parent / "docs" / "404.html").read_text()
+    owner, _, name = REPO.partition("/")
+    assert page.count(f"https://{owner}.github.io/{name}/") == 3   # refresh, script, link
+
+
 # --- Workday posted dates ---------------------------------------------
 
 def test_workday_posted_on_becomes_a_date():
