@@ -201,7 +201,9 @@ def build_digest(records: list[dict],
             detail = s["error"] or "returned 0 results"
             lines.append(f"- `{s['source']}`: {s['status']} ({detail[:120]}) — "
                          f"last results {s['last_results'] or 'never'}")
-    lines.append(f"\n---\n_Full board with every posting and its history: {dashboard_url()}_")
+    # Not a bare URL in _italics_: mail apps autolinked the plain-text part
+    # with the closing "_" attached, a 404. docs/404.html catches the rest.
+    lines.append(f"\n---\n[Full board with every posting and its history]({dashboard_url()})")
     return "\n".join(lines)
 
 
