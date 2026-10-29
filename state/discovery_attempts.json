@@ -61,6 +61,10 @@
   "boards": [],
   "date": "2026-10-25"
  },
+ "constellation energy": {
+  "boards": [],
+  "date": "2026-10-29"
+ },
  "cooperative energy": {
   "boards": [],
   "date": "2026-10-28"
@@ -203,6 +207,10 @@
   "boards": [],
   "date": "2026-10-28"
  },
+ "nscale": {
+  "boards": [],
+  "date": "2026-10-29"
+ },
  "oracle": {
   "boards": [],
   "date": "2026-10-25"
@@ -288,6 +296,10 @@
  "spacexai": {
   "boards": [],
   "date": "2026-09-26"
+ },
+ "spacexsi": {
+  "boards": [],
+  "date": "2026-10-29"
  },
  "srp": {
   "boards": [],
