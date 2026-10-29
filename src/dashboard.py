@@ -2,6 +2,7 @@
 import html
 import json
 import re
+from .state import suppressed
 from urllib.parse import unquote
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -115,6 +116,7 @@ _PAGE = """<!DOCTYPE html>
   .legend {{ color: var(--muted); font-size: .85rem; margin: -.3rem 0 .9rem; max-width: 52rem; }}
   tr.closed {{ opacity: .45; }}
   tr.closed td:first-child a {{ text-decoration: line-through; }}
+  tr.closed .fb {{ display: none; }}  /* nothing left to rate on a closed posting */
   label {{ font-size: .85rem; user-select: none; color: var(--muted); }}
   .band {{ display: inline-block; padding: .15rem .55rem; border-radius: 999px; font-size: .8rem;
           font-weight: 700; white-space: nowrap; }}
@@ -192,13 +194,13 @@ _PAGE = """<!DOCTYPE html>
 <main>
 <div class="chips"><span class="chip">{active_chip}</span><span class="chip"><b>{top_count}</b>top fits</span><span class="chip"><b>{new_count}</b>new this week</span><span class="chip"><b>{closed_count}</b>closed</span></div>
 <p class="legend">Roles are rated top, strong, possible, weak or misfit against the profile, newest first. Weak and misfit roles stay hidden unless you tick the box or search.<br>👍 good fit and 👎 bad fit move a role one rating on the next run and teach future ratings. 🚫 closed moves it to the closed list.</p>
-<div class="controls"><input id="q" type="search" placeholder="Filter by title, company, place…" oninput="applyVis()"><label><input id="lo" type="checkbox" onchange="applyVis()"> show weak &amp; misfit</label><label><input id="sc" type="checkbox" onchange="applyVis()"> show closed</label><span class="meta">Updated <span id="upd" data-ts="{generated_iso}">{generated} UTC</span></span></div>
+<div class="controls"><input id="q" type="search" placeholder="Filter by title, company, place…" oninput="applyVis()"><label><input id="lo" type="checkbox" onchange="applyVis()"> show weak &amp; misfit</label><label><input id="sc" type="checkbox" onchange="applyVis()"> show recently closed</label><span class="meta">Updated <span id="upd" data-ts="{generated_iso}">{generated} UTC</span></span></div>
 <div class="tablewrap boardwrap">
 <table id="t">
 <thead><tr>
   <th onclick="sortBy(0)">Title</th><th onclick="sortBy(1)">Company</th>
   <th onclick="sortBy(2)">Location</th><th onclick="sortBy(3)">Mode</th>
-  <th onclick="sortBy(4)">Pay</th><th onclick="sortBy(5)">Posted</th>
+  <th onclick="sortBy(4, true)">Pay</th><th onclick="sortBy(5)">Posted</th>
   <th onclick="sortBy(6, true)">Fit</th>
 </tr></thead>
 <tbody>
@@ -223,7 +225,7 @@ function sortBy(c, numeric) {{
   // Fit toggles between the grouped order (best first) and a flat
   // lowest-first list, e.g. to review misfits.
   if (c === 6 && !(col === 6 && dir === -1)) {{ bandSort(); applyVis(); return; }}
-  dir = (c === col) ? -dir : (numeric ? -1 : 1); col = c;
+  dir = (c === col) ? -dir : (numeric || c === 5 ? -1 : 1); col = c;  // dates newest first
   const tb = document.querySelector("#t tbody");
   tb.querySelectorAll("tr.grp").forEach(g => g.remove());  // headings belong to the rating order
   [...tb.rows].sort((a, b) => {{
@@ -286,9 +288,13 @@ function bandSort() {{
 bandSort(); applyVis();
 // Phones have no column headers to sort by: narrowing to one (rotating a
 // tablet) brings back the grouped rating order if a column sort removed it.
-matchMedia("(max-width: 640px)").addEventListener("change", ev => {{
+const narrow = matchMedia("(max-width: 640px)");
+const regroup = ev => {{
   if (ev.matches && !document.querySelector("#t tr.grp")) {{ bandSort(); applyVis(); }}
-}});
+}};
+// addListener: Safari before 14 has no addEventListener here, and a throw
+// would stop the dates and the verdict buttons below from being set up.
+narrow.addEventListener ? narrow.addEventListener("change", regroup) : narrow.addListener(regroup);
 function ago() {{
   const el = document.getElementById("upd");
   const ts = new Date(el.dataset.ts);
@@ -303,7 +309,11 @@ ago(); setInterval(ago, 30000);
 // date in data-d for sorting. A posting with no date of its own shows
 // when the watcher first saw it.
 function age(iso) {{
-  const days = Math.round((Date.now() - new Date(iso + "T12:00:00Z")) / 86400000);
+  // Calendar days in the viewer's own time zone: yesterday is yesterday
+  // whatever the hour.
+  const [y, m, d] = iso.split("-").map(Number), now = new Date();
+  const days = Math.round((new Date(now.getFullYear(), now.getMonth(), now.getDate())
+                           - new Date(y, m - 1, d)) / 86400000);
   return days <= 0 ? "today" : days === 1 ? "yesterday" : days < 14 ? `${{days}} days ago`
     : days < 60 ? `${{Math.round(days / 7)}} weeks ago` : `${{Math.round(days / 30)}} months ago`;
 }}
@@ -343,12 +353,30 @@ def _url_place(url: str) -> str:
     return ", ".join(o for o in out if o)
 
 
+_ZIP = re.compile(r",?\s*\d{5}(-\d{4})?$")
+
+
+def _pay_value(pay: str) -> str:
+    """The pay's low end as yearly dollars, for sorting ('' when none):
+    '$95K–$110K' 95000, '$45/hr' 93600, '$6,000/mo' 72000."""
+    pay = re.split(r"\+|\bplus\b", pay or "", maxsplit=1)[0]   # not "+ daily per diem"
+    m = re.search(r"\$?\s?(\d[\d,]*(?:\.\d+)?)\s?([kK])?", pay)
+    if not m:
+        return ""
+    v = float(m.group(1).replace(",", "")) * (1000 if m.group(2) else 1)
+    unit = next((n for pat, n in ((r"/\s?h|hour", 2080), (r"/\s?d|daily|\bday", 260),
+                                  (r"/\s?w|week", 52), (r"/\s?mo|month", 12),
+                                  (r"/\s?y|year|annual", 1)) if re.search(pat, pay, re.I)),
+                2080 if v < 1000 else 1)   # a bare figure under $1,000 is hourly
+    return f"{v * unit:.0f}"
+
+
 def _places(rec: dict) -> list[str]:
     """The posting's named places, deduped ('Charleston, WV, US' and
     'Charleston, WV' are one). A Workday 'N Locations' label carries no
     names, so the primary place comes from the link."""
     # ZIP codes (SuccessFactors writes 'Juno Beach, FL, US, 33408') add nothing.
-    raw = [re.sub(r",?\s*\d{5}(-\d{4})?$", "", p.strip()) for p in
+    raw = [_ZIP.sub("", p.strip()) for p in
            (rec.get("locations") or [rec.get("location", "")]) if p and p.strip()]
     named = [p for p in raw if not _N_LOCATIONS.match(p)]
     labelled = max([int(p.split()[0]) for p in raw if _N_LOCATIONS.match(p)] or [0])
@@ -387,7 +415,7 @@ def _reason(rec: dict) -> str:
 def _place_parts(rec: dict) -> tuple[str, int, list[str]]:
     places = rec.get("_places") or _places(rec)
     named = [p for p in places if p]
-    first = named[0] if named else re.sub(r",?\s*\d{5}(-\d{4})?$", "", rec.get("location") or "")
+    first = named[0] if named else _ZIP.sub("", rec.get("location") or "")
     return first, max(0, len(places) - 1), named
 
 
@@ -491,8 +519,12 @@ def _row(rec: dict, theme: dict | None = None, fresh: str = "") -> str:
         and (rec.get("_newest") or rec.get("first_seen", "")) >= fresh else [])
     cls = f' class="{" ".join(classes)}"' if classes else ""
     e = lambda s: html.escape(str(s or ""))
+    named = _place_parts(rec)[2]
+    pay_s = f' data-s="{_pay_value(rec.get("pay", ""))}"'   # "" sorts last
     fp = rec.get("scoring_fingerprint") or {}
     tooltip = e(rec.get("rationale"))
+    if rec.get("owner_notes"):
+        tooltip += e(" Your verdicts: " + "; ".join(rec["owner_notes"]) + ".")
     if fp:
         tooltip += f' [{e(fp.get("model", ""))} · rubric {e(fp.get("rubric", ""))} · {e(fp.get("at", ""))}]'
     band = _band(rec)
@@ -519,15 +551,15 @@ def _row(rec: dict, theme: dict | None = None, fresh: str = "") -> str:
         for i, (_, label, reason) in enumerate(VERDICTS))
     return (
         f'<tr{cls} data-id="{e(rec.get("_id"))}" data-band="{e(_band(rec) or "?")}"'
-        + (f' data-ids="{e(" ".join(rec["_ids"]))}" data-places="{e("; ".join(p for p in rec["_places"] if p))}"'
-           if rec.get("_ids") else "") +
+        + (f' data-ids="{e(" ".join(rec["_ids"]))}"' if rec.get("_ids") else "")
+        + (f' data-places="{e("; ".join(named))}"' if len(named) > 1 else "") +
         f' data-ref="{e(rec.get("title", "")[:80] + " @ " + rec.get("company", ""))}">'
         f'<td class="c-title"><a href="{e(best_link(rec))}" target="_blank">{e(rec.get("title"))}</a>'
         + (f'<small class="why">{e(why)}</small>' if why else "") +
         f'<span class="fb">{verdicts}</span>'
         f'</td>'
         f'<td class="c-co">{e(rec.get("company"))}</td>{_location_cell(rec, e)}'
-        f'<td class="c-mode">{mode}</td><td class="c-pay">{e(rec.get("pay"))}</td>'
+        f'<td class="c-mode">{mode}</td><td class="c-pay"{pay_s}>{e(rec.get("pay"))}</td>'
         f'{date_cell}{score_cell}</tr>'
     )
 
@@ -553,15 +585,15 @@ def _select_rows(state: dict, max_rows: int) -> tuple[list[dict], int, int]:
     state for dedupe but are not listed."""
     active = [r for r in state.values() if r.get("active", True)]
     closed = [r for r in state.values() if not r.get("active", True)
-              and not (r.get("lowscore") or r.get("hidden")
-                       or r.get("excluded") or r.get("duplicate"))]
+              # The owner's 🚫 closed is a market closure too.
+              and not (r.get("lowscore") or (suppressed(r) and not r.get("owner_closed")))]
     fresh_cutoff = (datetime.now(timezone.utc) - timedelta(days=7)).strftime("%Y-%m-%d")
     def rank(r):
         # Band, then newest: a raw score would let pre-band numbers (82,
         # 85) outrank every current strong posting.
         return (BAND_SCORE.get(_band(r), -1), r.get("first_seen", ""))
-    fresh = [r for r in active if r.get("first_seen", "") >= fresh_cutoff]
-    backlog = sorted((r for r in active if r.get("first_seen", "") < fresh_cutoff),
+    fresh = [r for r in active if r.get("first_seen", "") > fresh_cutoff]
+    backlog = sorted((r for r in active if r.get("first_seen", "") <= fresh_cutoff),
                      key=rank, reverse=True)
     if len(fresh) > max_rows:  # a flood week: even fresh rows rank by band
         fresh = sorted(fresh, key=rank, reverse=True)[:max_rows]
@@ -591,8 +623,9 @@ def generate(state: dict, health_summary: list[dict] | None = None,
         verdict_js=_verdict_js(),
         groups=json.dumps({b: f"{theme['icons'][b]} {name}" for b, name in GROUP_NAMES.items()}),
         mark=theme["mark"], tagline=html.escape(theme["tagline"]),
-        top_count=sum(1 for r in live if _band(r) == "top"),
-        new_count=sum(1 for r in live if r.get("first_seen", "") >= week_ago),
+        # Cards, as the Top fits heading counts them.
+        top_count=sum(1 for r in records if r.get("active", True) and _band(r) == "top"),
+        new_count=sum(1 for r in live if r.get("first_seen", "") > week_ago),
         active_chip=(f"<b>{shown_active:,}</b>shown of {active:,} active" if shown_active < active
                      else f"<b>{active:,}</b>active"),
         closed_count=closed,

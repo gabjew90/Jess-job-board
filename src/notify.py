@@ -4,6 +4,7 @@ Uses the workflow's own GITHUB_TOKEN — no extra secrets. Locally (no token)
 the digest is just printed.
 """
 import logging
+import re
 import os
 from datetime import date
 
@@ -29,8 +30,16 @@ log = logging.getLogger(__name__)
 
 
 def _esc(text: str, limit: int = 0) -> str:
-    text = (text or "").replace("|", "\\|").replace("\n", " ").strip()
-    return text[:limit] + "…" if limit and len(text) > limit else text
+    text = (text or "").replace("\n", " ").strip()
+    text = text[:limit] + "…" if limit and len(text) > limit else text
+    # Escaped after the cut, so a cut never splits an escape; a bare "["
+    # left by the cut would break the link it sits in.
+    return re.sub(r"([|\[\]])", r"\\\1", text)
+
+
+def _dots(*parts: str) -> str:
+    """' · a · b' for the non-empty parts: some postings carry no company."""
+    return "".join(f" · {p}" for p in parts if p)
 
 
 def _place(r: dict, limit: int = 34) -> str:
@@ -62,6 +71,22 @@ def _listed_for(r: dict) -> str:
     return f"listed {round(days / 30)} months"
 
 
+QUIET_DAYS = 14
+
+
+def _quiet_board(s: dict) -> bool:
+    """One employer's board ('workday:blackstone') empty for two weeks or
+    more: no openings that match, not news every day. A board that went
+    empty recently still shows, since that is how a block or a redesign
+    looks. Job-site feeds ('jobspy:indeed', 'edged:all') always show."""
+    from datetime import date, timedelta
+    source = s["source"]
+    if ":" not in source or source.endswith(":all") or source.split(":", 1)[0] in ("jobspy", "edged"):
+        return False
+    last = s.get("last_results")
+    return not last or last < (date.today() - timedelta(days=QUIET_DAYS)).isoformat()
+
+
 def _rev_date(d: str) -> str:
     return "".join(chr(255 - ord(c)) for c in (d or "0000-00-00"))
 
@@ -89,7 +114,8 @@ def build_digest(records: list[dict],
                  discovered: list[dict] | None = None,
                  reject_audit: list[dict] | None = None,
                  screen_stats: dict | None = None,
-                 theme: str | None = None) -> str:
+                 theme: str | None = None,
+                 window_hours: int = 24) -> str:
     """Render the digest from STATE RECORDS covering a rolling window, so a
     posting appears in every digest for 24h. Runs fire several times a day
     (GitHub's cron is erratic); a run-scoped digest meant anything found
@@ -107,7 +133,7 @@ def build_digest(records: list[dict],
                         for b in GROUP_NAMES if groups.get(b))
     if groups.get(""):
         counts += f"{' · ' if counts else ''}⏳ **{len(groups[''])}** not yet rated"
-    lines.append(f"{counts or 'Nothing above the floor'} in the last 24h. "
+    lines.append(f"{counts or 'Nothing above the floor'} in the last {window_hours}h. "
                  f"**[Open the full board]({dashboard_url()})** for every posting "
                  "and one-tap feedback.\n")
     # Top and strong roles get a full row with the rationale, lower ones a
@@ -136,8 +162,8 @@ def build_digest(records: list[dict],
         lines.append(f"\n## {icon} {name}\n")
         for r in rows[:POSSIBLE_CAP]:
             pay = f" · {_esc(r.get('pay'), 45)}" if r.get("pay") else ""
-            lines.append(f"- [{_esc(r.get('title'), 70)}]({best_link(r)}) · "
-                         f"{_esc(r.get('company'))} · {_place(r)}{pay}")
+            lines.append(f"- [{_esc(r.get('title'), 70)}]({best_link(r)})"
+                         + _dots(_esc(r.get('company')), _place(r)) + pay)
         if len(rows) > POSSIBLE_CAP:
             lines.append(f"- …and {len(rows) - POSSIBLE_CAP} more on the board")
     if omitted:
@@ -151,7 +177,7 @@ def build_digest(records: list[dict],
         for r in by_band[:30]:
             band = _band(r)
             note = ", ".join(x for x in (band, _listed_for(r)) if x)
-            lines.append(f"- ~~{_esc(r.get('title', ''), 70)}~~ · {_esc(r.get('company', ''))}"
+            lines.append(f"- ~~{_esc(r.get('title', ''), 70)}~~" + _dots(_esc(r.get('company', '')))
                          + (f" ({note})" if note else ""))
         if len(closed_recs) > 30:
             lines.append(f"- …and {len(closed_recs) - 30} more")
@@ -161,8 +187,8 @@ def build_digest(records: list[dict],
                      "archived. If one looks wrong, file feedback on it.")
         for r in audit_recs:
             why = _reason(r)
-            lines.append(f"- [ ] [{_esc(r.get('title', ''), 60)}]({best_link(r)}) · "
-                         f"{_esc(r.get('company', ''))}"
+            lines.append(f"- [ ] [{_esc(r.get('title', ''), 60)}]({best_link(r)})"
+                         + _dots(_esc(r.get('company', '')))
                          + (f"<br><sub>{_esc(why, 140)}</sub>" if why else ""))
     if reject_audit:
         lines.append("\n## 🧪 Weekly check: skipped titles\n")
@@ -177,8 +203,8 @@ def build_digest(records: list[dict],
                      "the board, so this is the only place to spot a miss. If one "
                      f"should have been rated, file feedback.{stats}")
         for r in reject_audit:
-            lines.append(f"- [ ] [{_esc(r.get('title', ''), 60)}]({best_link(r)}) · "
-                         f"{_esc(r.get('company', ''))} · {_place(r, 30)}")
+            lines.append(f"- [ ] [{_esc(r.get('title', ''), 60)}]({best_link(r)})"
+                         + _dots(_esc(r.get('company', '')), _place(r, 30)))
     if discovered:
         lines.append("\n## 🔗 New careers pages tracked\n")
         lines.append("These companies kept showing up through job sites, so the "
@@ -194,7 +220,8 @@ def build_digest(records: list[dict],
                      "again every 30 days.")
         for u in sorted(unresolved, key=lambda u: -(u.get("score") or 0)):
             lines.append(f"- **{_esc(u['company'])}** ({_esc(u.get('title', ''), 55)})")
-    unhealthy = [s for s in health_summary or [] if s["status"] != "ok"]
+    unhealthy = [s for s in health_summary or [] if s["status"] != "ok"
+                 and not (s["status"] == "empty" and _quiet_board(s))]
     if unhealthy:
         lines.append("\n## ⚠️ Source issues\n")
         for s in unhealthy:
@@ -261,13 +288,14 @@ def post_issue(records: list[dict],
                discovered: list[dict] | None = None,
                reject_audit: list[dict] | None = None,
                screen_stats: dict | None = None,
-               theme: str | None = None) -> None:
+               theme: str | None = None,
+               window_hours: int = 24) -> None:
     token = os.environ.get("GITHUB_TOKEN")
     repo = os.environ.get("GITHUB_REPOSITORY")
     title = digest_title(records, closed_recs, digest_floor, theme)
     body = build_digest(records, health_summary, closed_recs,
                         digest_floor, unresolved, audit_recs, discovered,
-                        reject_audit, screen_stats, theme)
+                        reject_audit, screen_stats, theme, window_hours)
 
     if not token or not repo:
         log.info("No GITHUB_TOKEN/GITHUB_REPOSITORY; printing digest instead.\n\n%s\n%s", title, body)
@@ -286,3 +314,4 @@ def post_issue(records: list[dict],
         log.info("Posted digest issue: %s", resp.json().get("html_url"))
     else:
         log.warning("Failed to post issue (%s): %s", resp.status_code, resp.text[:500])
+

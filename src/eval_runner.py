@@ -32,6 +32,14 @@ import sys
 from pathlib import Path
 
 from . import feedback, screen, triage
+
+
+def _authors() -> list[str]:
+    """The same feedback authors the daily run trusts (config.json)."""
+    try:
+        return json.loads(Path("config.json").read_text()).get("feedback_authors", [])
+    except (OSError, ValueError):
+        return []
 from .models import Job
 
 CASES = Path("eval/cases.json")
@@ -64,7 +72,7 @@ def run_scoring() -> int:
     if not jobs:
         print("no scoring cases yet — nothing to check")
         return 0
-    results = triage.score(jobs, feedback.load()["text"])
+    results = triage.score(jobs, feedback.load(_authors())["text"])
 
     order = triage.BAND_ORDER
 
@@ -77,7 +85,7 @@ def run_scoring() -> int:
     misses = [j for j in jobs if j.job_id in results and far(j.job_id)]
     recovered = {}
     if misses:
-        again = triage.score(misses, feedback.load()["text"])
+        again = triage.score(misses, feedback.load(_authors())["text"])
         for j in misses:
             first = results[j.job_id]["band"]
             if j.job_id in again:

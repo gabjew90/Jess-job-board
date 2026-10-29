@@ -29,8 +29,48 @@ def save(state: dict) -> None:
 
 
 def prune(state: dict, retention_days: int) -> dict:
+    """Drop records closed (or, lacking a date, first seen) before the
+    cutoff. Open postings stay however old: dropping one would bring it
+    back as new and lose the owner's verdicts on it."""
     cutoff = (datetime.now(timezone.utc) - timedelta(days=retention_days)).strftime("%Y-%m-%d")
-    return {k: v for k, v in state.items() if v.get("first_seen", "9999") >= cutoff}
+    return {k: v for k, v in state.items()
+            if v.get("active", True)
+            or str(v.get("closed") or v.get("first_seen", "9999"))[:10] >= cutoff}
+
+
+# Closed by the owner or a filter rather than by the market. None of these
+# may be revived by a fetch or a re-score; lowscore alone may be, when a
+# later score or the owner's verdict lifts it.
+SUPPRESSED = ("owner_closed", "hidden", "excluded", "duplicate")
+
+
+def suppressed(rec: dict) -> bool:
+    return any(rec.get(k) for k in SUPPRESSED)
+
+
+def _market_closed(rec: dict) -> bool:
+    """Closed because the posting went away, not by the owner or a filter."""
+    return not rec.get("active", True) and not rec.get("lowscore") and not suppressed(rec)
+
+
+def _reopen(rec: dict, job: Job) -> bool:
+    """A posting closed on an earlier day that an employer's own board lists
+    again is open. Never on an aggregator's word: Indeed keeps listing
+    postings whose apply page expiry found gone, and reopening those would
+    close them again every next run. Records closed today keep this run's
+    closure."""
+    from .expiry import ATS_PROVIDERS  # noqa: PLC0415 - expiry imports sources
+    # Only full-list boards, whose closure means "missing from a clean
+    # fetch": a search-and-probe source (Google, Workday, Microsoft) can
+    # list a posting its own probe found gone, and would flap daily.
+    if (not _market_closed(rec) or str(rec.get("closed", ""))[:10] >= _today()
+            or job.source not in ATS_PROVIDERS):
+        return False
+    rec["active"] = True
+    rec.pop("closed", None)
+    rec["reopened"] = _today()
+    log.info("State: reopened %s @ %s", rec.get("title"), rec.get("company"))
+    return True
 
 
 def unscored_active(state: dict, exclude_ids: set[str]) -> list[str]:
@@ -78,14 +118,17 @@ def split_new(jobs: list[Job], state: dict) -> list[Job]:
     # Cross-source twins: same company+title+city under a different location
     # string (Indeed "Herndon, VA" vs Amazon "Herndon, Virginia, USA") is the
     # same posting — never re-alert it, but do borrow missing fields.
+    # Active records last, so a key shared with an old closed copy maps to
+    # the open one: matching the closed one would reopen a duplicate.
+    ordered = sorted(state.values(), key=lambda r: bool(r.get("active", True)))
     twins = {twin_key(r.get("company", ""), r.get("title", ""), r.get("location", "")): r
-             for r in state.values()}
+             for r in ordered}
     groups = {group_key(r.get("company", ""), r.get("title", "")): r
-              for r in state.values()}
+              for r in ordered}
     # Identity by the ATS's own id survives title renames, which otherwise
     # look like "old posting closed, new posting appeared".
     by_source_id = {}
-    for r in state.values():
+    for r in ordered:
         sid = source_id(r.get("url", ""))
         if sid:
             by_source_id[(company_key(r.get("company", "")), sid)] = r
@@ -100,7 +143,11 @@ def split_new(jobs: list[Job], state: dict) -> list[Job]:
                 twin["title"] = job.title
             twin = twin or (twins.get(twin_key(job.company, job.title, job.location))
                             or groups.get(group_key(job.company, job.title)))
+            if twin is not None and twin.get("owner_closed"):
+                # The owner closed that one; a relisting is a new opening.
+                twin = None
             if twin is not None:
+                updated += _reopen(twin, job)
                 # Aggregator copies expire independently of the employer's
                 # own posting (an Indeed listing went dead while the role
                 # was still open on the company board), so when a direct
@@ -122,6 +169,7 @@ def split_new(jobs: list[Job], state: dict) -> list[Job]:
                 continue
         if job.job_id in state:
             rec = state[job.job_id]
+            updated += _reopen(rec, job)
             # This posting's own apply link is current, and marked as its
             # own: expiry may close the record when that page is gone, but
             # never on a link borrowed from a twin (fill-only above).

@@ -77,10 +77,10 @@ def backfill_pay(seen: dict, limit: int = 40, tries: int = 3) -> int:
     gets `tries` attempts across runs, least-tried first, so failures
     cannot crowd out the rest; five failures in a row end the run's pass
     (a board blocking requests)."""
-    from ..state import has_range
+    from ..state import has_range, suppressed
     todo = [r for r in seen.values()
             if r.get("source") == "successfactors" and r.get("active", True)
-            and not (r.get("hidden") or r.get("duplicate") or r.get("lowscore"))
+            and not (suppressed(r) or r.get("lowscore"))
             and r.get("url") and not r.get("pay_checked") and not has_range(r.get("pay"))]
     todo.sort(key=lambda r: r.get("pay_tries", 0))
     filled = read = streak = 0
