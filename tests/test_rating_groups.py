@@ -289,3 +289,24 @@ def test_archive_check_has_no_score_or_owner_prefix():
         {"title": "Old", "company": "C", "score": 20, "url": "https://x/1",
          "rationale": "Owner feedback (#67): Bad fit, belongs lower. Sells meters."}])
     assert "20" not in body.split("archived roles")[1] and "Owner feedback" not in body
+
+
+def test_pay_sorts_by_yearly_amount():
+    v = dashboard._pay_value
+    assert v("$95K–$110K") == "95000" and v("$125,000–$145,000/yr") == "125000"
+    assert v("$45/hr") == "93600" and v("") == "" and v("DOE") == ""
+    assert v("$6,000–$11,000/mo") == "72000" and v("$250–$250/weekly") == "13000"
+    assert v("$100/day") == "26000" and v("$45") == "93600"
+
+
+def test_any_multi_place_posting_is_searchable_by_every_place(tmp_path, monkeypatch):
+    monkeypatch.setattr(dashboard, "OUT", tmp_path / "index.html")
+    one = rec("Role", "top", locations=["Dallas, TX", "Austin, TX"])
+    dashboard.generate({"1": one}, [])
+    assert 'data-places="Dallas, TX; Austin, TX"' in (tmp_path / "index.html").read_text()
+
+
+def test_owner_verdict_notes_show_in_the_fit_tooltip(tmp_path, monkeypatch):
+    monkeypatch.setattr(dashboard, "OUT", tmp_path / "index.html")
+    dashboard.generate({"1": rec("Role", "top", owner_notes=["#31: Too junior for a U.S. role"])}, [])
+    assert "Your verdicts: #31: Too junior for a U.S. role." in (tmp_path / "index.html").read_text()

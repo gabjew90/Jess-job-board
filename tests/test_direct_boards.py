@@ -229,3 +229,104 @@ def test_workday_posted_on_becomes_a_date():
     assert posted_date("Posted 4 Days Ago") == day(4)
     assert posted_date("Posted 30+ Days Ago") == ""   # no date to give
     assert posted_date("") == ""
+
+
+# --- QA pass 2026-10-29 -----------------------------------------------
+
+def test_company_key_keeps_generic_first_words_apart():
+    from src.util import company_key
+    assert company_key("Black & Veatch") != company_key("Black Hills Corporation")
+    assert company_key("National Grid") != company_key("National Power, LLC")
+    assert company_key("Vantage Data Centers") == company_key("Vantage")
+    assert company_key("Hitachi Energy") == company_key("Hitachi")
+    assert company_key("Black and Veatch") == company_key("Black & Veatch")
+    assert company_key("American Electric Power (AEP)") == company_key("American Electric Power Service")
+    assert company_key("The Boeing Company") == company_key("Boeing")
+
+
+def test_a_new_employer_with_a_shared_first_word_is_not_swallowed():
+    from src import state
+    seen: dict = {}
+    bv = Job("Project Manager", "Black & Veatch", "Kansas City, MO", "https://x/1", "indeed")
+    bh = Job("Project Manager", "Black Hills Corporation", "Rapid City, SD", "https://x/2", "indeed")
+    state.split_new([bv], seen)
+    assert [j.job_id for j in state.split_new([bh], seen)] == [bh.job_id]
+
+
+def test_a_relisted_posting_reopens_but_a_stale_aggregator_copy_does_not():
+    from src import state
+    seen: dict = {}
+    job = Job("Director", "Acme", "Denver, CO", "https://jobs.lever.co/acme/1", "lever")
+    state.split_new([job], seen)
+    seen[job.job_id].update(active=False, closed="2026-01-01")
+    copy = Job("Director", "Acme", "Austin, TX", "https://www.indeed.com/viewjob?jk=9", "indeed")
+    state.split_new([copy], seen)
+    assert not seen[job.job_id]["active"], "an aggregator's word never reopens a posting"
+    state.split_new([job], seen)
+    assert seen[job.job_id]["active"] and "closed" not in seen[job.job_id]
+    seen[job.job_id].update(active=False, closed="2026-01-01", owner_closed=True)
+    state.split_new([job], seen)
+    assert not seen[job.job_id]["active"], "the owner's closed verdict stands"
+
+
+def test_prune_keeps_open_postings_however_old():
+    from src import state
+    seen = {"old-open": {"first_seen": "2025-01-01", "active": True},
+            "old-closed": {"first_seen": "2025-01-01", "active": False, "closed": "2025-02-01"},
+            "recently-closed": {"first_seen": "2025-01-01", "active": False, "closed": "2099-01-01"}}
+    assert set(state.prune(seen, 180)) == {"old-open", "recently-closed"}
+
+
+def test_digest_escapes_brackets_cut_titles_and_blank_companies():
+    r = {"title": "Senior Project Engineer [Hybride] | Senior Project Engineer [Hybrid] Extra",
+         "company": "", "location": "Denver, CO", "url": "https://x/1", "band": "possible",
+         "score": 55, "first_seen": "2026-10-01", "active": True}
+    body = notify.build_digest([r], health_summary=[], window_hours=48)
+    line = next(ln for ln in body.splitlines() if ln.startswith("- [Senior"))
+    assert "\\[Hybr" in line and "· ·" not in line and line.endswith("Denver, CO")
+    assert "in the last 48h" in body
+
+
+def test_one_quiet_board_is_not_a_source_issue():
+    health = [{"source": "workday:blackstone", "status": "empty", "error": None, "last_results": None},
+              {"source": "greenhouse:veir", "status": "failed", "error": "403", "last_results": None},
+              {"source": "indeed", "status": "empty", "error": None, "last_results": None}]
+    body = notify.build_digest([], health_summary=health)
+    health.append({"source": "jobspy:indeed", "status": "empty", "error": None, "last_results": None})
+    body = notify.build_digest([], health_summary=health)
+    assert "blackstone" not in body and "greenhouse:veir" in body and "`indeed`" in body
+    assert "jobspy:indeed" in body, "an empty job-site feed is a likely block"
+
+
+def test_relisting_after_the_owner_closed_it_is_a_new_opening():
+    from src import state
+    seen: dict = {}
+    den = Job("Project Manager", "Acme", "Denver, CO", "https://jobs.lever.co/acme/1", "lever")
+    state.split_new([den], seen)
+    seen[den.job_id].update(active=False, closed="2026-01-01", owner_closed=True)
+    aus = Job("Project Manager", "Acme", "Austin, TX", "https://jobs.lever.co/acme/2", "lever")
+    assert [j.job_id for j in state.split_new([aus], seen)] == [aus.job_id]
+
+
+def test_a_search_and_probe_source_never_reopens():
+    from src import state
+    seen: dict = {}
+    job = Job("Director", "Acme", "Denver, CO", "https://acme.wd1.myworkdayjobs.com/x/job/1", "workday")
+    state.split_new([job], seen)
+    seen[job.job_id].update(active=False, closed="2026-01-01")
+    state.split_new([job], seen)
+    assert not seen[job.job_id]["active"], "its own probe found it gone; the search index lags"
+
+
+def test_city_and_state_employers_keep_apart():
+    from src.util import company_key
+    assert company_key("City of Austin") != company_key("City of Denver")
+    assert company_key("New York Power Authority") != company_key("New York Independent System Operator")
+
+
+def test_a_board_that_went_empty_recently_is_still_a_source_issue():
+    from datetime import date
+    today = date.today().isoformat()
+    body = notify.build_digest([], health_summary=[
+        {"source": "greenhouse:veir", "status": "empty", "error": None, "last_results": today}])
+    assert "greenhouse:veir" in body

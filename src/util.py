@@ -33,6 +33,18 @@ COMPANY_ALIASES = {
 }
 
 
+_GENERIC_FIRST = {
+    "a", "american", "national", "united", "general", "first", "global",
+    "international", "north", "south", "east", "west", "northern", "southern",
+    "eastern", "western", "pacific", "atlantic", "black", "blue", "green",
+    "red", "new", "us", "electric", "power", "energy", "data", "advanced",
+    "applied", "enterprise", "great", "central", "midwest", "premier",
+    "city", "county", "state", "university", "town", "port", "department",
+    "york", "jersey", "mexico", "american", "northwest", "southwest",
+    "northeast", "southeast", "independent", "public", "regional",
+}
+
+
 def company_key(company: str) -> str:
     """Normalize company for cross-source twin matching (Amazon.com Services
     LLC == Amazon Web Services == Amazon; PG&E == Pacific Gas and Electric)."""
@@ -40,9 +52,16 @@ def company_key(company: str) -> str:
     for canonical, variants in COMPANY_ALIASES.items():
         if any(v in raw for v in variants):
             return canonical
-    c = re.sub(r"[^a-z0-9 ]", "", raw.replace(".com", ""))
-    c = re.sub(r"\b(inc|llc|corp|corporation|company|services|ltd|co)\b", "", c).strip()
-    return c.split()[0] if c.split() else ""
+    c = re.sub(r"\([^)]*\)", " ", raw.replace(".com", ""))   # "(AEP)"
+    c = re.sub(r"[^a-z0-9 ]", "", c)
+    c = re.sub(r"\b(inc|llc|corp|corporation|company|services|ltd|co|the|and|of)\b", "", c)
+    # The first word, unless it is generic: "Black & Veatch" and "Black Hills"
+    # or "City of Austin" and "City of Denver" are different employers, so
+    # generic words run on to the first distinctive one. At most three, so
+    # spellings that differ later ("American Electric Power Service") match.
+    words = c.split()
+    n = next((i for i, w in enumerate(words) if w not in _GENERIC_FIRST), len(words) - 1)
+    return " ".join(words[:min(n, 2) + 1])
 
 
 def title_key(title: str) -> str:

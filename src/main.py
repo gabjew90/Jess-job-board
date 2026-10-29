@@ -40,7 +40,7 @@ def main() -> None:
     # obvious misfits it let through. Rejects feed the weekly filter audit.
     kept, rejected, screen_stats = screen.apply(raw, kept, seen, config)
 
-    fb = feedback.load()
+    fb = feedback.load(config.get("feedback_authors", []))
     kept = [j for j in kept if not feedback.matches(j, fb["hide"])]
 
     feedback.sweep_state(seen, fb["hide"])
@@ -114,7 +114,7 @@ def main() -> None:
             log.warning("rescore_bands has unknown band(s) %s; they match nothing", sorted(unknown))
 
         def wanted(r: dict) -> bool:
-            if r.get("hidden") or r.get("excluded") or r.get("duplicate"):
+            if state_mod.suppressed(r):
                 return False
             if r.get("source") in sources:
                 return r.get("active", True) or r.get("lowscore")
@@ -165,7 +165,7 @@ def main() -> None:
                 rec["active"] = False
                 rec["closed"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
                 rec["lowscore"] = True
-            elif rec.get("lowscore"):
+            elif rec.get("lowscore") and not state_mod.suppressed(rec):
                 # Re-scored above the floor: an archived low score comes back.
                 rec.update(active=True, lowscore=False)
                 rec.pop("closed", None)
@@ -237,7 +237,8 @@ def main() -> None:
             import random
             archived = [r for r in seen.values()
                         if r.get("lowscore") or (not r.get("active", True)
-                                                 and (r.get("score") or 99) < 25)]
+                                                 and r.get("score") is not None
+                                                 and r["score"] < 25)]
             audit_recs = random.sample(archived, min(10, len(archived)))
             # The filter's false negatives are otherwise invisible: nothing
             # it rejects reaches state. Sample this run's rejects too.
@@ -247,7 +248,8 @@ def main() -> None:
                  len(window), window_h, len(new_jobs))
         notify.post_issue(window, health.summary(), closed_recs,
                           digest_floor, unresolved, audit_recs, discovered,
-                          reject_audit, screen_stats, theme=config.get("theme"))
+                          reject_audit, screen_stats, theme=config.get("theme"),
+                          window_hours=window_h)
     else:
         log.info("No new or closed postings; skipping notification.")
 

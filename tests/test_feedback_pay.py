@@ -100,7 +100,7 @@ def test_verdict_moves_one_band_once():
     assert feedback.apply_verdicts(seen, v) == 0, "an issue applies once"
     rec = seen["abc123"]
     assert (rec["band"], rec["score"]) == ("strong", 75)
-    assert rec["rationale"].startswith("Owner feedback (#7)")
+    assert rec["rationale"] == "Program role." and rec["owner_notes"] == ["#7: Too technical, belongs lower"]
     assert rec["scoring_fingerprint"]["owner"], "re-scoring must not overwrite it"
 
     up = [{"issue": 8, "job_id": "abc123", "target": "x", "direction": "higher", "reason": "Great fit"}]
@@ -289,12 +289,57 @@ def test_screen_passes_a_record_stored_under_another_copy(monkeypatch):
         "matched by the employer's posting id, so passed through and not judged again"
 
 
-def test_merged_card_verdict_reaches_every_posting(monkeypatch):
-    body = "Verdict: closed\nReason: Posting is closed\n\n---\n<!-- job: a1 b2 -->\nScored top."
+def test_merged_card_fit_verdict_reaches_every_posting(monkeypatch):
+    body = "Verdict: lower\nReason: Bad fit, belongs lower\n\n---\n<!-- job: a1 b2 -->\nScored top."
     monkeypatch.setattr(feedback, "_issue_entries", lambda: [_issue(21, body)])
     monkeypatch.setattr(feedback, "FILE", feedback.Path("/nonexistent"))
     v = feedback.load()["verdicts"]
     assert v[0]["job_ids"] == ["a1", "b2"]
     seen = {k: {"title": "PM", "company": "Co", "band": "top", "active": True} for k in ("a1", "b2", "c3")}
     assert feedback.apply_verdicts(seen, v) == 2
-    assert not seen["a1"]["active"] and not seen["b2"]["active"] and seen["c3"]["active"]
+    assert seen["a1"]["band"] == seen["b2"]["band"] == "strong" and seen["c3"]["band"] == "top"
+
+
+def test_merged_card_closed_verdict_closes_only_the_linked_posting(monkeypatch):
+    body = "Verdict: closed\nReason: Posting is closed\n\n---\n<!-- job: a1 b2 -->\nScored top."
+    monkeypatch.setattr(feedback, "_issue_entries", lambda: [_issue(22, body)])
+    monkeypatch.setattr(feedback, "FILE", feedback.Path("/nonexistent"))
+    seen = {k: {"title": "PM", "company": "Co", "band": "top", "active": True} for k in ("a1", "b2")}
+    assert feedback.apply_verdicts(seen, feedback.load()["verdicts"]) == 1
+    assert not seen["a1"]["active"] and seen["b2"]["active"], "the other city was never checked"
+    del seen["a1"]   # the linked posting is gone: its siblings still are not closed
+    seen["b2"].pop("verdicts_applied", None)
+    assert feedback.apply_verdicts(seen, feedback.load()["verdicts"]) == 0
+
+
+def test_feedback_from_strangers_is_ignored(monkeypatch):
+    body = "Verdict: closed\nReason: Posting is closed\n\n---\n<!-- job: a1 -->"
+    issue = lambda login, assoc: {**_issue(30, body), "author": login, "association": assoc}
+    monkeypatch.setattr(feedback, "FILE", feedback.Path("/nonexistent"))
+    monkeypatch.setattr(feedback, "_issue_entries", lambda: [issue("stranger", "NONE")])
+    fb = feedback.load(["jessicakam83"])
+    assert fb["verdicts"] == [] and "[issue]" not in fb["text"]
+    monkeypatch.setattr(feedback, "_issue_entries", lambda: [issue("JessicaKam83", "NONE"),
+                                                            issue("gabjew90", "OWNER")])
+    assert len(feedback.load(["jessicakam83"])["verdicts"]) == 2
+
+
+def test_owner_reason_is_kept_apart_from_the_rating_reason(monkeypatch):
+    body = "Verdict: lower\nReason: Too junior for a U.S. role\n\n---\n<!-- job: a1 -->"
+    monkeypatch.setattr(feedback, "_issue_entries", lambda: [_issue(31, body)])
+    monkeypatch.setattr(feedback, "FILE", feedback.Path("/nonexistent"))
+    seen = {"a1": {"title": "PM", "company": "Co", "band": "top", "active": True,
+                   "rationale": "Runs plant builds."}}
+    feedback.apply_verdicts(seen, feedback.load()["verdicts"])
+    assert dashboard._reason(seen["a1"]) == "Runs plant builds."
+    assert seen["a1"]["owner_notes"] == ["#31: Too junior for a U.S. role"]
+
+
+def test_raised_verdict_does_not_revive_a_hidden_record(monkeypatch):
+    body = "Verdict: higher\nReason: Good fit\n\n---\n<!-- job: a1 -->"
+    monkeypatch.setattr(feedback, "_issue_entries", lambda: [_issue(32, body)])
+    monkeypatch.setattr(feedback, "FILE", feedback.Path("/nonexistent"))
+    seen = {"a1": {"title": "PM", "company": "Co", "band": "misfit", "score": 10,
+                   "active": False, "lowscore": True, "hidden": True}}
+    feedback.apply_verdicts(seen, feedback.load()["verdicts"])
+    assert not seen["a1"]["active"]
