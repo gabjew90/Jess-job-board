@@ -47,6 +47,12 @@
   ],
   "date": "2026-10-02"
  },
+ "blue origin": {
+  "boards": [
+   "workday:blueorigin.wd5.myworkdayjobs.com/blueorigin"
+  ],
+  "date": "2026-10-30"
+ },
  "central coast community energy": {
   "boards": [],
   "date": "2026-10-09"
@@ -105,7 +111,7 @@
  },
  "entergy": {
   "boards": [],
-  "date": "2026-09-30"
+  "date": "2026-10-30"
  },
  "fermi": {
   "boards": [],
@@ -162,6 +168,10 @@
  "kohlberg kravis roberts": {
   "boards": [],
   "date": "2026-10-19"
+ },
+ "lancium": {
+  "boards": [],
+  "date": "2026-10-30"
  },
  "liberty energy": {
   "boards": [],
