@@ -191,6 +191,10 @@
   "boards": [],
   "date": "2026-10-06"
  },
+ "lydian energy": {
+  "boards": [],
+  "date": "2026-10-30"
+ },
  "mainspring energy": {
   "boards": [
    "lever:mainspringenergy"
@@ -292,6 +296,10 @@
  "satoshi energy": {
   "boards": [],
   "date": "2026-10-10"
+ },
+ "sempra services": {
+  "boards": [],
+  "date": "2026-10-30"
  },
  "shell": {
   "boards": [
