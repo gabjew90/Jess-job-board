@@ -1461,6 +1461,39 @@
   "url": "https://www.indeed.com/viewjob?jk=2c6a8b6d9db548c2",
   "work_mode": "remote"
  },
+ "039af1486d79035a": {
+  "active": false,
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "misfit",
+  "closed": "2026-11-01",
+  "company": "PG&E",
+  "date_posted": "2026-10-31",
+  "first_seen": "2026-11-01",
+  "first_seen_at": "2026-11-01T23:25:17Z",
+  "location": "Oakland, CA, US, 94612",
+  "locations": [
+   "Oakland, CA, US, 94612",
+   "Vacaville, CA, US, 95688"
+  ],
+  "lowscore": true,
+  "pay": "$143,000\u2013$244,000",
+  "priority": false,
+  "rationale": "Leads teams testing and commissioning protection and control systems on existing transmission and substation assets; grid maintenance, not new plant delivery.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-01T23:26Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "successfactors",
+  "title": "Manager, Substation Test",
+  "url": "https://careers.pge.com/job/Fresno-Manager%2C-Substation-Test-CA-93725/1417264000/",
+  "work_mode": "hybrid",
+  "work_mode_by": "fetch"
+ },
  "03b83c98d397c8ca": {
   "active": false,
   "apply_url": "https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/348731",
@@ -3648,9 +3681,11 @@
   "work_mode_by": ""
  },
  "099d01ab562b9bd9": {
+  "active": false,
   "apply_url": "",
   "apply_url_own": false,
   "band": "weak",
+  "closed": "2026-11-01",
   "company": "GE Vernova",
   "date_posted": "2026-10-23",
   "first_seen": "2026-10-23",
@@ -4914,6 +4949,38 @@
   "url": "https://www.indeed.com/viewjob?jk=d007f337289997f6",
   "work_mode": "onsite"
  },
+ "0d109e22f33d6e2e": {
+  "active": false,
+  "apply_url": "https://jobs.mastec.com/jobs/71257/job?utm_source=indeed_integration&iis=Job%20Board&iisn=Indeed&indeed-apply-token=73a2d2b2a8d6d5c0a62696875eaebd669103652d3f0c2cd5445d3e66b1592b0f",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-01",
+  "company": "MasTec Utility Services",
+  "date_posted": "2026-10-30",
+  "first_seen": "2026-11-01",
+  "first_seen_at": "2026-11-01T23:25:17Z",
+  "location": "Delray Beach, FL, USA",
+  "locations": [
+   "Delray Beach, FL, USA"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "Coordinates purchasing, supplier quotes and purchase orders for utility construction materials; general procurement, not equipment or OEM strategy leadership.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-01T23:26Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Procurement Specialist",
+  "url": "https://www.indeed.com/viewjob?jk=7039164e38f33910",
+  "work_mode": "hybrid",
+  "work_mode_by": "fetch"
+ },
  "0d381ddad223d95e": {
   "active": false,
   "apply_url": "",
@@ -5121,6 +5188,38 @@
   "title": "Project Delivery Manager II",
   "url": "https://www.indeed.com/viewjob?jk=91075a6168c52206",
   "work_mode": ""
+ },
+ "0e2849e8451b55e5": {
+  "active": false,
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "misfit",
+  "closed": "2026-11-01",
+  "company": "PG&E",
+  "date_posted": "2026-10-30",
+  "first_seen": "2026-11-01",
+  "first_seen_at": "2026-11-01T23:25:17Z",
+  "location": "Fresno, CA, US, 93710",
+  "locations": [
+   "Fresno, CA, US, 93710"
+  ],
+  "lowscore": true,
+  "pay": "$129,000\u2013$207,000",
+  "priority": false,
+  "rationale": "Manages a clean energy vehicle rebate program, tracking budget and CPUC and CARB regulatory compliance; no generation or power scope.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-01T23:26Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "successfactors",
+  "title": "Expert Program Manager - Clean Energy Transportation",
+  "url": "https://careers.pge.com/job/Oakland-Expert-Program-Manager-Clean-Energy-Transportation-CA-94612/1446474600/",
+  "work_mode": "hybrid",
+  "work_mode_by": "fetch"
  },
  "0e559a4985418a59": {
   "active": false,
@@ -10264,7 +10363,7 @@
   "seniority_match": true,
   "source": "workday",
   "title": "Development Project Manager",
-  "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/US-IA-Cedar-Rapids-1-DC1/Development-Project-Manager_R2026-2264-1",
+  "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/US-PA-Salem-1-DC1/Development-Project-Manager_R2026-2390",
   "work_mode": ""
  },
  "1f0aaeeb90ca454c": {
@@ -11442,7 +11541,7 @@
  },
  "2273973fa91f3a62": {
   "active": false,
-  "apply_url": "https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/348902",
+  "apply_url": "https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/348630",
   "apply_url_own": true,
   "band": "misfit",
   "closed": "2026-10-30",
@@ -13619,9 +13718,11 @@
   "work_mode": ""
  },
  "299035c86225c975": {
+  "active": false,
   "apply_url": "",
   "apply_url_own": false,
   "band": "strong",
+  "closed": "2026-11-01",
   "company": "Valar Atomics",
   "date_posted": "2026-10-30",
   "first_seen": "2026-10-30",
@@ -13642,7 +13743,7 @@
   },
   "seniority_match": true,
   "source": "greenhouse",
-  "title": "Manger, Infrastructure Project ",
+  "title": "Project Manager, Infrastructure",
   "url": "https://job-boards.greenhouse.io/valaratomics/jobs/4421727009",
   "work_mode": "",
   "work_mode_by": ""
@@ -16858,7 +16959,8 @@
   "location": "Oakland, CA, US, 94612",
   "locations": [
    "Oakland, CA, US, 94612",
-   "Antioch, CA, US, 94509"
+   "Antioch, CA, US, 94509",
+   "Oakland, CA, US, 94601"
   ],
   "lowscore": true,
   "pay": "$97,412\u2013$144,672",
@@ -19316,6 +19418,35 @@
   "url": "https://gevernova.wd5.myworkdayjobs.com/en-US/Vernova_ExternalSite/job/Niskayuna/Senior-Principal-Engineer--Power-Systems_R5051452-2",
   "work_mode": ""
  },
+ "3be89e033fcbb55d": {
+  "apply_url": "https://jobs.transalta.com/job/Denver-Manager%2C-Land-Acquisitions-CO-80002/1445106300/",
+  "apply_url_own": true,
+  "band": "strong",
+  "company": "TransAlta Corporation",
+  "date_posted": "2026-10-30",
+  "first_seen": "2026-11-01",
+  "first_seen_at": "2026-11-01T23:25:17Z",
+  "location": "Denver, CO, USA",
+  "locations": [
+   "Denver, CO, USA"
+  ],
+  "pay": "$130,000\u2013$175,000/yr",
+  "priority": true,
+  "rationale": "Leads land acquisition strategy and negotiations for new thermal, renewable and storage infrastructure across North America, core development execution work.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-11-01T23:26Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Manager, Land Acquisitions",
+  "url": "https://www.indeed.com/viewjob?jk=b68168592ab1a683",
+  "work_mode": "remote",
+  "work_mode_by": "fetch"
+ },
  "3bf27c4693546309": {
   "apply_url": "",
   "band": "strong",
@@ -21145,7 +21276,8 @@
   "location": "Fresno, CA, US, 93720",
   "locations": [
    "Fresno, CA, US, 93720",
-   "Oakland, CA, US, 94612"
+   "Oakland, CA, US, 94612",
+   "Dublin, CA, US, 94568"
   ],
   "lowscore": true,
   "pay": "$173,856\u2013$213,624",
@@ -21162,7 +21294,7 @@
   "seniority_match": true,
   "source": "successfactors",
   "title": "Senior Advising Transmission Planning Engineer",
-  "url": "https://careers.pge.com/job/Oakland-Senior-Advising-Transmission-Planning-Engineer-CA-94612/1360236600/",
+  "url": "https://careers.pge.com/job/San-Luis-Obispo-Senior-Advising-Transmission-Planning-Engineer-CA-93401/1444816600/",
   "work_mode": "hybrid"
  },
  "4255a16e51780d6b": {
@@ -21316,6 +21448,38 @@
   "url": "https://job-boards.greenhouse.io/sbenergy/jobs/6166037004",
   "work_mode": "",
   "work_mode_by": ""
+ },
+ "427b8bf010309e61": {
+  "active": false,
+  "apply_url": "https://careers.mcdean.com/jobs/32538/job?utm_source=indeed_integration&iis=Job%20Board&iisn=Indeed&indeed-apply-token=73a2d2b2a8d6d5c0a62696875eaebd669103652d3f0c2cd5445d3e66b1592b0f",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-01",
+  "company": "M.C. Dean, Inc.",
+  "date_posted": "2026-10-30",
+  "first_seen": "2026-11-01",
+  "first_seen_at": "2026-11-01T23:25:17Z",
+  "location": "South Hill, VA, USA",
+  "locations": [
+   "South Hill, VA, USA"
+  ],
+  "lowscore": true,
+  "pay": "$33\u2013$37/hr",
+  "priority": false,
+  "rationale": "Performs field quality inspections on electrical construction work for compliance with specifications; site-resident inspection, not project leadership.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-01T23:26Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Electrical Quality Control Inspector",
+  "url": "https://www.indeed.com/viewjob?jk=7d4988139f93427b",
+  "work_mode": "onsite",
+  "work_mode_by": "triage"
  },
  "42decab7b2e3d0e7": {
   "active": false,
@@ -23154,7 +23318,9 @@
    "Juno Beach, FL, US, 33408",
    "Palm Beach Gardens, FL, US, 33410",
    "Spearville, KS, US, 67876",
-   "Pompano Beach, FL, US, 33060"
+   "Pompano Beach, FL, US, 33060",
+   "Plantation, FL, US, 33317",
+   "Palo, IA, US, 52324"
   ],
   "lowscore": true,
   "pay": "",
@@ -24314,7 +24480,7 @@
   "work_mode": "remote"
  },
  "4bf8c08d7e17236e": {
-  "apply_url": "https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/346799",
+  "apply_url": "https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/346800",
   "apply_url_own": true,
   "band": "weak",
   "company": "Oracle",
@@ -25406,9 +25572,11 @@
   "work_mode": "hybrid"
  },
  "505367c663402c63": {
+  "active": false,
   "apply_url": "",
   "apply_url_own": false,
   "band": "weak",
+  "closed": "2026-11-01",
   "company": "STACK Infrastructure US",
   "date_posted": "2026-10-27",
   "first_seen": "2026-10-27",
@@ -26461,7 +26629,9 @@
    "Wingate, TX, US, 79566",
    "Juno Beach, FL, US, 33408",
    "Spearville, KS, US, 67876",
-   "Plantation, FL, US, 33317"
+   "Plantation, FL, US, 33317",
+   "Fort Pierce, FL, US, 33945",
+   "Palm Beach Gardens, FL, US, 33410"
   ],
   "pay": "",
   "pay_checked": true,
@@ -26904,9 +27074,11 @@
   "work_mode": "remote"
  },
  "548a21a685963d46": {
+  "active": false,
   "apply_url": "",
   "apply_url_own": false,
   "band": "weak",
+  "closed": "2026-11-01",
   "company": "Avangrid",
   "date_posted": "2026-10-08",
   "first_seen": "2026-10-10",
@@ -27543,7 +27715,8 @@
   "locations": [
    "Florida City, FL, US, 33035",
    "Loxahatchee, FL, US, 33470",
-   "Juno Beach, FL, US, 33408"
+   "Juno Beach, FL, US, 33408",
+   "Palm Beach Gardens, FL, US, 33410"
   ],
   "pay": "",
   "pay_checked": true,
@@ -29703,6 +29876,38 @@
   "work_mode": "",
   "work_mode_by": ""
  },
+ "5cc00b17a0c70d3b": {
+  "active": false,
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "misfit",
+  "closed": "2026-11-01",
+  "company": "Valar Atomics",
+  "date_posted": "2026-11-01",
+  "first_seen": "2026-11-01",
+  "first_seen_at": "2026-11-01T23:25:17Z",
+  "location": "Torrance, California, United States",
+  "locations": [
+   "Torrance, California, United States"
+  ],
+  "lowscore": true,
+  "pay": "$151,364",
+  "priority": false,
+  "rationale": "Coordinates schedules, document tracking and workflow for nuclear licensing submittals; a project-controls-heavy role on a lower-ranked generation type.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-01T23:26Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "greenhouse",
+  "title": "Project Manager, Licensing",
+  "url": "https://job-boards.greenhouse.io/valaratomics/jobs/4363872009",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "5d05bed358880b62": {
   "active": false,
   "band": "misfit",
@@ -30408,6 +30613,38 @@
   "title": "Sourcing Manager - Buying/Procurement",
   "url": "https://gevernova.wd5.myworkdayjobs.com/en-US/Vernova_ExternalSite/job/Bandung/Sourcing-Manager---Buying-Procurement_R5055704-2",
   "work_mode": ""
+ },
+ "5ece21be313ceb67": {
+  "active": false,
+  "apply_url": "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=bb590a5d-164b-49a5-bd82-c94cb1bad194&ccId=9201544532291_2&jobId=967525&source=IN&lang=en_US",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-01",
+  "company": "Weston & Sampson",
+  "date_posted": "2026-10-30",
+  "first_seen": "2026-11-01",
+  "first_seen_at": "2026-11-01T23:25:17Z",
+  "location": "Providence, RI, USA",
+  "locations": [
+   "Providence, RI, USA"
+  ],
+  "lowscore": true,
+  "pay": "$75,000\u2013$130,000/yr",
+  "priority": false,
+  "rationale": "Designs electrical systems for public and commercial buildings at an entry to mid level consulting firm; single-discipline design work.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-01T23:26Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Electrical Project Engineer",
+  "url": "https://www.indeed.com/viewjob?jk=ce5a2cd0caca256b",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "5ed2c903b4044021": {
   "apply_url": "",
@@ -36078,7 +36315,7 @@
   "seniority_match": true,
   "source": "successfactors",
   "title": "Principal Engineer - BESS",
-  "url": "https://jobs.nexteraenergy.com/job/Juno-Beach-Principal-Engineer-BESS-FL-33408/1396449800/",
+  "url": "https://jobs.nexteraenergy.com/job/Denver-Principal-Engineer-BESS-CO-80201/1416590600/",
   "work_mode": ""
  },
  "71175de3c2ec0709": {
@@ -36503,6 +36740,38 @@
   "url": "https://www.indeed.com/viewjob?jk=ef5b89c4e43341b1",
   "work_mode": "",
   "work_mode_by": ""
+ },
+ "72747ac18d35d7ad": {
+  "active": false,
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "misfit",
+  "closed": "2026-11-01",
+  "company": "PG&E",
+  "date_posted": "2026-10-31",
+  "first_seen": "2026-11-01",
+  "first_seen_at": "2026-11-01T23:25:17Z",
+  "location": "Oakland, CA, US, 94612",
+  "locations": [
+   "Oakland, CA, US, 94612"
+  ],
+  "lowscore": true,
+  "pay": "$151,000\u2013$257,000",
+  "priority": false,
+  "rationale": "Leads system-wide support for substation protection and control testing on existing transmission assets; ongoing grid maintenance, not new build.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-01T23:26Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "successfactors",
+  "title": "Manager, Substation Test-System-Wide Support",
+  "url": "https://careers.pge.com/job/San-Ramon-Manager%2C-Substation-Test-System-Wide-Support-CA-94583/1369745900/",
+  "work_mode": "hybrid",
+  "work_mode_by": "fetch"
  },
  "728f81eb5b05dff6": {
   "active": false,
@@ -41151,9 +41420,11 @@
   "work_mode": "hybrid"
  },
  "818e61d10a1b09e2": {
+  "active": false,
   "apply_url": "",
   "apply_url_own": false,
   "band": "weak",
+  "closed": "2026-11-01",
   "company": "Microsoft",
   "date_posted": "2026-10-14",
   "first_seen": "2026-10-14",
@@ -41207,6 +41478,38 @@
   "title": "GE Vernova Hitachi Nuclear Energy - Thermal Mechanical Lead Engineer",
   "url": "https://gevernova.wd5.myworkdayjobs.com/en-US/Vernova_ExternalSite/job/Warsaw/GE-Vernova-Hitachi-Nuclear-Energy---Thermal-Mechanical-Lead-Engineer_R5052722-2",
   "work_mode": ""
+ },
+ "81b3d4fb54a652be": {
+  "active": false,
+  "apply_url": "https://careers.americanexpress.com/en/sites/CX_1/jobs/preview/26014668/?intlink=us-amex-career-en-us-search",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-01",
+  "company": "American Express",
+  "date_posted": "2026-10-31",
+  "first_seen": "2026-11-01",
+  "first_seen_at": "2026-11-01T23:25:17Z",
+  "location": "VA, USA",
+  "locations": [
+   "VA, USA"
+  ],
+  "lowscore": true,
+  "pay": "$103,750\u2013$174,750/yr",
+  "priority": false,
+  "rationale": "Infrastructure Engineer posting with no described duties beyond corporate benefits, no generation, power or data center content visible.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-01T23:26Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Infrastructure Engineer",
+  "url": "https://www.indeed.com/viewjob?jk=6a6daa42876c99d0",
+  "work_mode": "hybrid",
+  "work_mode_by": "fetch"
  },
  "81c4fda649c4d33c": {
   "apply_url": "https://careers-patternenergy.icims.com/jobs/3505/job?utm_source=indeed_integration&iis=Job%20Board&iisn=Indeed&indeed-apply-token=73a2d2b2a8d6d5c0a62696875eaebd669103652d3f0c2cd5445d3e66b1592b0f",
@@ -42360,7 +42663,7 @@
   "seniority_match": false,
   "source": "microsoft",
   "title": "Data Center Program Manager",
-  "url": "https://apply.careers.microsoft.com/careers/job/1970393556972681",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393557044358",
   "work_mode": "onsite"
  },
  "8489131f20dadc5f": {
@@ -47721,7 +48024,8 @@
    "San Luis Obispo, CA, US, 93401",
    "Huron, CA, US, 93234",
    "San Jose, CA, US, 95126",
-   "Oakland, CA, US, 94601"
+   "Oakland, CA, US, 94601",
+   "Dublin, CA, US, 94568"
   ],
   "pay": "$144,000\u2013$244,000",
   "priority": false,
@@ -47736,7 +48040,7 @@
   "seniority_match": true,
   "source": "successfactors",
   "title": "Program Manager, Principal",
-  "url": "https://careers.pge.com/job/Oakland-Program-Manager%2C-Principal-CA-94612/1445013800/",
+  "url": "https://careers.pge.com/job/Oakland-Program-Manager%2C-Principal-CA-94612/1444463200/",
   "work_mode": "hybrid"
  },
  "93386e9a084382ec": {
@@ -48289,6 +48593,38 @@
   "title": "Technical Services Manager - Primoris Energy Services",
   "url": "https://prim.wd108.myworkdayjobs.com/en-US/Primoris/job/Missouri/Technical-Services-Manager---Primoris-Energy-Services_JR101739",
   "work_mode": ""
+ },
+ "9484918de154404c": {
+  "active": false,
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "misfit",
+  "closed": "2026-11-01",
+  "company": "PG&E",
+  "date_posted": "2026-11-01",
+  "first_seen": "2026-11-01",
+  "first_seen_at": "2026-11-01T23:25:17Z",
+  "location": "",
+  "locations": [
+   ""
+  ],
+  "lowscore": true,
+  "pay": "$85,000\u2013$127,000",
+  "priority": false,
+  "rationale": "Manages the technology vendor ecosystem and IT contract performance for an internal IT organization; no generation or power content.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-01T23:26Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "successfactors",
+  "title": "Technology Vendor Manager",
+  "url": "https://careers.pge.com/job/Oakland-Technology-Vendor-Manager-CA-94612/1427059400/",
+  "work_mode": "hybrid",
+  "work_mode_by": "fetch"
  },
  "94a755ad3809c6f0": {
   "apply_url": "",
@@ -49517,6 +49853,38 @@
   "title": "Mechanical/Electrical Assembly Fitter - Late Shift",
   "url": "https://gevernova.wd5.myworkdayjobs.com/en-US/Vernova_ExternalSite/job/Rugby/Mechanical-Electrical-Assembly-Fitter---Late-Shift_R5050188-2",
   "work_mode": ""
+ },
+ "97c0b63d68c6ae95": {
+  "active": false,
+  "apply_url": "https://www.paycomonline.net/v4/ats/web.php/portal/D99F0A0A1C9B562EA6E9A76A3D6D78A5/jobs/179710?source=Indeed",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-01",
+  "company": "CORIX INFRASTRUCTURE SERVICES US INC",
+  "date_posted": "2026-10-31",
+  "first_seen": "2026-11-01",
+  "first_seen_at": "2026-11-01T23:25:17Z",
+  "location": "Cleveland, OH, USA",
+  "locations": [
+   "Cleveland, OH, USA"
+  ],
+  "lowscore": true,
+  "pay": "$28\u2013$32/hr",
+  "priority": false,
+  "rationale": "Operates and maintains boilers, chillers and generators at an existing district energy plant on rotating shifts; running an existing plant.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-01T23:26Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Energy Production Operator",
+  "url": "https://www.indeed.com/viewjob?jk=3ef6fcc53760bdfa",
+  "work_mode": "onsite",
+  "work_mode_by": "triage"
  },
  "981da62830293b1c": {
   "apply_url": "",
@@ -51130,7 +51498,7 @@
   "seniority_match": true,
   "source": "workday",
   "title": "Senior Project Manager (Yerington, NV)",
-  "url": "https://solvenergy.wd1.myworkdayjobs.com/en-US/SOLV_External_Career/job/Yerington-NV/Senior-Project-Manager--Yerington--NV-_J14024",
+  "url": "https://solvenergy.wd1.myworkdayjobs.com/en-US/SOLV_External_Career/job/Yerington-NV/Senior-Project-Manager--Yerington--NV-_J14069",
   "work_mode": ""
  },
  "9db9047a7c8b37fa": {
@@ -54543,6 +54911,38 @@
   "url": "https://www.amazon.jobs/en/jobs/10408641/sr-product-manager-tech-global-energy-power-generation-solutions",
   "work_mode": ""
  },
+ "a8065e4449da0fcf": {
+  "active": false,
+  "apply_url": "https://ats.rippling.com/windsorengineers/jobs/1dd788ff-8451-459a-8525-d27b0879fe8e?jobSite=Indeed",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-01",
+  "company": "Windsor Engineers",
+  "date_posted": "2026-10-30",
+  "first_seen": "2026-11-01",
+  "first_seen_at": "2026-11-01T23:25:17Z",
+  "location": "Duluth, MN, USA",
+  "locations": [
+   "Duluth, MN, USA"
+  ],
+  "lowscore": true,
+  "pay": "$76,000\u2013$135,000/yr",
+  "priority": false,
+  "rationale": "Leads electrical system design for buildings across industries, drafting, calculations and client coordination; single-discipline design engineering.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-01T23:26Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Electrical Engineer",
+  "url": "https://www.indeed.com/viewjob?jk=aa0cb70eeaf33622",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "a8452be041d9ce0b": {
   "active": false,
   "apply_url": "",
@@ -56219,6 +56619,38 @@
   "title": "Power Platform & Dynamics 365 Developer",
   "url": "https://invenergyllc.wd1.myworkdayjobs.com/en-US/invenergycareers/job/Chicago-IL/Platform-Developer-III--Business-Applications_R11318-1",
   "work_mode": ""
+ },
+ "ad966d16d61d222d": {
+  "active": false,
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "misfit",
+  "closed": "2026-11-01",
+  "company": "PG&E",
+  "date_posted": "2026-10-30",
+  "first_seen": "2026-11-01",
+  "first_seen_at": "2026-11-01T23:25:17Z",
+  "location": "West Sacramento, CA, US, 95605",
+  "locations": [
+   "West Sacramento, CA, US, 95605"
+  ],
+  "lowscore": true,
+  "pay": "$140,000\u2013$238,000",
+  "priority": false,
+  "rationale": "Provides expert-level engineering testing, failure analysis and consulting advice across asset types; billable advisory rather than owning project delivery.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-01T23:26Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "successfactors",
+  "title": "ATS Engineer, Expert (AI-Datacenter integration expertise desired)",
+  "url": "https://careers.pge.com/job/Danville-ATS-Engineer%2C-Expert-%28AI-Datacenter-integration-expertise-desired%29-CA-94583/1436051100/",
+  "work_mode": "hybrid",
+  "work_mode_by": "fetch"
  },
  "adbce688d0fb73da": {
   "band": "weak",
@@ -59963,9 +60395,11 @@
   "work_mode": ""
  },
  "b88a10a13925b6ee": {
+  "active": false,
   "apply_url": "https://grnh.se/d2jo63ho9us",
   "apply_url_own": true,
   "band": "possible",
+  "closed": "2026-11-01",
   "company": "Valar Atomics",
   "date_posted": "2026-10-05",
   "first_seen": "2026-10-06",
@@ -59987,7 +60421,7 @@
   },
   "seniority_match": true,
   "source": "greenhouse",
-  "title": "Infrastructure Project Manager",
+  "title": "Project Manager, Infrastructure",
   "url": "https://job-boards.greenhouse.io/valaratomics/jobs/4435962009",
   "work_mode": "onsite"
  },
@@ -63162,6 +63596,38 @@
   "url": "https://www.indeed.com/viewjob?jk=8f562cf50b344201",
   "work_mode": "hybrid"
  },
+ "c36e8e1c95bb795e": {
+  "active": false,
+  "apply_url": "https://careers.sproutup.com/jobs/2747/job?utm_source=indeed_integration&iis=Job%20Board&iisn=Indeed&indeed-apply-token=73a2d2b2a8d6d5c0a62696875eaebd669103652d3f0c2cd5445d3e66b1592b0f",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-01",
+  "company": "SMR Worldwide",
+  "date_posted": "2026-10-31",
+  "first_seen": "2026-11-01",
+  "first_seen_at": "2026-11-01T23:25:17Z",
+  "location": "Remote, USA",
+  "locations": [
+   "Remote, USA"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "Runs datacenter hardware install, burn-in and decommissioning lifecycle; IT infrastructure deployment, not power or facility delivery.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-01T23:26Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Technical Project Manager - Data Center",
+  "url": "https://www.indeed.com/viewjob?jk=413e08b2db5fb70f",
+  "work_mode": "remote",
+  "work_mode_by": "fetch"
+ },
  "c39178e4ce3b251a": {
   "active": false,
   "apply_url": "https://ats.rippling.com/boom-supersonic/jobs/457144ad-94a4-4c7e-9210-fafdec3c4277?jobSite=Indeed",
@@ -66022,7 +66488,8 @@
   "source": "successfactors",
   "title": "Electric Program Manager, Principal",
   "url": "https://careers.pge.com/job/Oakland-Electric-Program-Manager%2C-Principal-CA-94612/1446513700/",
-  "work_mode": "hybrid"
+  "work_mode": "hybrid",
+  "work_mode_by": "fetch"
  },
  "cbd7167a70c163ef": {
   "apply_url": "",
@@ -71895,9 +72362,11 @@
   "work_mode_by": "triage"
  },
  "dd8a12d665b68776": {
+  "active": false,
   "apply_url": "",
   "apply_url_own": false,
   "band": "weak",
+  "closed": "2026-11-01",
   "company": "PG&E",
   "date_posted": "2026-10-27",
   "first_seen": "2026-10-29",
@@ -78201,7 +78670,7 @@
   "seniority_match": true,
   "source": "greenhouse",
   "title": "Senior Sourcing Manager, Data Center Electrical Equipment - Data Center Supply Chain",
-  "url": "https://job-boards.greenhouse.io/sbenergy/jobs/6226541004",
+  "url": "https://job-boards.greenhouse.io/sbenergy/jobs/6210569004",
   "work_mode": "hybrid"
  },
  "ee222c9bdfb58152": {
@@ -78610,7 +79079,8 @@
    "Stockton, CA, US, 95206",
    "Auberry, CA, US, 93602",
    "Santa Cruz, CA, US, 95062",
-   "Chico, CA, US, 95928"
+   "Chico, CA, US, 95928",
+   "Vacaville, CA, US, 95688"
   ],
   "pay": "$46.94 to $78.14,",
   "priority": false,
@@ -78625,7 +79095,7 @@
   "seniority_match": false,
   "source": "successfactors",
   "title": "Design Engineer, Substation",
-  "url": "https://careers.pge.com/job/Oakland-Design-Engineer%2C-Substation-CA-94612/1423256700/",
+  "url": "https://careers.pge.com/job/West-Sacramento-Design-Engineer%2C-Substation-CA-95605/1404285300/",
   "work_mode": "hybrid",
   "work_mode_by": "fetch"
  },
@@ -79573,6 +80043,39 @@
   "title": "Director, EMEA Data Center Operations Services & Supply Chain",
   "url": "https://vantagedc.wd1.myworkdayjobs.com/en-US/Vantage/job/Newport-Wales/Director--EMEA-Data-Center-Operations-Services---Supply-Chain_R24097",
   "work_mode": ""
+ },
+ "f26fa34c15b02f42": {
+  "active": false,
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "misfit",
+  "closed": "2026-11-01",
+  "company": "PG&E",
+  "date_posted": "2026-10-30",
+  "first_seen": "2026-11-01",
+  "first_seen_at": "2026-11-01T23:25:17Z",
+  "location": "San Ramon, CA, US, 94583",
+  "locations": [
+   "San Ramon, CA, US, 94583",
+   "West Sacramento, CA, US, 95605"
+  ],
+  "lowscore": true,
+  "pay": "$122,000\u2013$194,000",
+  "priority": false,
+  "rationale": "Provides engineering testing, failure analysis and consulting across many asset types for internal clients; billable advisory, not project ownership.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-01T23:26Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "successfactors",
+  "title": "ATS Engineer, Senior (AI-Datacenter integration expertise desired)",
+  "url": "https://careers.pge.com/job/Danville-ATS-Engineer%2C-Senior-%28AI-Datacenter-integration-expertise-desired%29-CA-94583/1436054700/",
+  "work_mode": "hybrid",
+  "work_mode_by": "fetch"
  },
  "f270d0121cd56301": {
   "active": false,
