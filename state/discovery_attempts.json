@@ -21,7 +21,7 @@
  },
  "amd": {
   "boards": [],
-  "date": "2026-10-04"
+  "date": "2026-11-03"
  },
  "ameresco": {
   "boards": [
@@ -370,6 +370,10 @@
  "viridan": {
   "boards": [],
   "date": "2026-10-19"
+ },
+ "wet coast logistics": {
+  "boards": [],
+  "date": "2026-11-03"
  },
  "world bank": {
   "boards": [],

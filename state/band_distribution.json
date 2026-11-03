@@ -488,5 +488,16 @@
    "misfit": 14,
    "strong": 1
   }
+ },
+ {
+  "date": "2026-11-03",
+  "scored": 47,
+  "bands": {
+   "possible": 8,
+   "misfit": 16,
+   "weak": 17,
+   "strong": 4,
+   "top": 2
+  }
  }
 ]
