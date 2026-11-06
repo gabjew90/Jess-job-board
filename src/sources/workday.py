@@ -44,7 +44,73 @@ def posted_date(posted_on: str) -> str:
     return (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%d")
 
 
+FACET_CAP = 1500   # postings per facet set, a guard against a runaway board
+
+
+def _job(board: dict, p: dict, company: str) -> Job:
+    return Job(
+        title=p.get("title", ""),
+        company=company,
+        location=p.get("locationsText", ""),
+        url=f"https://{board['host']}/en-US/{board['site']}{p.get('externalPath', '')}",
+        source="workday",
+        date_posted=posted_date(p.get("postedOn", "")),
+    )
+
+
+def fetch_facets(board: dict) -> list[Job]:
+    """Every posting under each of the board's facet sets, instead of the
+    top 20 per search term: for an employer watched closely (Flex and its
+    Axiom spin-off). Each set is {"facets": {facetParameter: [ids]},
+    "company": optional name}; facet ids come from the "facets" block of
+    any search response, and several parameters in one set must all match.
+    A posting in several sets keeps the first set's company, so list the
+    narrow sets (a spin-off's brand) first. Name a unit "Flex (Axiom)":
+    the key that dedupes postings ignores the bracket, so the unit's
+    postings still match ones stored as "Flex".
+
+    A set that fails (a facet id Workday no longer knows answers 400) is
+    logged and skipped; the board fails only when every set does."""
+    url = f"https://{board['host']}/wday/cxs/{board['tenant']}/{board['site']}/jobs"
+    by_path: dict[str, Job] = {}
+    errors = []
+    for fs in board["facet_sets"]:
+        company = fs.get("company") or board["company"]
+        offset, total = 0, None
+        try:
+            while True:
+                resp = requests.post(url, headers={**HEADERS, "Accept": "application/json"},
+                                     json={"searchText": "", "limit": RESULTS_PER_TERM,
+                                           "offset": offset, "appliedFacets": fs["facets"]},
+                                     timeout=30)
+                resp.raise_for_status()
+                data = resp.json()
+                page = data.get("jobPostings", [])
+                for p in page:
+                    by_path.setdefault(p.get("externalPath", ""), _job(board, p, company))
+                if total is None:   # Workday reports the total on the first page only
+                    total = data.get("total", 0)
+                offset += RESULTS_PER_TERM
+                if not page or offset >= total:
+                    break
+                if offset >= FACET_CAP:
+                    log.warning("workday:%s %s: stopped at %d of %d postings",
+                                board["tenant"], company, FACET_CAP, total)
+                    break
+                time.sleep(0.5)
+        except Exception as e:  # noqa: BLE001 - one stale facet must not cost the others
+            log.warning("workday:%s facet set %s failed: %s", board["tenant"], fs["facets"], e)
+            errors.append(e)
+    if errors and len(errors) == len(board["facet_sets"]):
+        raise errors[0]
+    # Deduped by posting path above (a job_id carries the company, which
+    # differs between sets); by job_id here, as fetch_board does.
+    return list({j.job_id: j for j in reversed(list(by_path.values()))}.values())
+
+
 def fetch_board(board: dict, terms: list[str]) -> list[Job]:
+    if board.get("facet_sets"):
+        return fetch_facets(board)
     url = f"https://{board['host']}/wday/cxs/{board['tenant']}/{board['site']}/jobs"
     jobs: dict[str, Job] = {}
     for term in terms:
@@ -53,15 +119,7 @@ def fetch_board(board: dict, terms: list[str]) -> list[Job]:
                                    "offset": 0, "appliedFacets": {}}, timeout=30)
         resp.raise_for_status()
         for p in resp.json().get("jobPostings", []):
-            path = p.get("externalPath", "")
-            job = Job(
-                title=p.get("title", ""),
-                company=board["company"],
-                location=p.get("locationsText", ""),
-                url=f"https://{board['host']}/en-US/{board['site']}{path}",
-                source="workday",
-                date_posted=posted_date(p.get("postedOn", "")),
-            )
+            job = _job(board, p, board["company"])
             jobs[job.job_id] = job
         time.sleep(1)
     return list(jobs.values())
