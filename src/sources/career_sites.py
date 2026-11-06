@@ -25,6 +25,7 @@ Config "career_sites": one entry per employer —
   {"provider": "jibe",    "company": ..., "base": "https://careers.x.com"}
 Optional "keep_all": true bypasses the keyword filter (mission-pure employers).
 """
+import json
 import logging
 import re
 import time
@@ -393,7 +394,46 @@ def fetch_breezy(entry: dict, terms: list[str]) -> list[Job]:
     return jobs
 
 
+PAYLOCITY_PAGE = "https://recruiting.paylocity.com/recruiting/jobs/All/{guid}"
+PAYLOCITY_JOB = "https://recruiting.paylocity.com/Recruiting/Jobs/Details/{id}"
+
+
+def fetch_paylocity(entry: dict, terms: list[str]) -> list[Job]:
+    """Paylocity's hosted job board (EPC Power). The page carries the full
+    list as JSON in `window.pageData`, with a short description each; the
+    public feed endpoint answers with an empty list for this employer.
+    Config: {"provider": "paylocity", "company": "EPC Power", "guid": ...},
+    the id in the board's recruiting.paylocity.com/recruiting/jobs/All/ URL."""
+    resp = requests.get(PAYLOCITY_PAGE.format(guid=entry["guid"]), headers=HEADERS, timeout=30)
+    resp.raise_for_status()
+    m = re.search(r"window\.pageData\s*=\s*(\{.*?\});\s*</script>", resp.text, re.S)
+    if not m:
+        raise ValueError("paylocity: no pageData on the board page")
+    data = json.loads(m.group(1))
+    if not isinstance(data.get("Jobs"), list):
+        # A full-list board: a silent empty answer would close every posting.
+        raise ValueError("paylocity: pageData has no Jobs list")
+    jobs = []
+    for j in data["Jobs"]:
+        title = (j.get("JobTitle") or "").strip()
+        if j.get("IsInternal") or not title or not j.get("JobId"):
+            continue
+        loc = j.get("JobLocation") or {}
+        place = ", ".join(x for x in (loc.get("City"), loc.get("State")) if x)
+        location = "Remote" if j.get("IsRemote") and not place else (place or j.get("LocationName") or "")
+        desc = strip_html(j.get("Description") or "")
+        jobs.append(Job(
+            title=title, company=entry["company"], location=location,
+            url=PAYLOCITY_JOB.format(id=j.get("JobId")), source="paylocity",
+            description=desc, date_posted=(j.get("PublishedDate") or "")[:10],
+            pay=extract_pay(desc),
+            work_mode="remote" if j.get("IsRemote") else infer_work_mode(title, location, desc),
+        ))
+    return jobs
+
+
 PROVIDERS = {
+    "paylocity": fetch_paylocity,
     "radancy": fetch_radancy,
     "hibob": fetch_hibob,
     "adp": fetch_adp,
