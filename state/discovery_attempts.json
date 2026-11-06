@@ -205,6 +205,10 @@
   ],
   "date": "2026-10-23"
  },
+ "midamerican energy": {
+  "boards": [],
+  "date": "2026-11-06"
+ },
  "missinglink": {
   "boards": [],
   "date": "2026-10-28"
@@ -220,6 +224,10 @@
  "net power": {
   "boards": [],
   "date": "2026-11-05"
+ },
+ "netrality data centers": {
+  "boards": [],
+  "date": "2026-11-06"
  },
  "new leaf energy": {
   "boards": [],
