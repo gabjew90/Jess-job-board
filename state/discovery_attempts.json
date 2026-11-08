@@ -23,6 +23,12 @@
   "boards": [],
   "date": "2026-11-03"
  },
+ "ameren": {
+  "boards": [
+   "workday:ameren.wd1.myworkdayjobs.com/external"
+  ],
+  "date": "2026-11-08"
+ },
  "ameresco": {
   "boards": [
    "workday:ameresco.wd5.myworkdayjobs.com/ameresco"
