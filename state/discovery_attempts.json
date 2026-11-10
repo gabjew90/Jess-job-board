@@ -3,6 +3,10 @@
   "boards": [],
   "date": "2026-10-28"
  },
+ "aecon": {
+  "boards": [],
+  "date": "2026-11-10"
+ },
  "aes": {
   "boards": [
    "workday:aes.wd1.myworkdayjobs.com/aes_clean_energy"
@@ -313,7 +317,7 @@
  },
  "satoshi energy": {
   "boards": [],
-  "date": "2026-10-10"
+  "date": "2026-11-10"
  },
  "sempra services": {
   "boards": [],
@@ -371,7 +375,7 @@
  },
  "totalenergies": {
   "boards": [],
-  "date": "2026-10-10"
+  "date": "2026-11-10"
  },
  "transalta": {
   "boards": [],
