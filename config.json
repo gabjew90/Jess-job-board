@@ -343,6 +343,12 @@
       "tenant": "williams",
       "site": "External",
       "company": "Williams"
+    },
+    {
+      "host": "dukeenergy.wd1.myworkdayjobs.com",
+      "tenant": "dukeenergy",
+      "site": "search",
+      "company": "Duke Energy"
     }
   ],
   "successfactors_boards": [

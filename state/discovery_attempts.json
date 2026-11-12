@@ -101,7 +101,7 @@
  },
  "digital realty": {
   "boards": [],
-  "date": "2026-09-30"
+  "date": "2026-11-12"
  },
  "digitalocean": {
   "boards": [],
@@ -110,6 +110,12 @@
  "dte energy": {
   "boards": [],
   "date": "2026-10-03"
+ },
+ "duke energy": {
+  "boards": [
+   "workday:dukeenergy.wd1.myworkdayjobs.com/search"
+  ],
+  "date": "2026-11-12"
  },
  "edf": {
   "boards": [],
@@ -225,7 +231,7 @@
  },
  "montera": {
   "boards": [],
-  "date": "2026-10-13"
+  "date": "2026-11-12"
  },
  "naes": {
   "boards": [],

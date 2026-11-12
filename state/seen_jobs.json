@@ -780,6 +780,35 @@
   "url": "https://www.indeed.com/viewjob?jk=2a4143e65f7553c8",
   "work_mode": "onsite"
  },
+ "014144366ec2bde1": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "weak",
+  "company": "GE Vernova",
+  "date_posted": "2026-11-12",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Schenectady",
+  "locations": [
+   "Schenectady"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Title names a single electrical engineering discipline, with no description shown to indicate broader plant delivery scope.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Lead Engineer Electrical",
+  "url": "https://gevernova.wd5.myworkdayjobs.com/en-US/Vernova_ExternalSite/job/Schenectady/Lead-Engineer-Electrical_R5058475-1",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "014beac2ee4ff9c8": {
   "active": false,
   "apply_url": "",
@@ -2202,6 +2231,35 @@
   "url": "https://www.indeed.com/viewjob?jk=99e0a1c85fee3c70",
   "work_mode": ""
  },
+ "048bc962556fd67d": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "weak",
+  "company": "GE Vernova",
+  "date_posted": "2026-11-12",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Stafford",
+  "locations": [
+   "Stafford"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Title names a single secondary-design engineering discipline, with no description shown to indicate broader program ownership.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Secondary Team Leader \u2013 Secondary Design Engineering (Grid Solutions)",
+  "url": "https://gevernova.wd5.myworkdayjobs.com/en-US/Vernova_ExternalSite/job/Stafford/Lead-Secondary-Design-Engineer_R5047364-2",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "04bb3972aab42a9c": {
   "apply_url": "",
   "apply_url_own": false,
@@ -2720,9 +2778,11 @@
   "work_mode": "hybrid"
  },
  "05aa3deca2153040": {
+  "active": false,
   "apply_url": "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=ae01af2b-1df8-4eab-916c-c82d36b29f03&ccId=19000101_000003&jobId=600751&jwId=SYS:JW:001&source=IN&lang=en_US",
   "apply_url_own": true,
   "band": "possible",
+  "closed": "2026-11-12",
   "company": "OpTerra Energy Services",
   "date_posted": "2026-10-16",
   "first_seen": "2026-10-17",
@@ -3438,9 +3498,11 @@
   "work_mode": "hybrid"
  },
  "076e11c7cafeaf6b": {
+  "active": false,
   "apply_url": "https://apply.careers.microsoft.com/careers/job/1970393557053514?utm_source=indeed&domain=microsoft.com",
   "apply_url_own": true,
   "band": "strong",
+  "closed": "2026-11-12",
   "company": "Microsoft",
   "date_posted": "2026-11-06",
   "first_seen": "2026-11-08",
@@ -3499,9 +3561,11 @@
   "work_mode_by": "fetch"
  },
  "079a0e411d0646b7": {
+  "active": false,
   "apply_url": "https://wclgp.com/careers/?rpid=7OWu7XMSyew",
   "apply_url_own": true,
   "band": "strong",
+  "closed": "2026-11-12",
   "company": "Wet Coast Logistics",
   "date_posted": "2026-11-03",
   "first_seen": "2026-11-03",
@@ -3775,18 +3839,19 @@
   "location": "PERRYTON, TX, US, 79070",
   "locations": [
    "PERRYTON, TX, US, 79070",
-   "Juno Beach, FL, US, 33408"
+   "Juno Beach, FL, US, 33408",
+   "Palm Beach Gardens, FL, US, 33410"
   ],
   "pay": "",
   "pay_checked": true,
   "priority": false,
-  "rationale": "Internal strategy-consulting/replication role spanning Wind, Solar and Fossil operations \u2014 process improvement, not generation development.",
+  "rationale": "Internal strategy-consulting role identifying replication opportunities across wind, solar and fossil fleets, corporate strategy rather than project delivery.",
   "score": 35,
   "scoring_fingerprint": {
-   "at": "2026-10-13T23:58Z",
+   "at": "2026-11-12T02:16Z",
    "model": "claude-sonnet-5",
-   "policy": "139133cf50",
-   "rubric": "a34b700a29"
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
   },
   "seniority_match": true,
   "source": "successfactors",
@@ -4183,6 +4248,35 @@
   "url": "https://job-boards.greenhouse.io/hut8/jobs/4093804008",
   "work_mode": "onsite",
   "work_mode_by": "fetch"
+ },
+ "094d5189a9a3b8d6": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "weak",
+  "company": "GE Vernova",
+  "date_posted": "2026-11-12",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Hyderabad",
+  "locations": [
+   "Hyderabad"
+  ],
+  "pay": "",
+  "priority": true,
+  "rationale": "Title names a single controls engineering discipline on new product introduction, with no description shown to indicate broader program ownership.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Lead Gas Turbine NPI Controls Engineer",
+  "url": "https://gevernova.wd5.myworkdayjobs.com/en-US/Vernova_ExternalSite/job/Hyderabad/Lead-Gas-Turbine-NPI-Controls-Engineer_R5058613-2",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "0962f987bc5fe748": {
   "active": false,
@@ -5531,9 +5625,11 @@
   "work_mode": "hybrid"
  },
  "0c8541063bd99648": {
+  "active": false,
   "apply_url": "https://jobs.smartrecruiters.com/Ramboll3/744000158123688-project-manager-data-center-facilities",
   "apply_url_own": true,
   "band": "possible",
+  "closed": "2026-11-12",
   "company": "Ramboll",
   "date_posted": "2026-10-27",
   "first_seen": "2026-10-29",
@@ -6376,6 +6472,38 @@
   "title": "Treasury Manager",
   "url": "https://jobs.dayforcehcm.com/en-US/edc/CandidatePortalEDC/jobs/810",
   "work_mode": ""
+ },
+ "0e9f351f67ebd0d2": {
+  "active": false,
+  "apply_url": "https://careers.gevernova.com/clean-line-tech/job/R5057180",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "GE Vernova",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Houston, TX, USA",
+  "locations": [
+   "Houston, TX, USA"
+  ],
+  "lowscore": true,
+  "pay": "$23\u2013$23/hr",
+  "priority": true,
+  "rationale": "Entry-level hourly technician cleaning turbine parts and components, a trade-level production role, not engineering or delivery.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Clean Line Tech",
+  "url": "https://www.indeed.com/viewjob?jk=7ed93b5efb8fcc0d",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "0ebe0a8b3922b5b9": {
   "active": false,
@@ -8072,9 +8200,11 @@
   "work_mode": "onsite"
  },
  "12bbefc7f77957af": {
+  "active": false,
   "apply_url": "https://jobs.pse.com/job/Bothell-Project-Manager-I-Collocation-WA-98011/1419358100/?feedId=291300&utm_source=Indeed&utm_campaign=PSE_Indeed",
   "apply_url_own": true,
   "band": "possible",
+  "closed": "2026-11-12",
   "company": "Puget Sound Energy",
   "date_posted": "2026-11-05",
   "first_seen": "2026-11-06",
@@ -8158,6 +8288,38 @@
   "url": "https://www.indeed.com/viewjob?jk=7c0d80a78d43894f",
   "work_mode": "onsite",
   "work_mode_by": "triage"
+ },
+ "13227eb6b040061a": {
+  "active": false,
+  "apply_url": "https://careers.gevernova.com/production-leader-1st-shift/job/R5058515",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "GE Vernova",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Schenectady, NY, USA",
+  "locations": [
+   "Schenectady, NY, USA"
+  ],
+  "lowscore": true,
+  "pay": "$91,700\u2013$152,700/yr",
+  "priority": true,
+  "rationale": "Manufacturing production-line leader role executing shift production targets, unrelated to power plant delivery.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Production Leader - 1st Shift",
+  "url": "https://www.indeed.com/viewjob?jk=6f964805738c8087",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "1322919a6998c3b5": {
   "apply_url": "",
@@ -12318,7 +12480,7 @@
   "seniority_match": true,
   "source": "workday",
   "title": "Development Project Manager",
-  "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/US-IA-Cedar-Rapids-1-DC1/Development-Project-Manager_R2026-2264-1",
+  "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/EU-UK-Cambois/Development-Project-Manager_R2026-2032",
   "work_mode": ""
  },
  "1f0aaeeb90ca454c": {
@@ -12888,6 +13050,38 @@
   "url": "https://job-boards.greenhouse.io/spacex/jobs/8639268002",
   "work_mode": "hybrid",
   "work_mode_by": "fetch"
+ },
+ "2068cc24d161e80c": {
+  "active": false,
+  "apply_url": "https://careers.trccompanies.com/jobs/28218/job?utm_source=indeed_integration&iis=Job%20Board&iisn=Indeed&indeed-apply-token=73a2d2b2a8d6d5c0a62696875eaebd669103652d3f0c2cd5445d3e66b1592b0f",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "TRC",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Chicago, IL, USA",
+  "locations": [
+   "Chicago, IL, USA"
+  ],
+  "lowscore": true,
+  "pay": "$90,002\u2013$123,032/yr",
+  "priority": false,
+  "rationale": "Manages facility inspection and engineering support programs across industrial sites including power, consulting-style oversight rather than new plant delivery.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Project Manager",
+  "url": "https://www.indeed.com/viewjob?jk=aff0edc406466940",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "207aea37cd41f2c7": {
   "active": false,
@@ -14362,6 +14556,35 @@
   "work_mode": "hybrid",
   "work_mode_by": "triage"
  },
+ "2442eaddc9bf7a92": {
+  "apply_url": "https://grnh.se/ncct15o2teu",
+  "apply_url_own": true,
+  "band": "weak",
+  "company": "Michels",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Boston, MA, USA",
+  "locations": [
+   "Boston, MA, USA"
+  ],
+  "pay": "$94,000\u2013$162,000/yr",
+  "priority": false,
+  "rationale": "Contractor-side project manager building natural gas distribution systems, not owner-side power generation development.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Project Manager - Michels Utility Services, Inc.",
+  "url": "https://www.indeed.com/viewjob?jk=b72992e2584f9b1a",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "244424d514e9a3ee": {
   "active": false,
   "band": "misfit",
@@ -14605,6 +14828,38 @@
   "title": "Senior Project Manager",
   "url": "https://iberdrola.wd3.myworkdayjobs.com/en-US/Iberdrola/job/United-Kingdom-Blantyre/Senior-Project-Manager_R-33600",
   "work_mode": ""
+ },
+ "252a02cfb2cdc1a2": {
+  "active": false,
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "Microsoft",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "United States, Wisconsin, Milwaukee",
+  "locations": [
+   "United States, Wisconsin, Milwaukee"
+  ],
+  "lowscore": true,
+  "pay": "USD $102,600 - $202,800 per year",
+  "priority": false,
+  "rationale": "Manages critical electrical and mechanical systems in Microsoft's already-operating data centers, maintaining uptime rather than delivering new capacity.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "microsoft",
+  "title": "Data Center Critical Environment Program Manager",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393556979109",
+  "work_mode": "onsite",
+  "work_mode_by": "fetch"
  },
  "254c36067525f478": {
   "active": false,
@@ -14904,7 +15159,7 @@
   },
   "seniority_match": true,
   "source": "indeed",
-  "title": "Project Manager II (Temporary)",
+  "title": "Project Manager II",
   "url": "https://www.indeed.com/viewjob?jk=02bfc81d5f6bee32",
   "work_mode": "",
   "work_mode_by": ""
@@ -16726,7 +16981,9 @@
   "work_mode": "hybrid"
  },
  "2a5b8325f1dec8d7": {
-  "band": "weak",
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-11-12",
   "company": "PG&E",
   "date_posted": "2026-09-14",
   "first_seen": "2026-09-18",
@@ -16740,18 +16997,20 @@
    "Marysville, CA, US, 95901",
    "San Jose, CA, US, 95138",
    "San Ramon, CA, US, 94583",
-   "Burney, CA, US, 96013"
+   "Burney, CA, US, 96013",
+   "Fresno, CA, US, 93720"
   ],
+  "lowscore": true,
   "pay": "$122,000\u2013$194,000",
   "pay_checked": true,
   "priority": false,
-  "rationale": "Senior grid-reliability/standards strategy role lacks explicit generation-development or new-load content.",
-  "score": 35,
+  "rationale": "Sets enterprise reliability strategy and drives IEEE, IEC and FERC standards work for existing grid assets, strategy engineering, not new plant construction.",
+  "score": 15,
   "scoring_fingerprint": {
-   "at": "2026-09-18T21:40Z",
+   "at": "2026-11-12T02:16Z",
    "model": "claude-sonnet-5",
-   "policy": "139133cf50",
-   "rubric": "deae532890"
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
   },
   "seniority_match": true,
   "source": "successfactors",
@@ -17064,7 +17323,7 @@
   "source": "lever",
   "title": "Fleet Operations & Analytics Engineer",
   "url": "https://jobs.lever.co/mainspringenergy/5b7ff74e-c82a-4ec1-b52f-7d7a27edb672",
-  "work_mode": "remote",
+  "work_mode": "hybrid",
   "work_mode_by": "fetch"
  },
  "2b0e1e18bffb1b70": {
@@ -18256,6 +18515,38 @@
   "work_mode": "remote",
   "work_mode_by": "fetch"
  },
+ "2e6e52aeff579d40": {
+  "active": false,
+  "apply_url": "https://rehlko.wd12.myworkdayjobs.com/en-US/Reh/job/KohlerWI/Senior-Project-Engineer---Development_R05021",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "Rehlko",
+  "date_posted": "2026-11-12",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Kohler, WI, USA",
+  "locations": [
+   "Kohler, WI, USA"
+  ],
+  "lowscore": true,
+  "pay": "$89,800\u2013$114,100/yr",
+  "priority": false,
+  "rationale": "Leads product validation and lab testing for home energy generator products, an engineering R&D testing role rather than plant delivery.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Senior Project Engineer - Development",
+  "url": "https://www.indeed.com/viewjob?jk=ed27247e299c4c23",
+  "work_mode": "hybrid",
+  "work_mode_by": "fetch"
+ },
  "2e9b9cae4cc6eab3": {
   "active": false,
   "apply_url": "",
@@ -18318,6 +18609,35 @@
   "title": "Complex Chief Engineer",
   "url": "https://www.indeed.com/viewjob?jk=a98c5f485dad75de",
   "work_mode": ""
+ },
+ "2eb0b8a9ca68c5a3": {
+  "apply_url": "https://emit.fa.ca3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001/requisitions/preview/99162",
+  "apply_url_own": true,
+  "band": "weak",
+  "company": "WSP",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Sunrise, FL, USA",
+  "locations": [
+   "Sunrise, FL, USA"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Consulting-firm project manager running client power-delivery engagements, billable advisory and proposal work rather than owner-side plant construction.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Project Manager - Power Delivery",
+  "url": "https://www.indeed.com/viewjob?jk=501215221c4f6af0",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "2ebaad3a35246b87": {
   "active": false,
@@ -18982,7 +19302,7 @@
   "seniority_match": true,
   "source": "workday",
   "title": "Senior Project Engineer, NA",
-  "url": "https://vantagedc.wd1.myworkdayjobs.com/en-US/Vantage/job/Port-Washington-Wisconsin/Senior-Project-Engineer--NA_R25287",
+  "url": "https://vantagedc.wd1.myworkdayjobs.com/en-US/Vantage/job/Shackelford-County-Texas/Senior-Project-Engineer--NA_R25064",
   "work_mode": ""
  },
  "303b648d04c7c9b3": {
@@ -19355,9 +19675,11 @@
   "work_mode": "remote"
  },
  "3104a69e4b601a99": {
+  "active": false,
   "apply_url": "",
   "apply_url_own": false,
   "band": "possible",
+  "closed": "2026-11-12",
   "company": "SB Energy",
   "date_posted": "2026-10-02",
   "first_seen": "2026-10-02",
@@ -20165,9 +20487,11 @@
   "work_mode": ""
  },
  "33549e53a3040675": {
+  "active": false,
   "apply_url": "",
   "apply_url_own": false,
   "band": "possible",
+  "closed": "2026-11-12",
   "company": "Xcel Energy",
   "date_posted": "2026-11-10",
   "first_seen": "2026-11-10",
@@ -20220,7 +20544,7 @@
   },
   "seniority_match": true,
   "source": "workday",
-  "title": "Senior Development Project Engineer (Data Center Construction)",
+  "title": "Senior Development Project Engineer (Data Center Construction MEPR)",
   "url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/US-UT-Eagle-Mountain-1-DC1/Senior-Development-Project-Engineer--Data-Center-Construction-MEPR-_R2026-2450",
   "work_mode": ""
  },
@@ -20637,7 +20961,9 @@
   "work_mode": ""
  },
  "347cc1d1f470d3e4": {
+  "active": false,
   "band": "weak",
+  "closed": "2026-11-12",
   "company": "NiSource",
   "date_posted": "2026-09-14",
   "first_seen": "2026-09-18",
@@ -21874,6 +22200,35 @@
   "work_mode": "",
   "work_mode_by": ""
  },
+ "390727f6633efe20": {
+  "apply_url": "https://careers.google.com/jobs/results/105168925322289862-data-center-electrical-engineer/",
+  "apply_url_own": true,
+  "band": "weak",
+  "company": "Google",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "New York, NY, USA",
+  "locations": [
+   "New York, NY, USA"
+  ],
+  "pay": "$144,000\u2013$208,000/yr",
+  "priority": false,
+  "rationale": "Leads electrical-discipline design and construction support for data center power distribution, single-discipline engineering despite the strong employer.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Data Center Electrical Engineer",
+  "url": "https://www.indeed.com/viewjob?jk=b864583bc87c11e2",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "392907a7dd259649": {
   "active": false,
   "apply_url": "",
@@ -22179,7 +22534,7 @@
   "work_mode_by": ""
  },
  "39a98460902e2101": {
-  "apply_url": "",
+  "apply_url": "https://careers.gevernova.com/lead-generator-project-engineer-1/job/R5058488",
   "apply_url_own": false,
   "band": "possible",
   "company": "GE Vernova",
@@ -22188,9 +22543,10 @@
   "first_seen_at": "2026-11-11T00:43:04Z",
   "location": "3 Locations",
   "locations": [
-   "3 Locations"
+   "3 Locations",
+   "Schenectady, NY, USA"
   ],
-  "pay": "",
+  "pay": "$98,400\u2013$164,000/yr",
   "priority": false,
   "rationale": "Project engineer role for generator equipment at a turbine OEM, close to her equipment and technical work but on the OEM side rather than owner side.",
   "score": 55,
@@ -22686,7 +23042,7 @@
   },
   "seniority_match": true,
   "source": "indeed",
-  "title": "Sr Manager BESS Engineering",
+  "title": "Sr Manager Engineering",
   "url": "https://www.indeed.com/viewjob?jk=86afe3229fb9b771",
   "work_mode": "",
   "work_mode_by": ""
@@ -23943,6 +24299,38 @@
   "url": "https://prim.wd108.myworkdayjobs.com/en-US/Primoris/job/Triad-Haskell-TX-43428/Workface-Planner---Primoris-Energy-Services---Google-Triad_JR102813",
   "work_mode": ""
  },
+ "3e3566ea01465a5d": {
+  "active": false,
+  "apply_url": "https://apply.careers.microsoft.com/careers/job/1970393557050834?utm_source=indeed&domain=microsoft.com",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "Microsoft",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Chicago, IL, USA",
+  "locations": [
+   "Chicago, IL, USA"
+  ],
+  "lowscore": true,
+  "pay": "$97,600\u2013$206,400/yr",
+  "priority": false,
+  "rationale": "Leads physical security operations at data centers, unrelated to power generation or construction delivery.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Data Center Security Operations Manager",
+  "url": "https://www.indeed.com/viewjob?jk=1879b6fdb7ccfc23",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "3e48e93555069403": {
   "active": false,
   "apply_url": "https://jobs.siemens-energy.com/en_US/CareersMarketplace/FolderDetail/Regional-Portfolio-Project-Engineer/304028",
@@ -24979,8 +25367,10 @@
   "work_mode": "hybrid"
  },
  "41eadb1752a6f18b": {
+  "active": false,
   "apply_url": "",
   "band": "top",
+  "closed": "2026-11-12",
   "company": "AES Corporation",
   "date_posted": "",
   "first_seen": "2026-09-27",
@@ -25887,6 +26277,36 @@
   "title": "Systems Engineer III - Ground Electrical Subsystems",
   "url": "https://www.indeed.com/viewjob?jk=91f0d9f714752c72",
   "work_mode": ""
+ },
+ "4387ccead7edd345": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "possible",
+  "company": "SpaceX",
+  "date_posted": "2026-11-09",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Starbase, TX",
+  "locations": [
+   "Starbase, TX",
+   "Cape Canaveral, FL"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Manages capital equipment and materials planning for LNG propellant facilities, procurement and logistics focused, adjacent to equipment strategy work.",
+  "score": 55,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "greenhouse",
+  "title": "Supply Chain Planning Manager (LNG Capital & Production)",
+  "url": "https://job-boards.greenhouse.io/spacex/jobs/8935888002",
+  "work_mode": "remote",
+  "work_mode_by": "fetch"
  },
  "43aa424cebfca88e": {
   "active": false,
@@ -29144,6 +29564,35 @@
   "work_mode": "",
   "work_mode_by": ""
  },
+ "4d2a77fa440a1044": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "weak",
+  "company": "SOLV Energy",
+  "date_posted": "2026-11-12",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "48 Locations",
+  "locations": [
+   "48 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Individual-contributor engineering role on battery energy storage projects; storage ranks below gas and fuel cell work and reads design-focused.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Engineer III, Energy Storage (Remote)",
+  "url": "https://solvenergy.wd1.myworkdayjobs.com/en-US/SOLV_External_Career/job/Remote---CA/Engineer-III--Energy-Storage--Remote-_J14313",
+  "work_mode": "remote",
+  "work_mode_by": "triage"
+ },
  "4d94db7d4f6e1c7f": {
   "active": false,
   "band": "top",
@@ -30543,7 +30992,7 @@
   },
   "seniority_match": true,
   "source": "workday",
-  "title": "Project Manager - Project Manager Senior",
+  "title": "Project Manager-Project Manager Senior",
   "url": "https://aep.wd1.myworkdayjobs.com/en-US/AEPCareerSite/job/Gahanna-OH/Project-Manager-Project-Manager-Senior_R19880-1",
   "work_mode": "",
   "work_mode_by": ""
@@ -30575,6 +31024,38 @@
   "url": "https://jobs.lever.co/cleanspark/294d67e8-3550-4d3b-950e-4283f2f89465",
   "work_mode": "remote",
   "work_mode_by": "triage"
+ },
+ "50e30ebeae48f628": {
+  "active": false,
+  "apply_url": "https://jobs.siemens.com/externaljobs/JobDetail/529077?source=Indeed",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "Siemens",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "San Francisco, CA, USA",
+  "locations": [
+   "San Francisco, CA, USA"
+  ],
+  "lowscore": true,
+  "pay": "$57,120\u2013$97,920/yr",
+  "priority": false,
+  "rationale": "Hands-on field technician maintaining and testing switchgear and electrical equipment at customer sites, a deep technical service role.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Electrical Services Specialist",
+  "url": "https://www.indeed.com/viewjob?jk=e066d9ff4d7a9f8e",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "5108c15338b0fca1": {
   "active": false,
@@ -33326,7 +33807,7 @@
  },
  "58565d109018597a": {
   "active": false,
-  "apply_url": "https://jobs.siemens-energy.com/en_US/CareersMarketplace/FolderDetail/OKR-implementation-Strategy-manager/306886",
+  "apply_url": "https://jobs.siemens-energy.com/en_US/CareersMarketplace/FolderDetail/OKR-Implementation-Strategy-manager/306886",
   "apply_url_own": true,
   "band": "misfit",
   "closed": "2026-11-06",
@@ -33700,7 +34181,8 @@
   "location": "Daly City, CA, US, 94014",
   "locations": [
    "Daly City, CA, US, 94014",
-   "Oakland, CA, US, 94612"
+   "Oakland, CA, US, 94612",
+   "Auberry, CA, US, 93602"
   ],
   "lowscore": true,
   "pay": "$105,000\u2013$169,000",
@@ -34606,6 +35088,38 @@
   "url": "https://www.indeed.com/viewjob?jk=0d883cbbd34d35cd",
   "work_mode": "hybrid"
  },
+ "5af79aee537fb57c": {
+  "active": false,
+  "apply_url": "https://careers.se.com/jobs/139433/job?utm_source=indeed_integration&iis=Job%20Board&iisn=Indeed&indeed-apply-token=73a2d2b2a8d6d5c0a62696875eaebd669103652d3f0c2cd5445d3e66b1592b0f",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "Schneider Electric",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Dallas, TX, USA",
+  "locations": [
+   "Dallas, TX, USA"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "Field role supporting installation, startup and commissioning of building automation and electrical systems, hands-on site construction work.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Project Engineer",
+  "url": "https://www.indeed.com/viewjob?jk=f498813b9b8d8416",
+  "work_mode": "onsite",
+  "work_mode_by": "triage"
+ },
  "5b13c482590d12d2": {
   "apply_url": "",
   "band": "top",
@@ -35372,6 +35886,38 @@
   "source": "greenhouse",
   "title": "Project Manager, Licensing",
   "url": "https://job-boards.greenhouse.io/valaratomics/jobs/4363872009",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
+ "5ccc59bee68b759d": {
+  "active": false,
+  "apply_url": "https://pcctalentacquisitionportal.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-7/candidate/so/pm/1/pl/3/opp/25066-Production-Coordinator-INTERNAL-LPC-LSBS-71/en-GB",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "Precision CastParts",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Portland, OR, USA",
+  "locations": [
+   "Portland, OR, USA"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": true,
+  "rationale": "Manufacturing shift-floor coordinator role scheduling staffing and throughput, unrelated to power generation or project delivery.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Production Coordinator (INTERNAL) LPC LSBS 71",
+  "url": "https://www.indeed.com/viewjob?jk=40651dfe337cb77d",
   "work_mode": "",
   "work_mode_by": ""
  },
@@ -37026,9 +37572,11 @@
   "work_mode": ""
  },
  "609502dec4474720": {
+  "active": false,
   "apply_url": "https://jobs.constellationenergy.com/jobs/140240/job?utm_source=indeed_integration&iis=Job%20Board&iisn=Indeed&indeed-apply-token=73a2d2b2a8d6d5c0a62696875eaebd669103652d3f0c2cd5445d3e66b1592b0f",
   "apply_url_own": true,
   "band": "possible",
+  "closed": "2026-11-12",
   "company": "Constellation Energy",
   "date_posted": "2026-10-22",
   "first_seen": "2026-10-22",
@@ -37109,6 +37657,38 @@
   "title": "Manager, Development (East Region)",
   "url": "https://invenergyllc.wd1.myworkdayjobs.com/en-US/invenergycareers/job/Chicago-IL/Manager--Development--East-Region-_R10486-1",
   "work_mode": ""
+ },
+ "61126097d5771657": {
+  "active": false,
+  "apply_url": "https://careers.gevernova.com/training-leader-1st-shift/job/R5058390",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "GE Vernova",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Greenville, SC, USA",
+  "locations": [
+   "Greenville, SC, USA"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": true,
+  "rationale": "Shop-floor training program lead for a manufacturing repair facility, no generation development content involved.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Training Leader - 1st Shift",
+  "url": "https://www.indeed.com/viewjob?jk=b684d16e34506e5a",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "611e34c2fcb74d28": {
   "active": false,
@@ -37332,7 +37912,8 @@
   "first_seen_at": "2026-10-21T23:12:01Z",
   "location": "Abernathy, TX, USA",
   "locations": [
-   "Abernathy, TX, USA"
+   "Abernathy, TX, USA",
+   "Deer Park, TX, USA"
   ],
   "lowscore": true,
   "pay": "",
@@ -37348,7 +37929,7 @@
   "seniority_match": false,
   "source": "indeed",
   "title": "Project Manager I",
-  "url": "https://www.indeed.com/viewjob?jk=a3cd7f3f238da3a4",
+  "url": "https://www.indeed.com/viewjob?jk=2c0054b3d965ee78",
   "work_mode": ""
  },
  "61d46afd4092540a": {
@@ -37916,6 +38497,35 @@
   "title": "Manager, Preconstruction",
   "url": "https://www.indeed.com/viewjob?jk=f1a89fbce2c56b86",
   "work_mode": "hybrid"
+ },
+ "6315641664591afd": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "possible",
+  "company": "Williams",
+  "date_posted": "2026-11-05",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "5 Locations",
+  "locations": [
+   "5 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Construction manager role on new power plant builds for a midstream company; unclear from the title whether program-level or field-resident.",
+  "score": 55,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Staff Construction Manager - Power, Project Execution",
+  "url": "https://williams.wd5.myworkdayjobs.com/en-US/External/job/TX-Houston---Tower/Staff-Construction-Manager---Power--Project-Execution_R113018-1",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "6324a5cc24b3a7c9": {
   "active": false,
@@ -39007,6 +39617,35 @@
   "url": "https://aep.wd1.myworkdayjobs.com/en-US/AEPCareerSite/job/Tulsa-OK/Project-Manager--Staff---Staff-Sr----NEW-GENERATION--Public-Service-Company-of-Oklahoma--PSO---_R18494",
   "work_mode": ""
  },
+ "66ba90b05a192695": {
+  "apply_url": "https://dukeenergy.wd1.myworkdayjobs.com/en-US/search/job/Raleigh-NC/Project-Manager-I---II---Carolinas-Generation_R42380",
+  "apply_url_own": true,
+  "band": "top",
+  "company": "Duke Energy",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Raleigh, NC, USA",
+  "locations": [
+   "Raleigh, NC, USA"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Utility project manager leading new generation projects end to end, coordinating engineering, construction and supply chain, matching the target owner's PM role.",
+  "score": 90,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Project Manager I - II - Carolinas Generation",
+  "url": "https://www.indeed.com/viewjob?jk=b33ed2a2e43d403a",
+  "work_mode": "hybrid",
+  "work_mode_by": "fetch"
+ },
  "66cf9d62d13f8bc8": {
   "active": false,
   "band": "weak",
@@ -39138,9 +39777,11 @@
   "work_mode": "hybrid"
  },
  "67452e5796f2b57d": {
+  "active": false,
   "apply_url": "",
   "apply_url_own": false,
   "band": "weak",
+  "closed": "2026-11-12",
   "company": "GE Vernova",
   "date_posted": "2026-11-06",
   "first_seen": "2026-11-06",
@@ -40338,6 +40979,35 @@
   "work_mode": "",
   "work_mode_by": ""
  },
+ "6a0813360202c9f5": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "possible",
+  "company": "Google",
+  "date_posted": "",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Papillion, NE, USA, Council Bluffs, IA, USA, New Albany, OH, USA",
+  "locations": [
+   "Papillion, NE, USA, Council Bluffs, IA, USA, New Albany, OH, USA"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Technical program manager over electrical infrastructure projects and incident response at hyperscale data centers, mixing new-build work with ongoing operations support.",
+  "score": 55,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "google-careers",
+  "title": "Senior Technical Program Manager I, Electrical Operations, Data Centers",
+  "url": "https://www.google.com/about/careers/applications/jobs/results/108131559403332294-senior-technical-program-manager-i-electrical-operations-data-centers",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "6a302d5ab4f136d6": {
   "active": false,
   "apply_url": "https://hdep.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/8757/?mode=location",
@@ -40587,7 +41257,8 @@
   "first_seen_at": "2026-11-11T00:43:04Z",
   "location": "Houston, TX, USA",
   "locations": [
-   "Houston, TX, USA"
+   "Houston, TX, USA",
+   "5 Locations"
   ],
   "pay": "",
   "priority": true,
@@ -40600,9 +41271,9 @@
    "rubric": "44dd0cc802"
   },
   "seniority_match": true,
-  "source": "indeed",
+  "source": "workday",
   "title": "Staff Power Project Manager, Project Execution",
-  "url": "https://www.indeed.com/viewjob?jk=00c47f1df588ad81",
+  "url": "https://williams.wd5.myworkdayjobs.com/en-US/External/job/TX-Houston---Tower/Staff-Power-Project-Manager--Project-Execution_R113036-1",
   "work_mode": "",
   "work_mode_by": ""
  },
@@ -42809,7 +43480,7 @@
   "work_mode_by": ""
  },
  "70c130fd8cd84659": {
-  "apply_url": "",
+  "apply_url": "https://careers.gevernova.com/lead-generator-project-engineer-2/job/R5058487",
   "apply_url_own": false,
   "band": "possible",
   "company": "GE Vernova",
@@ -42818,9 +43489,10 @@
   "first_seen_at": "2026-11-11T00:43:04Z",
   "location": "3 Locations",
   "locations": [
-   "3 Locations"
+   "3 Locations",
+   "Schenectady, NY, USA"
   ],
-  "pay": "",
+  "pay": "$98,400\u2013$164,000/yr",
   "priority": false,
   "rationale": "Project engineer role for generator equipment at a turbine OEM, close to her equipment and technical work but on the OEM side rather than owner side.",
   "score": 55,
@@ -44679,6 +45351,38 @@
   "url": "https://talenenergy.wd1.myworkdayjobs.com/en-US/TalenCareers/job/Lawrenceburg-IN/Power-Plant-Auxiliary-Operator_R0004205-1",
   "work_mode": ""
  },
+ "7678e7e5cd768916": {
+  "active": false,
+  "apply_url": "https://recruiting2.ultipro.com/SAL1016SALO/JobBoard/3347ce03-ba60-4bdc-8af2-26369c80b18f/OpportunityDetail?opportunityId=2bf7b542-3f7d-4303-b36e-3025cb929ada&postingId=3d137518-aa26-4d46-88b5-0083f2d6c976",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "Salas O'Brien",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Lakewood, CO, USA",
+  "locations": [
+   "Lakewood, CO, USA"
+  ],
+  "lowscore": true,
+  "pay": "$70,000\u2013$80,000/yr",
+  "priority": false,
+  "rationale": "Entry-level electrical design role at a consulting firm, junior and focused on a single engineering discipline.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Entry-level Electrical Engineer",
+  "url": "https://www.indeed.com/viewjob?jk=a43b271de630ac28",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "767ab8d65d3654f2": {
   "active": false,
   "apply_url": "",
@@ -44708,6 +45412,38 @@
   "source": "workday",
   "title": "Vice President, Client Relationship Management",
   "url": "https://brookfield.wd5.myworkdayjobs.com/en-US/brookfield/job/Seoul-South-Korea/Vice-President--Client-Relationship-Management_R2053622",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
+ "76a1375753d4287d": {
+  "active": false,
+  "apply_url": "https://ercot.wd1.myworkdayjobs.com/en-US/ercot_careers/job/Austin-TX/System-Operator-Development-Program_R2568-1",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "ERCOT/Electric Reliability Council of Texas",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Austin, TX, USA",
+  "locations": [
+   "Austin, TX, USA"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "Entry-level trainee program toward grid control room operator certification, junior and operations focused, not development or construction.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "System Operator Development Program",
+  "url": "https://www.indeed.com/viewjob?jk=25a8e1967f868435",
   "work_mode": "",
   "work_mode_by": ""
  },
@@ -46221,7 +46957,8 @@
   "first_seen_at": "2026-10-08T00:18:14Z",
   "location": "New York, NY",
   "locations": [
-   "New York, NY"
+   "New York, NY",
+   "Austin, TX"
   ],
   "lowscore": true,
   "pay": "$208K \u2013 $263K \u00b7 Offers Equity",
@@ -46939,6 +47676,38 @@
   "work_mode": "onsite",
   "work_mode_by": "triage"
  },
+ "7ca6353b23207904": {
+  "active": false,
+  "apply_url": "https://eklm.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/36055",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "Wesco",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Omaha, NE, USA",
+  "locations": [
+   "Omaha, NE, USA"
+  ],
+  "lowscore": true,
+  "pay": "$78,000\u2013$95,000/yr",
+  "priority": false,
+  "rationale": "Oversees data center cabling and IT technicians' day-to-day work, no generation or development scope involved.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "IT Lead - Data Center",
+  "url": "https://www.indeed.com/viewjob?jk=1a3f057413c049d1",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "7cb7d32a2090d463": {
   "active": false,
   "band": "misfit",
@@ -47304,9 +48073,11 @@
   "work_mode_by": ""
  },
  "7d8780feebde3875": {
+  "active": false,
   "apply_url": "https://aep.wd1.myworkdayjobs.com/AEPCareerSite/job/Columbus-OH/Nuclear-Development---Dir-Commercial-Development---Strategy_R20691",
   "apply_url_own": true,
   "band": "weak",
+  "closed": "2026-11-12",
   "company": "American Electric Power",
   "date_posted": "2026-10-28",
   "first_seen": "2026-10-29",
@@ -48455,6 +49226,35 @@
   "source": "workday",
   "title": "Director, Business Development, Capital Markets",
   "url": "https://equinix.wd1.myworkdayjobs.com/en-US/External/job/Singapore/Director--Business-Developement--Capital-Markets_JR-164326",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
+ "8080eb5ef0443c0c": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "possible",
+  "company": "Avangrid",
+  "date_posted": "2026-11-12",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "3 Locations",
+  "locations": [
+   "3 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Generic senior manager, technical projects title at a renewable developer and utility with no description available to clarify actual scope.",
+  "score": 55,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Senior Manager - Technical Projects",
+  "url": "https://iberdrola.wd3.myworkdayjobs.com/en-US/Iberdrola/job/United-States-Of-America-New-York-Rochester/Senior-Manager---Technical-Projects_R-34616",
   "work_mode": "",
   "work_mode_by": ""
  },
@@ -50099,7 +50899,7 @@
   "seniority_match": true,
   "source": "indeed",
   "title": "Principal Data Center Facilities Development Manager",
-  "url": "https://www.indeed.com/viewjob?jk=72bc487186b0390d",
+  "url": "https://www.indeed.com/viewjob?jk=712da5610ebadf6d",
   "work_mode": ""
  },
  "83b15e521c038bbc": {
@@ -50453,7 +51253,8 @@
    "United States, Texas, Dallas",
    "United States, Virginia, Boydton",
    "United States, Georgia, Atlanta",
-   "United States, Washington, Wenatchee"
+   "United States, Washington, Wenatchee",
+   "United States, Arizona, Phoenix"
   ],
   "lowscore": true,
   "pay": "USD $84,400 - $168,800 per year",
@@ -50469,7 +51270,7 @@
   "seniority_match": false,
   "source": "microsoft",
   "title": "Data Center Program Manager",
-  "url": "https://apply.careers.microsoft.com/careers/job/1970393556972681",
+  "url": "https://apply.careers.microsoft.com/careers/job/1970393557051504",
   "work_mode": "onsite"
  },
  "8489131f20dadc5f": {
@@ -50929,6 +51730,35 @@
   "work_mode": "remote",
   "work_mode_by": "fetch"
  },
+ "854a9f9b500898e2": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "top",
+  "company": "NiSource",
+  "date_posted": "2026-11-12",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Valparaiso IN - Vale Park",
+  "locations": [
+   "Valparaiso IN - Vale Park"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Directs a major capital program delivering new power generation construction for a regulated utility, owner side from development through completion.",
+  "score": 90,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Director Major Projects-New Power Generation Construction",
+  "url": "https://nisource.wd1.myworkdayjobs.com/en-US/NiSource/job/Valparaiso-IN---Vale-Park/Director-Major-Projects-New-Power-Generation-Construction_R00944137",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "85531baf615e327a": {
   "active": false,
   "apply_url": "https://jobs.pseg.com/job/Newark-AI-Business-Product-Manager-NJ-07101/1438839300/",
@@ -50960,6 +51790,38 @@
   "url": "https://www.indeed.com/viewjob?jk=ec5e055c15c21998",
   "work_mode": "hybrid"
  },
+ "856414c1c0f990e6": {
+  "active": false,
+  "apply_url": "https://recruit.zohopublic.com/recruit/PortalDetail.na?iframe=true&digest=XOy61irGcubSAdEVKNPghHGAUnkE7bVo.a85bxdBEmQ-&jobid=409790000012273149&widgetid=409790000000072311&embedsource=CareerSite",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "Performix",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Dallas, TX, USA",
+  "locations": [
+   "Dallas, TX, USA"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "Hands-on field commissioning and testing of PLCs, switchgear and protection relays, a traveling technician role already behind her.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Data Center Engineer",
+  "url": "https://www.indeed.com/viewjob?jk=bb068df007f49b56",
+  "work_mode": "onsite",
+  "work_mode_by": "fetch"
+ },
  "8570dbf055d6795a": {
   "apply_url": "https://faithtechnologies.wd1.myworkdayjobs.com/en-US/FTI/job/TX---Fort-Stockton/EPC-Project-Manager_R12334",
   "band": "weak",
@@ -50985,6 +51847,35 @@
   "source": "indeed",
   "title": "EPC Project Manager",
   "url": "https://www.indeed.com/viewjob?jk=8a383e243b8db26c",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
+ "858324c4e8f09f08": {
+  "apply_url": "https://jobs.siemens-energy.com/en_US/CareersMarketplace/FolderDetail/Head-of-Gas-Turbine-Auxiliaries-and-Controls-Engineering-US/306349",
+  "apply_url_own": true,
+  "band": "weak",
+  "company": "Siemens Energy",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Orlando, FL, USA",
+  "locations": [
+   "Orlando, FL, USA"
+  ],
+  "pay": "",
+  "priority": true,
+  "rationale": "Leads an engineering team troubleshooting and servicing the operating gas turbine fleet, an operations-support engineering role rather than new plant delivery.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Head of Gas Turbine Auxiliaries and Controls Engineering - US",
+  "url": "https://www.indeed.com/viewjob?jk=3addc907a270de26",
   "work_mode": "",
   "work_mode_by": ""
  },
@@ -52580,9 +53471,11 @@
   "work_mode_by": "triage"
  },
  "891e4477d7c7006a": {
+  "active": false,
   "apply_url": "https://xcelenergy.wd1.myworkdayjobs.com/External/job/Minneapolis-MN-55401/Generation-Development-Project-Manager--I--II-or-III-_JR116796-1",
   "apply_url_own": true,
   "band": "top",
+  "closed": "2026-11-12",
   "company": "Xcel Energy",
   "date_posted": "2026-10-16",
   "first_seen": "2026-10-17",
@@ -52668,6 +53561,35 @@
   "title": "Mechanical Engineering Manager - Electromechanical",
   "url": "https://jobs.lever.co/mainspringenergy/86aca04c-106f-4a19-88a8-2e0af7b90493",
   "work_mode": "onsite",
+  "work_mode_by": "fetch"
+ },
+ "893df2aa63af2b05": {
+  "apply_url": "https://jobs.exeloncorp.com/jobs/33417/job?utm_source=indeed_integration&iis=Job%20Board&iisn=Indeed&indeed-apply-token=73a2d2b2a8d6d5c0a62696875eaebd669103652d3f0c2cd5445d3e66b1592b0f",
+  "apply_url_own": true,
+  "band": "weak",
+  "company": "Exelon",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Kennett Square, PA, USA",
+  "locations": [
+   "Kennett Square, PA, USA"
+  ],
+  "pay": "$188,800\u2013$283,200/yr",
+  "priority": true,
+  "rationale": "Director role centered on partner management and commercial negotiations advancing projects, a deal-execution role rather than build delivery.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Director, Development & Commercial Execution",
+  "url": "https://www.indeed.com/viewjob?jk=87466dc2a45adca7",
+  "work_mode": "hybrid",
   "work_mode_by": "fetch"
  },
  "893e88a06f7c2c93": {
@@ -54594,7 +55516,9 @@
   "work_mode": "remote"
  },
  "8d8082288f07d7ca": {
+  "active": false,
   "band": "weak",
+  "closed": "2026-11-12",
   "company": "Google",
   "date_posted": "",
   "first_seen": "2026-09-18",
@@ -56421,9 +57345,11 @@
   "work_mode": ""
  },
  "92d82bd9d158c063": {
+  "active": false,
   "apply_url": "",
   "apply_url_own": false,
-  "band": "weak",
+  "band": "misfit",
+  "closed": "2026-11-12",
   "company": "NextEra Energy",
   "date_posted": "2026-10-13",
   "first_seen": "2026-10-13",
@@ -56433,16 +57359,17 @@
    "Palm Beach Gardens, FL, US, 33410",
    "Juno Beach, FL, US, 33408"
   ],
+  "lowscore": true,
   "pay": "",
   "pay_checked": true,
   "priority": false,
-  "rationale": "Principal SCADA/controls engineer for renewable generation remote-ops \u2014 single-discipline controls engineering per calibration, bands weak despite the Principal grade.",
-  "score": 35,
+  "rationale": "Designs SCADA control system architecture for remote operation of renewable generation and substations, deep controls design engineering work.",
+  "score": 15,
   "scoring_fingerprint": {
-   "at": "2026-10-13T23:58Z",
+   "at": "2026-11-12T02:16Z",
    "model": "claude-sonnet-5",
-   "policy": "139133cf50",
-   "rubric": "a34b700a29"
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
   },
   "seniority_match": true,
   "source": "successfactors",
@@ -56732,7 +57659,8 @@
    "Dublin, CA, US, 94568",
    "Newark, CA, US, 94538",
    "Cupertino, CA, US, 95014",
-   "Redding, CA, US, 96002"
+   "Redding, CA, US, 96002",
+   "Auberry, CA, US, 93602"
   ],
   "pay": "$144,000\u2013$244,000",
   "priority": false,
@@ -56747,7 +57675,7 @@
   "seniority_match": true,
   "source": "successfactors",
   "title": "Program Manager, Principal",
-  "url": "https://careers.pge.com/job/Oakland-Program-Manager%2C-Principal-CA-94612/1447093900/",
+  "url": "https://careers.pge.com/job/Oakland-Program-Manager%2C-Principal-CA-94612/1449708200/",
   "work_mode": "hybrid"
  },
  "93386e9a084382ec": {
@@ -61499,6 +62427,38 @@
   "work_mode": "onsite",
   "work_mode_by": "tag"
  },
+ "9f65add9db2cc9d3": {
+  "active": false,
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "SpaceX",
+  "date_posted": "2026-11-10",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Pecan Island, LA",
+  "locations": [
+   "Pecan Island, LA"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "Directs warehousing, inventory and logistics for a rocket production site, a materials and logistics role unrelated to power plant delivery.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "greenhouse",
+  "title": "Director, Materials Management (Starbase Infrastructure - Louisiana)",
+  "url": "https://job-boards.greenhouse.io/spacex/jobs/8936748002",
+  "work_mode": "remote",
+  "work_mode_by": "fetch"
+ },
  "9f8c6edfc4cbe461": {
   "apply_url": "",
   "apply_url_own": false,
@@ -61767,6 +62727,35 @@
   "title": "Production Associate, Data Center Manufacturing",
   "url": "https://www.indeed.com/viewjob?jk=00d79338c12a7626",
   "work_mode": "onsite"
+ },
+ "a031a1a0873b3399": {
+  "apply_url": "https://dukeenergy.wd1.myworkdayjobs.com/en-US/search/job/Charlotte-NC/Lead-Engineer---Gas---PM-C--Project-Management---Construction-_R42390",
+  "apply_url_own": true,
+  "band": "weak",
+  "company": "Duke Energy",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Charlotte, NC, USA",
+  "locations": [
+   "Charlotte, NC, USA"
+  ],
+  "pay": "",
+  "priority": true,
+  "rationale": "Leads instrumentation and controls design, DCS specification, control logic and factory testing on gas plant projects, single-discipline engineering.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Lead Engineer \u2013 Gas \u2013 PM&C (Project Management & Construction)",
+  "url": "https://www.indeed.com/viewjob?jk=a0e4fa4dc4967090",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "a0462137c561ddfc": {
   "active": false,
@@ -65069,6 +66058,38 @@
   "url": "https://www.indeed.com/viewjob?jk=96372bf36d99b0bb",
   "work_mode": "hybrid"
  },
+ "a91368dfd7fa130b": {
+  "active": false,
+  "apply_url": "https://pcctalentacquisitionportal.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-7/candidate/so/pm/1/pl/3/opp/25065-Financial-Planning-and-Analysis/en-GB",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "Precision CastParts",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Minerva, OH, USA",
+  "locations": [
+   "Minerva, OH, USA"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": true,
+  "rationale": "Finance role supporting a controller with budgets, forecasts and financial statements, pure accounting work with no power or project content.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Financial Planning and Analysis",
+  "url": "https://www.indeed.com/viewjob?jk=6b1847bdf311c2ac",
+  "work_mode": "onsite",
+  "work_mode_by": "triage"
+ },
  "a915383fc3146ebb": {
   "active": false,
   "apply_url": "",
@@ -65839,7 +66860,9 @@
   "work_mode_by": "fetch"
  },
  "aa8614ecbcf3e994": {
-  "band": "weak",
+  "active": false,
+  "band": "misfit",
+  "closed": "2026-11-12",
   "company": "PG&E",
   "date_posted": "2026-09-14",
   "first_seen": "2026-09-18",
@@ -65854,24 +66877,27 @@
    "San Ramon, CA, US, 94583",
    "San Jose, CA, US, 95138",
    "Stockton, CA, US, 95204",
-   "Hayward, CA, US, 94545"
+   "Hayward, CA, US, 94545",
+   "Fresno, CA, US, 93720"
   ],
+  "lowscore": true,
   "pay": "$140,000\u2013$238,000",
   "pay_checked": true,
   "priority": false,
-  "rationale": "Same reliability-standards strategy scope as the Senior version, just at Expert level.",
-  "score": 35,
+  "rationale": "Sets enterprise reliability strategy and drives IEEE, IEC and FERC standards work for existing grid assets, strategy engineering, not new plant construction.",
+  "score": 15,
   "scoring_fingerprint": {
-   "at": "2026-09-18T21:40Z",
+   "at": "2026-11-12T02:16Z",
    "model": "claude-sonnet-5",
-   "policy": "139133cf50",
-   "rubric": "deae532890"
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
   },
   "seniority_match": true,
   "source": "successfactors",
   "title": "Expert, Grid Innovation Engineer - Reliability, Strategy, and Partnerships",
   "url": "https://careers.pge.com/job/Oakland-Expert%2C-Grid-Innovation-Engineer-Reliability%2C-Strategy%2C-and-Partnerships-CA-94612/1394097100/",
-  "work_mode": "hybrid"
+  "work_mode": "hybrid",
+  "work_mode_by": "fetch"
  },
  "aa86552f3873c3c0": {
   "active": false,
@@ -66275,9 +67301,11 @@
   "work_mode": "hybrid"
  },
  "abf82a47165fdb42": {
+  "active": false,
   "apply_url": "",
   "apply_url_own": false,
   "band": "possible",
+  "closed": "2026-11-12",
   "company": "GE Vernova",
   "date_posted": "2026-11-05",
   "first_seen": "2026-11-05",
@@ -68114,6 +69142,35 @@
   "title": "Special Projects Deployment Manager",
   "url": "https://job-boards.greenhouse.io/switch-data-centers/jobs/4456007009",
   "work_mode": "remote"
+ },
+ "b09740e5af4d3dab": {
+  "apply_url": "https://jobs.ashbyhq.com/transgrid-energy/ad4bea03-8163-4a15-a48a-480dd9ca2fba?utm_source=MqX9elXXvV",
+  "apply_url_own": true,
+  "band": "possible",
+  "company": "TransGrid Energy",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Houston, TX, USA",
+  "locations": [
+   "Houston, TX, USA"
+  ],
+  "pay": "$350,000\u2013$450,000/yr",
+  "priority": true,
+  "rationale": "Senior executive building a data center power business, blending genuine site and power development with heavy P&L, fundraising and joint-venture commercial duties.",
+  "score": 55,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "SVP, Data Center Infrastructure Business",
+  "url": "https://www.indeed.com/viewjob?jk=d76af9461654e755",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "b0b0c6a85b05a7de": {
   "active": false,
@@ -70295,7 +71352,8 @@
   "locations": [
    "Broomfield, CO, US",
    "Lakewood, CO, US",
-   "Denver, CO, US"
+   "Denver, CO, US",
+   "Denver, CO, USA"
   ],
   "lowscore": true,
   "pay": "$90,000\u2013$110,000/yr",
@@ -70311,7 +71369,7 @@
   "seniority_match": false,
   "source": "indeed",
   "title": "Energy Consultant Development Program",
-  "url": "https://www.indeed.com/viewjob?jk=344e40cd9282da9c",
+  "url": "https://www.indeed.com/viewjob?jk=cc209c31081b1df9",
   "work_mode": ""
  },
  "b67db1f9dce12ee2": {
@@ -70493,6 +71551,35 @@
   "url": "https://www.indeed.com/viewjob?jk=3d050c3c6d48bbb1",
   "work_mode": "onsite",
   "work_mode_by": "triage"
+ },
+ "b70d7b15503e2d73": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "strong",
+  "company": "Williams",
+  "date_posted": "2026-11-12",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "TX Houston - Tower",
+  "locations": [
+   "TX Houston - Tower"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Manages construction for a midstream company's new power generation buildout, reading as program-level oversight on the owner side.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Manager of Construction, Project Execution",
+  "url": "https://williams.wd5.myworkdayjobs.com/en-US/External/job/TX-Houston---Tower/Manager-of-Construction--Project-Execution_R112647-1",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "b71f61f3bc74f769": {
   "apply_url": "https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/345569",
@@ -70847,8 +71934,10 @@
   "work_mode": "hybrid"
  },
  "b7c8c4c2559f74f5": {
+  "active": false,
   "apply_url": "https://aep.wd1.myworkdayjobs.com/AEPCareerSite/job/Cresap-WV/Director--Major-Projects---NEW-GENERATION--Construction-Utility-Projects-_R19012",
   "band": "top",
+  "closed": "2026-11-12",
   "company": "American Electric Power",
   "date_posted": "2026-09-25",
   "first_seen": "2026-09-25",
@@ -70878,7 +71967,7 @@
   "seniority_match": true,
   "source": "workday",
   "title": "Director, Major Projects | NEW GENERATION (Construction Utility Projects)",
-  "url": "https://aep.wd1.myworkdayjobs.com/en-US/AEPCareerSite/job/Louisa-KY/Director--Major-Projects---NEW-GENERATION--Construction-Utility-Projects-_R19013",
+  "url": "https://aep.wd1.myworkdayjobs.com/en-US/AEPCareerSite/job/Louisa-KY/Director--Major-Projects---NEW-GENERATION--Construction-Utility-Projects-_R19044",
   "work_mode": "onsite"
  },
  "b7d3038ac0e236a8": {
@@ -71147,6 +72236,35 @@
   "title": "Transmission Development Manager",
   "url": "https://aep.wd1.myworkdayjobs.com/en-US/AEPCareerSite/job/New-Albany-OH/Transmission-Development-Manager_R19526",
   "work_mode": ""
+ },
+ "b880e138356f3857": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "strong",
+  "company": "Williams",
+  "date_posted": "2026-11-06",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "3 Locations",
+  "locations": [
+   "3 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Project manager role on new power generation construction for a midstream company's power buildout, engineering and construction execution focus.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Staff Electrical E&C Project Manager - Power, Project Execution",
+  "url": "https://williams.wd5.myworkdayjobs.com/en-US/External/job/TX-Houston---Tower/Staff-Electrical-E-C-Project-Manager---Power--Project-Execution_R113006-1",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "b88a10a13925b6ee": {
   "active": true,
@@ -73094,6 +74212,35 @@
   "url": "https://www.indeed.com/viewjob?jk=a0ae8f190d6eee14",
   "work_mode": "remote"
  },
+ "bdb2577fd8605315": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "strong",
+  "company": "Avangrid",
+  "date_posted": "2026-11-12",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "4 Locations",
+  "locations": [
+   "4 Locations"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Senior manager leading interconnection strategy and execution for a renewable developer and utility, core development work without construction delivery.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Senior Manager - Interconnections",
+  "url": "https://iberdrola.wd3.myworkdayjobs.com/en-US/Iberdrola/job/United-States-Of-America-New-York-Rochester/Senior-Manager---Interconnections_R-35179",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "bdd6654197c6a5ab": {
   "active": false,
   "apply_url": "",
@@ -74465,6 +75612,38 @@
   "work_mode": "",
   "work_mode_by": ""
  },
+ "c1e45b6e56f99ec6": {
+  "active": false,
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "Fluidstack",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Lubbock, TX",
+  "locations": [
+   "Lubbock, TX"
+  ],
+  "lowscore": true,
+  "pay": "$202K \u2013 $258K \u00b7 Offers Equity",
+  "priority": true,
+  "rationale": "Hands-on, site-resident controls engineering role building behind-the-meter generation controls, physically demanding field work rather than program leadership.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "ashby",
+  "title": "Controls Engineer - Data Center Operations",
+  "url": "https://jobs.ashbyhq.com/fluidstack/82814b5d-1c3c-4c52-98f9-6a740334a4e7",
+  "work_mode": "onsite",
+  "work_mode_by": "triage"
+ },
  "c1ec0eab2300a03d": {
   "active": false,
   "band": "weak",
@@ -75072,6 +76251,38 @@
   "url": "https://gevernova.wd5.myworkdayjobs.com/en-US/Vernova_ExternalSite/job/Greenville/GE-Vernova-Product-Definition-Engineer---Gas-Turbine-Systems_R5053528-2",
   "work_mode": ""
  },
+ "c325aa7737864847": {
+  "active": false,
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "DigitalBridge",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Los Angeles, California",
+  "locations": [
+   "Los Angeles, California"
+  ],
+  "lowscore": true,
+  "pay": "$100,000",
+  "priority": false,
+  "rationale": "Corporate accounting and consolidation role at an infrastructure investor, pure back-office finance work with no development content.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "greenhouse",
+  "title": "Senior Accountant",
+  "url": "https://job-boards.greenhouse.io/digitalbridge/jobs/5289237007",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "c334fb9dbb6eb5fa": {
   "active": false,
   "apply_url": "",
@@ -75102,6 +76313,35 @@
   "title": "Energy Efficiency Engineer - Commercial and Industrial",
   "url": "https://xcelenergy.wd1.myworkdayjobs.com/en-US/External/job/Denver-CO-80205/Energy-Efficiency-Engineer---Commercial-and-Industrial_JR117015-1",
   "work_mode": ""
+ },
+ "c3380d9372c59bda": {
+  "apply_url": "https://qtsdatacenters.wd5.myworkdayjobs.com/en-US/qts/job/US-OH-Van-Wert-1-DC1/Sr-Development-Project-Engineer--Data-Center-Construction-_R2026-2459-1",
+  "apply_url_own": true,
+  "band": "strong",
+  "company": "QTS",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Van Wert, OH, USA",
+  "locations": [
+   "Van Wert, OH, USA"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Supports data center campus development, permitting, procurement and construction and commissioning at an owner-side developer, closely matching target development work.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Sr. Development Project Engineer (Data Center Construction)",
+  "url": "https://www.indeed.com/viewjob?jk=aa6b58d8f621db71",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "c35a39d9735ce9b8": {
   "active": false,
@@ -75532,6 +76772,38 @@
   "url": "https://jobs.nexteraenergy.com/job/Palo-Nuclear-Site-Principal-Engineer-I&amp;CElectrical-IA-52324/1422659200/",
   "work_mode": ""
  },
+ "c4743ceabb151112": {
+  "active": false,
+  "apply_url": "https://parkercareers.ttcportals.com/jobs/18468768-manufacturing-engineer-ii?tm_job=70261-1A&tm_event=view&tm_company=1147",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "Parker Hannifin",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Troy, IN, USA",
+  "locations": [
+   "Troy, IN, USA"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": true,
+  "rationale": "Manufacturing process engineering role at a components plant, no power generation or data center scope.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Manufacturing Engineer II",
+  "url": "https://www.indeed.com/viewjob?jk=51e74b5fb12f89e1",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "c481d1d4b3feed8e": {
   "active": false,
   "apply_url": "",
@@ -75916,7 +77188,8 @@
   "first_seen_at": "2026-11-11T00:43:04Z",
   "location": "Atlanta, GA, USA",
   "locations": [
-   "Atlanta, GA, USA"
+   "Atlanta, GA, USA",
+   "Austin, TX, USA"
   ],
   "pay": "",
   "priority": true,
@@ -75931,7 +77204,7 @@
   "seniority_match": true,
   "source": "indeed",
   "title": "Data Center Project Manager - Retrofit, End of Life, Operations",
-  "url": "https://www.indeed.com/viewjob?jk=86ce5a9f63a14bd3",
+  "url": "https://www.indeed.com/viewjob?jk=8ce754fe87805732",
   "work_mode": "",
   "work_mode_by": ""
  },
@@ -77825,6 +79098,35 @@
   "title": "Senior Director, Data Center Facilities Development",
   "url": "https://www.indeed.com/viewjob?jk=863c09e9de2b06b2",
   "work_mode": ""
+ },
+ "c9c58147fe12cb4b": {
+  "apply_url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-VA-Remote/Manager--AI-Factory-Deployment-Data-Center_JR2029786",
+  "apply_url_own": true,
+  "band": "possible",
+  "company": "NVIDIA",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "VA, USA",
+  "locations": [
+   "VA, USA"
+  ],
+  "pay": "$184,000\u2013$276,000/yr",
+  "priority": true,
+  "rationale": "Leads data center hardware deployment logistics, racking, power and network hookup at scale, adjacent to but not owning power or construction delivery.",
+  "score": 55,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Manager, AI Factory Deployment Data Center",
+  "url": "https://www.indeed.com/viewjob?jk=9e77aadb739b711d",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "c9caa1f1eb8d12ce": {
   "active": false,
@@ -79759,6 +81061,38 @@
   "url": "https://www.indeed.com/viewjob?jk=53c904afdc2f4e24",
   "work_mode": "onsite"
  },
+ "ce2bb640bd2b7bc1": {
+  "active": false,
+  "apply_url": "https://jobs.dsv.com/job/Lancaster-Data-Center-Team-Lead-RMA-A-Shift-M-F-6am-230pm-OH-0043130/1456428933/",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "DSV",
+  "date_posted": "2026-11-12",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Lancaster, OH, USA",
+  "locations": [
+   "Lancaster, OH, USA"
+  ],
+  "lowscore": true,
+  "pay": "$27\u2013$27/hr",
+  "priority": false,
+  "rationale": "Warehouse shift lead handling server receiving, inventory and material movement at a data center, no generation or development content.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Data Center Team Lead RMA A Shift M-F 6am-230pm",
+  "url": "https://www.indeed.com/viewjob?jk=dc2685975f54355d",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "ce3ee4a8dce909ef": {
   "active": false,
   "band": "weak",
@@ -79861,7 +81195,8 @@
   "first_seen_at": "2026-11-10T02:53:43Z",
   "location": "Menlo Park, CA",
   "locations": [
-   "Menlo Park, CA"
+   "Menlo Park, CA",
+   "Remote"
   ],
   "lowscore": true,
   "pay": "$129,854\u2013$152,770/yr",
@@ -81754,6 +83089,38 @@
   "url": "https://www.indeed.com/viewjob?jk=8735b9c82459437b",
   "work_mode": ""
  },
+ "d2e1829036358a63": {
+  "active": false,
+  "apply_url": "https://trissential-jobs.icims.com/jobs/57742/job?utm_source=indeed_integration&iis=Job%20Board&iisn=Indeed&indeed-apply-token=73a2d2b2a8d6d5c0a62696875eaebd669103652d3f0c2cd5445d3e66b1592b0f",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "Expleo Group",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Milwaukee, WI, USA",
+  "locations": [
+   "Milwaukee, WI, USA"
+  ],
+  "lowscore": true,
+  "pay": "$61\u2013$71/hr",
+  "priority": false,
+  "rationale": "Generic IT project management for energy-sector clients, no power generation or construction content described in the posting.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Senior Project Manager, Energy Delivery",
+  "url": "https://www.indeed.com/viewjob?jk=6e5ea0f844daf185",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "d30fc2f9fe1802c5": {
   "active": false,
   "apply_url": "https://apply.workable.com/j/84E753A0BA",
@@ -81815,9 +83182,11 @@
   "work_mode": ""
  },
  "d34569ee8fd9e0fc": {
+  "active": false,
   "apply_url": "https://jobs.siemens-energy.com/en_US/CareersMarketplace/FolderDetail/Global-Project-Procurement-Manager/304745",
   "apply_url_own": true,
   "band": "weak",
+  "closed": "2026-11-12",
   "company": "Siemens Energy",
   "date_posted": "2026-10-07",
   "first_seen": "2026-10-09",
@@ -82834,6 +84203,35 @@
   "title": "Business Development, Technical Initiatives",
   "url": "https://jobs.ashbyhq.com/crusoe/5e25e8ff-bf6c-4d46-b0c7-cbbe40cf0460",
   "work_mode": ""
+ },
+ "d5ea35feb2f7591e": {
+  "apply_url": "https://hdep.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/9072/?mode=location",
+  "apply_url_own": true,
+  "band": "strong",
+  "company": "Digital Realty",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Ashburn, VA, USA",
+  "locations": [
+   "Ashburn, VA, USA"
+  ],
+  "pay": "$140,000\u2013$150,000/yr",
+  "priority": false,
+  "rationale": "Leads complex data center customer buildouts end to end for an owner-operator, strong delivery work though centered on customer fit-outs rather than power scope.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Sr. Implementation Manager",
+  "url": "https://www.indeed.com/viewjob?jk=7798be3002e12eb8",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "d61c2f5f3f8fd013": {
   "apply_url": "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=5b74bf5a-d7fa-4261-bc0f-883ec7ebf1e2&ccId=19000101_000003&jobId=574786&jwId=SYS:JW:001&source=IN&lang=en_US",
@@ -85646,6 +87044,35 @@
   "work_mode": "onsite",
   "work_mode_by": "triage"
  },
+ "dd86d2eea8d01391": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "weak",
+  "company": "GE Vernova",
+  "date_posted": "2026-11-12",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Greenville",
+  "locations": [
+   "Greenville"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Title names senior electrical engineering discipline leadership, with no description shown to indicate full plant delivery ownership.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Senior Electrical Engineering Leader - Power Infrastructure",
+  "url": "https://gevernova.wd5.myworkdayjobs.com/en-US/Vernova_ExternalSite/job/Greenville/Senior-Electrical-Engineering-Leader---Power-Infrastructure_R5058692",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "dd8a12d665b68776": {
   "active": false,
   "apply_url": "",
@@ -86861,6 +88288,36 @@
   "url": "https://prim.wd108.myworkdayjobs.com/en-US/Primoris/job/Hubbard-Texas/Lead-Document-Control---Primoris-Energy-Services---Hubbard--Texas_JR102222",
   "work_mode": ""
  },
+ "e081bb62131f0f16": {
+  "apply_url": "https://recurrentenergy.wd12.myworkdayjobs.com/RecurrentEnergy/job/US---Texas/Manager--Project-Development---Central_10000549",
+  "apply_url_own": true,
+  "band": "weak",
+  "company": "Recurrent Energy",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "TX, USA",
+  "locations": [
+   "TX, USA",
+   "US - Texas"
+  ],
+  "pay": "",
+  "priority": true,
+  "rationale": "Solar and storage development manager whose core duties include owning project financial models and economics, a commercially weighted role.",
+  "score": 35,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "Manager, Project Development - Central",
+  "url": "https://recurrentenergy.wd12.myworkdayjobs.com/en-US/RecurrentEnergy/job/US---Texas/Manager--Project-Development---Central_10000549",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "e0844265c54a2129": {
   "active": false,
   "apply_url": "",
@@ -87484,6 +88941,35 @@
   "title": "Technology Manager Mechanical Structures and Durability",
   "url": "https://www.indeed.com/viewjob?jk=90f291e28197796e",
   "work_mode": "onsite"
+ },
+ "e1ec900606e04608": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "possible",
+  "company": "Google",
+  "date_posted": "",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Austin, TX, USA, Atlanta, GA, USA, Kirkland, WA, USA",
+  "locations": [
+   "Austin, TX, USA, Atlanta, GA, USA, Kirkland, WA, USA"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Manages equipment supply chain, production schedules and supplier commitments for data centers, plausible procurement fit though scope reads more hardware than power equipment.",
+  "score": 55,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "google-careers",
+  "title": "Program Manager III, Supply Chain Planning, Google Data Centers",
+  "url": "https://www.google.com/about/careers/applications/jobs/results/115172625709179590-program-manager-iii-supply-chain-planning-google-data-centers",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "e207cfd3b708da64": {
   "active": false,
@@ -88400,6 +89886,38 @@
   "url": "https://careers.pge.com/job/Fresno-Substation-Project-Engineer-CA-93720/1377600900/",
   "work_mode": "hybrid"
  },
+ "e3e8002e3faf4379": {
+  "active": false,
+  "apply_url": "https://careers.viva-it.com/careers/opportunities/job-detail/data-center-hardware-engineer-GDNJEH10",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "VIVA",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Secaucus, NJ, USA",
+  "locations": [
+   "Secaucus, NJ, USA"
+  ],
+  "lowscore": true,
+  "pay": "$69\u2013$74/hr",
+  "priority": true,
+  "rationale": "Hands-on lab and server hardware technician role maintaining rack systems, no power generation or project delivery content.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": false,
+  "source": "indeed",
+  "title": "Data Center Hardware Engineer",
+  "url": "https://www.indeed.com/viewjob?jk=09829457a219c41c",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
  "e40dbb3fa32444dc": {
   "active": false,
   "band": "weak",
@@ -88522,7 +90040,7 @@
  "e44905f75549fea0": {
   "band": "strong",
   "company": "Vantage Data Centers",
-  "date_posted": "",
+  "date_posted": "2026-11-12",
   "first_seen": "2026-09-18",
   "first_seen_at": "2026-09-18T21:07:40Z",
   "location": "2 Locations",
@@ -88542,7 +90060,7 @@
   },
   "seniority_match": true,
   "source": "workday",
-  "title": "Program Director, New Site Development - Data Centers, APAC",
+  "title": "Program Director, New Site Development, APAC",
   "url": "https://vantagedc.wd1.myworkdayjobs.com/en-US/Vantage/job/Melbourne-Australia/NSD-Program-Director_R24620",
   "work_mode": ""
  },
@@ -89330,6 +90848,70 @@
   "url": "https://careers.pge.com/job/Oakland-General-Construction-Transmission%2C-Supervisor-%28Central-Valley%29-CA-94612/1446964600/",
   "work_mode": "onsite",
   "work_mode_by": "fetch"
+ },
+ "e63166a6ca75e109": {
+  "active": false,
+  "apply_url": "https://jsv3.recruitics.com/redirect?rx_cid=3239&rx_jobId=a1KiE0000001pV7UAI_1005&rx_url=https%3A%2F%2Fwww.metacareers.com%2Fjobs%2F1078260851861948%2F%3Frx_a%3D0%26rx_c%3D%26rx_ch%3Djobp4p%26rx_group%3D187943%26rx_id%3Db6578107-dd23-11f1-990c-3f645cb78099%26rx_job%3Da1KiE0000001pV7UAI_1005%26rx_medium%3Dcpc%26rx_product%3Dprogrammatic-ppc%252Ccore%26rx_r%3Dnone%26rx_source%3Dindeed%26rx_ts%3D20261112T000453Z%26rx_vp%3Dcpc%26utm_campaign%3DJob%252Bboard%26utm_medium%3Djobs%26utm_source%3Dindeedorganic",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "Meta",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Kuna, ID, USA",
+  "locations": [
+   "Kuna, ID, USA"
+  ],
+  "lowscore": true,
+  "pay": "$163,000\u2013$238,000/yr",
+  "priority": false,
+  "rationale": "Runs ongoing IT server fleet operations across data centers, an operations role with no power generation or new-build content.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Fleet Operations Manager, Data Center Infrastructure",
+  "url": "https://www.indeed.com/viewjob?jk=f8773e5f17ab066c",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
+ "e652347336c0dfaf": {
+  "active": false,
+  "apply_url": "https://jobs.tecoenergy.com/tampa_electric_company/job/North-Ruskin-Supvr-Generation-%28Mechanical%29-%28Gas-Turbine-&-Rotating-Equipment%29-Flor-33570/1449965300/",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "Tampa Electric Company",
+  "date_posted": "2026-11-12",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Ruskin, FL, USA",
+  "locations": [
+   "Ruskin, FL, USA"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": true,
+  "rationale": "On-site supervisor directing subcontractor installation of turbine and rotating equipment, a field-resident construction role rather than program leadership.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Supvr Generation (Mechanical) (Gas Turbine & Rotating Equipment)",
+  "url": "https://www.indeed.com/viewjob?jk=70cfbc37285e28f3",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "e6751bc5cf3c411e": {
   "apply_url": "https://eeho.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/348705",
@@ -91970,6 +93552,35 @@
   "title": "Senior Director, Data Center Operations",
   "url": "https://www.indeed.com/viewjob?jk=fc4d999ac088589b",
   "work_mode": ""
+ },
+ "eb3d91601abb92fb": {
+  "apply_url": "",
+  "apply_url_own": false,
+  "band": "strong",
+  "company": "Williams",
+  "date_posted": "2026-10-21",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "TX Houston - Tower",
+  "locations": [
+   "TX Houston - Tower"
+  ],
+  "pay": "",
+  "priority": false,
+  "rationale": "Engineering and construction project manager role on new power generation builds for a midstream company, owner-side delivery focus.",
+  "score": 75,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "workday",
+  "title": "E&C Project Manager III/Sr/Staff",
+  "url": "https://williams.wd5.myworkdayjobs.com/en-US/External/job/TX-Houston---Tower/E-C-Project-Manager-III-Sr-Staff_R112853",
+  "work_mode": "",
+  "work_mode_by": ""
  },
  "eb4aaaec2924a19e": {
   "active": false,
@@ -95998,6 +97609,38 @@
   "url": "https://www.indeed.com/viewjob?jk=82cb3511cff5022d",
   "work_mode": "onsite"
  },
+ "f6097d450eb0a350": {
+  "active": false,
+  "apply_url": "https://careers.caterpillar.com/en/jobs/r0000403709/manager-digital-product/",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "Caterpillar",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Mossville, IL, USA",
+  "locations": [
+   "Mossville, IL, USA"
+  ],
+  "lowscore": true,
+  "pay": "$147,760\u2013$240,110/yr",
+  "priority": true,
+  "rationale": "Digital product and analytics management role for internal business tools, unrelated to power plant or data center delivery.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Manager, Digital Product",
+  "url": "https://www.indeed.com/viewjob?jk=414fbd0dfd0a3bb4",
+  "work_mode": "onsite",
+  "work_mode_by": "fetch"
+ },
  "f6115d22f24a08e1": {
   "apply_url": "",
   "apply_url_own": false,
@@ -96149,9 +97792,11 @@
   "work_mode": ""
  },
  "f6523c82121f407f": {
+  "active": false,
   "apply_url": "https://jobs.constellationenergy.com/jobs/140960/job?utm_source=indeed_integration&iis=Job%20Board&iisn=Indeed&indeed-apply-token=73a2d2b2a8d6d5c0a62696875eaebd669103652d3f0c2cd5445d3e66b1592b0f",
   "apply_url_own": true,
   "band": "weak",
+  "closed": "2026-11-12",
   "company": "Constellation Energy",
   "date_posted": "2026-10-29",
   "first_seen": "2026-10-30",
@@ -96696,9 +98341,11 @@
   "work_mode": "onsite"
  },
  "f799eb6fd6e2217b": {
+  "active": false,
   "apply_url": "",
   "apply_url_own": false,
   "band": "weak",
+  "closed": "2026-11-12",
   "company": "American Electric Power",
   "date_posted": "2026-10-30",
   "first_seen": "2026-10-31",
@@ -97626,9 +99273,11 @@
   "work_mode": "onsite"
  },
  "fa78b8b6950ff6ca": {
+  "active": false,
   "apply_url": "https://grnh.se/e24cx5ib9us",
   "apply_url_own": true,
   "band": "weak",
+  "closed": "2026-11-12",
   "company": "TerraPower",
   "date_posted": "2026-10-27",
   "first_seen": "2026-10-27",
@@ -99505,6 +101154,38 @@
   "source": "ashby",
   "title": "Growth Lead - Australia",
   "url": "https://jobs.ashbyhq.com/planted/98adf40e-7232-4f55-937a-144dd4bb3f89",
+  "work_mode": "",
+  "work_mode_by": ""
+ },
+ "ff52ca094adcb9c1": {
+  "active": false,
+  "apply_url": "https://careers.vestas.com/job/Portland-Lead%2C-Project-Engineer-OR-97201/1456544133/",
+  "apply_url_own": true,
+  "band": "misfit",
+  "closed": "2026-11-12",
+  "company": "Vestas",
+  "date_posted": "2026-11-11",
+  "first_seen": "2026-11-12",
+  "first_seen_at": "2026-11-12T02:09:47Z",
+  "location": "Portland, OR, USA",
+  "locations": [
+   "Portland, OR, USA"
+  ],
+  "lowscore": true,
+  "pay": "",
+  "priority": false,
+  "rationale": "Leads root cause investigation and incident response for wind turbine failures, technical troubleshooting rather than new project delivery.",
+  "score": 15,
+  "scoring_fingerprint": {
+   "at": "2026-11-12T02:16Z",
+   "model": "claude-sonnet-5",
+   "policy": "4fea3023de",
+   "rubric": "44dd0cc802"
+  },
+  "seniority_match": true,
+  "source": "indeed",
+  "title": "Lead, Project Engineer",
+  "url": "https://www.indeed.com/viewjob?jk=0b365f01d4dcc7a9",
   "work_mode": "",
   "work_mode_by": ""
  },
