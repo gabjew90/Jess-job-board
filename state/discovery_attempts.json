@@ -89,6 +89,12 @@
   "boards": [],
   "date": "2026-10-28"
  },
+ "core scientific": {
+  "boards": [
+   "workday:corescientific.wd108.myworkdayjobs.com/corescientificcareers"
+  ],
+  "date": "2026-11-13"
+ },
  "cyrusone": {
   "boards": [
    "workday:cyrusone.wd1.myworkdayjobs.com/cyrusonecareerportal"
@@ -124,6 +130,10 @@
  "enchanted rock": {
   "boards": [],
   "date": "2026-09-30"
+ },
+ "energy project solutions": {
+  "boards": [],
+  "date": "2026-11-13"
  },
  "engie": {
   "boards": [],

@@ -28,7 +28,6 @@
     "EdgeConneX",
     "CloudHQ",
     "Prometheus Hyperscale",
-    "Core Scientific",
     "TeraWulf",
     "Lancium",
     "Oracle",
@@ -349,6 +348,12 @@
       "tenant": "dukeenergy",
       "site": "search",
       "company": "Duke Energy"
+    },
+    {
+      "host": "corescientific.wd108.myworkdayjobs.com",
+      "tenant": "corescientific",
+      "site": "corescientificcareers",
+      "company": "Core Scientific, Inc."
     }
   ],
   "successfactors_boards": [
