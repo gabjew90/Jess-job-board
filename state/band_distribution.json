@@ -628,5 +628,14 @@
    "strong": 2,
    "misfit": 7
   }
+ },
+ {
+  "date": "2026-11-15",
+  "scored": 12,
+  "bands": {
+   "weak": 5,
+   "possible": 1,
+   "misfit": 6
+  }
  }
 ]
