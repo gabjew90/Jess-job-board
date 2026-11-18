@@ -178,6 +178,11 @@
       "provider": "greenhouse",
       "board": "newleafenergy",
       "company": "New Leaf Energy"
+    },
+    {
+      "provider": "ashby",
+      "board": "harborcompute",
+      "company": "Harbor Compute"
     }
   ],
   "workday_boards": [

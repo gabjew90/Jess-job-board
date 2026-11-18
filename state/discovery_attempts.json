@@ -145,7 +145,7 @@
  },
  "fermi": {
   "boards": [],
-  "date": "2026-10-19"
+  "date": "2026-11-18"
  },
  "ferrovial": {
   "boards": [
@@ -170,6 +170,12 @@
  "geronimo power": {
   "boards": [],
   "date": "2026-10-19"
+ },
+ "harbor compute": {
+  "boards": [
+   "ashby:harborcompute"
+  ],
+  "date": "2026-11-18"
  },
  "hoosier energy": {
   "boards": [],
@@ -357,6 +363,10 @@
   "boards": [],
   "date": "2026-10-15"
  },
+ "southern california edison": {
+  "boards": [],
+  "date": "2026-11-18"
+ },
  "spacexai": {
   "boards": [],
   "date": "2026-09-26"
@@ -415,7 +425,7 @@
  },
  "viridan": {
   "boards": [],
-  "date": "2026-10-19"
+  "date": "2026-11-18"
  },
  "wet coast logistics": {
   "boards": [],
