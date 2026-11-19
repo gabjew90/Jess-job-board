@@ -183,6 +183,16 @@
       "provider": "ashby",
       "board": "harborcompute",
       "company": "Harbor Compute"
+    },
+    {
+      "provider": "lever",
+      "board": "terawattinfrastructure",
+      "company": "TeraWatt Infrastructure"
+    },
+    {
+      "provider": "lever",
+      "board": "charmindustrial",
+      "company": "Charm Industrial"
     }
   ],
   "workday_boards": [

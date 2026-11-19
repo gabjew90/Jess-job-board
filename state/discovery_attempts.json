@@ -71,6 +71,12 @@
   "boards": [],
   "date": "2026-10-09"
  },
+ "charm industrial": {
+  "boards": [
+   "lever:charmindustrial"
+  ],
+  "date": "2026-11-19"
+ },
  "commonwealth fusion systems": {
   "boards": [
    "lever:cfsenergy"
@@ -94,6 +100,12 @@
    "workday:corescientific.wd108.myworkdayjobs.com/corescientificcareers"
   ],
   "date": "2026-11-13"
+ },
+ "cushman wakefield": {
+  "boards": [
+   "workday:cw.wd1.myworkdayjobs.com/external"
+  ],
+  "date": "2026-11-19"
  },
  "cyrusone": {
   "boards": [
@@ -208,6 +220,10 @@
  "lancium": {
   "boards": [],
   "date": "2026-10-30"
+ },
+ "lennox international": {
+  "boards": [],
+  "date": "2026-11-19"
  },
  "liberty energy": {
   "boards": [],
@@ -327,6 +343,10 @@
   "boards": [],
   "date": "2026-10-21"
  },
+ "radial power operations": {
+  "boards": [],
+  "date": "2026-11-19"
+ },
  "recurrent energy": {
   "boards": [
    "workday:recurrentenergy.wd12.myworkdayjobs.com/recurrentenergy"
@@ -396,6 +416,12 @@
  "tallgrass energy": {
   "boards": [],
   "date": "2026-10-13"
+ },
+ "terawatt infrastructure": {
+  "boards": [
+   "lever:terawattinfrastructure"
+  ],
+  "date": "2026-11-19"
  },
  "tesla": {
   "boards": [],
