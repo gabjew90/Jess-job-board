@@ -51,6 +51,10 @@
   "boards": [],
   "date": "2026-10-13"
  },
+ "aypa power": {
+  "boards": [],
+  "date": "2026-11-20"
+ },
  "bitdeer technologies": {
   "boards": [],
   "date": "2026-11-04"
@@ -183,6 +187,10 @@
   "boards": [],
   "date": "2026-10-19"
  },
+ "greenkey solar": {
+  "boards": [],
+  "date": "2026-11-20"
+ },
  "harbor compute": {
   "boards": [
    "ashby:harborcompute"
@@ -207,7 +215,7 @@
  },
  "karpower valley": {
   "boards": [],
-  "date": "2026-10-21"
+  "date": "2026-11-20"
  },
  "kindle energy management": {
   "boards": [],

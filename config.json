@@ -193,6 +193,11 @@
       "provider": "lever",
       "board": "charmindustrial",
       "company": "Charm Industrial"
+    },
+    {
+      "provider": "greenhouse",
+      "board": "aypapower",
+      "company": "Aypa Power"
     }
   ],
   "workday_boards": [
