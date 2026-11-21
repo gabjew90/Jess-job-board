@@ -13,6 +13,10 @@
   ],
   "date": "2026-09-26"
  },
+ "allete": {
+  "boards": [],
+  "date": "2026-11-21"
+ },
  "alliant energy": {
   "boards": [
    "workday:alliantenergy.wd1.myworkdayjobs.com/private_alliant"
@@ -98,6 +102,10 @@
  "cooperative energy": {
   "boards": [],
   "date": "2026-10-28"
+ },
+ "cordoba": {
+  "boards": [],
+  "date": "2026-11-21"
  },
  "core scientific": {
   "boards": [
@@ -460,6 +468,10 @@
  "viridan": {
   "boards": [],
   "date": "2026-11-18"
+ },
+ "voltagrid": {
+  "boards": [],
+  "date": "2026-11-21"
  },
  "wet coast logistics": {
   "boards": [],
