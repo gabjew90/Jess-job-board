@@ -11,6 +11,7 @@ from .util import AGGREGATOR_SOURCES, company_key, group_key, legacy_text_mode, 
 log = logging.getLogger(__name__)
 
 STATE_FILE = Path("state/seen_jobs.json")
+DIGEST_FILE = Path("state/digest.json")
 
 
 def _today() -> str:
@@ -26,6 +27,19 @@ def load() -> dict:
 def save(state: dict) -> None:
     STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
     STATE_FILE.write_text(json.dumps(state, indent=1, sort_keys=True) + "\n")
+
+
+def last_digest() -> str:
+    """When the last digest went out (UTC ISO), or "" if none recorded."""
+    try:
+        return json.loads(DIGEST_FILE.read_text()).get("last_posted_at", "")
+    except (OSError, ValueError):
+        return ""
+
+
+def mark_digest(at: str) -> None:
+    DIGEST_FILE.parent.mkdir(parents=True, exist_ok=True)
+    DIGEST_FILE.write_text(json.dumps({"last_posted_at": at}) + "\n")
 
 
 def prune(state: dict, retention_days: int) -> dict:

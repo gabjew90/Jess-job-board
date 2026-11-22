@@ -141,15 +141,15 @@ def test_verdict_down_to_misfit_archives_it():
     assert seen["a"]["band"] == "misfit" and seen["a"]["active"] is False and seen["a"]["lowscore"]
 
 
-def test_dashboard_row_has_the_three_buttons():
+def test_dashboard_row_has_the_four_buttons():
     row = dashboard._row({"_id": "abc123", "title": "Role", "company": "Co", "band": "strong",
                           "score": 75, "url": "https://example.com"})
-    for label in ("good fit", "bad fit", "closed"):
+    for label in ("good fit", "bad fit", "closed", "applied"):
         assert label in row
     assert "✏️" not in row and "issues/new" not in row, "no free-form note link"
-    assert row.count('class="v"') == 3 and 'data-id="abc123"' in row and 'data-ref="Role @ Co"' in row
+    assert row.count('class="v"') == 4 and 'data-id="abc123"' in row and 'data-ref="Role @ Co"' in row
     js = dashboard._verdict_js()
-    assert all(f'"{d}"' in js for d in ("higher", "lower", "closed")) and "<!-- job: {job_id} -->" in js
+    assert all(f'"{d}"' in js for d in ("higher", "lower", "closed", "applied")) and "<!-- job: {job_id} -->" in js
 
 
 def test_closed_verdict_closes_once_and_stays_out_of_scoring(monkeypatch):
@@ -343,3 +343,61 @@ def test_raised_verdict_does_not_revive_a_hidden_record(monkeypatch):
                    "active": False, "lowscore": True, "hidden": True}}
     feedback.apply_verdicts(seen, feedback.load()["verdicts"])
     assert not seen["a1"]["active"]
+
+
+def test_applied_verdict_marks_the_linked_posting_and_stays_out_of_scoring(monkeypatch):
+    body = "Verdict: applied\nReason: I applied\n\n---\n<!-- job: a1 b2 -->\nScored top."
+    monkeypatch.setattr(feedback, "_issue_entries",
+                        lambda: [{**_issue(40, body), "created": "2026-11-20"}])
+    monkeypatch.setattr(feedback, "FILE", feedback.Path("/nonexistent"))
+    fb = feedback.load()
+    assert "[issue]" not in fb["text"]
+    seen = {k: {"title": "PM", "company": "Co", "band": "top", "active": True} for k in ("a1", "b2")}
+    assert feedback.apply_verdicts(seen, fb["verdicts"]) == 1
+    assert seen["a1"]["applied"] == "2026-11-20" and "applied" not in seen["b2"]
+    assert seen["a1"]["band"] == "top", "applying says nothing about fit"
+
+
+def test_applications_log_marks_by_link_or_by_title(tmp_path):
+    log = tmp_path / "log.md"
+    log.write_text(
+        "| Date | Company | Role | URL | Status | Notes |\n|---|---|---|---|---|---|\n"
+        "| 2026-10-03 | Meta | Data Center Central Planning Lead | https://www.metacareers.com/jobs/1793/ | Submitted (Meta) | x |\n"
+        "| 2026-10-05 | Acme | PM | https://jobs.lever.co/acme/abc123def | Submitted | x |\n"
+        "| 2026-10-06 | Beta | PM | https://jobs.lever.co/beta/zzz999 | Not submitted: CAPTCHA | x |\n"
+        "| 2026-10-03 | Vantage | Senior Director, Energy Systems (R24223) | https://v/x | Submitted | x |\n")
+    seen = {
+        "m": {"title": "Data Center Central Planning Lead", "company": "Meta",
+              "url": "https://www.indeed.com/viewjob?jk=82d2"},
+        "a": {"title": "Product Manager", "company": "Acme", "url": "https://jobs.lever.co/acme/abc123def"},
+        "b": {"title": "PM", "company": "Beta", "url": "https://jobs.lever.co/beta/zzz999"},
+        "v": {"title": "Senior Director, Energy Systems", "company": "Vantage Data Centers", "url": "https://v/y"},
+    }
+    assert feedback.apply_log(seen, log) == 3
+    assert seen["m"]["applied"] == "2026-10-03" and seen["a"]["applied"] == "2026-10-05"
+    assert "applied" not in seen["b"], "an application that did not go through"
+    assert seen["v"]["applied"] == "2026-10-03", "requisition id in brackets ignored"
+    assert feedback.apply_log(seen, log) == 0, "marked once"
+
+
+def test_applied_row_moves_to_its_own_section():
+    row = dashboard._row({"_id": "a", "title": "PM", "company": "Co", "band": "top",
+                          "score": 90, "url": "https://x", "applied": "2026-11-05"})
+    assert 'data-band="applied"' in row and "✅ applied" in row and 'data-s="50"' in row
+
+
+def test_applications_log_never_matches_by_query_string_or_blank_link(tmp_path):
+    log = tmp_path / "log.md"
+    log.write_text(
+        "| Date | Company | Role | URL | Status | Notes |\n|---|---|---|---|---|---|\n"
+        "| 2026-11-01 | Schneider Electric | Head of Product | "
+        "https://careers.se.com/jobs/142141/job?utm_source=indeed&token=73a2 | Submitted | x |\n"
+        "| 2026-11-02 | Nobody | Ghost |  | Submitted | x |\n")
+    shared = "https://careers.se.com/jobs/999/job?utm_source=indeed&token=73a2"
+    seen = {"s": {"title": "Head of Product", "company": "Schneider Electric",
+                  "url": "https://careers.se.com/jobs/142141/job?utm_source=indeed&token=73a2"},
+            "other": {"title": "Engineer", "company": "Quanta", "apply_url": shared},
+            "sibling": {"title": "Analyst", "company": "Schneider Electric", "apply_url": shared},
+            "blank": {"title": "Role", "company": "Acme"}}
+    assert feedback.apply_log(seen, log) == 1 and seen["s"]["applied"] == "2026-11-01"
+    assert not any(seen[k].get("applied") for k in ("other", "sibling", "blank"))

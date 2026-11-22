@@ -116,9 +116,10 @@ def load(authors: list[str] | tuple = ()) -> dict:
         # Only the prompt itself: a note typed on the same line is kept.
         body = re.sub(r"^Tap Create to send\.(?: Add notes here if you like\.)?", "", body,
                       flags=re.M).strip()
-        v = re.search(r"^\s*Verdict:\s*(higher|lower|closed)\b", issue["body"], re.I | re.M)
-        # A "closed" report says nothing about fit, so it stays out of scoring.
-        if not (v and v.group(1).lower() == "closed"):
+        v = re.search(r"^\s*Verdict:\s*(higher|lower|closed|applied)\b",
+                      issue["body"], re.I | re.M)
+        # "closed" and "applied" say nothing about fit: kept out of scoring.
+        if not (v and v.group(1).lower() in ("closed", "applied")):
             parts.append(f"[issue] {issue['title']}\n{body}".strip())
         if v:
             r = re.search(r"^\s*Reason:\s*(.+)$", issue["body"], re.I | re.M)
@@ -162,12 +163,18 @@ def apply_verdicts(seen: dict, verdicts: list[dict], archive_below: int = 25) ->
             done = rec.setdefault("verdicts_applied", [])
             if v["issue"] in done:
                 continue
-            if v["direction"] == "closed":
+            if v["direction"] in ("closed", "applied"):
                 # Only the posting the card links to: a merged card's other
-                # cities were not checked and may still be open.
+                # cities were not checked (closed) or applied to.
                 listed = v.get("job_ids") or [v.get("job_id")]
                 if (v.get("job_ids") or v.get("job_id")) and rec is not seen.get(listed[0]):
                     continue
+            if v["direction"] == "applied":
+                rec["applied"] = v.get("created") or today
+                done.append(v["issue"])
+                n += 1
+                continue
+            if v["direction"] == "closed":
                 # Only postings seen before the report: the issue stays open,
                 # and a later repost of the same role is a new opening.
                 if v.get("created") and rec.get("first_seen", "") > v["created"]:
@@ -229,3 +236,46 @@ def sweep_state(seen: dict, hide: list[str]) -> int:
     if n:
         log.info("Feedback: hid %d tracked postings", n)
     return n
+
+
+LOG = Path("applications/log.md")
+
+
+def apply_log(seen: dict, path: Path = LOG) -> int:
+    """Mark records the owner applied to, from the applications log the
+    apply-job skill keeps (rows whose Status starts "Submitted"). Matched by
+    the posting's link or its id in the link, else by exact title at the
+    same company: an application made on the employer's site matches the
+    Indeed copy the board holds. Returns how many records were newly marked."""
+    from .util import company_key
+    if not path.exists():
+        return 0
+    n = 0
+    norm = lambda t: " ".join(re.sub(r"[^a-z0-9]+", " ", (t or "").lower()).split())  # noqa: E731
+    bare = lambda u: (u or "").strip().split("?")[0].split("#")[0].rstrip("/")  # noqa: E731
+    for line in path.read_text().splitlines():
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) < 5 or not cells[4].lower().startswith("submitted"):
+            continue
+        day, company, role = cells[0][:10], cells[1], cells[2]
+        url = bare(cells[3])
+        tail = url.rsplit("/", 1)[-1] if url.startswith("http") else ""
+        role_key = norm(re.sub(r"\s*\([^)]*\)\s*$", "", role))   # "(R24223)"
+        ck = company_key(company)
+        for rec in seen.values():
+            links = {bare(rec.get(k)) for k in ("url", "apply_url")} - {""}
+            same_co = company_key(rec.get("company", "")) == ck
+            # The exact link, or its last segment as a whole segment of a
+            # link at the same company; never a bare substring, and never a
+            # query string (a shared Indeed tracking token matched 184).
+            hit = ((url and url in links)
+                   or (same_co and len(tail) >= 6
+                       and any(tail in u.split("/") for u in links))
+                   or (same_co and role_key and norm(rec.get("title")) == role_key))
+            if hit and not rec.get("applied"):
+                rec["applied"] = day
+                n += 1
+    if n:
+        log.info("Applications log: marked %d records applied", n)
+    return n
+

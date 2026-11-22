@@ -275,3 +275,34 @@ def best_link(rec: dict) -> str:
         if not any(host == h or host.endswith("." + h) for h in AGGREGATOR_HOSTS):
             return apply
     return rec.get("url", "")
+
+
+_PAY_UNITS = ((r"/\s?h|hour", 2080), (r"/\s?d\b|daily|\bday\b", 260),
+              (r"/\s?w|week", 52), (r"/\s?mo|month", 12), (r"/\s?y|year|annual", 1))
+
+
+def pay_max_yearly(pay: str) -> float | None:
+    """The top of a posted pay range in yearly dollars, or None when no
+    figure can be read. '$113,000–$165,000/yr' 165000, '$45–$60/hr'
+    124800, '$150,000 - 190,000' 190000, '$160-190K' 190000. Text after a
+    '+' (bonus, per diem) is ignored; a K at the end applies to the whole
+    range; figures under $1,000 with no unit read as hourly; a zero
+    placeholder ('$00,000 - 00,000') reads as nothing."""
+    pay = re.split(r"\+|\bplus\b", pay or "", maxsplit=1)[0]
+    start = pay.find("$")
+    if start < 0:
+        return None
+    nums = re.findall(r"(\d[\d,]*(?:\.\d+)?)\s?([kK])?", pay[start:])
+    figures = [(float(n.replace(",", "") or 0), bool(k)) for n, k in nums[:2]]
+    if not figures:
+        return None
+    if figures[-1][1]:   # "$160-190K": the K belongs to both ends
+        figures = [(v * 1000 if v < 1000 else v, True) for v, _ in figures]
+    else:
+        figures = [(v * 1000 if k else v, k) for v, k in figures]
+    top = max(v for v, _ in figures)
+    if top <= 0:
+        return None
+    unit = next((n for pat, n in _PAY_UNITS if re.search(pat, pay, re.I)),
+                2080 if top < 1000 else 1)
+    return top * unit

@@ -87,6 +87,10 @@ def _quiet_board(s: dict) -> bool:
     return not last or last < (date.today() - timedelta(days=QUIET_DAYS)).isoformat()
 
 
+def _closed_worth(r: dict) -> bool:
+    return bool(r.get("applied")) or _band(r) in ("top", "strong")
+
+
 def _rev_date(d: str) -> str:
     return "".join(chr(255 - ord(c)) for c in (d or "0000-00-00"))
 
@@ -133,7 +137,8 @@ def build_digest(records: list[dict],
                         for b in GROUP_NAMES if groups.get(b))
     if groups.get(""):
         counts += f"{' · ' if counts else ''}⏳ **{len(groups[''])}** not yet rated"
-    lines.append(f"{counts or 'Nothing above the floor'} in the last {window_hours}h. "
+    since = f"in the last {window_hours}h" if window_hours <= 24 else "since the last digest"
+    lines.append(f"{counts or 'Nothing above the floor'} {since}. "
                  f"**[Open the full board]({dashboard_url()})** for every posting "
                  "and one-tap feedback.\n")
     # Top and strong roles get a full row with the rationale, lower ones a
@@ -172,15 +177,22 @@ def build_digest(records: list[dict],
     if records and all(r.get("score") is None for r in records):
         lines.append("\n_Unscored run (triage unavailable)._")
     if closed_recs:
-        lines.append("\n## 🚫 Closed since last run\n")
-        by_band = sorted(closed_recs, key=lambda r: -BAND_SCORE.get(_band(r), -1))
-        for r in by_band[:30]:
+        # Only closures worth a line: top and strong roles, and anything
+        # applied to. The rest are counted.
+        worth = sorted((r for r in closed_recs if _closed_worth(r)),
+                       key=lambda r: -BAND_SCORE.get(_band(r), -1))
+        rest = len(closed_recs) - len(worth)
+        lines.append("\n## 🚫 Closed since the last digest\n")
+        for r in worth[:30]:
             band = _band(r)
-            note = ", ".join(x for x in (band, _listed_for(r)) if x)
+            note = ", ".join(x for x in ("you applied" if r.get("applied") else "",
+                                         band, _listed_for(r)) if x)
             lines.append(f"- ~~{_esc(r.get('title', ''), 70)}~~" + _dots(_esc(r.get('company', '')))
                          + (f" ({note})" if note else ""))
-        if len(closed_recs) > 30:
-            lines.append(f"- …and {len(closed_recs) - 30} more")
+        if len(worth) > 30:
+            lines.append(f"- …and {len(worth) - 30} more good fits")
+        if rest:
+            lines.append(f"- {rest} lower-rated role{'s' if rest != 1 else ''} closed")
     if audit_recs:
         lines.append("\n## 🧪 Weekly check: archived roles\n")
         lines.append("A random sample of roles the watcher rated misfit and "
@@ -274,8 +286,9 @@ def digest_title(records: list[dict], closed_recs: list[dict] | None = None,
         title = f"⏳ {unrated} new posting{'s' if unrated != 1 else ''}, not yet rated"
     else:
         title = "Job watch: no new fits"
-    if closed_recs:
-        title += f" · {len(closed_recs)} closed"
+    worth = sum(1 for r in closed_recs or [] if _closed_worth(r))
+    if worth:
+        title += f" · {worth} good fit{'s' if worth != 1 else ''} closed"
     return title
 
 
@@ -289,7 +302,8 @@ def post_issue(records: list[dict],
                reject_audit: list[dict] | None = None,
                screen_stats: dict | None = None,
                theme: str | None = None,
-               window_hours: int = 24) -> None:
+               window_hours: int = 24) -> bool:
+    """Post the digest issue; True when GitHub created it."""
     token = os.environ.get("GITHUB_TOKEN")
     repo = os.environ.get("GITHUB_REPOSITORY")
     title = digest_title(records, closed_recs, digest_floor, theme)
@@ -299,7 +313,7 @@ def post_issue(records: list[dict],
 
     if not token or not repo:
         log.info("No GITHUB_TOKEN/GITHUB_REPOSITORY; printing digest instead.\n\n%s\n%s", title, body)
-        return
+        return False
 
     resp = requests.post(
         f"https://api.github.com/repos/{repo}/issues",
@@ -312,6 +326,7 @@ def post_issue(records: list[dict],
     )
     if resp.status_code == 201:
         log.info("Posted digest issue: %s", resp.json().get("html_url"))
-    else:
-        log.warning("Failed to post issue (%s): %s", resp.status_code, resp.text[:500])
+        return True
+    log.warning("Failed to post issue (%s): %s", resp.status_code, resp.text[:500])
+    return False
 
