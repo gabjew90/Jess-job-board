@@ -96,6 +96,16 @@ def _today() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 
+def _mark(j: Job) -> str:
+    """A remembered verdict: the date first, so retention still compares
+    it as a date, then the title and company, so a drop can be audited."""
+    return f"{_today()} | {j.title[:90]} @ {j.company[:40]}"
+
+
+def _targets(config: dict) -> set[str]:
+    return {company_key(c) for c in config.get("target_employers", [])}
+
+
 def load() -> dict:
     if FILE.exists():
         return json.loads(FILE.read_text())
@@ -142,14 +152,21 @@ def apply(raw: list[Job], kept: list[Job], seen: dict, config: dict
     keyword rejects when the screen is unavailable) for the weekly audit.
     """
     screened = load()
+    # Target employers (config "target_employers"): the title screen never
+    # drops a posting there that passed the keyword filter, and a drop
+    # remembered from before does not hold it. The screen sees the title
+    # only; at Anthropic it dropped "Data Center Power Generation and
+    # Microgrids Engineer" (2026-10-30), a role the owner applied to.
+    targets = _targets(config)
+    at_target = lambda j: company_key(j.company) in targets  # noqa: E731
     # A remembered verdict is binding. Skipping these in `candidates` below
     # only stops them being re-judged; until this filter they stayed in the
     # keyword filter's `kept` list and walked into state as new on the next
     # run, so the screen's drop lasted exactly one run. 962 of 5,178 tracked
     # records had arrived that way (680 of them keyword passes the screen
     # had dropped), costing a Sonnet scoring each.
-    held = [j for j in kept if j.job_id in screened]
-    kept = [j for j in kept if j.job_id not in screened]
+    held = [j for j in kept if j.job_id in screened and not at_target(j)]
+    kept = [j for j in kept if j.job_id not in screened or at_target(j)]
     kept_ids = {j.job_id for j in kept}
     # A posting already tracked passed the gate the day it was stored, by
     # keyword or by a rescue. Rescues fail the keyword filter again on every
@@ -212,10 +229,10 @@ def apply(raw: list[Job], kept: list[Job], seen: dict, config: dict
                 rescued.append(j)
                 kept_ids.add(j.job_id)
             else:
-                screened[j.job_id] = _today()  # remembered, not re-judged
-        elif not keep:
+                screened[j.job_id] = _mark(j)  # remembered, not re-judged
+        elif not keep and not (j.job_id in kept_ids and at_target(j)):
             drop_ids.add(j.job_id)
-            screened[j.job_id] = _today()
+            screened[j.job_id] = _mark(j)
     stats["rescued"] = len(rescued)
     stats["dropped"] = sum(1 for j in kept if j.job_id in drop_ids)
     kept = [j for j in kept if j.job_id not in drop_ids] + rescued

@@ -25,7 +25,11 @@ jobs:
   watch:
     runs-on: ubuntu-latest
     steps:
+      # The branch tip, not the commit the run was queued at: a run that
+      # waited behind another must see its state (one digest a day).
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
 
       - uses: actions/setup-python@v5
         with:

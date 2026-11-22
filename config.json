@@ -548,5 +548,37 @@
     "weak"
   ],
   "theme": "gas",
-  "board_title": "Jess's Job Board"
+  "board_title": "Jess's Job Board",
+  "target_employers": [
+    "QTS",
+    "SB Energy",
+    "Oracle",
+    "Invenergy",
+    "Amazon",
+    "SpaceX",
+    "American Electric Power",
+    "AES Corporation",
+    "NextEra Energy",
+    "Vantage Data Centers",
+    "CoreWeave",
+    "Microsoft",
+    "Crusoe",
+    "Fluidstack",
+    "Switch Data Centers",
+    "Equinix",
+    "GE Vernova",
+    "Intersect",
+    "CyrusOne",
+    "Edged",
+    "NiSource",
+    "Google",
+    "Fervo Energy",
+    "Williams",
+    "Entergy",
+    "Anthropic",
+    "VoltaGrid",
+    "Meta",
+    "xAI",
+    "OpenAI"
+  ]
 }

@@ -13,15 +13,19 @@ from .util import best_link
 REPO = "gabjew90/Jess-job-board"
 
 
-# One-tap verdicts (owner, 2026-10-01; good/bad/closed 2026-10-24). Each
-# opens a pre-filled feedback issue. On the next run a fit verdict moves
-# that posting one band and keeps steering future scoring; "closed" moves
-# it to the closed list (feedback.apply_verdicts). Any why goes in the issue.
+# One-tap verdicts (owner, 2026-10-01; good/bad/closed 2026-10-24; applied
+# 2026-11-22). Each opens a pre-filled feedback issue. On the next run a
+# fit verdict moves that posting one band and keeps steering future
+# scoring; "closed" moves it to the closed list; "applied" moves it to the
+# Applied section and out of the digest (feedback.apply_verdicts). Any why
+# goes in the issue.
 VERDICTS = (
     ("higher", "👍 good fit", "Good fit, belongs higher"),
     ("lower", "👎 bad fit", "Bad fit, belongs lower"),
     ("closed", "🚫 closed", "Posting is closed"),
+    ("applied", "✅ applied", "I applied"),
 )
+APPLIED_SCORE = 50   # sorts the Applied section below possible, above weak
 
 
 # Verdict lines first; the scoring context sits below '---', which
@@ -117,6 +121,8 @@ _PAGE = """<!DOCTYPE html>
   tr.closed {{ opacity: .45; }}
   tr.closed td:first-child a {{ text-decoration: line-through; }}
   tr.closed .fb {{ display: none; }}  /* nothing left to rate on a closed posting */
+  tr[data-band="applied"] .v:not([data-v="2"]) {{ display: none; }}  /* only "closed" still applies */
+  .band-applied {{ background: var(--head); color: var(--ink); }}
   label {{ font-size: .85rem; user-select: none; color: var(--muted); }}
   .band {{ display: inline-block; padding: .15rem .55rem; border-radius: 999px; font-size: .8rem;
           font-weight: 700; white-space: nowrap; }}
@@ -193,7 +199,7 @@ _PAGE = """<!DOCTYPE html>
 <header class="hero">{art}<div class="txt"><h1>{mark} {title}</h1><p>{tagline}</p></div></header>
 <main>
 <div class="chips"><span class="chip">{active_chip}</span><span class="chip"><b>{top_count}</b>top fits</span><span class="chip"><b>{new_count}</b>new this week</span><span class="chip"><b>{closed_count}</b>closed</span></div>
-<p class="legend">Roles are rated top, strong, possible, weak or misfit against the profile, newest first. Weak and misfit roles stay hidden unless you tick the box or search.<br>👍 good fit and 👎 bad fit move a role one rating on the next run and teach future ratings. 🚫 closed moves it to the closed list.</p>
+<p class="legend">Roles are rated top, strong, possible, weak or misfit against the profile, newest first. Weak and misfit roles stay hidden unless you tick the box or search.<br>👍 good fit and 👎 bad fit move a role one rating on the next run and teach future ratings. 🚫 closed moves it to the closed list. ✅ applied moves it to your Applied list.</p>
 <div class="controls"><input id="q" type="search" placeholder="Filter by title, company, place…" oninput="applyVis()"><label><input id="lo" type="checkbox" onchange="applyVis()"> show weak &amp; misfit</label><label><input id="sc" type="checkbox" onchange="applyVis()"> show recently closed</label><span class="meta">Updated <span id="upd" data-ts="{generated_iso}">{generated} UTC</span></span></div>
 <div class="tablewrap boardwrap">
 <table id="t">
@@ -449,8 +455,8 @@ def _merge_similar(records: list[dict]) -> list[dict]:
     """One card per role a company posts more than once: the same title,
     parentheticals aside (AEP's 'Project Manager | NEW GENERATION (PSO)' and
     '(Kentucky Power)'). The card is the best-rated, newest copy; it lists
-    every place and says how many postings it stands for. Closed rows are
-    never merged."""
+    every place and says how many postings it stands for. Closed and
+    applied rows are never merged."""
     groups: dict[tuple, list[dict]] = {}
     order: list[list[dict]] = []
     for r in records:
@@ -458,7 +464,8 @@ def _merge_similar(records: list[dict]) -> list[dict]:
         # ('American Electric Power' and 'American Wire Group' share it).
         key = (" ".join(re.sub(r"[^a-z0-9]+", " ", (r.get("company") or "").lower()).split()),
                _title_key(r.get("title", "")))
-        if not r.get("active", True) or not key[0] or not key[1]:
+        # Applied rows stand alone: the owner applied to that posting only.
+        if not r.get("active", True) or r.get("applied") or not key[0] or not key[1]:
             order.append([r])
             continue
         if key not in groups:
@@ -525,14 +532,23 @@ def _row(rec: dict, theme: dict | None = None, fresh: str = "") -> str:
     tooltip = e(rec.get("rationale"))
     if rec.get("owner_notes"):
         tooltip += e(" Your verdicts: " + "; ".join(rec["owner_notes"]) + ".")
+    if rec.get("pay_capped"):
+        tooltip += e(f" Rated {rec['pay_capped']}, capped at possible: posted pay is below your floor.")
     if fp:
         tooltip += f' [{e(fp.get("model", ""))} · rubric {e(fp.get("rubric", ""))} · {e(fp.get("at", ""))}]'
     band = _band(rec)
     icon = theme["icons"].get(band, "")
-    label = f'<span class="band band-{e(band)}">{icon} {e(band)}</span>' if band else ""
-    if fp.get("owner"):  # moved by one of the owner's verdicts
-        label += '<small class="you">✓ your rating</small>'
-    score_cell = (f'<td class="c-fit" data-s="{BAND_SCORE.get(band, -1)}" '
+    applied = rec.get("applied") and rec.get("active", True)
+    if applied:
+        label = (f'<span class="band band-applied">✅ applied</span>'
+                 f'<small class="you">{e(str(rec["applied"])[:10])} · rated {e(band or "?")}</small>')
+        fit_s = APPLIED_SCORE
+    else:
+        label = f'<span class="band band-{e(band)}">{icon} {e(band)}</span>' if band else ""
+        if fp.get("owner"):  # moved by one of the owner's verdicts
+            label += '<small class="you">✓ your rating</small>'
+        fit_s = BAND_SCORE.get(band, -1)
+    score_cell = (f'<td class="c-fit" data-s="{fit_s}" '
                   f'title="{tooltip}">{label}</td>')
     mode = {"onsite": "🏢 onsite", "hybrid": "🔀 hybrid", "remote": "🏠 remote"}.get(
         rec.get("work_mode", ""), "")
@@ -550,7 +566,7 @@ def _row(rec: dict, theme: dict | None = None, fresh: str = "") -> str:
         f'<a class="v" data-v="{i}" href="#" target="_blank" title="{reason}">{label}</a>'
         for i, (_, label, reason) in enumerate(VERDICTS))
     return (
-        f'<tr{cls} data-id="{e(rec.get("_id"))}" data-band="{e(_band(rec) or "?")}"'
+        f'<tr{cls} data-id="{e(rec.get("_id"))}" data-band="{e("applied" if applied else (_band(rec) or "?"))}"'
         + (f' data-ids="{e(" ".join(rec["_ids"]))}"' if rec.get("_ids") else "")
         + (f' data-places="{e("; ".join(named))}"' if len(named) > 1 else "") +
         f' data-ref="{e(rec.get("title", "")[:80] + " @ " + rec.get("company", ""))}">'
@@ -583,7 +599,10 @@ def _select_rows(state: dict, max_rows: int) -> tuple[list[dict], int, int]:
     closed toggle shows only genuine market closures (100 most recent):
     auto-archived misfits, feedback-hidden, and duplicate records stay in
     state for dedupe but are not listed."""
-    active = [r for r in state.values() if r.get("active", True)]
+    every = [r for r in state.values() if r.get("active", True)]
+    # Applied roles always show (their own section), and take no slot.
+    applied = [r for r in every if r.get("applied")]
+    active = [r for r in every if not r.get("applied")]
     closed = [r for r in state.values() if not r.get("active", True)
               # The owner's 🚫 closed is a market closure too.
               and not (r.get("lowscore") or (suppressed(r) and not r.get("owner_closed")))]
@@ -599,7 +618,7 @@ def _select_rows(state: dict, max_rows: int) -> tuple[list[dict], int, int]:
         fresh = sorted(fresh, key=rank, reverse=True)[:max_rows]
     shown = fresh + backlog[:max(0, max_rows - len(fresh))]
     closed_shown = sorted(closed, key=lambda r: str(r.get("closed", "")), reverse=True)[:100]
-    return shown + closed_shown, len(active), len(closed)
+    return applied + shown + closed_shown, len(every), len(closed)
 
 
 def generate(state: dict, health_summary: list[dict] | None = None,
@@ -621,10 +640,12 @@ def generate(state: dict, health_summary: list[dict] | None = None,
     OUT.write_text(_PAGE.format(
         title=html.escape(title), theme_css=themes.css_vars(theme), art=theme["art"],
         verdict_js=_verdict_js(),
-        groups=json.dumps({b: f"{theme['icons'][b]} {name}" for b, name in GROUP_NAMES.items()}),
+        groups=json.dumps({**{b: f"{theme['icons'][b]} {name}" for b, name in GROUP_NAMES.items()},
+                           "applied": "✅ Applied"}),
         mark=theme["mark"], tagline=html.escape(theme["tagline"]),
         # Cards, as the Top fits heading counts them.
-        top_count=sum(1 for r in records if r.get("active", True) and _band(r) == "top"),
+        top_count=sum(1 for r in records if r.get("active", True) and not r.get("applied")
+                      and _band(r) == "top"),
         new_count=sum(1 for r in live if r.get("first_seen", "") > week_ago),
         active_chip=(f"<b>{shown_active:,}</b>shown of {active:,} active" if shown_active < active
                      else f"<b>{active:,}</b>active"),

@@ -284,7 +284,7 @@ def test_digest_escapes_brackets_cut_titles_and_blank_companies():
     body = notify.build_digest([r], health_summary=[], window_hours=48)
     line = next(ln for ln in body.splitlines() if ln.startswith("- [Senior"))
     assert "\\[Hybr" in line and "· ·" not in line and line.endswith("Denver, CO")
-    assert "in the last 48h" in body
+    assert "since the last digest" in body, "a window past a day is since the last digest"
 
 
 def test_one_quiet_board_is_not_a_source_issue():

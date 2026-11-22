@@ -121,3 +121,50 @@ def test_screen_eval_cases_are_well_formed():
     if data:
         assert any(c["expected_keep"] for c in data), "no keep case"
         assert any(not c["expected_keep"] for c in data), "no drop case"
+
+
+def test_target_employer_keyword_pass_is_never_dropped(memory, monkeypatch):
+    """Anthropic's "Data Center Power Generation and Microgrids Engineer"
+    passed the keyword filter, was dropped on its title, and the owner
+    applied to it from elsewhere (2026-10-30)."""
+    cfg = {**CONFIG, "target_employers": ["Anthropic"]}
+    role = job("Data Center Power Generation and Microgrids Engineer", "Anthropic")
+    other = job("Data Center Electrical Engineer", "Acme")
+    monkeypatch.setattr(screen, "judge", lambda jobs: {j.job_id: False for j in jobs})
+    kept, rejected, stats = screen.apply([role, other], [role, other], {}, cfg)
+    assert [k.job_id for k in kept] == [role.job_id]
+    assert [r.job_id for r in rejected] == [other.job_id]
+    assert "Data Center Electrical Engineer @ Acme" in json.loads(memory.read_text())[other.job_id], \
+        "a drop is remembered with its title, so it can be audited"
+
+
+def test_a_remembered_drop_at_a_target_employer_no_longer_holds(memory, monkeypatch):
+    role = job("Data Center Power Generation and Microgrids Engineer", "Anthropic")
+    screen.save({role.job_id: "2099-01-01"})
+    monkeypatch.setattr(screen, "judge", lambda jobs: {})
+    kept, _, stats = screen.apply([role], [role], {}, {**CONFIG, "target_employers": ["Anthropic"]})
+    assert [k.job_id for k in kept] == [role.job_id] and stats["held"] == 0
+
+
+def test_pay_floor_caps_a_full_range_below_it_only():
+    rec = lambda pay, band="strong", **kw: {"band": band, "score": 75, "pay": pay, **kw}  # noqa: E731
+    low = rec("$113,000–$165,000/yr")
+    assert triage.pay_cap(low, 170000) and low["band"] == "possible" and low["pay_capped"] == "strong"
+    assert not triage.pay_cap(rec("$150,000–$180,000/yr"), 170000)
+    assert not triage.pay_cap(rec("$162,700"), 170000), "a single figure is often the floor"
+    assert not triage.pay_cap(rec("$45–$60/hr", "possible"), 170000)
+    assert not triage.pay_cap(rec("$100,000–$120,000", scoring_fingerprint={"owner": "x"}), 170000)
+    assert not triage.pay_cap(rec("$100,000–$120,000"), 0), "no floor configured"
+
+
+def test_pay_parsing_reads_the_whole_range():
+    from src.util import pay_max_yearly as top
+    assert top("$150,000 - 190,000") == 190000 and top("$160-190K") == 190000
+    assert top("USD $00,000 - 00,000/annum") is None
+    assert top("$85K–$95K annually + daily per diem") == 95000
+
+
+def test_a_capped_record_is_restored_when_the_floor_no_longer_applies():
+    rec = {"band": "top", "score": 90, "pay": "$120,000–$150,000/yr"}
+    assert triage.pay_cap(rec, 170000) and rec["band"] == "possible"
+    assert not triage.pay_cap(rec, 0) and rec["band"] == "top" and "pay_capped" not in rec

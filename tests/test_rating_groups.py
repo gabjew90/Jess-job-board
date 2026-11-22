@@ -107,7 +107,9 @@ def test_title_names_the_first_row_of_the_best_section():
 
 def test_title_for_lower_ratings_and_edge_cases():
     assert notify.digest_title([rec("Analyst", "strong")], [{}], 40, "gas") == \
-        "🌸 Strong fit: Analyst at Acme · 1 closed"
+        "🌸 Strong fit: Analyst at Acme", "a weak or unrated closure is only counted in the body"
+    assert notify.digest_title([rec("Analyst", "strong")], [rec("Gone", "top")], 40, "gas") == \
+        "🌸 Strong fit: Analyst at Acme · 1 good fit closed"
     assert notify.digest_title([rec("Ops", "possible", company=""), rec("P", None)], [], 40, "gas") == \
         "💨 Possible fit: Ops (+1 unrated)"
     assert notify.digest_title([rec("Pending", None)], [], 40) == "⏳ 1 new posting, not yet rated"
@@ -310,3 +312,27 @@ def test_owner_verdict_notes_show_in_the_fit_tooltip(tmp_path, monkeypatch):
     monkeypatch.setattr(dashboard, "OUT", tmp_path / "index.html")
     dashboard.generate({"1": rec("Role", "top", owner_notes=["#31: Too junior for a U.S. role"])}, [])
     assert "Your verdicts: #31: Too junior for a U.S. role." in (tmp_path / "index.html").read_text()
+
+
+def test_closed_list_names_only_good_fits_and_applications():
+    closed = [rec("Gone Top", "top", active=False, closed="2026-11-20"),
+              rec("Gone Weak", "weak", active=False, closed="2026-11-20"),
+              rec("Gone Applied", "possible", active=False, closed="2026-11-20", applied="2026-11-01")]
+    body = notify.build_digest([], health_summary=[], closed_recs=closed)
+    assert "~~Gone Top~~" in body and "~~Gone Applied~~" in body and "you applied" in body
+    assert "Gone Weak" not in body and "1 lower-rated role closed" in body
+
+
+def test_digest_bookkeeping_round_trips(tmp_path, monkeypatch):
+    from src import state
+    monkeypatch.setattr(state, "DIGEST_FILE", tmp_path / "digest.json")
+    assert state.last_digest() == ""
+    state.mark_digest("2026-11-22T20:00:00Z")
+    assert state.last_digest() == "2026-11-22T20:00:00Z"
+
+
+def test_applied_rows_are_never_merged_into_a_card():
+    a = {**rec("PM", "top"), "_id": "a", "applied": "2026-11-01", "location": "Denver, CO"}
+    b = {**rec("PM", "top", "2026-11-05"), "_id": "b", "location": "Austin, TX"}
+    cards = dashboard._merge_similar([a, b])
+    assert len(cards) == 2 and not cards[1].get("applied")

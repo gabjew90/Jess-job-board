@@ -138,6 +138,31 @@ SENIORITY_CAP = "weak"
 POLICY_VERSION = 1
 
 
+def pay_cap(rec: dict, floor: float) -> bool:
+    """Owner policy (2026-11-22, config "pay_floor"): a role whose posted
+    pay tops out below the floor bands possible at most. Applied to stored
+    records each run, so it holds after a re-score; an owner's verdict is
+    never capped, and neither is a single posted figure. Returns True when
+    the record was capped."""
+    from .state import has_range
+    from .util import pay_max_yearly
+    # A range only: a single figure ("$162,700") is often the bottom of an
+    # unstated range, so it says nothing about where the pay tops out.
+    top = pay_max_yearly(rec.get("pay", "")) if has_range(rec.get("pay", "")) else None
+    below = bool(floor) and top is not None and top < floor
+    if rec.get("pay_capped") and not below:
+        # The floor was lowered or removed, or the pay changed: restore.
+        rec.update(band=rec["pay_capped"], score=BAND_SCORE[rec["pay_capped"]])
+        rec.pop("pay_capped")
+        return False
+    if (not below or rec.get("band") not in ("top", "strong")
+            or (rec.get("scoring_fingerprint") or {}).get("owner")):
+        return False
+    rec["pay_capped"] = rec["band"]
+    rec.update(band="possible", score=BAND_SCORE["possible"])
+    return True
+
+
 def finalize(result: dict, title: str = "") -> dict:
     """Apply the code-side policy to one model result, in place.
 
