@@ -75,6 +75,12 @@
   ],
   "date": "2026-10-30"
  },
+ "cedar": {
+  "boards": [
+   "workday:chirisatechnologyparks.wd503.myworkdayjobs.com/cedar"
+  ],
+  "date": "2026-11-24"
+ },
  "central coast community energy": {
   "boards": [],
   "date": "2026-10-09"
@@ -93,7 +99,7 @@
  },
  "competitive power ventures": {
   "boards": [],
-  "date": "2026-10-25"
+  "date": "2026-11-24"
  },
  "constellation energy": {
   "boards": [],
@@ -315,7 +321,7 @@
  },
  "oracle": {
   "boards": [],
-  "date": "2026-10-25"
+  "date": "2026-11-24"
  },
  "pacifico energy": {
   "boards": [],
@@ -453,7 +459,7 @@
  },
  "tesla": {
   "boards": [],
-  "date": "2026-10-25"
+  "date": "2026-11-24"
  },
  "thea energy": {
   "boards": [
