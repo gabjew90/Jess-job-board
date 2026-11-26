@@ -336,3 +336,13 @@ def test_applied_rows_are_never_merged_into_a_card():
     b = {**rec("PM", "top", "2026-11-05"), "_id": "b", "location": "Austin, TX"}
     cards = dashboard._merge_similar([a, b])
     assert len(cards) == 2 and not cards[1].get("applied")
+
+
+def test_best_match_leads_the_top_fits_on_board_and_digest():
+    new = rec("Newer Top", "top", "2026-11-20")
+    spot = {**rec("Principal Hardware Product Manager - Spark", "top", "2026-10-01"), "spotlight": True}
+    assert notify.digest_title([new, spot], [], 40, "gas").endswith("Principal Hardware Product Manager - Spark at Acme (+1 top)")
+    body = notify.build_digest([new, spot], health_summary=[])
+    assert body.index("Spark") < body.index("Newer Top")
+    row = dashboard._row({**spot, "_id": "s"})
+    assert "⭐ best match" in row and f'data-s="{dashboard.SPOTLIGHT_SCORE}"' in row

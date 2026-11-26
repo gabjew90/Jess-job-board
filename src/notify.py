@@ -103,6 +103,11 @@ def _newest(r: dict):
             not r.get("pay"))
 
 
+def _spot_first(r: dict):
+    """Best matches (config "spotlight") lead their rating, then newest."""
+    return (not r.get("spotlight"), _newest(r))
+
+
 def _above_floor(records: list[dict], digest_floor: int) -> list[dict]:
     """The records the digest itemizes: unscored ones and those at or above
     the floor. Clear misfits are only counted."""
@@ -151,7 +156,7 @@ def build_digest(records: list[dict],
         lines.append(f"\n## {th['icons'][band]} {GROUP_NAMES[band]}\n")
         lines.append("| Role | Company | Location | Mode | Pay | Posted |")
         lines.append("|---|---|---|---|---|---|")
-        for r in sorted(groups[band], key=_newest):
+        for r in sorted(groups[band], key=_spot_first):
             why = _reason(r)
             rationale = f"<br><sub>{_esc(why, 160)}</sub>" if why else ""
             lines.append(
@@ -271,7 +276,7 @@ def digest_title(records: list[dict], closed_recs: list[dict] | None = None,
     band = next((b for b in ("top", "strong", "possible")
                  if any((r.get("title") or "").strip() for r in groups.get(b, []))), None)
     if band:
-        best = next(r for r in sorted(groups[band], key=_newest)
+        best = next(r for r in sorted(groups[band], key=_spot_first)
                     if (r.get("title") or "").strip())
         role = _short(best["title"], 45)
         if (best.get("company") or "").strip():
