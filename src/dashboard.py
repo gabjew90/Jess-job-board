@@ -26,6 +26,7 @@ VERDICTS = (
     ("applied", "✅ applied", "I applied"),
 )
 APPLIED_SCORE = 50   # sorts the Applied section below possible, above weak
+SPOTLIGHT_SCORE = 95  # a best match sorts above the other top fits (same heading)
 
 
 # Verdict lines first; the scoring context sits below '---', which
@@ -477,7 +478,8 @@ def _merge_similar(records: list[dict]) -> list[dict]:
         if len(g) == 1:
             out.append(g[0])
             continue
-        best = max(g, key=lambda r: (BAND_SCORE.get(_band(r), -1),
+        # A best-match copy leads its card, so the pin and the title agree.
+        best = max(g, key=lambda r: (BAND_SCORE.get(_band(r), -1), bool(r.get("spotlight")),
                                      r.get("date_posted") or r.get("first_seen", "")))
         # Named places only: a merged card's '+N' counts real places, not
         # the blank slots of 'N Locations' labels.
@@ -490,7 +492,8 @@ def _merge_similar(records: list[dict]) -> list[dict]:
                     places.append(p)
         out.append({**best, "_similar": len(g), "_places": places,
                     "_ids": [best["_id"]] + [r["_id"] for r in g if r is not best],
-                    "_newest": max(r.get("first_seen", "") for r in g)})
+                    "_newest": max(r.get("first_seen", "") for r in g),
+                    "spotlight": bool(best.get("spotlight"))})
     return out
 
 
@@ -548,6 +551,9 @@ def _row(rec: dict, theme: dict | None = None, fresh: str = "") -> str:
         if fp.get("owner"):  # moved by one of the owner's verdicts
             label += '<small class="you">✓ your rating</small>'
         fit_s = BAND_SCORE.get(band, -1)
+        if rec.get("spotlight"):  # sorts first among the top fits
+            label += '<small class="you">⭐ best match</small>'
+            fit_s = SPOTLIGHT_SCORE
     score_cell = (f'<td class="c-fit" data-s="{fit_s}" '
                   f'title="{tooltip}">{label}</td>')
     mode = {"onsite": "🏢 onsite", "hybrid": "🔀 hybrid", "remote": "🏠 remote"}.get(

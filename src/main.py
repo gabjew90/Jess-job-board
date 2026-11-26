@@ -1,6 +1,7 @@
 """Daily pipeline: scrape → filter → dedupe → persist → dashboard → notify."""
 import json
 import logging
+import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -120,7 +121,7 @@ def main() -> None:
             log.warning("rescore_bands has unknown band(s) %s; they match nothing", sorted(unknown))
 
         def wanted(r: dict) -> bool:
-            if state_mod.suppressed(r):
+            if state_mod.suppressed(r) or r.get("applied"):
                 return False
             if r.get("source") in sources:
                 return r.get("active", True) or r.get("lowscore")
@@ -200,6 +201,20 @@ def main() -> None:
                  if r.get("active", True) or r.get("pay_capped"))
     if capped:
         log.info("Pay floor $%s: %d records capped at possible", f"{floor:,.0f}", capped)
+    # Best matches (owner, 2026-11-26): top roles whose title matches config
+    # "spotlight" sort first on the board and lead the digest.
+    try:
+        spot = re.compile(config.get("spotlight") or "(?!)", re.I)
+    except re.error as e:
+        log.warning("config spotlight is not a valid pattern (%s); no best matches", e)
+        spot = re.compile("(?!)")
+    for r in seen.values():
+        # Applied roles have their own section and no pin.
+        if (r.get("active", True) and r.get("band") == "top" and not r.get("applied")
+                and spot.search(r.get("title") or "")):
+            r["spotlight"] = True
+        else:
+            r.pop("spotlight", None)
     state_mod.save(seen)
 
     # Learn coverage: companies repeatedly surfacing strong/top roles that we
