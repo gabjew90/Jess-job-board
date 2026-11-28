@@ -198,6 +198,16 @@
       "provider": "greenhouse",
       "board": "aypapower",
       "company": "Aypa Power"
+    },
+    {
+      "provider": "ashby",
+      "board": "lambda",
+      "company": "Lambda"
+    },
+    {
+      "provider": "ashby",
+      "board": "build",
+      "company": "Build Technologies"
     }
   ],
   "workday_boards": [

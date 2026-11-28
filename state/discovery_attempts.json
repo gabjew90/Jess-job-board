@@ -75,6 +75,12 @@
   ],
   "date": "2026-10-30"
  },
+ "build technologies": {
+  "boards": [
+   "ashby:build"
+  ],
+  "date": "2026-11-28"
+ },
  "cedar": {
   "boards": [
    "workday:chirisatechnologyparks.wd503.myworkdayjobs.com/cedar"
@@ -91,6 +97,10 @@
   ],
   "date": "2026-11-19"
  },
+ "clenera": {
+  "boards": [],
+  "date": "2026-11-28"
+ },
  "commonwealth fusion systems": {
   "boards": [
    "lever:cfsenergy"
@@ -103,7 +113,7 @@
  },
  "constellation energy": {
   "boards": [],
-  "date": "2026-10-29"
+  "date": "2026-11-28"
  },
  "cooperative energy": {
   "boards": [],
@@ -242,6 +252,12 @@
  "kohlberg kravis roberts": {
   "boards": [],
   "date": "2026-10-19"
+ },
+ "lambda": {
+  "boards": [
+   "ashby:lambda"
+  ],
+  "date": "2026-11-28"
  },
  "lancium": {
   "boards": [],
@@ -397,7 +413,7 @@
  },
  "rwe": {
   "boards": [],
-  "date": "2026-10-25"
+  "date": "2026-11-28"
  },
  "satoshi energy": {
   "boards": [],
@@ -427,7 +443,7 @@
  },
  "spacexsi": {
   "boards": [],
-  "date": "2026-10-29"
+  "date": "2026-11-28"
  },
  "srp": {
   "boards": [],
